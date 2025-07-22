@@ -1,0 +1,5 @@
+build/*
+install/*
+log/*
+.hypothesis/*
+__pycache__/

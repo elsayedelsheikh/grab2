@@ -1,0 +1,27 @@
+name: build_ws
+
+on:
+  # Run action on certain pull request events
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+  # Nightly job on default (main) branch
+  schedule:
+    - cron: "0 0 * * *"
+
+  # Whenever certain branches are pushed
+  push:
+    branches: [main]
+
+  # On demand from github.com for testing
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Test
+        uses: ./.github/actions/test/
