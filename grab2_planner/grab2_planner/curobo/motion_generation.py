@@ -138,7 +138,8 @@ class CuRoboMotionGen:
 
         Returns
         -------
-            np.ndarray: Planned trajectory with shape (N, num_joints) where N is the number of steps(trajectory_points).
+            np.ndarray: Planned trajectory with shape (N, num_joints)
+            where N is the number of steps(trajectory_points).
 
         """
         # zero rows, num_joints cols

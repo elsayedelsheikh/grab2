@@ -27,7 +27,7 @@ def generate_launch_description():
             "0.0",
             "-0.640",
             "0.0",
-            "1.571",  ## yaw
+            "1.571",  # yaw
             "0.0",
             "0.0",
             "world",

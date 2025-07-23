@@ -1,7 +1,6 @@
 import time
 import rclpy
 import threading
-import numpy as np
 from rclpy.node import Node
 
 from rclpy.action import ActionServer, CancelResponse, GoalResponse
