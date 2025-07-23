@@ -110,7 +110,8 @@ class CuRoboMotionGen:
 
         Returns
         -------
-            Dict[str, np.ndarray]: A dictionary mapping the link name to its [x, y, z, qw, qx, qy, qz] pose.
+            Dict[str, np.ndarray]: A dictionary mapping the link name
+            to its [x, y, z, qw, qx, qy, qz] pose.
 
         """
         state = JointState.from_position(

@@ -1,15 +1,13 @@
 from launch_ros.actions import Node
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
-
+from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import (
     Command,
     FindExecutable,
     LaunchConfiguration,
     PathJoinSubstitution,
 )
-from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -21,7 +19,10 @@ def generate_launch_description():
     ros2_control_hardware_type = DeclareLaunchArgument(
         "hardware",
         default_value="isaac",
-        description="ROS2 control hardware interface type to use for the launch file -- possible values: [mock_components, isaac]",
+        description=(
+            "ROS2 control hardware interface type to use for the launch file -- "
+            "possible values: [mock_components, isaac]"
+        ),
     )
 
     robot_xacro_path = PathJoinSubstitution(
