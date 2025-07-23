@@ -85,8 +85,9 @@ class CuRoboMotionGen:
                                 followed by orientation as quaternion [qw, qx, qy, qz].
 
         Returns
-        --------
+        -------
             bool: True if the target pose is reachable (IK solution exists), False otherwise.
+
         """
         t_position = target_pose[:3]
         t_orientation = target_pose[3:]
@@ -108,8 +109,9 @@ class CuRoboMotionGen:
             joint_state (List[float]): Joint positions for the robot.
 
         Returns
-        --------
+        -------
             Dict[str, np.ndarray]: A dictionary mapping the link name to its [x, y, z, qw, qx, qy, qz] pose.
+
         """
         state = JointState.from_position(
             self.tensor_args.to_device([joint_state]), joint_names=self.joint_names
@@ -135,8 +137,9 @@ class CuRoboMotionGen:
                                 followed by orientation as quaternion [qw, qx, qy, qz].
 
         Returns
-        --------
+        -------
             np.ndarray: Planned trajectory with shape (N, num_joints) where N is the number of steps(trajectory_points).
+
         """
         # zero rows, num_joints cols
         plan = np.empty((0, len(self.joint_names)))
