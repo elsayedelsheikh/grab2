@@ -62,7 +62,7 @@ list(APPEND plugin_libs
 foreach(bt_plugin ${plugin_libs})
   ament_target_dependencies(${bt_plugin} ${THIS_PACK_DEPS})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
-  target_include_directories(${bt_plugin} 
+  target_include_directories(${bt_plugin}
     PRIVATE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
@@ -77,7 +77,7 @@ target_include_directories(grab2_engine PUBLIC
 
 # Install Libs & Exec
 install(
-  TARGETS 
+  TARGETS
   ${plugin_libs}
   grab2_engine
   ARCHIVE DESTINATION lib
@@ -91,7 +91,7 @@ install(
   DESTINATION include
 )
 
-install (
+install(
   DIRECTORY behavior_trees launch
   DESTINATION share/${PROJECT_NAME}
 )

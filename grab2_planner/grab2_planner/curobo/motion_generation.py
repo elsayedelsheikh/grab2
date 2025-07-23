@@ -10,13 +10,16 @@ from curobo.types.base import TensorDeviceType
 from curobo.geom.sdf.world import CollisionCheckerType
 from curobo.wrap.reacher.motion_gen import MotionGen, MotionGenConfig
 
+
 def requires_warmup(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         if not getattr(self, "_warmed_up", False):
             raise RuntimeError(
-                f"Cannot call '{func.__name__}' before calling warmup().")
+                f"Cannot call '{func.__name__}' before calling warmup()."
+            )
         return func(self, *args, **kwargs)
+
     return wrapper
 
 
@@ -29,7 +32,7 @@ class CuRoboMotionGen:
         world_config="collision_table.yml",
         interpolation_dt=0.02,
         collision_activation_distance=0.02,
-        joint_names: Optional[List[str]] = None
+        joint_names: Optional[List[str]] = None,
     ):
         self.tensor_args = TensorDeviceType(device=torch.device("cuda:0"))
         motion_gen_cfg = MotionGenConfig.load_from_robot_config(
@@ -47,7 +50,7 @@ class CuRoboMotionGen:
             js_trajopt_dt=0.5,
             js_trajopt_tsteps=34,
             collision_checker_type=CollisionCheckerType.VOXEL,
-            collision_activation_distance=collision_activation_distance
+            collision_activation_distance=collision_activation_distance,
         )
 
         self.motion_gen = MotionGen(motion_gen_cfg)
@@ -57,13 +60,13 @@ class CuRoboMotionGen:
     def warmup(self):
         self.motion_gen.warmup()
         self._warmed_up = True
-    
+
     def get_world_collision_voxels(self):
         voxels = self.world_collision.get_occupancy_in_bounding_box(
             Cuboid(
-                name='test',
+                name="test",
                 pose=[0.0, 0.0, 0.0, 1, 0, 0, 0],  # x, y, z, qw, qx, qy, qz
-                dims=[2.0, 2.0, 2.0]
+                dims=[2.0, 2.0, 2.0],
             ),
             voxel_size=0.05,
         )
@@ -75,13 +78,14 @@ class CuRoboMotionGen:
     @requires_warmup
     def check_goal_feasible(self, target_pose: List) -> bool:
         """
-        Checks if a target pose is feasible (i.e., within the robot's reachable workspace).
+        Check if a target pose is feasible (i.e., within the robot's reachable workspace).
 
         Args:
-            target_pose (List): A list containing the target position [x, y, z] 
+            target_pose (List): A list containing the target position [x, y, z]
                                 followed by orientation as quaternion [qw, qx, qy, qz].
 
-        Returns:
+        Returns
+        --------
             bool: True if the target pose is reachable (IK solution exists), False otherwise.
         """
         t_position = target_pose[:3]
@@ -98,17 +102,17 @@ class CuRoboMotionGen:
     @requires_warmup
     def compute_kinematics(self, joint_state: List[float]) -> Dict[str, np.ndarray]:
         """
-        Computes the forward kinematics for a given joint state.
+        Compute the forward kinematics for a given joint state.
 
         Args:
             joint_state (List[float]): Joint positions for the robot.
 
-        Returns:
+        Returns
+        --------
             Dict[str, np.ndarray]: A dictionary mapping the link name to its [x, y, z, qw, qx, qy, qz] pose.
         """
         state = JointState.from_position(
-            self.tensor_args.to_device([joint_state]),
-            joint_names=self.joint_names
+            self.tensor_args.to_device([joint_state]), joint_names=self.joint_names
         )
 
         k = self.motion_gen.compute_kinematics(state)
@@ -116,29 +120,28 @@ class CuRoboMotionGen:
         pose = k.ee_pos_seq.cpu().numpy()  # shape: (1, 3)
         quat = k.ee_quat_seq.cpu().numpy()  # shape: (1, 4)
 
-        pose_quat = np.concatenate(
-            [pose, quat], axis=1).flatten()  # shape: (7,)
+        pose_quat = np.concatenate([pose, quat], axis=1).flatten()  # shape: (7,)
 
         return {k.link_names[0]: pose_quat}
 
     @requires_warmup
     def plan(self, initial_state: List, target_pose: List) -> np.ndarray:
         """
-        Generate a trajectory from initial_state (jointState) to a Cartesian target_pose
+        Generate a trajectory from initial_state (jointState) to a Cartesian target_pose.
 
         Args:
             initial_state (List): Initial joint positions, length (num_joints)
-            target_pose (List): A list containing the target position [x, y, z] 
+            target_pose (List): A list containing the target position [x, y, z]
                                 followed by orientation as quaternion [qw, qx, qy, qz].
 
-        Returns:
+        Returns
+        --------
             np.ndarray: Planned trajectory with shape (N, num_joints) where N is the number of steps(trajectory_points).
         """
         # zero rows, num_joints cols
         plan = np.empty((0, len(self.joint_names)))
         q_start = JointState.from_position(
-            self.tensor_args.to_device([initial_state]),
-            joint_names=self.joint_names
+            self.tensor_args.to_device([initial_state]), joint_names=self.joint_names
         )
 
         t_position = target_pose[:3]
