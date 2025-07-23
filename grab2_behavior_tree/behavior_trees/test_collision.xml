@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Repeat num_cycles="3">
+      <Sequence>
+        <SubTree ID="MoveTo" target="0.35;0;0.25;1;0;0;0"/>
+        <SubTree ID="MoveTo" target="0.5;-0.42;0.33;1;0;0;0"/>
+        <SubTree ID="MoveTo" target="-0.34;-0.4;0.25;1;0;0;0"/>
+      </Sequence>
+    </Repeat>
+  </BehaviorTree>
+
+  <BehaviorTree ID="MoveTo">
+    <Sequence>
+      <Plan target_ik="{target}" trajectory="{trajectory_msg}"/>
+      <Move trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+</root>
