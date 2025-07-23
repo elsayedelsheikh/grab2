@@ -14,7 +14,7 @@ from tf2_ros import Buffer
 from tf2_ros.transform_listener import TransformListener
 
 # Required to register PoseStamped type for tf2 transformations
-from tf2_geometry_msgs import do_transform_pose_stamped
+from tf2_geometry_msgs import do_transform_pose_stamped  # noqa: F401
 
 from grab2_interfaces.action import PlanToGoal
 from grab2_planner.curobo.motion_generation import CuRoboMotionGen
