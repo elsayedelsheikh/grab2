@@ -13,7 +13,7 @@ namespace grab2_behavior_tree
 
 using FollowTrajectory = control_msgs::action::FollowJointTrajectory;
 
-class Move: public BT::RosActionNode<FollowTrajectory>
+class Move : public BT::RosActionNode<FollowTrajectory>
 {
 public:
   explicit Move(
@@ -33,10 +33,10 @@ public:
 
   bool setGoal(BT::RosActionNode<FollowTrajectory>::Goal & goal) override;
   BT::NodeStatus onResultReceived(const WrappedResult & wr) override;
-  
+
   // Note that cancelGoal() is done automatically.
   void onHalt() override;
-  
+
   // BT::NodeStatus onFeedback(const std::shared_ptr<const Feedback> /*feedback*/) override
   // {
   //   return BT::NodeStatus::RUNNING;

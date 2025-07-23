@@ -30,14 +30,14 @@ GetGrasp::tick()
   // Orientation
   double yaw = tf2::getYaw(grasp_pose.pose.orientation);
   tf2::Quaternion target_quat;
-  target_quat.setRPY(M_PI,0, yaw);
+  target_quat.setRPY(M_PI, 0, yaw);
   grasp_pose.pose.orientation = tf2::toMsg(target_quat);
-  
+
   // Set Output
   setOutput("grasp", grasp_pose);
   grasp_pose.pose.position.z += 0.1;
   setOutput("pregrasp", grasp_pose);
-  
+
 
   return BT::NodeStatus::SUCCESS;
 }

@@ -1,9 +1,9 @@
 #include "rclcpp/rclcpp.hpp"
 #include "behaviortree_cpp/bt_factory.h"  // BehaviorTreeFactory
-#include "behaviortree_cpp/utils/shared_library.h" // loader
+#include "behaviortree_cpp/utils/shared_library.h"  // loader
 #include "behaviortree_cpp/loggers/groot2_publisher.h"
 
-#include "behaviortree_ros2/plugins.hpp" // RegisterRosNode
+#include "behaviortree_ros2/plugins.hpp"  // RegisterRosNode
 
 BT::NodeStatus SaySomethingSimple(BT::TreeNode & self);
 
@@ -44,8 +44,8 @@ int main(int argc, char ** argv)
   // Create tree
   std::string bt_xml = node->get_parameter("behavior_tree").as_string();
   auto tree = factory.createTreeFromFile(bt_xml);
-  
-  BT::Groot2Publisher publisher(tree); // Port Defaults to 1667
+
+  BT::Groot2Publisher publisher(tree);  // Port Defaults to 1667
 
   tree.tickWhileRunning();
   return 0;

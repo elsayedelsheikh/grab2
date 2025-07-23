@@ -15,7 +15,7 @@ namespace grab2_behavior_tree
 
 using PlanToGoal = grab2_interfaces::action::PlanToGoal;
 
-class Plan: public BT::RosActionNode<PlanToGoal>
+class Plan : public BT::RosActionNode<PlanToGoal>
 {
 public:
   explicit Plan(

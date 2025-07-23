@@ -7,7 +7,7 @@
 namespace grab2_behavior_tree
 {
 
-class SetJointTrajectoryGoal: public BT::SyncActionNode
+class SetJointTrajectoryGoal : public BT::SyncActionNode
 {
 public:
   explicit SetJointTrajectoryGoal(
@@ -17,7 +17,7 @@ public:
 
   static BT::PortsList providedPorts()
   {
-    return 
+    return
       {
         BT::OutputPort<trajectory_msgs::msg::JointTrajectory>("trajectory")
       }
@@ -29,4 +29,3 @@ public:
 } // namespace grab2_behavior_tree
 
 #endif // GRAB2_BEHAVIOR_TREE__SET_JOINT_TRAJECTORY_GOAL_HPP_
-

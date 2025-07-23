@@ -44,13 +44,13 @@ SetJointTrajectoryGoal::tick()
     1.787,
     0.7672
   };
-  
+
   // 1st Point
   duration.sec = 1.0;
   pt.positions[0] = 1.57;
   pt.time_from_start = duration;
   jt.points.push_back(pt);
-  
+
   // Second Point
   duration.sec = 3.0;
   pt.positions[0] = 0.0;

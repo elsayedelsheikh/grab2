@@ -23,10 +23,10 @@ Plan::setGoal(BT::RosActionNode<PlanToGoal>::Goal & goal)
 BT::NodeStatus
 Plan::onResultReceived(const WrappedResult & wr)
 {
-  // wr.result->error_code == wr.result-> SUCCESSFUL  
+  // wr.result->error_code == wr.result-> SUCCESSFUL
   if (wr.code == rclcpp_action::ResultCode::SUCCEEDED) {
     RCLCPP_INFO(logger(), "[%s] Planning SUCCESS", name().c_str());
-    setOutput("trajectory",wr.result->trajectory);
+    setOutput("trajectory", wr.result->trajectory);
     return BT::NodeStatus::SUCCESS;
   } else {
     return BT::NodeStatus::FAILURE;

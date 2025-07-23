@@ -10,7 +10,7 @@
 namespace grab2_behavior_tree
 {
 
-class GetGrasp: public BT::SyncActionNode
+class GetGrasp : public BT::SyncActionNode
 {
 public:
   explicit GetGrasp(
@@ -20,7 +20,7 @@ public:
 
   static BT::PortsList providedPorts()
   {
-    return 
+    return
       {
         BT::InputPort<geometry_msgs::msg::PoseStamped>("object_pose"),
         BT::OutputPort<geometry_msgs::msg::PoseStamped>("pregrasp"),
@@ -34,4 +34,3 @@ public:
 } // namespace grab2_behavior_tree
 
 #endif // GRAB2_BEHAVIOR_TREE__GET_GRASP_HPP_
-

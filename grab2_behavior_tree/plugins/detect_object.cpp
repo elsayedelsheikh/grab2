@@ -27,7 +27,7 @@ DetectObject::onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> &
       geometry_msgs::msg::PoseStamped target;
       target.header.frame_id = last_msg->header.frame_id;
       target.pose = detection.bbox.center;
-      
+
       setOutput("class", "car"); //TODO: Use /semantics topic to get class_id
       setOutput("pose", target);
       return BT::NodeStatus::SUCCESS;

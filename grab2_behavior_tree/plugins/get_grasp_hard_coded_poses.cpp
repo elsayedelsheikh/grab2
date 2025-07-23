@@ -33,8 +33,7 @@ GetGrasp::GetGrasp(
 BT::NodeStatus
 GetGrasp::tick()
 {
-  if (counter_ > 2)
-  {
+  if (counter_ > 2) {
     return BT::NodeStatus::FAILURE;
   }
   // Set grasp pose
@@ -45,7 +44,7 @@ GetGrasp::tick()
   pose = grasp_poses_[counter_];
   pose.position.z = 0.2;
   setOutput("pregrasp", pose);
-  
+
 
   // Increment to next target
   counter_++;

@@ -29,7 +29,8 @@ public:
       };
   }
 
-  BT::NodeStatus onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray>& last_msg) override;
+  BT::NodeStatus onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> & last_msg)
+  override;
 
 };
 
