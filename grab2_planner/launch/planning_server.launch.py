@@ -10,7 +10,10 @@ def generate_launch_description():
     world_model_declaration = DeclareLaunchArgument(
         "world_model",
         default_value="table",
-        description="Static World Collision model for CuRobo -- Available configs: [table, panda_toybox]",
+        description=(
+            "Static World Collision model for CuRobo -- "
+            "Available configs: [table, panda_toybox]"
+        ),
     )
 
     world_config_file = PathJoinSubstitution(

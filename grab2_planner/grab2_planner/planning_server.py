@@ -20,7 +20,7 @@ from tf2_geometry_msgs import do_transform_pose_stamped
 from grab2_interfaces.action import PlanToGoal
 from grab2_planner.curobo.motion_generation import CuRoboMotionGen
 
-## Visulaization
+# Visulaization
 from std_msgs.msg import ColorRGBA
 from geometry_msgs.msg import Point
 from visualization_msgs.msg import Marker
@@ -162,7 +162,7 @@ class PlanningServer(Node):
         self.current_state = msg.feedback.positions
 
     def goal_callback(self, goal_request):
-        self.get_logger().info(f"Received goal request")
+        self.get_logger().info("Received goal request")
 
         # Check goal frame
         if goal_request.goal_pose.header.frame_id != self.planning_frame:
@@ -221,7 +221,7 @@ class PlanningServer(Node):
             self.get_logger().error(
                 f"{self.YELLOW}Waiting for /controller_state topic{self.RESET}"
             )
-            if self.current_state != None:
+            if self.current_state is not None:
                 break
             if counter > 20:
                 goal_handle.abort()
