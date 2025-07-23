@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="root">
+      <Plan name="Planner" target_ik="0.30;0.30;0.5;1.0;0.0;0.0;0.0" trajectory="{trajectory_msg}"/>
+      <Move name="Controller" trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Move" editable="true">
+      <input_port name="trajectory"/>
+    </Action>
+    <Action ID="Plan" editable="true">
+      <input_port name="target_ik"/>
+      <output_port name="trajectory"/>
+    </Action>
+  </TreeNodesModel>
+</root>
