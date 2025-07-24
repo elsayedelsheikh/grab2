@@ -15,10 +15,18 @@ Plan::Plan(
 bool
 Plan::setGoal(BT::RosActionNode<PlanToGoal>::Goal & goal)
 {
-  // Header
+  // Set Header
   goal.header.stamp = now();
   goal.header.frame_id = "panda_link0";
+
+  // Set Goal Pose
   getInput("target_ik", goal.goal_pose);
+
+  RCLCPP_DEBUG(logger(), "Goal Frame: [%s]", goal.goal_pose.header.frame_id.c_str());
+  RCLCPP_DEBUG(logger(), "Goal Position (x): [%f]", goal.goal_pose.pose.position.x);
+  RCLCPP_DEBUG(logger(), "Goal Position (y): [%f]", goal.goal_pose.pose.position.y);
+  RCLCPP_DEBUG(logger(), "Goal Position (z): [%f]", goal.goal_pose.pose.position.z);
+
   return true;
 }
 

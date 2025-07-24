@@ -11,10 +11,10 @@
   <BehaviorTree ID="PickAndDrop">
     <Sequence>
       <Script code=" retract_pose:='0.34;0.3;0.6;1.0;0.0;0.0;0.0' " />
-      <SubTree ID="MoveTo" target="{retract_pose}"/>
+      <SubTree ID="MoveTo" name="Retract Pose" target="{retract_pose}"/>
       <SubTree ID="Pick"/>
-      <SubTree ID="MoveTo" target="{retract_pose}"/>
-      <SubTree ID="Drop" target="0.34;-0.3;0.5;1.0;0.0;0.0;0.0"/>
+      <SubTree ID="MoveTo" name="Retract Pose" target="{retract_pose}"/>
+      <SubTree ID="Drop"/>
     </Sequence>
   </BehaviorTree>
 
@@ -30,8 +30,10 @@
 
   <BehaviorTree ID="Drop">
     <Sequence>
-      <SubTree ID="MoveTo" target="{target}"/>
+      <SubTree ID="MoveTo" name="Pre-Drop Pose" target="0.34;-0.3;0.6;1.0;0.0;0.0;0.0"/>
+      <SubTree ID="MoveTo" name="Drop Pose" target="0.34;-0.3;0.4;1.0;0.0;0.0;0.0"/>
       <Grip pose="0.04"/>
+      <SubTree ID="MoveTo" name="Post-Drop Pose" target="0.34;-0.3;0.6;1.0;0.0;0.0;0.0"/>
     </Sequence>
   </BehaviorTree>
 
@@ -41,23 +43,5 @@
       <Move trajectory="{trajectory_msg}"/>
     </Sequence>
   </BehaviorTree>
-
-  <!-- Description of Node Models (used by Groot) -->
-  <TreeNodesModel>
-    <Action ID="GetGraspHardcoded" editable="true">
-      <input_port name="pregrasp"/>
-      <input_port name="grasp"/>
-    </Action>
-    <Action ID="Grip" editable="true">
-      <input_port name="pose" default="0.04"/>
-    </Action>
-    <Action ID="Move" editable="true">
-      <input_port name="trajectory"/>
-    </Action>
-    <Action ID="Plan" editable="true">
-      <input_port name="target_ik"/>
-      <output_port name="trajectory"/>
-    </Action>
-  </TreeNodesModel>
 
 </root>

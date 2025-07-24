@@ -6,36 +6,40 @@ namespace grab2_behavior_tree
 {
 
 // Initialize counter
-int GetGrasp::counter_ = 0;
+int GetGraspHardcoded::counter_ = 0;
 
-GetGrasp::GetGrasp(
+GetGraspHardcoded::GetGraspHardcoded(
   const std::string & name,
   const BT::NodeConfig & conf
 )
 : BT::SyncActionNode(name, conf)
 {
   // Cubes
-  geometry_msgs::msg::Pose pose;
-  pose.position.x = 0.34;
-  pose.position.y = 0.3;
-  pose.position.z = 0.15;
-  pose.orientation.x = 1.0;
-  pose.orientation.y = 0.0;
-  pose.orientation.z = 0.0;
-  pose.orientation.w = 0.0;
-  grasp_poses_.push_back(pose);
+  geometry_msgs::msg::PoseStamped pose_stamped;
+  pose_stamped.header.frame_id = "panda_link0";
+
+  pose_stamped.pose.position.x = 0.34;
+  pose_stamped.pose.position.y = 0.3;
+  pose_stamped.pose.position.z = 0.15;
+  pose_stamped.pose.orientation.x = 1.0;
+  pose_stamped.pose.orientation.y = 0.0;
+  pose_stamped.pose.orientation.z = 0.0;
+  pose_stamped.pose.orientation.w = 0.0;
+  
+  // 1st Cube
+  grasp_poses_.push_back(pose_stamped);
 
   // 2nd Cube
-  pose.position.x = 0.24;
-  grasp_poses_.push_back(pose);
+  pose_stamped.pose.position.x = 0.24;
+  grasp_poses_.push_back(pose_stamped);
 
   // 3rd Cube
-  pose.position.x = 0.44;
-  grasp_poses_.push_back(pose);
+  pose_stamped.pose.position.x = 0.44;
+  grasp_poses_.push_back(pose_stamped);
 }
 
 BT::NodeStatus
-GetGrasp::tick()
+GetGraspHardcoded::tick()
 {
   if (counter_ > 2) {
     return BT::NodeStatus::FAILURE;
@@ -44,11 +48,9 @@ GetGrasp::tick()
   setOutput("grasp", grasp_poses_[counter_]);
 
   // Set pregrasp pose
-  geometry_msgs::msg::Pose pose;
-  pose = grasp_poses_[counter_];
-  pose.position.z = 0.2;
-  setOutput("pregrasp", pose);
-
+  geometry_msgs::msg::PoseStamped ps(grasp_poses_[counter_]);
+  ps.pose.position.z = 0.2;
+  setOutput("pregrasp", ps);
 
   // Increment to next target
   counter_++;
@@ -60,5 +62,5 @@ GetGrasp::tick()
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<grab2_behavior_tree::GetGrasp>("GetGraspHardcoded");
+  factory.registerNodeType<grab2_behavior_tree::GetGraspHardcoded>("GetGraspHardcoded");
 }

@@ -8,15 +8,16 @@
 
 #include "behaviortree_cpp/bt_factory.h"
 #include "geometry_msgs/msg/pose.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
 #include "grab2_behavior_tree/utils.hpp"
 
 namespace grab2_behavior_tree
 {
 
-class GetGrasp : public BT::SyncActionNode
+class GetGraspHardcoded : public BT::SyncActionNode
 {
 public:
-  explicit GetGrasp(
+  explicit GetGraspHardcoded(
     const std::string & name,
     const BT::NodeConfig & conf
   );
@@ -25,8 +26,8 @@ public:
   {
     return
       {
-        BT::OutputPort<geometry_msgs::msg::Pose>("pregrasp"),
-        BT::OutputPort<geometry_msgs::msg::Pose>("grasp")
+        BT::OutputPort<geometry_msgs::msg::PoseStamped>("pregrasp"),
+        BT::OutputPort<geometry_msgs::msg::PoseStamped>("grasp")
       }
     ;
   }
@@ -34,7 +35,7 @@ public:
 
 private:
   static int counter_;
-  std::vector<geometry_msgs::msg::Pose> grasp_poses_;
+  std::vector<geometry_msgs::msg::PoseStamped> grasp_poses_;
 };
 
 }  // namespace grab2_behavior_tree

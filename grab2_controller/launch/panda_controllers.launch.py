@@ -27,7 +27,7 @@ def generate_launch_description():
     )
 
     sim_world_declare = DeclareLaunchArgument(
-        "sim_world",
+        "world",
         default_value="room",
         description="Simulation world -- possible values: [room, toybox]",
     )
@@ -135,7 +135,7 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=toybox_world,
-        condition=LaunchConfigurationEquals("sim_world", "toybox"),
+        condition=LaunchConfigurationEquals("world", "toybox"),
     )
 
     room_world = [
@@ -155,7 +155,7 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=room_world,
-        condition=LaunchConfigurationEquals("sim_world", "room"),
+        condition=LaunchConfigurationEquals("world", "room"),
     )
 
     return LaunchDescription(
