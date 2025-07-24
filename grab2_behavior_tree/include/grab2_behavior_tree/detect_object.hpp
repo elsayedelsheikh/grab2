@@ -1,5 +1,10 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #ifndef GRAB2_BEHAVIOR_TREE__DETECT_OBJECT_HPP_
 #define GRAB2_BEHAVIOR_TREE__DETECT_OBJECT_HPP_
+
+#include <string>
+#include <memory>
 
 #include "behaviortree_ros2/bt_topic_sub_node.hpp"
 
@@ -31,9 +36,8 @@ public:
 
   BT::NodeStatus onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> & last_msg)
   override;
-
 };
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
-#endif // GRAB2_BEHAVIOR_TREE__DETECT_OBJECT_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__DETECT_OBJECT_HPP_

@@ -1,4 +1,4 @@
-#include "grab2_behavior_tree/get_grasp_hard_coded_poses.hpp"
+#include "grab2_behavior_tree/get_grasp_hardcoded.hpp"
 
 namespace grab2_behavior_tree
 {
@@ -23,9 +23,11 @@ GetGrasp::GetGrasp(
   pose.orientation.w = 0.0;
   grasp_poses_.push_back(pose);
 
+  // 2nd Cube
   pose.position.x = 0.24;
   grasp_poses_.push_back(pose);
 
+  // 3rd Cube
   pose.position.x = 0.44;
   grasp_poses_.push_back(pose);
 }
@@ -56,5 +58,5 @@ GetGrasp::tick()
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<grab2_behavior_tree::GetGrasp>("GetGrasp");
+  factory.registerNodeType<grab2_behavior_tree::GetGrasp>("GetGraspHardcoded");
 }

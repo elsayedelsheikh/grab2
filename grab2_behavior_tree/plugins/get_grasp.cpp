@@ -22,8 +22,10 @@ GetGrasp::tick()
   geometry_msgs::msg::PoseStamped object_pose;
   getInput("object_pose", object_pose);
 
-  // Set grasp pose
+  // Generate Grasp Pose
+  // TODO: Get Grasp pose from a yaml file that corresponds to the object type
   geometry_msgs::msg::PoseStamped grasp_pose(object_pose);
+
   // Position
   grasp_pose.pose.position.z += 0.12;
 
@@ -33,8 +35,10 @@ GetGrasp::tick()
   target_quat.setRPY(M_PI, 0, yaw);
   grasp_pose.pose.orientation = tf2::toMsg(target_quat);
 
-  // Set Output
+  // Set grasp pose
   setOutput("grasp", grasp_pose);
+
+  // Set pre-grasp pose
   grasp_pose.pose.position.z += 0.1;
   setOutput("pregrasp", grasp_pose);
 

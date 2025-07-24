@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include <cmath>  // for M_PI
 #include "vision_msgs/msg/detection3_d.hpp"
 #include "grab2_behavior_tree/detect_object.hpp"
@@ -28,7 +30,7 @@ DetectObject::onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> &
       target.header.frame_id = last_msg->header.frame_id;
       target.pose = detection.bbox.center;
 
-      setOutput("class", "car"); //TODO: Use /semantics topic to get class_id
+      setOutput("class", "car");  // TODO(ElSayed): Use /semantics topic to get class_id
       setOutput("pose", target);
       return BT::NodeStatus::SUCCESS;
 
@@ -39,7 +41,7 @@ DetectObject::onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> &
   return BT::NodeStatus::FAILURE;
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
 CreateRosNodePlugin(grab2_behavior_tree::DetectObject, "DetectObject")

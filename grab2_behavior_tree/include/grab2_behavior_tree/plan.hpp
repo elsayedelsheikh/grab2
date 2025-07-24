@@ -1,6 +1,9 @@
-#ifndef GRAB2_BEHAVIOR_TREE__Plan_HPP_
-#define GRAB2_BEHAVIOR_TREE__Plan_HPP_
+// Copyright (c) 2025, ElSayed ElSheikh
 
+#ifndef GRAB2_BEHAVIOR_TREE__PLAN_HPP_
+#define GRAB2_BEHAVIOR_TREE__PLAN_HPP_
+
+#include <string>
 #include "behaviortree_ros2/bt_action_node.hpp"
 
 #include "geometry_msgs/msg/pose.hpp"
@@ -36,9 +39,8 @@ public:
 
   bool setGoal(BT::RosActionNode<PlanToGoal>::Goal & goal) override;
   BT::NodeStatus onResultReceived(const WrappedResult & wr) override;
-
 };
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
-#endif // GRAB2_BEHAVIOR_TREE__Plan_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__PLAN_HPP_

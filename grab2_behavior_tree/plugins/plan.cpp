@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "grab2_behavior_tree/plan.hpp"
 
 namespace grab2_behavior_tree

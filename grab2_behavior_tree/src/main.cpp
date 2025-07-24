@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "rclcpp/rclcpp.hpp"
 #include "behaviortree_cpp/bt_factory.h"  // BehaviorTreeFactory
 #include "behaviortree_cpp/utils/shared_library.h"  // loader
@@ -18,7 +20,8 @@ int main(int argc, char ** argv)
   BT::SharedLibrary loader;
 
   factory.registerFromPlugin(loader.getOSName("grab2_get_grasp"));
-  factory.registerFromPlugin(loader.getOSName("grab2_set_joint_trajectory_goal"));
+  factory.registerFromPlugin(loader.getOSName("grab2_get_grasp_hardcoded"));
+  factory.registerFromPlugin(loader.getOSName("grab2_get_trajectory_hardcoded"));
 
   RegisterRosNode(
     factory,

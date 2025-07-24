@@ -43,20 +43,22 @@ set(THIS_PACK_DEPS
 )
 
 # Libraries
-add_library(grab2_set_joint_trajectory_goal SHARED plugins/set_joint_trajectory_goal.cpp)
-add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
-add_library(grab2_grip SHARED plugins/grip.cpp)
-add_library(grab2_move SHARED plugins/move.cpp)
-add_library(grab2_plan SHARED plugins/plan.cpp)
+add_library(grab2_get_trajectory_hardcoded SHARED plugins/get_trajectory_hardcoded.cpp)
+add_library(grab2_get_grasp_hardcoded SHARED plugins/get_grasp_hardcoded.cpp)
 add_library(grab2_detect_object SHARED plugins/detect_object.cpp)
+add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
+add_library(grab2_plan SHARED plugins/plan.cpp)
+add_library(grab2_move SHARED plugins/move.cpp)
+add_library(grab2_grip SHARED plugins/grip.cpp)
 
 list(APPEND plugin_libs
-  grab2_move
-  grab2_plan
-  grab2_grip
-  grab2_get_grasp
-  grab2_set_joint_trajectory_goal
+  grab2_get_trajectory_hardcoded
+  grab2_get_grasp_hardcoded
   grab2_detect_object
+  grab2_get_grasp
+  grab2_plan
+  grab2_move
+  grab2_grip
 )
 
 foreach(bt_plugin ${plugin_libs})

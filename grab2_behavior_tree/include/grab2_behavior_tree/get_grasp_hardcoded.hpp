@@ -1,10 +1,13 @@
-#ifndef GRAB2_BEHAVIOR_TREE__GET_GRASP_HPP_
-#define GRAB2_BEHAVIOR_TREE__GET_GRASP_HPP_
+// Copyright (c) 2025, ElSayed ElSheikh
+
+#ifndef GRAB2_BEHAVIOR_TREE__GET_GRASP_HARDCODED_HPP_
+#define GRAB2_BEHAVIOR_TREE__GET_GRASP_HARDCODED_HPP_
+
+#include <string>
+#include <vector>
 
 #include "behaviortree_cpp/bt_factory.h"
-
 #include "geometry_msgs/msg/pose.hpp"
-
 #include "grab2_behavior_tree/utils.hpp"
 
 namespace grab2_behavior_tree
@@ -34,6 +37,6 @@ private:
   std::vector<geometry_msgs::msg::Pose> grasp_poses_;
 };
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
-#endif // GRAB2_BEHAVIOR_TREE__GET_GRASP_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__GET_GRASP_HARDCODED_HPP_

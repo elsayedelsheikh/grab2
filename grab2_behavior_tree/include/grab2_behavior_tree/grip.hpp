@@ -1,6 +1,10 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #ifndef GRAB2_BEHAVIOR_TREE__GRIP_HPP_
 #define GRAB2_BEHAVIOR_TREE__GRIP_HPP_
 
+#include <string>
+#include <memory>
 #include "behaviortree_ros2/bt_action_node.hpp"
 
 #include "control_msgs/action/gripper_command.hpp"

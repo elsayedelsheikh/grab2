@@ -1,6 +1,9 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #ifndef GRAB2_BEHAVIOR_TREE__UTILS_HPP_
 #define GRAB2_BEHAVIOR_TREE__UTILS_HPP_
 
+#include <string>
 #include "behaviortree_cpp/behavior_tree.h"
 
 #include "geometry_msgs/msg/pose.hpp"
@@ -88,4 +91,4 @@ inline geometry_msgs::msg::PoseStamped convertFromString(const StringView key)
 
 }  // namespace BT
 
-#endif // GRAB2_BEHAVIOR_TREE__UTILS_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__UTILS_HPP_

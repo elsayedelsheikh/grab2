@@ -1,6 +1,6 @@
 #include "builtin_interfaces/msg/duration.hpp"
 #include "trajectory_msgs/msg/joint_trajectory_point.hpp"
-#include "grab2_behavior_tree/set_joint_trajectory_goal.hpp"
+#include "grab2_behavior_tree/get_trajectory_hardcoded.hpp"
 
 namespace grab2_behavior_tree
 {
@@ -67,5 +67,5 @@ SetJointTrajectoryGoal::tick()
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<grab2_behavior_tree::SetJointTrajectoryGoal>("SetJointTrajectoryGoal");
+  factory.registerNodeType<grab2_behavior_tree::SetJointTrajectoryGoal>("GetTrajectoryHardcoded");
 }

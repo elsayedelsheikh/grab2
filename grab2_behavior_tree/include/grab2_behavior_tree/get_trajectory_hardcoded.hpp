@@ -1,6 +1,9 @@
-#ifndef GRAB2_BEHAVIOR_TREE__SET_JOINT_TRAJECTORY_GOAL_HPP_
-#define GRAB2_BEHAVIOR_TREE__SET_JOINT_TRAJECTORY_GOAL_HPP_
+// Copyright (c) 2025, ElSayed ElSheikh
 
+#ifndef GRAB2_BEHAVIOR_TREE__GET_TRAJECTORY_HARDCODED_HPP_
+#define GRAB2_BEHAVIOR_TREE__GET_TRAJECTORY_HARDCODED_HPP_
+
+#include <string>
 #include "behaviortree_cpp/bt_factory.h"
 #include "trajectory_msgs/msg/joint_trajectory.hpp"
 
@@ -26,6 +29,6 @@ public:
   BT::NodeStatus tick() override;
 };
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
-#endif // GRAB2_BEHAVIOR_TREE__SET_JOINT_TRAJECTORY_GOAL_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__GET_TRAJECTORY_HARDCODED_HPP_

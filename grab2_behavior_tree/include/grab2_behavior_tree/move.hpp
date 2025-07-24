@@ -1,6 +1,9 @@
-#ifndef GRAB2_BEHAVIOR_TREE__Move_HPP_
-#define GRAB2_BEHAVIOR_TREE__Move_HPP_
+// Copyright (c) 2025, ElSayed ElSheikh
 
+#ifndef GRAB2_BEHAVIOR_TREE__MOVE_HPP_
+#define GRAB2_BEHAVIOR_TREE__MOVE_HPP_
+
+#include <string>
 #include "behaviortree_ros2/bt_action_node.hpp"
 
 #include "trajectory_msgs/msg/joint_trajectory.hpp"
@@ -41,9 +44,8 @@ public:
   // {
   //   return BT::NodeStatus::RUNNING;
   // }
-
 };
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
-#endif // GRAB2_BEHAVIOR_TREE__Control_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__MOVE_HPP_
