@@ -34,10 +34,9 @@ Plan::onResultReceived(const WrappedResult & wr)
     return BT::NodeStatus::FAILURE;
   }
   return BT::NodeStatus::SUCCESS;
-
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::Plan, "Plan")
+CreateRosNodePlugin(grab2_behavior_tree::Plan, "Plan")  // NOLINT

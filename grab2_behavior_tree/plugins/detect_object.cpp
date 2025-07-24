@@ -44,4 +44,4 @@ DetectObject::onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> &
 }  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::DetectObject, "DetectObject")
+CreateRosNodePlugin(grab2_behavior_tree::DetectObject, "DetectObject")  // NOLINT

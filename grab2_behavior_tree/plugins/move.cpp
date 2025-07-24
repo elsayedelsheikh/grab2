@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "grab2_behavior_tree/move.hpp"
 
 namespace grab2_behavior_tree
@@ -29,7 +31,6 @@ Move::onResultReceived(const WrappedResult & wr)
     return BT::NodeStatus::SUCCESS;
   }
   return BT::NodeStatus::FAILURE;
-
 }
 void
 Move::onHalt()
@@ -41,7 +42,7 @@ Move::onHalt()
   );
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::Move, "Move")
+CreateRosNodePlugin(grab2_behavior_tree::Move, "Move")  // NOLINT

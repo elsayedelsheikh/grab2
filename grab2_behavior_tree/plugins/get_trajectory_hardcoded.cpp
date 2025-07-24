@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "builtin_interfaces/msg/duration.hpp"
 #include "trajectory_msgs/msg/joint_trajectory_point.hpp"
 #include "grab2_behavior_tree/get_trajectory_hardcoded.hpp"
@@ -10,9 +12,7 @@ SetJointTrajectoryGoal::SetJointTrajectoryGoal(
   const BT::NodeConfig & conf
 )
 : BT::SyncActionNode(name, conf)
-{
-
-}
+{}
 
 BT::NodeStatus
 SetJointTrajectoryGoal::tick()
@@ -63,7 +63,7 @@ SetJointTrajectoryGoal::tick()
   return BT::NodeStatus::SUCCESS;
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 BT_REGISTER_NODES(factory)
 {

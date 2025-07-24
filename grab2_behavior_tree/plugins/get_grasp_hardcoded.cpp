@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "grab2_behavior_tree/get_grasp_hardcoded.hpp"
 
 namespace grab2_behavior_tree
@@ -54,7 +56,7 @@ GetGrasp::tick()
   return BT::NodeStatus::SUCCESS;
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 BT_REGISTER_NODES(factory)
 {

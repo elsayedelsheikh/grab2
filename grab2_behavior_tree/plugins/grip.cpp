@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "grab2_behavior_tree/grip.hpp"
 
 namespace grab2_behavior_tree
@@ -43,4 +45,4 @@ Grip::onFeedback(const std::shared_ptr<const Feedback> feedback)
 }  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::Grip, "Grip");
+CreateRosNodePlugin(grab2_behavior_tree::Grip, "Grip");  // NOLINT

@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include <cmath>  // for M_PI
 #include "grab2_behavior_tree/get_grasp.hpp"
 
@@ -23,7 +25,7 @@ GetGrasp::tick()
   getInput("object_pose", object_pose);
 
   // Generate Grasp Pose
-  // TODO: Get Grasp pose from a yaml file that corresponds to the object type
+  // TODO(ElSayed): Get Grasp pose from a yaml file that corresponds to the object type
   geometry_msgs::msg::PoseStamped grasp_pose(object_pose);
 
   // Position
@@ -46,7 +48,7 @@ GetGrasp::tick()
   return BT::NodeStatus::SUCCESS;
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 BT_REGISTER_NODES(factory)
 {
