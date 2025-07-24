@@ -10,6 +10,7 @@ from launch.substitutions import (
     PathJoinSubstitution,
 )
 
+
 def generate_launch_description():
     # Command-line arguments
     description_package = DeclareLaunchArgument(
@@ -28,7 +29,7 @@ def generate_launch_description():
     sim_world_declare = DeclareLaunchArgument(
         "sim_world",
         default_value="room",
-        description="Simulation world -- possible values: [room, toybox]"
+        description="Simulation world -- possible values: [room, toybox]",
     )
 
     robot_xacro_path = PathJoinSubstitution(
@@ -118,9 +119,14 @@ def generate_launch_description():
     )
 
     toybox_world = [
-        "0.0", "-0.640", "0.0",    # translation
-        "1.571", "0.0", "0.0",     # rotation (RPY)
-        "world", "panda_link0"
+        "0.0",
+        "-0.640",
+        "0.0",  # translation
+        "1.571",
+        "0.0",
+        "0.0",  # rotation (RPY)
+        "world",
+        "panda_link0",
     ]
 
     static_tf_toybox = Node(
@@ -129,13 +135,18 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=toybox_world,
-        condition=LaunchConfigurationEquals("sim_world", "toybox")
+        condition=LaunchConfigurationEquals("sim_world", "toybox"),
     )
 
     room_world = [
-        "0.0", "0.25", "0.0",      # translation
-        "0.0", "0.0", "0.0",       # rotation (RPY)
-        "world", "panda_link0"
+        "0.0",
+        "0.25",
+        "0.0",  # translation
+        "0.0",
+        "0.0",
+        "0.0",  # rotation (RPY)
+        "world",
+        "panda_link0",
     ]
 
     static_tf_room = Node(
@@ -144,7 +155,7 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=room_world,
-        condition=LaunchConfigurationEquals("sim_world", "room")
+        condition=LaunchConfigurationEquals("sim_world", "room"),
     )
 
     return LaunchDescription(
@@ -159,6 +170,6 @@ def generate_launch_description():
             panda_arm_controller_spawner,
             panda_hand_controller_spawner,
             static_tf_toybox,
-            static_tf_room
+            static_tf_room,
         ]
     )

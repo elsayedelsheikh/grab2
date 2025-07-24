@@ -1,5 +1,5 @@
 from functools import wraps
-from typing import List, Optional, Dict
+from typing import List, Dict
 
 import torch
 import numpy as np
@@ -58,11 +58,11 @@ class CuRoboMotionGen:
     def warmup(self):
         self.motion_gen.warmup()
         self._warmed_up = True
-    
+
     @property
     def joint_names(self) -> List[str]:
         """Get the joint names of the robot."""
-        return self.motion_gen.joint_names\
+        return self.motion_gen.joint_names
 
     @property
     def base_link(self) -> List[str]:
@@ -123,7 +123,8 @@ class CuRoboMotionGen:
 
         """
         state = JointState.from_position(
-            self.tensor_args.to_device([joint_state]), joint_names=self.motion_gen.joint_names
+            self.tensor_args.to_device([joint_state]),
+            joint_names=self.motion_gen.joint_names,
         )
 
         k = self.motion_gen.compute_kinematics(state)
@@ -154,7 +155,8 @@ class CuRoboMotionGen:
         # zero rows, num_joints cols
         plan = np.empty((0, len(self.motion_gen.joint_names)))
         q_start = JointState.from_position(
-            self.tensor_args.to_device([initial_state]), joint_names=self.motion_gen.joint_names
+            self.tensor_args.to_device([initial_state]),
+            joint_names=self.motion_gen.joint_names,
         )
 
         t_position = target_pose[:3]

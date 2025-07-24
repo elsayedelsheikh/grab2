@@ -47,9 +47,7 @@ class PlanningServer(Node):
         )
 
         # Init CuRobo
-        self.planner = CuRoboMotionGen(
-            robot_config=robot_cfg, world_config=world_cfg
-        )
+        self.planner = CuRoboMotionGen(robot_config=robot_cfg, world_config=world_cfg)
         self.get_logger().info(f"Robot base frame: {self.planner.base_link}")
         self.get_logger().info(f"Joint names: {self.planner.joint_names}")
 
@@ -81,9 +79,7 @@ class PlanningServer(Node):
         self.world_collision_voxels_pubisher = self.create_publisher(
             Marker, "/curobo/voxels", 10
         )
-        self.voxel_timer = self.create_timer(
-            1.0, self.voxels_callback
-        )
+        self.voxel_timer = self.create_timer(1.0, self.voxels_callback)
 
         self.tf_buffer = Buffer()
         self.tf_listener = TransformListener(self.tf_buffer, self)
@@ -207,7 +203,7 @@ class PlanningServer(Node):
         counter = 0
         while rclpy.ok():
             self.get_logger().error(
-                f"{self.YELLOW}Waiting for /panda_arm_controller/controller_state topic{self.RESET}"
+                f"{self.YELLOW}Waiting for controller_state topic{self.RESET}"
             )
             if self.current_state is not None:
                 break
