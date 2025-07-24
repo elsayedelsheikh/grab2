@@ -32,7 +32,6 @@ class CuRoboMotionGen:
         world_config="collision_table.yml",
         interpolation_dt=0.02,
         collision_activation_distance=0.02,
-        joint_names: Optional[List[str]] = None,
     ):
         self.tensor_args = TensorDeviceType(device=torch.device("cuda:0"))
         motion_gen_cfg = MotionGenConfig.load_from_robot_config(
@@ -54,12 +53,21 @@ class CuRoboMotionGen:
         )
 
         self.motion_gen = MotionGen(motion_gen_cfg)
-        self.joint_names = joint_names
         self.world_collision = self.motion_gen.world_coll_checker
 
     def warmup(self):
         self.motion_gen.warmup()
         self._warmed_up = True
+    
+    @property
+    def joint_names(self) -> List[str]:
+        """Get the joint names of the robot."""
+        return self.motion_gen.joint_names\
+
+    @property
+    def base_link(self) -> List[str]:
+        """Get the base link name of the robot."""
+        return self.motion_gen.kinematics.base_link
 
     def get_world_collision_voxels(self):
         voxels = self.world_collision.get_occupancy_in_bounding_box(
@@ -115,7 +123,7 @@ class CuRoboMotionGen:
 
         """
         state = JointState.from_position(
-            self.tensor_args.to_device([joint_state]), joint_names=self.joint_names
+            self.tensor_args.to_device([joint_state]), joint_names=self.motion_gen.joint_names
         )
 
         k = self.motion_gen.compute_kinematics(state)
@@ -144,9 +152,9 @@ class CuRoboMotionGen:
 
         """
         # zero rows, num_joints cols
-        plan = np.empty((0, len(self.joint_names)))
+        plan = np.empty((0, len(self.motion_gen.joint_names)))
         q_start = JointState.from_position(
-            self.tensor_args.to_device([initial_state]), joint_names=self.joint_names
+            self.tensor_args.to_device([initial_state]), joint_names=self.motion_gen.joint_names
         )
 
         t_position = target_pose[:3]

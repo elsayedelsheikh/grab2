@@ -8,11 +8,11 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 def generate_launch_description():
     # Command-line arguments
     world_model_declaration = DeclareLaunchArgument(
-        "world_model",
+        "world",
         default_value="table",
         description=(
             "Static World Collision model for CuRobo -- "
-            "Available configs: [table, panda_toybox]"
+            "Available configs: [table, toybox]"
         ),
     )
 
@@ -20,7 +20,7 @@ def generate_launch_description():
         [
             FindPackageShare("grab2_planner"),
             "config",
-            [LaunchConfiguration("world_model"), ".yaml"],
+            [LaunchConfiguration("world"), ".yaml"],
         ]
     )
 

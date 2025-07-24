@@ -37,7 +37,6 @@ class PlanningServer(Node):
 
         # Parameters, Provide absolute path to yaml file
         self.declare_parameter("robot_config", "franka.yml")
-        self.declare_parameter("planning_frame", "panda_link0")
         self.declare_parameter("world_config", "collision_base.yml")
 
         robot_cfg = (
@@ -46,24 +45,14 @@ class PlanningServer(Node):
         world_cfg = (
             self.get_parameter("world_config").get_parameter_value().string_value
         )
-        self.planning_frame = (
-            self.get_parameter("planning_frame").get_parameter_value().string_value
-        )
-
-        self.joint_names = [
-            "panda_joint1",
-            "panda_joint2",
-            "panda_joint3",
-            "panda_joint4",
-            "panda_joint5",
-            "panda_joint6",
-            "panda_joint7",
-        ]
 
         # Init CuRobo
         self.planner = CuRoboMotionGen(
-            robot_config=robot_cfg, world_config=world_cfg, joint_names=self.joint_names
+            robot_config=robot_cfg, world_config=world_cfg
         )
+        self.get_logger().info(f"Robot base frame: {self.planner.base_link}")
+        self.get_logger().info(f"Joint names: {self.planner.joint_names}")
+
         self.get_logger().info(f"{self.BLUE}Warming up CuRobo...{self.RESET}")
         self.planner.warmup()
         self.get_logger().info(f"{self.GREEN}CuRobo Ready{self.RESET}")
@@ -93,7 +82,7 @@ class PlanningServer(Node):
             Marker, "/curobo/voxels", 10
         )
         self.voxel_timer = self.create_timer(
-            0.1, self.voxels_callback, callback_group=cb_grp
+            1.0, self.voxels_callback
         )
 
         self.tf_buffer = Buffer()
@@ -113,7 +102,7 @@ class PlanningServer(Node):
         voxels = self.planner.get_world_collision_voxels()
 
         marker = Marker()
-        marker.header.frame_id = self.planning_frame
+        marker.header.frame_id = self.planner.base_link
         marker.header.stamp = self.get_clock().now().to_msg()
         marker.id = 0
         marker.type = Marker.CUBE_LIST
@@ -164,18 +153,18 @@ class PlanningServer(Node):
         self.get_logger().info("Received goal request")
 
         # Check goal frame
-        if goal_request.goal_pose.header.frame_id != self.planning_frame:
+        if goal_request.goal_pose.header.frame_id != self.planner.base_link:
             try:
                 # Transform into planning frame
                 pose_stamped_goal = self.tf_buffer.transform(
-                    goal_request.goal_pose, self.planning_frame
+                    goal_request.goal_pose, self.planner.base_link
                 )
                 pos = pose_stamped_goal.pose.position
                 ori = pose_stamped_goal.pose.orientation
             except Exception as e:
                 self.get_logger().error(
                     f"Couldn't transform Pose from '{goal_request.goal_pose.header.frame_id}' "
-                    f"to planning frame '{self.planning_frame}': {str(e)}"
+                    f"to planning frame '{self.planner.base_link}': {str(e)}"
                 )
                 return GoalResponse.REJECT
         else:
@@ -218,14 +207,14 @@ class PlanningServer(Node):
         counter = 0
         while rclpy.ok():
             self.get_logger().error(
-                f"{self.YELLOW}Waiting for /controller_state topic{self.RESET}"
+                f"{self.YELLOW}Waiting for /panda_arm_controller/controller_state topic{self.RESET}"
             )
             if self.current_state is not None:
                 break
             if counter > 20:
                 goal_handle.abort()
                 return PlanToGoal.Result()
-            time.sleep(0.1)
+            time.sleep(0.03)
             counter += 1
 
         self.get_logger().info("Executing goal...")
@@ -255,8 +244,8 @@ class PlanningServer(Node):
             return PlanToGoal.Result()
         else:
             trajectory_msg = JointTrajectory()
-            trajectory_msg.header.frame_id = self.planning_frame
-            trajectory_msg.joint_names = self.joint_names
+            trajectory_msg.header.frame_id = self.planner.base_link
+            trajectory_msg.joint_names = self.planner.joint_names
             num_pts = plan.shape[0]
             for i in range(num_pts):
                 # Instantiate trajectory point
