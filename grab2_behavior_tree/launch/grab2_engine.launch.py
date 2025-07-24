@@ -16,7 +16,7 @@ def generate_launch_description():
         [
             FindPackageShare("grab2_behavior_tree"),
             "behavior_trees",
-            [LaunchConfiguration("behavior_tree_declaration"), ".xml"],
+            [LaunchConfiguration("behavior_tree"), ".xml"],
         ]
     )
 
@@ -24,7 +24,7 @@ def generate_launch_description():
         package="grab2_behavior_tree",
         executable="grab2_engine",
         name="grab2_engine",
-        output="both",
+        output="screen",
         parameters=[{"behavior_tree": bt_xml_file}],
     )
 

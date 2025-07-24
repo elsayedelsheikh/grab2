@@ -12,9 +12,9 @@ BT::NodeStatus SaySomethingSimple(BT::TreeNode & self);
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  auto node = std::make_shared<rclcpp::Node>("articulation_client");
+  auto node = std::make_shared<rclcpp::Node>("task_planner");
 
-  node->declare_parameter("behavior_tree", "collect_toys.xml");
+  node->declare_parameter("behavior_tree", "");
 
   BT::BehaviorTreeFactory factory;
   BT::SharedLibrary loader;

@@ -20,7 +20,7 @@
 
   <BehaviorTree ID="Pick">
     <Sequence>
-      <GetGrasp pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
+      <GetGraspHardcoded pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
       <SubTree ID="MoveTo" target="{pregrasp_pose}"/>
       <Grip pose="0.04"/>
       <SubTree ID="MoveTo" target="{grasp_pose}"/>
@@ -44,7 +44,7 @@
 
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
-    <Action ID="GetGrasp" editable="true">
+    <Action ID="GetGraspHardcoded" editable="true">
       <input_port name="pregrasp"/>
       <input_port name="grasp"/>
     </Action>
