@@ -11,6 +11,7 @@
 
   <depend>xacro</depend>
   <depend>rviz2</depend>
+  <depend>tf2_ros</depend>
   <depend>tf_transformations</depend>
   <depend>ros2_control</depend>
   <depend>ros2_controllers</depend>
