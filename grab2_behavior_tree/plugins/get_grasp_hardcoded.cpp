@@ -25,7 +25,7 @@ GetGraspHardcoded::GetGraspHardcoded(
   pose_stamped.pose.orientation.y = 0.0;
   pose_stamped.pose.orientation.z = 0.0;
   pose_stamped.pose.orientation.w = 0.0;
-  
+
   // 1st Cube
   grasp_poses_.push_back(pose_stamped);
 
