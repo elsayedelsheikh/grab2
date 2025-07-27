@@ -8,7 +8,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 def generate_launch_description():
     behavior_tree_declaration = DeclareLaunchArgument(
         "behavior_tree",
-        default_value="collect_toys",
+        default_value="collect_cubes",
         description="Behavior Tree XML file, Check behavior_trees directory for examples",
     )
 
