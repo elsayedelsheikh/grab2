@@ -28,8 +28,8 @@ def generate_launch_description():
 
     sim_world_declare = DeclareLaunchArgument(
         "world",
-        default_value="room",
-        description="Simulation world -- possible values: [room, toybox]",
+        default_value="table",
+        description="Simulation world -- possible values: [table, toybox]",
     )
 
     robot_xacro_path = PathJoinSubstitution(
@@ -118,44 +118,40 @@ def generate_launch_description():
         arguments=["-d", rviz_config_file],
     )
 
-    toybox_world = [
-        "0.0",
-        "-0.640",
-        "0.0",  # translation
-        "1.571",
-        "0.0",
-        "0.0",  # rotation (RPY)
-        "world",
-        "panda_link0",
-    ]
-
-    static_tf_toybox = Node(
+    world2robot_tf_toybox = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=toybox_world,
+        arguments=[
+        "0.0",  # translation
+        "0.25",
+        "0.0",
+        "0.0",  # rotation (RPY)
+        "0.0",
+        "0.0",
+        "world",
+        "panda_link0",
+    ],
         condition=LaunchConfigurationEquals("world", "toybox"),
     )
 
-    room_world = [
-        "0.0",
-        "0.25",
-        "0.0",  # translation
-        "0.0",
-        "0.0",
-        "0.0",  # rotation (RPY)
-        "world",
-        "panda_link0",
-    ]
-
-    static_tf_room = Node(
+    world2robot_tf_table = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_transform_publisher",
         output="log",
-        arguments=room_world,
-        condition=LaunchConfigurationEquals("world", "room"),
+        arguments=[
+        "0.0",  # translation
+        "-0.640",
+        "0.0",
+        "1.571",  # rotation (RPY)
+        "0.0",
+        "0.0",
+        "world",
+        "panda_link0",
+    ],
+        condition=LaunchConfigurationEquals("world", "table"),
     )
 
     return LaunchDescription(
@@ -169,7 +165,7 @@ def generate_launch_description():
             joint_state_broadcaster_spawner,
             panda_arm_controller_spawner,
             panda_hand_controller_spawner,
-            static_tf_toybox,
-            static_tf_room,
+            world2robot_tf_toybox,
+            world2robot_tf_table,
         ]
     )

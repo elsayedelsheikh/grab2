@@ -1,0 +1,95 @@
+services:
+  isaac-sim:
+    container_name: isaacsim450
+    image: nvcr.io/nvidia/isaac-sim:4.5.0
+    environment:
+      - ACCEPT_EULA=Y
+      - PRIVACY_CONSENT=Y
+      - ROS_DOMAIN_ID=0
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/isaac-sim/exts/isaacsim.ros2.bridge/humble/lib
+    entrypoint: bash
+    working_dir: /isaac_sim_worlds
+    command: 
+    volumes:
+      - ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw
+      - ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw
+      - ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw
+      - ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw
+      - ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw
+      - ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw
+      - ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw
+      - ~/docker/isaac-sim/documents:/root/Documents:rw
+      - ./isaac_sim_worlds:/isaac_sim_worlds:r
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+    network_mode: host
+
+  isaac-simple-room:
+    extends: isaac-sim
+    command: ["./isaac_py.sh", "panda_bin_cubes.py"]
+
+  isaac-toybox:
+    extends: isaac-sim
+    command: ["./isaac_py.sh", "panda_toybox.py"]
+
+  grab2:
+    container_name: grab2
+    image: grab2
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: dev
+      args:
+      - USERNAME=${USERNAME:-ros}
+      - USER_UID=${UID:-1000}
+      - USER_GID=${UID:-1000}
+    stdin_open: true
+    tty: true
+    environment:
+      - ROS_DOMAIN_ID=0
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    working_dir: /ros2_ws
+    command: bash -c "./setup.sh"
+    user: ${USERNAME:-ros}
+    volumes:
+      - ./grab2_behavior_tree:/ros2_ws/src/grab2_behavior_tree:r
+      - ./grab2_controller:/ros2_ws/src/grab2_controller:r
+      - ./grab2_interfaces:/ros2_ws/src/grab2_interfaces:r
+      - ./grab2_planner:/ros2_ws/src/grab2_planner:r
+      - ./.colcon/build/:/ros2_ws/build/:rw
+      - ./.colcon/install/:/ros2_ws/install/:rw
+      - ./.colcon/log/:/ros2_ws/log/:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+    network_mode: host
+    ipc: host
+
+  simple-room-demo:
+    extends: grab2
+    command: >
+      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      world:=table
+
+  simple-room-demo-no-isaac:
+    extends: grab2
+    command: >
+      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      world:=table
+      hardware:=mock_components
+  
+  toybox-demo:
+    extends: grab2
+    command: >
+      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      world:=toybox
