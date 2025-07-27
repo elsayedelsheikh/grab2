@@ -7,6 +7,8 @@ This repository provides manipulation demos using BehaviorTree.CPP, Nvidia CuRob
 - **Without Isaac Sim:**  
   You can run the [mock hardware demo](#3-start-the-behavior-demo) without launching Isaac Sim at all.
 
+<img width="3939" height="2160" alt="Screenshot from 2025-07-27 16-36-30" src="https://github.com/user-attachments/assets/f34e4397-ee0e-4210-80d7-5d28c0530126" />
+
 See the sections below for detailed instructions on each option.
 
 ## Project Overview
@@ -17,6 +19,8 @@ This project demonstrates robot manipulation using a modular tech stack:
 - **ROS2** with **ros2_control** and `joint_trajectory_controller` for motion execution
 
 The behavior tree manages the decision-making flow, Nvidia CuRobo handles motion planning, and ROS2 `ros2_control` executes the robot's motion.
+
+<img width="2815" height="1811" alt="Screenshot from 2025-07-27 16-29-25" src="https://github.com/user-attachments/assets/2c2b2646-92b5-44e3-9154-0399a4208a36" />
 
 ### Demo Scenarios
 
@@ -129,7 +133,3 @@ docker compose down
 ### 5. Customizing
 
 You can modify the launch commands or add new demo services in `docker-compose.yml` as needed.
-
----
-
-For more details on each demo, see the [demo documentation](docs/demos.md).
