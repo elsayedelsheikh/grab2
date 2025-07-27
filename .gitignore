@@ -1,5 +1,3 @@
-build/*
-install/*
-log/*
+BehaviorTree.ROS2/
+**/__pycache__/
 .hypothesis/*
-__pycache__/

@@ -103,22 +103,10 @@ ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/hpcx/ompi/lib"
 ENV TORCH_CUDA_ARCH_LIST "7.0+PTX"
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
-# Add cache date to avoid using cached layers older than this
-ARG CACHE_DATE=2024-07-19
-
-
-RUN pip install "robometrics[evaluator] @ git+https://github.com/fishbotics/robometrics.git"
-
-# if you want to use a different version of curobo, create folder as docker/pkgs and put your
-# version of curobo there. Then uncomment below line and comment the next line that clones from
-# github
-
+# Get CuRobo
 # COPY pkgs /pkgs
-
 RUN mkdir /pkgs && cd /pkgs && git clone https://github.com/NVlabs/curobo.git
-
 RUN cd /pkgs/curobo && pip3 install .[dev,usd] --no-build-isolation
-
 WORKDIR /pkgs/curobo
 
 ###########################################
