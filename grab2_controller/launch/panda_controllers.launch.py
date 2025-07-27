@@ -124,15 +124,15 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=[
-        "0.0",  # translation
-        "0.25",
-        "0.0",
-        "0.0",  # rotation (RPY)
-        "0.0",
-        "0.0",
-        "world",
-        "panda_link0",
-    ],
+            "0.0",  # translation
+            "0.25",
+            "0.0",
+            "0.0",  # rotation (RPY)
+            "0.0",
+            "0.0",
+            "world",
+            "panda_link0",
+        ],
         condition=LaunchConfigurationEquals("world", "toybox"),
     )
 
@@ -142,15 +142,15 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=[
-        "0.0",  # translation
-        "-0.640",
-        "0.0",
-        "1.571",  # rotation (RPY)
-        "0.0",
-        "0.0",
-        "world",
-        "panda_link0",
-    ],
+            "0.0",  # translation
+            "-0.640",
+            "0.0",
+            "1.571",  # rotation (RPY)
+            "0.0",
+            "0.0",
+            "world",
+            "panda_link0",
+        ],
         condition=LaunchConfigurationEquals("world", "table"),
     )
 

@@ -10,7 +10,6 @@ services:
       - LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/isaac-sim/exts/isaacsim.ros2.bridge/humble/lib
     entrypoint: bash
     working_dir: /isaac_sim_worlds
-    command: 
     volumes:
       - ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw
       - ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw
@@ -25,9 +24,9 @@ services:
       resources:
         reservations:
           devices:
-          - driver: nvidia
-            count: all
-            capabilities: [gpu]
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     network_mode: host
 
   isaac-simple-room:
@@ -46,9 +45,9 @@ services:
       dockerfile: .docker/Dockerfile
       target: dev
       args:
-      - USERNAME=${USERNAME:-ros}
-      - USER_UID=${UID:-1000}
-      - USER_GID=${UID:-1000}
+        - USERNAME=${USERNAME:-ros}
+        - USER_UID=${UID:-1000}
+        - USER_GID=${UID:-1000}
     stdin_open: true
     tty: true
     environment:
@@ -69,9 +68,9 @@ services:
       resources:
         reservations:
           devices:
-          - driver: nvidia
-            count: all
-            capabilities: [gpu]
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     network_mode: host
     ipc: host
 
@@ -87,7 +86,7 @@ services:
       ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
       world:=table
       hardware:=mock_components
-  
+
   toybox-demo:
     extends: grab2
     command: >

@@ -22,4 +22,3 @@ done
 
 echo "No valid Isaac Sim installation found under home or root directory."
 exit 1
-
