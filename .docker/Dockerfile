@@ -22,14 +22,16 @@ RUN apt-get update && apt-get -y upgrade \
     && rm -rf /var/lib/apt/lists/*
 
 # Install ROS2
-RUN apt-get update && apt-get install -y --no-install-recommends software-properties-common \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    software-properties-common \
   && add-apt-repository universe \
   && export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}') \
-  && curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" # If using Ubuntu derivates use $UBUNTU_CODENAME \
-  && apt-get -y install /tmp/ros2-apt-source.deb \
+  && curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" \
+  && dpkg -i /tmp/ros2-apt-source.deb \
   && apt-get update && apt-get install -y --no-install-recommends \
-    ros-humble-desktop \
     python3-argcomplete \
+    ros-humble-desktop \
   && rm -rf /var/lib/apt/lists/*
 
 # Deal with getting tons of debconf messages
@@ -104,10 +106,33 @@ ENV TORCH_CUDA_ARCH_LIST "7.0+PTX"
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Get CuRobo
-# COPY pkgs /pkgs
+# COPY curobo /pkgs/curobo # If you have local curobo package, you can copy it directly
 RUN mkdir /pkgs && cd /pkgs && git clone https://github.com/NVlabs/curobo.git
 RUN cd /pkgs/curobo && pip3 install .[dev,usd] --no-build-isolation
-WORKDIR /pkgs/curobo
+
+# Setup ROS2 Workspace
+RUN mkdir -p /ros2_ws/src
+WORKDIR /ros2_ws
+COPY dependencies.repos ./src
+
+# Install ROS2 dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-vcstool \
+    ros-${ROS_DISTRO}-rviz2 \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-ros2-control \
+    ros-${ROS_DISTRO}-behaviortree-cpp \
+    ros-${ROS_DISTRO}-tf-transformations \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+    ros-${ROS_DISTRO}-hardware-interface \
+    ros-${ROS_DISTRO}-controller-manager \
+    ros-${ROS_DISTRO}-gripper-controllers \
+    ros-${ROS_DISTRO}-position-controllers \
+    ros-${ROS_DISTRO}-joint-state-broadcaster \
+    ros-${ROS_DISTRO}-topic-based-ros2-control \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN vcs import src < src/dependencies.repos
 
 ###########################################
 #  Develop image
@@ -115,7 +140,6 @@ WORKDIR /pkgs/curobo
 FROM base AS dev
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get -y install /tmp/ros2-apt-source.deb
 RUN apt-get update && apt-get install -y --no-install-recommends \
   bash-completion \
   build-essential \
@@ -126,7 +150,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   python3-argcomplete \
   python3-pip \
   ros-dev-tools \
-  ros-humble-ament-* \
+  ros-${ROS_DISTRO}-ament-* \
   vim \
   && rm -rf /var/lib/apt/lists/*
 
