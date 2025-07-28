@@ -19,7 +19,7 @@ services:
       - ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw
       - ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw
       - ~/docker/isaac-sim/documents:/root/Documents:rw
-      - ./isaac_sim_worlds:/isaac_sim_worlds:r
+      - ./isaac_sim_worlds:/isaac_sim_worlds:ro
     deploy:
       resources:
         reservations:
@@ -48,22 +48,33 @@ services:
         - USERNAME=${USERNAME:-ros}
         - USER_UID=${UID:-1000}
         - USER_GID=${UID:-1000}
+    # Interactive Shell
     stdin_open: true
     tty: true
+    # Networking
+    network_mode: host
+    ipc: host
     environment:
       - ROS_DOMAIN_ID=0
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      # Allows graphical programs in the container.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
     working_dir: /ros2_ws
-    command: bash -c "./setup.sh"
     user: ${USERNAME:-ros}
     volumes:
-      - ./grab2_behavior_tree:/ros2_ws/src/grab2_behavior_tree:r
-      - ./grab2_controller:/ros2_ws/src/grab2_controller:r
-      - ./grab2_interfaces:/ros2_ws/src/grab2_interfaces:r
-      - ./grab2_planner:/ros2_ws/src/grab2_planner:r
+      - ./.docker/entrypoint.sh:/entrypoint.sh:ro
+      - ./grab2_behavior_tree:/ros2_ws/src/grab2_behavior_tree:ro
+      - ./grab2_controller:/ros2_ws/src/grab2_controller:ro
+      - ./grab2_interfaces:/ros2_ws/src/grab2_interfaces:ro
+      - ./grab2_planner:/ros2_ws/src/grab2_planner:ro
       - ./.colcon/build/:/ros2_ws/build/:rw
       - ./.colcon/install/:/ros2_ws/install/:rw
       - ./.colcon/log/:/ros2_ws/log/:rw
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
     deploy:
       resources:
         reservations:
@@ -71,8 +82,7 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-    network_mode: host
-    ipc: host
+    entrypoint: ["/entrypoint.sh"]
 
   simple-room-demo:
     extends: grab2

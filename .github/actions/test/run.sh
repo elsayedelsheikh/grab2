@@ -2,7 +2,7 @@
 set -e
 
 # Setup
-vcs import < ros2.repos
+vcs import < dependencies.repos
 sudo apt-get update
 rosdep update --rosdistro=humble 
 rosdep install --from-paths . --ignore-src -y --rosdistro=humble 
