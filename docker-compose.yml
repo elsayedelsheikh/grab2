@@ -87,18 +87,24 @@ services:
   simple-room-demo:
     extends: grab2
     command: >
-      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      ros2 launch grab2_behavior_tree bt_demo.launch.py
+      robot:=panda
       world:=table
+      behavior:=collect_cubes
 
   simple-room-demo-no-isaac:
     extends: grab2
     command: >
-      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      ros2 launch grab2_behavior_tree bt_demo.launch.py
+      robot:=panda
       world:=table
+      behavior:=collect_cubes
       hardware:=mock_components
 
   toybox-demo:
     extends: grab2
     command: >
-      ros2 launch grab2_behavior_tree panda_bt_demo.launch.py
+      ros2 launch grab2_behavior_tree bt_demo.launch.py
+      robot:=panda
       world:=toybox
+      behavior:=collect_toys

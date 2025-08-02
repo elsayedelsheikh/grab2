@@ -16,10 +16,10 @@ GetGraspHardcoded::GetGraspHardcoded(
 {
   // Cubes
   geometry_msgs::msg::PoseStamped pose_stamped;
-  pose_stamped.header.frame_id = "panda_link0";
+  pose_stamped.header.frame_id = "world";
 
-  pose_stamped.pose.position.x = 0.34;
-  pose_stamped.pose.position.y = 0.3;
+  pose_stamped.pose.position.x = -0.34;
+  pose_stamped.pose.position.y = -0.2;
   pose_stamped.pose.position.z = 0.15;
   pose_stamped.pose.orientation.x = 1.0;
   pose_stamped.pose.orientation.y = 0.0;
@@ -30,11 +30,11 @@ GetGraspHardcoded::GetGraspHardcoded(
   grasp_poses_.push_back(pose_stamped);
 
   // 2nd Cube
-  pose_stamped.pose.position.x = 0.24;
+  pose_stamped.pose.position.y += -0.1;
   grasp_poses_.push_back(pose_stamped);
 
   // 3rd Cube
-  pose_stamped.pose.position.x = 0.44;
+  pose_stamped.pose.position.y += -0.1;
   grasp_poses_.push_back(pose_stamped);
 }
 

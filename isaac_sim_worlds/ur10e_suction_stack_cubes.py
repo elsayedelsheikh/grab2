@@ -5,13 +5,12 @@ import numpy as np
 
 # USD Assets
 # Nvidia Isaac Server Assets
-ROBOT_USD_PATH = "/Isaac/Robots/Franka/franka_alt_fingers.usd"
+ROBOT_USD_PATH = "/Isaac/Robots/UR10/ur10_short_suction.usd"
 BACKGROUND_USD_PATH = "/Isaac/Environments/Simple_Room/simple_room.usd"
 
 # Prim Paths
-ROBOT_PRIM = "/World/Franka"
-CAMERA_PRIM = f"{ROBOT_PRIM}/panda_hand/geometry/realsense/realsense_camera"
-
+ROBOT_PRIM = "/World/UR10"
+CAMERA_PRIM = f"{ROBOT_PRIM}/ee_link/Camera"
 
 from isaacsim import SimulationApp  # noqa E402  isort: skip
 
@@ -69,7 +68,6 @@ prims.create_prim(
     ROBOT_PRIM,
     "Xform",
     position=np.array([0, -0.64, 0]),
-    orientation=rotations.gf_rotation_to_np_array(Gf.Rotation(Gf.Vec3d(0, 0, 1), 90)),
     usd_path=assets_root_path + ROBOT_USD_PATH,
 )
 
@@ -83,7 +81,7 @@ for i in range(3):
     )
 cubes_view = RigidPrim(prim_paths_expr="/World/Objects/cube_[0-2]")
 
-cube_pose = np.array([-0.34, -0.4, 0.1])
+cube_pose = np.array([-0.3, -0.4, 0.1])
 cube_pose_offset = np.array([0.0, 0.1, 0.0])
 cubes_view.set_world_poses(
     positions=np.array(
@@ -91,23 +89,15 @@ cubes_view.set_world_poses(
     )
 )
 
-# Bin
-prims.create_prim(
-    "/World/bin",
-    "Xform",
-    position=np.array([0.35, -0.32, 0.09]),
-    usd_path=assets_root_path + "/Isaac/Props/KLT_Bin/small_KLT.usd",
-)
-
 simulation_app.update()
 
 # Camera
-# Fix camera settings since the defaults in the realsense model are inaccurate
-realsense_prim = UsdGeom.Camera(stage.get_current_stage().GetPrimAtPath(CAMERA_PRIM))
-realsense_prim.GetHorizontalApertureAttr().Set(20.955)
-realsense_prim.GetVerticalApertureAttr().Set(15.7)
-realsense_prim.GetFocalLengthAttr().Set(18.8)
-realsense_prim.GetFocusDistanceAttr().Set(400)
+# Fix camera settings
+camera_prim = UsdGeom.Camera(stage.get_current_stage().GetPrimAtPath(CAMERA_PRIM))
+camera_prim.GetHorizontalApertureAttr().Set(20.955)
+camera_prim.GetVerticalApertureAttr().Set(15.7)
+camera_prim.GetFocalLengthAttr().Set(18.8)
+camera_prim.GetFocusDistanceAttr().Set(400)
 
 # Create Camera Action Graph
 CAMERA_GRAPH_PATH = "/World/Graphs/Camera"
