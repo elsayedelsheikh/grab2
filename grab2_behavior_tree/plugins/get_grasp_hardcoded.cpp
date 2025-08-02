@@ -32,7 +32,7 @@ GetGraspHardcoded::GetGraspHardcoded(
   // 2nd Cube
   pose_stamped.pose.position.y += -0.1;
   grasp_poses_.push_back(pose_stamped);
-  
+
   // 3rd Cube
   pose_stamped.pose.position.y += -0.1;
   grasp_poses_.push_back(pose_stamped);
