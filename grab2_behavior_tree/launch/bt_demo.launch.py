@@ -105,7 +105,7 @@ def generate_launch_description():
 
     behavior_declare = DeclareLaunchArgument(
         "behavior",
-        default_value="collect_toys",
+        default_value="collect_cubes",
         description="Behavior xml file -- Check behavior_trees/",
     )
 
