@@ -77,7 +77,7 @@ inline geometry_msgs::msg::PoseStamped convertFromString(const StringView key)
     throw std::runtime_error("invalid number of fields for Pose attribute)");
   } else {
     geometry_msgs::msg::PoseStamped pose_stamped;
-    pose_stamped.header.frame_id = "panda_link0";
+    pose_stamped.header.frame_id = "world";
     pose_stamped.pose.position.x = BT::convertFromString<double>(parts[0]);
     pose_stamped.pose.position.y = BT::convertFromString<double>(parts[1]);
     pose_stamped.pose.position.z = BT::convertFromString<double>(parts[2]);

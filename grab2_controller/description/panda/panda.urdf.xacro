@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
-    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="initial_positions_file" default="$(find grab2_controller)/config/panda/initial_positions.yaml" />
     <xacro:arg name="ros2_control_hardware_type" default="mock_components" />
 
     <!-- Import panda urdf file -->

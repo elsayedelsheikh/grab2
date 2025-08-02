@@ -36,8 +36,8 @@ def generate_launch_description():
         [
             FindPackageShare(LaunchConfiguration("description_package")),
             "description",
-            "panda",
-            "panda.urdf.xacro",
+            "ur",
+            "ur.urdf.xacro",
         ]
     )
 
@@ -45,7 +45,7 @@ def generate_launch_description():
         [
             FindPackageShare(LaunchConfiguration("description_package")),
             "config",
-            "panda",
+            "ur",
             "ros2_controllers.yaml",
         ]
     )
@@ -64,6 +64,12 @@ def generate_launch_description():
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             robot_xacro_path,
+            " ",
+            "ur_type:=",
+            "ur5e",
+            " ",
+            "use_robotiq_gripper:=",
+            "true",
             " ",
             "ros2_control_hardware_type:=",
             LaunchConfiguration("hardware"),
@@ -100,16 +106,16 @@ def generate_launch_description():
         ],
     )
 
-    panda_arm_controller_spawner = Node(
+    ur5e_arm_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["panda_arm_controller", "-c", "/controller_manager"],
+        arguments=["ur_arm_controller", "-c", "/controller_manager"],
     )
 
-    panda_hand_controller_spawner = Node(
+    robotiq_gripper_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["panda_hand_controller", "-c", "/controller_manager"],
+        arguments=["robotiq_gripper_controller", "-c", "/controller_manager"],
     )
 
     rviz_node = Node(
@@ -133,7 +139,7 @@ def generate_launch_description():
             "0.0",
             "0.0",
             "world",
-            "panda_link0",
+            "base_link",
         ],
         condition=LaunchConfigurationEquals("world", "toybox"),
     )
@@ -147,11 +153,11 @@ def generate_launch_description():
             "0.0",  # translation
             "-0.640",
             "0.0",
-            "1.571",  # rotation (RPY)
+            "0.0",  # rotation (RPY)
             "0.0",
             "0.0",
             "world",
-            "panda_link0",
+            "base_link",
         ],
         condition=LaunchConfigurationEquals("world", "table"),
     )
@@ -165,8 +171,8 @@ def generate_launch_description():
             robot_state_publisher,
             ros2_control_node,
             joint_state_broadcaster_spawner,
-            panda_arm_controller_spawner,
-            panda_hand_controller_spawner,
+            ur5e_arm_controller_spawner,
+            robotiq_gripper_controller_spawner,
             world2robot_tf_toybox,
             world2robot_tf_table,
         ]

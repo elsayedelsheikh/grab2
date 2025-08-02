@@ -38,12 +38,16 @@ class PlanningServer(Node):
         # Parameters, Provide absolute path to yaml file
         self.declare_parameter("robot_config", "franka.yml")
         self.declare_parameter("world_config", "collision_base.yml")
+        self.declare_parameter("state_topic", "/panda_arm_controller/controller_state")
 
         robot_cfg = (
             self.get_parameter("robot_config").get_parameter_value().string_value
         )
         world_cfg = (
             self.get_parameter("world_config").get_parameter_value().string_value
+        )
+        state_topic_name = (
+            self.get_parameter("state_topic").get_parameter_value().string_value
         )
 
         # Init CuRobo
@@ -69,7 +73,7 @@ class PlanningServer(Node):
         )
         self.state_subscriber = self.create_subscription(
             JointTrajectoryControllerState,
-            "/panda_arm_controller/controller_state",
+            state_topic_name,
             self.state_callback,
             10,
             callback_group=cb_grp,

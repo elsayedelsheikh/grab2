@@ -14,23 +14,32 @@ int main(int argc, char ** argv)
   rclcpp::init(argc, argv);
   auto node = std::make_shared<rclcpp::Node>("task_planner");
 
-  node->declare_parameter("behavior_tree", "");
-
   BT::BehaviorTreeFactory factory;
   BT::SharedLibrary loader;
 
+  // Register Native BT Nodes
   factory.registerFromPlugin(loader.getOSName("grab2_get_grasp"));
   factory.registerFromPlugin(loader.getOSName("grab2_get_grasp_hardcoded"));
   factory.registerFromPlugin(loader.getOSName("grab2_get_trajectory_hardcoded"));
 
+  // Declare Parameters
+  node->declare_parameter("behavior_tree", "");
+  node->declare_parameter("jc_action", "/panda_arm_controller/follow_joint_trajectory");
+  node->declare_parameter("gc_action", "/panda_hand_controller/gripper_cmd");
+
+  // Get Parameters
+  std::string jc_action = node->get_parameter("jc_action").as_string();
+  std::string gc_action = node->get_parameter("gc_action").as_string();
+
+  // Register ROS2 BT Nodes
   RegisterRosNode(
     factory,
     loader.getOSName("grab2_move"),
-    {node, "/panda_arm_controller/follow_joint_trajectory"});
+    {node, jc_action});
   RegisterRosNode(
     factory,
     loader.getOSName("grab2_grip"),
-    {node, "/panda_hand_controller/gripper_cmd"});
+    {node, gc_action});
   RegisterRosNode(
     factory,
     loader.getOSName("grab2_plan"),
@@ -40,7 +49,7 @@ int main(int argc, char ** argv)
     loader.getOSName("grab2_detect_object"),
     {node, "/eef_camera/bbox_3d"});
 
-  // SaySomething Node
+  // SaySomething BT Node
   BT::PortsList say_something_ports = {BT::InputPort<std::string>("message")};
   factory.registerSimpleAction("SaySomething", SaySomethingSimple, say_something_ports);
 
