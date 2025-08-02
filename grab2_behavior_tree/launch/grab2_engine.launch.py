@@ -31,13 +31,14 @@ def generate_launch_description():
         executable="grab2_engine",
         name="grab2_engine",
         output="screen",
-        parameters=[{
-            "behavior_tree": bt_xml_file,
-            "jc_action": LaunchConfiguration("jc_action")
-        }],
+        parameters=[
+            {
+                "behavior_tree": bt_xml_file,
+                "jc_action": LaunchConfiguration("jc_action"),
+            }
+        ],
     )
 
-    return LaunchDescription([
-        behavior_tree_declaration,
-        jc_action_declaration,
-        task_planner_node])
+    return LaunchDescription(
+        [behavior_tree_declaration, jc_action_declaration, task_planner_node]
+    )

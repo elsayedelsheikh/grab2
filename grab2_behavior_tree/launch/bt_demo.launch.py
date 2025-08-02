@@ -53,7 +53,7 @@ def get_launch_nodes(context, *args, **kwargs):
         launch_arguments={
             "robot": robot_arg,
             "world": world,
-            "state_topic": state_topic_arg
+            "state_topic": state_topic_arg,
         }.items(),
     )
 
@@ -67,7 +67,7 @@ def get_launch_nodes(context, *args, **kwargs):
         ),
         launch_arguments={
             "behavior_tree": behavior_tree,
-            "jc_action": jc_action_arg
+            "jc_action": jc_action_arg,
         }.items(),
     )
 
