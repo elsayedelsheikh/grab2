@@ -36,8 +36,8 @@ def generate_launch_description():
         [
             FindPackageShare(LaunchConfiguration("description_package")),
             "config",
-            "panda",
-            "panda.urdf.xacro",
+            "ur10e",
+            "ur10e.urdf.xacro",
         ]
     )
 
@@ -45,7 +45,7 @@ def generate_launch_description():
         [
             FindPackageShare(LaunchConfiguration("description_package")),
             "config",
-            "panda",
+            "ur10e",
             "ros2_controllers.yaml",
         ]
     )
@@ -100,16 +100,10 @@ def generate_launch_description():
         ],
     )
 
-    panda_arm_controller_spawner = Node(
+    ur10e_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["panda_arm_controller", "-c", "/controller_manager"],
-    )
-
-    panda_hand_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["panda_hand_controller", "-c", "/controller_manager"],
+        arguments=["ur10e_controller", "-c", "/controller_manager"],
     )
 
     rviz_node = Node(
@@ -133,7 +127,7 @@ def generate_launch_description():
             "0.0",
             "0.0",
             "world",
-            "panda_link0",
+            "base_link",
         ],
         condition=LaunchConfigurationEquals("world", "toybox"),
     )
@@ -147,11 +141,11 @@ def generate_launch_description():
             "0.0",  # translation
             "-0.640",
             "0.0",
-            "1.571",  # rotation (RPY)
+            "0.0",  # rotation (RPY)
             "0.0",
             "0.0",
             "world",
-            "panda_link0",
+            "base_link",
         ],
         condition=LaunchConfigurationEquals("world", "table"),
     )
@@ -165,8 +159,7 @@ def generate_launch_description():
             robot_state_publisher,
             ros2_control_node,
             joint_state_broadcaster_spawner,
-            panda_arm_controller_spawner,
-            panda_hand_controller_spawner,
+            ur10e_controller_spawner,
             world2robot_tf_toybox,
             world2robot_tf_table,
         ]

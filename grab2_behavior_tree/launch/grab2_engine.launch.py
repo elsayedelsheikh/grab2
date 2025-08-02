@@ -12,6 +12,12 @@ def generate_launch_description():
         description="Behavior Tree XML file, Check behavior_trees directory for examples",
     )
 
+    jc_action_declaration = DeclareLaunchArgument(
+        "jc_action",
+        default_value="/panda_arm_controller/follow_joint_trajectory",
+        description="Joint Trajectory Controller action name",
+    )
+
     bt_xml_file = PathJoinSubstitution(
         [
             FindPackageShare("grab2_behavior_tree"),
@@ -25,7 +31,13 @@ def generate_launch_description():
         executable="grab2_engine",
         name="grab2_engine",
         output="screen",
-        parameters=[{"behavior_tree": bt_xml_file}],
+        parameters=[{
+            "behavior_tree": bt_xml_file,
+            "jc_action": LaunchConfiguration("jc_action")
+        }],
     )
 
-    return LaunchDescription([behavior_tree_declaration, task_planner_node])
+    return LaunchDescription([
+        behavior_tree_declaration,
+        jc_action_declaration,
+        task_planner_node])
