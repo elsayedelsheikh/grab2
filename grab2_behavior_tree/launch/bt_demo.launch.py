@@ -93,7 +93,8 @@ def generate_launch_description():
     robot_declare = DeclareLaunchArgument(
         "robot",
         default_value="panda",
-        description="Simulated Robot -- possible values: [panda, ur10e_suction_gripper, ur5e_robotiq_gripper]",
+        description="Simulated Robot -- "
+        "possible values: [panda, ur10e_suction_gripper, ur5e_robotiq_gripper]",
     )
 
     sim_world_declare = DeclareLaunchArgument(
