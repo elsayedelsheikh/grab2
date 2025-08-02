@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur10e">
-    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur">
+    <xacro:arg name="initial_positions_file" default="$(find grab2_controller)/config/ur/initial_positions.yaml" />
     <xacro:arg name="ros2_control_hardware_type" default="mock_components" />
 
     <!-- parameters -->
@@ -10,6 +10,7 @@
     <xacro:arg name="kinematics_params" default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
     <xacro:arg name="physical_params" default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
     <xacro:arg name="visual_params" default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
+    <xacro:arg name="use_robotiq_gripper" default="false"/>
 
     <!-- arm -->
     <!-- <Modified from filename="$(find ur_description)/urdf/ur.urdf.xacro"/> -->
@@ -30,8 +31,14 @@
     <!-- create link fixed to the "world" -->
    <link name="world" />
 
-    <!-- Import ur10e ros2_control description -->
-    <xacro:include filename="ur10e.ros2_control.xacro" />
-    <xacro:ur_ros2_control name="URFakeSystem" initial_positions_file="$(arg initial_positions_file)" ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+    <!-- Import ros2_control description -->
+    <xacro:include filename="ur.ros2_control.xacro" />
+    <xacro:ur_ros2_control name="URFakeSystem" initial_positions_file="$(arg initial_positions_file)" ros2_control_hardware_type="$(arg ros2_control_hardware_type)" use_gripper="$(arg use_robotiq_gripper)"/>
+
+    <!-- Robotiq Gripper -->
+    <xacro:if value="$(arg use_robotiq_gripper)">
+        <xacro:include filename="$(find grab2_controller)/description/robotiq_2f_140/robotiq_2f_140.xacro"/>
+    </xacro:if>
+
 
 </robot>

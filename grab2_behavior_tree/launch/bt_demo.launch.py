@@ -32,14 +32,25 @@ def get_launch_nodes(context, *args, **kwargs):
     )
 
     # Prepare configs
+    # Franka equipped with finger gripper
     if robot == "panda":
         robot_arg = "franka"
         state_topic_arg = "/panda_arm_controller/controller_state"
         jc_action_arg = "/panda_arm_controller/follow_joint_trajectory"
-    elif robot == "ur10e":
-        robot_arg = robot
-        state_topic_arg = "/ur10e_controller/controller_state"
-        jc_action_arg = "/ur10e_controller/follow_joint_trajectory"
+        gc_action_arg = "/panda_hand_controller/gripper_cmd"
+
+    # UR5e equipped with finger gripper "Robotiq_2f_140"
+    elif robot == "ur5e_robotiq_gripper":
+        robot_arg = "ur5e_robotiq_2f_140"
+        state_topic_arg = "/ur_arm_controller/controller_state"
+        jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
+        gc_action_arg = "/robotiq_gripper_controller/gripper_cmd"
+
+    # UR10e equipped with suction gripper
+    elif robot == "ur10e_suction_gripper":
+        robot_arg = "ur10e"
+        state_topic_arg = "/ur_arm_controller/controller_state"
+        jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
 
     # Launch Planning Server
     launch_planner = IncludeLaunchDescription(
@@ -68,6 +79,7 @@ def get_launch_nodes(context, *args, **kwargs):
         launch_arguments={
             "behavior_tree": behavior_tree,
             "jc_action": jc_action_arg,
+            "gc_action": gc_action_arg,
         }.items(),
     )
 
@@ -81,7 +93,7 @@ def generate_launch_description():
     robot_declare = DeclareLaunchArgument(
         "robot",
         default_value="panda",
-        description="Simulated Robot -- possible values: [panda, ur10e]",
+        description="Simulated Robot -- possible values: [panda, ur10e_suction_gripper, ur5e_robotiq_gripper]",
     )
 
     sim_world_declare = DeclareLaunchArgument(

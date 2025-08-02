@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="ur_ros2_control" params="name initial_positions_file ros2_control_hardware_type">
+    <xacro:macro name="ur_ros2_control" params="name initial_positions_file ros2_control_hardware_type use_gripper">
         <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
 
         <ros2_control name="${name}" type="system">
@@ -69,6 +69,16 @@
                   <param name="initial_value">0.0</param>
                 </state_interface>
             </joint>
+
+            <!-- Robotiq Gripper -->
+            <xacro:if value="${use_gripper}">
+              <joint name="finger_joint">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+              </joint>
+            </xacro:if>
+
         </ros2_control>
     </xacro:macro>
 </robot>

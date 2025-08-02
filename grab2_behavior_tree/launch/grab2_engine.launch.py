@@ -18,6 +18,12 @@ def generate_launch_description():
         description="Joint Trajectory Controller action name",
     )
 
+    gc_action_declaration = DeclareLaunchArgument(
+        "gc_action",
+        default_value="/panda_hand_controller/gripper_cmd",
+        description="Gripper Controller action name",
+    )
+
     bt_xml_file = PathJoinSubstitution(
         [
             FindPackageShare("grab2_behavior_tree"),
@@ -35,10 +41,16 @@ def generate_launch_description():
             {
                 "behavior_tree": bt_xml_file,
                 "jc_action": LaunchConfiguration("jc_action"),
+                "gc_action": LaunchConfiguration("gc_action"),
             }
         ],
     )
 
     return LaunchDescription(
-        [behavior_tree_declaration, jc_action_declaration, task_planner_node]
+        [
+            behavior_tree_declaration,
+            jc_action_declaration,
+            gc_action_declaration,
+            task_planner_node,
+        ]
     )
