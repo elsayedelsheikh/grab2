@@ -26,7 +26,6 @@ simulation_app = SimulationApp({"renderer": "RayTracedLighting", "headless": Fal
 
 # More imports that need to compare after we create the app
 from omni.isaac.core import SimulationContext  # noqa E402  isort: skip
-from isaacsim.core.api import World
 from omni.isaac.core.utils import (  # noqa E402  isort: skip
     extensions,
     rotations,
