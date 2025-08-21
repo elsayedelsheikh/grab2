@@ -76,7 +76,7 @@ prims.create_prim(
     ROBOT_PRIM,
     "Xform",
     position=np.array([0, -0.64, 0]),
-    usd_path= ROBOT_USD_PATH,
+    usd_path=ROBOT_USD_PATH,
 )
 
 # Loading Objects

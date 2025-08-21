@@ -4,6 +4,7 @@ from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
+
 def get_launch_nodes(context, *args, **kwargs):
     robot = LaunchConfiguration("robot").perform(context)
 
@@ -39,6 +40,7 @@ def get_launch_nodes(context, *args, **kwargs):
     )
     return [planning_server_node]
 
+
 def generate_launch_description():
     # Command-line arguments
     robot_model_declaration = DeclareLaunchArgument(
@@ -62,6 +64,6 @@ def generate_launch_description():
         [
             robot_model_declaration,
             world_model_declaration,
-            OpaqueFunction(function=get_launch_nodes)
+            OpaqueFunction(function=get_launch_nodes),
         ]
     )
