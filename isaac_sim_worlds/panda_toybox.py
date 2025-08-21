@@ -12,8 +12,10 @@ ROBOT_USD_PATH = "/Isaac/Robots/Franka/franka_alt_fingers.usd"
 USER_PATH = (
     os.getcwd()
 )  # Make sure you're running the script from the correct directory
-TOY_CAR_USD_PATH = os.path.join(USER_PATH, "assets", "toybox_world", "toy_car.usd")
-BACKGROUND_USD_PATH = os.path.join(USER_PATH, "assets", "toybox_world", "world.usd")
+TOY_CAR_USD_PATH = os.path.join(USER_PATH, "assets", "objects", "toy_car.usd")
+BACKGROUND_USD_PATH = os.path.join(
+    USER_PATH, "assets", "worlds", "toybox_world", "world.usd"
+)
 
 # Prim Paths
 ROBOT_PRIM = "/World/Franka"
