@@ -33,23 +33,20 @@ def get_launch_nodes(context, *args, **kwargs):
 
     # Prepare configs
     # Franka equipped with finger gripper
-    if robot == "panda":
+    if robot == "franka":
         robot_arg = "franka"
-        state_topic_arg = "/panda_arm_controller/controller_state"
         jc_action_arg = "/panda_arm_controller/follow_joint_trajectory"
         gc_action_arg = "/panda_hand_controller/gripper_cmd"
 
     # UR5e equipped with finger gripper "Robotiq_2f_140"
     elif robot == "ur5e_robotiq_gripper":
         robot_arg = "ur5e_robotiq_2f_140"
-        state_topic_arg = "/ur_arm_controller/controller_state"
         jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
         gc_action_arg = "/robotiq_gripper_controller/gripper_cmd"
 
     # UR10e equipped with suction gripper
     elif robot == "ur10e_suction_gripper":
         robot_arg = "ur10e"
-        state_topic_arg = "/ur_arm_controller/controller_state"
         jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
 
     # Launch Planning Server
@@ -64,7 +61,6 @@ def get_launch_nodes(context, *args, **kwargs):
         launch_arguments={
             "robot": robot_arg,
             "world": world,
-            "state_topic": state_topic_arg,
         }.items(),
     )
 
@@ -90,20 +86,20 @@ def get_launch_nodes(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    robot_declare = DeclareLaunchArgument(
+    robot_model_declaration = DeclareLaunchArgument(
         "robot",
-        default_value="panda",
+        default_value="franka",
         description="Simulated Robot -- "
-        "possible values: [panda, ur10e_suction_gripper, ur5e_robotiq_gripper]",
+        "possible values: [franka, ur10e_suction_gripper, ur5e_robotiq_gripper]",
     )
 
-    sim_world_declare = DeclareLaunchArgument(
+    world_model_declaration = DeclareLaunchArgument(
         "world",
         default_value="table",
         description="Simulation world -- possible values: [table, toybox]",
     )
 
-    behavior_declare = DeclareLaunchArgument(
+    behavior_declaration = DeclareLaunchArgument(
         "behavior",
         default_value="collect_cubes",
         description="Behavior xml file -- Check behavior_trees/",
@@ -120,9 +116,9 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            robot_declare,
-            sim_world_declare,
-            behavior_declare,
+            robot_model_declaration,
+            world_model_declaration,
+            behavior_declaration,
             ros2_control_hardware_type,
             OpaqueFunction(function=get_launch_nodes),
         ]

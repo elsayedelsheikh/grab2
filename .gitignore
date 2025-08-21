@@ -2,3 +2,4 @@ BehaviorTree.ROS2/
 **/__pycache__/
 .hypothesis/*
 .colcon/
+.thumbs/
