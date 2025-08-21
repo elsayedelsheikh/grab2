@@ -37,7 +37,7 @@ from omni.isaac.core_nodes.scripts.utils import (  # noqa E402  isort: skip
     set_target_prims,
 )
 from pxr import Gf, UsdGeom  # noqa E402  isort: skip
-from isaacsim.storage.native import get_assets_root_path
+from isaacsim.storage.native import get_assets_root_path  # noqa E402  isort: skip
 from isaacsim.core.prims import XFormPrim  # noqa E402  isort: skip
 
 # enable ROS2 bridge extension
