@@ -17,7 +17,6 @@
   <depend>ros2_controllers</depend>
   <depend>hardware_interface</depend>
   <depend>controller_manager</depend>
-  <depend>gripper_controllers</depend>
   <depend>position_controllers</depend>
   <depend>joint_trajectory_controller</depend>
   <depend>robot_state_publisher</depend>

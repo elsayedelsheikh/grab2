@@ -2,22 +2,31 @@ from launch_ros.actions import Node
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch_ros.substitutions import FindPackageShare
-from launch.conditions import LaunchConfigurationEquals
+from launch.conditions import LaunchConfigurationEquals, IfCondition
 from launch.substitutions import (
     Command,
     FindExecutable,
     LaunchConfiguration,
     PathJoinSubstitution,
+    EqualsSubstitution,
+    NotEqualsSubstitution,
 )
 
 
 def generate_launch_description():
+    # Launch configuration variables
+    use_rviz = LaunchConfiguration("use_rviz")
+
     # Command-line arguments
-    description_package = DeclareLaunchArgument(
+    declare_description_package = DeclareLaunchArgument(
         "description_package", default_value="grab2_controller"
     )
 
-    ros2_control_hardware_type = DeclareLaunchArgument(
+    declare_use_rviz_cmd = DeclareLaunchArgument(
+        "use_rviz", default_value="True", description="Whether to start RVIZ"
+    )
+
+    declare_ros2_control_hardware_type = DeclareLaunchArgument(
         "hardware",
         default_value="isaac",
         description=(
@@ -26,7 +35,7 @@ def generate_launch_description():
         ),
     )
 
-    sim_world_declare = DeclareLaunchArgument(
+    declare_sim_world = DeclareLaunchArgument(
         "world",
         default_value="table",
         description="Simulation world -- possible values: [table, toybox]",
@@ -118,6 +127,7 @@ def generate_launch_description():
         name="rviz2",
         output="log",
         arguments=["-d", rviz_config_file],
+        condition=IfCondition(use_rviz),
     )
 
     world2robot_tf_toybox = Node(
@@ -135,7 +145,9 @@ def generate_launch_description():
             "world",
             "panda_link0",
         ],
-        condition=LaunchConfigurationEquals("world", "toybox"),
+        condition=IfCondition(
+            EqualsSubstitution(LaunchConfiguration("world"), "toybox")
+        ),
     )
 
     world2robot_tf_table = Node(
@@ -153,14 +165,17 @@ def generate_launch_description():
             "world",
             "panda_link0",
         ],
-        condition=LaunchConfigurationEquals("world", "table"),
+        condition=IfCondition(
+            EqualsSubstitution(LaunchConfiguration("world"), "table")
+        ),
     )
 
     return LaunchDescription(
         [
-            sim_world_declare,
-            description_package,
-            ros2_control_hardware_type,
+            declare_description_package,
+            declare_use_rviz_cmd,
+            declare_ros2_control_hardware_type,
+            declare_sim_world,
             rviz_node,
             robot_state_publisher,
             ros2_control_node,
