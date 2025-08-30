@@ -10,7 +10,7 @@ def get_launch_nodes(context, *args, **kwargs):
 
     world_config_file = PathJoinSubstitution(
         [
-            FindPackageShare("grab2_planner"),
+            FindPackageShare("grab2_curobo_planner"),
             "config",
             [LaunchConfiguration("world"), ".yaml"],
         ]
@@ -26,7 +26,7 @@ def get_launch_nodes(context, *args, **kwargs):
         state_topic_name = "/ur_arm_controller/controller_state"
 
     planning_server_node = Node(
-        package="grab2_planner",
+        package="grab2_curobo_planner",
         executable="planning_server",
         name="planning_server",
         output="both",

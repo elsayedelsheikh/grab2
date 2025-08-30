@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import find_packages, setup
 
-package_name = "grab2_planner"
+package_name = "grab2_curobo_planner"
 
 setup(
     name=package_name,
@@ -22,6 +22,8 @@ setup(
     license="TODO: License declaration",
     tests_require=["pytest"],
     entry_points={
-        "console_scripts": ["planning_server = grab2_planner.planning_server:main"],
+        "console_scripts": [
+            "planning_server = grab2_curobo_planner.planning_server:main"
+        ],
     },
 )

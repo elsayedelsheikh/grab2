@@ -53,7 +53,7 @@ def get_launch_nodes(context, *args, **kwargs):
     launch_planner = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("grab2_planner"),
+                get_package_share_directory("grab2_curobo_planner"),
                 "launch",
                 "planning_server.launch.py",
             )

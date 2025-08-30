@@ -17,7 +17,7 @@ from tf2_ros.transform_listener import TransformListener
 from tf2_geometry_msgs import do_transform_pose_stamped  # noqa: F401
 
 from grab2_interfaces.action import PlanToGoal
-from grab2_planner.curobo.motion_generation import CuRoboMotionGen
+from grab2_curobo_planner.curobo.motion_generation import CuRoboMotionGen
 
 # Visulaization
 from std_msgs.msg import ColorRGBA
