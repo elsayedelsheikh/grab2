@@ -1,5 +1,7 @@
 # Grab2 Behavior Demos
 
+[![ROS2 CI](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml)
+
 This repository provides manipulation demos using BehaviorTree.CPP, Nvidia CuRobo, and ROS2 with a simulated Franka Emika Panda robot in Nvidia Isaac sim. You can run these demos with or/ without NVIDIA Isaac Sim, either in containers or/ with a local Isaac Sim installation.
 
 - **With Isaac Sim:**  
