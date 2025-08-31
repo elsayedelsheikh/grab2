@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    name: build-${{ matrix.ros-distro }}
+    name: build-and-test-on-${{ matrix.ros-distro }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
