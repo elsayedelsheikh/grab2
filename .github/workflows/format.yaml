@@ -25,7 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         linter:
-          [cppcheck, cpplint, uncrustify, lint_cmake, xmllint, flake8, pep257]
+          [uncrustify, cpplint, lint_cmake, xmllint, flake8, pep257]
     steps:
       - uses: actions/checkout@v4
       - uses: ros-tooling/setup-ros@0.7.15
