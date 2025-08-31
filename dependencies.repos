@@ -5,3 +5,7 @@ repositories:
     type: git
     url: https://github.com/BehaviorTree/BehaviorTree.ROS2.git
     version: humble
+  topic_based_ros2_control:
+    type: git
+    url: https://github.com/PickNikRobotics/topic_based_ros2_control.git
+    version: main
