@@ -1,37 +1,30 @@
-name: Format
+name: Lint
 
 on:
-  # Run action on certain pull request events
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-
-  # Whenever certain branches are pushed
-  push:
-    branches: [main]
 
 jobs:
   pre-commit:
     name: pre-commit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
       - uses: pre-commit/action@v3.0.1
 
   action-ros-lint:
     name: ament_${{ matrix.linter }}
     runs-on: ubuntu-latest
+    container:
+      image: rostooling/setup-ros-docker:ubuntu-noble-ros-rolling-ros-base-latest
     strategy:
       fail-fast: false
       matrix:
         linter:
           [uncrustify, cpplint, lint_cmake, xmllint, flake8, pep257]
     steps:
-      - uses: actions/checkout@v4
-      - uses: ros-tooling/setup-ros@0.7.15
-        with:
-          required-ros-distributions: rolling
+      - uses: actions/checkout@v5
       - uses: ros-tooling/action-ros-lint@0.1.4
         with:
           linter: ${{ matrix.linter }}
-          package-name: grab2_behavior_tree grab2_controller grab2_interfaces grab2_planner
+          package-name: "*"
