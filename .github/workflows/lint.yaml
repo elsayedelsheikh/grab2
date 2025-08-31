@@ -1,0 +1,30 @@
+name: Lint
+
+on:
+  pull_request:
+
+jobs:
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+      - uses: pre-commit/action@v3.0.1
+
+  action-ros-lint:
+    name: ament_${{ matrix.linter }}
+    runs-on: ubuntu-latest
+    container:
+      image: rostooling/setup-ros-docker:ubuntu-noble-ros-rolling-ros-base-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        linter:
+          [uncrustify, cpplint, lint_cmake, xmllint, flake8, pep257]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ros-tooling/action-ros-lint@0.1.4
+        with:
+          linter: ${{ matrix.linter }}
+          package-name: "*"
