@@ -7,10 +7,10 @@
   <maintainer email="elsayed.elsheikh97@gmail.com">sayed</maintainer>
   <license>TODO: License declaration</license>
 
+  <depend>rclpy</depend>
   <depend>tf2_ros</depend>
   <depend>std_msgs</depend>
   <depend>control_msgs</depend>
-  <depend>geometry_msgs</depend>
   <depend>trajectory_msgs</depend>
   <depend>grab2_interfaces</depend>
   <depend>tf2_geometry_msgs</depend>

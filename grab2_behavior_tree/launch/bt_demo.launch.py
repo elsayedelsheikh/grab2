@@ -12,70 +12,70 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def get_launch_nodes(context, *args, **kwargs):
-    robot = LaunchConfiguration("robot").perform(context)
-    world = LaunchConfiguration("world").perform(context)
-    behavior_tree = LaunchConfiguration("behavior").perform(context)
+    robot = LaunchConfiguration('robot').perform(context)
+    world = LaunchConfiguration('world').perform(context)
+    behavior_tree = LaunchConfiguration('behavior').perform(context)
 
     # Launch ROS2 Control
     launch_controller = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("grab2_controller"),
-                "launch",
-                f"{robot}_controllers.launch.py",
+                get_package_share_directory('grab2_controller'),
+                'launch',
+                f'{robot}_controllers.launch.py',
             )
         ),
         launch_arguments={
-            "hardware": LaunchConfiguration("hardware"),
-            "world": world,
+            'hardware': LaunchConfiguration('hardware'),
+            'world': world,
         }.items(),
     )
 
     # Prepare configs
     # Franka equipped with finger gripper
-    if robot == "franka":
-        robot_arg = "franka"
-        jc_action_arg = "/panda_arm_controller/follow_joint_trajectory"
-        gc_action_arg = "/panda_hand_controller/gripper_cmd"
+    if robot == 'franka':
+        robot_arg = 'franka'
+        jc_action_arg = '/panda_arm_controller/follow_joint_trajectory'
+        gc_action_arg = '/panda_hand_controller/gripper_cmd'
 
-    # UR5e equipped with finger gripper "Robotiq_2f_140"
-    elif robot == "ur5e_robotiq_gripper":
-        robot_arg = "ur5e_robotiq_2f_140"
-        jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
-        gc_action_arg = "/robotiq_gripper_controller/gripper_cmd"
+    # UR5e equipped with finger gripper 'Robotiq_2f_140'
+    elif robot == 'ur5e_robotiq_gripper':
+        robot_arg = 'ur5e_robotiq_2f_140'
+        jc_action_arg = '/ur_arm_controller/follow_joint_trajectory'
+        gc_action_arg = '/robotiq_gripper_controller/gripper_cmd'
 
     # UR10e equipped with suction gripper
-    elif robot == "ur10e_suction_gripper":
-        robot_arg = "ur10e"
-        jc_action_arg = "/ur_arm_controller/follow_joint_trajectory"
+    elif robot == 'ur10e_suction_gripper':
+        robot_arg = 'ur10e'
+        jc_action_arg = '/ur_arm_controller/follow_joint_trajectory'
 
     # Launch Planning Server
     launch_planner = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("grab2_curobo_planner"),
-                "launch",
-                "planning_server.launch.py",
+                get_package_share_directory('grab2_curobo_planner'),
+                'launch',
+                'planning_server.launch.py',
             )
         ),
         launch_arguments={
-            "robot": robot_arg,
-            "world": world,
+            'robot': robot_arg,
+            'world': world,
         }.items(),
     )
 
     launch_bt_engine = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                get_package_share_directory("grab2_behavior_tree"),
-                "launch",
-                "grab2_engine.launch.py",
+                get_package_share_directory('grab2_behavior_tree'),
+                'launch',
+                'grab2_engine.launch.py',
             )
         ),
         launch_arguments={
-            "behavior_tree": behavior_tree,
-            "jc_action": jc_action_arg,
-            "gc_action": gc_action_arg,
+            'behavior_tree': behavior_tree,
+            'jc_action': jc_action_arg,
+            'gc_action': gc_action_arg,
         }.items(),
     )
 
@@ -87,30 +87,30 @@ def get_launch_nodes(context, *args, **kwargs):
 
 def generate_launch_description():
     robot_model_declaration = DeclareLaunchArgument(
-        "robot",
-        default_value="franka",
-        description="Simulated Robot -- "
-        "possible values: [franka, ur10e_suction_gripper, ur5e_robotiq_gripper]",
+        'robot',
+        default_value='franka',
+        description='Simulated Robot -- '
+        'possible values: [franka, ur10e_suction_gripper, ur5e_robotiq_gripper]',
     )
 
     world_model_declaration = DeclareLaunchArgument(
-        "world",
-        default_value="table",
-        description="Simulation world -- possible values: [table, toybox]",
+        'world',
+        default_value='table',
+        description='Simulation world -- possible values: [table, toybox]',
     )
 
     behavior_declaration = DeclareLaunchArgument(
-        "behavior",
-        default_value="collect_cubes",
-        description="Behavior xml file -- Check behavior_trees/",
+        'behavior',
+        default_value='collect_cubes',
+        description='Behavior xml file -- Check behavior_trees/',
     )
 
     ros2_control_hardware_type = DeclareLaunchArgument(
-        "hardware",
-        default_value="isaac",
+        'hardware',
+        default_value='isaac',
         description=(
-            "ROS2 control hardware interface type to use for the launch file -- "
-            "possible values: [mock_components, isaac]"
+            'ROS2 control hardware interface type to use for the launch file -- '
+            'possible values: [mock_components, isaac]'
         ),
     )
 
