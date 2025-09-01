@@ -27,6 +27,6 @@ cp -r $GITHUB_WORKSPACE $COLCON_WS_SRC
 cd $COLCON_WS
 colcon build --event-handlers console_direct+
 
-# Tests - TODO: Unit Tests
-# colcon test --event-handlers console_direct+
-# colcon test-result
+# Tests
+colcon test --event-handlers console_direct+
+colcon test-result

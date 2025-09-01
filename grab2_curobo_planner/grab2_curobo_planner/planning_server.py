@@ -1,70 +1,66 @@
-import time
-import rclpy
 import threading
-from rclpy.node import Node
+import time
 
+from control_msgs.msg import JointTrajectoryControllerState
+from geometry_msgs.msg import Point
+from grab2_curobo_planner.curobo.motion_generation import CuRoboMotionGen
+from grab2_interfaces.action import PlanToGoal
+
+import rclpy
 from rclpy.action import ActionServer, CancelResponse, GoalResponse
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from control_msgs.msg import JointTrajectoryControllerState
-
-from tf2_ros import Buffer
-from tf2_ros.transform_listener import TransformListener
+from rclpy.node import Node
+from std_msgs.msg import ColorRGBA
 
 # Required to register PoseStamped type for tf2 transformations
 from tf2_geometry_msgs import do_transform_pose_stamped  # noqa: F401
-
-from grab2_interfaces.action import PlanToGoal
-from grab2_planner.curobo.motion_generation import CuRoboMotionGen
-
-# Visulaization
-from std_msgs.msg import ColorRGBA
-from geometry_msgs.msg import Point
+from tf2_ros import Buffer
+from tf2_ros.transform_listener import TransformListener
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from visualization_msgs.msg import Marker
 
 
 class PlanningServer(Node):
-    RESET = "\033[0m"
-    GREEN = "\033[92m"
-    BLUE = "\033[94m"
-    RED = "\033[91m"
-    YELLOW = "\033[33m"
+    RESET = '\033[0m'
+    GREEN = '\033[92m'
+    BLUE = '\033[94m'
+    RED = '\033[91m'
+    YELLOW = '\033[33m'
 
     def __init__(self):
-        super().__init__("planning_server")
+        super().__init__('planning_server')
 
         # Parameters, Provide absolute path to yaml file
-        self.declare_parameter("robot_config", "franka.yml")
-        self.declare_parameter("world_config", "collision_base.yml")
-        self.declare_parameter("state_topic", "/panda_arm_controller/controller_state")
+        self.declare_parameter('robot_config', 'franka.yml')
+        self.declare_parameter('world_config', 'collision_base.yml')
+        self.declare_parameter('state_topic', '/panda_arm_controller/controller_state')
 
         robot_cfg = (
-            self.get_parameter("robot_config").get_parameter_value().string_value
+            self.get_parameter('robot_config').get_parameter_value().string_value
         )
         world_cfg = (
-            self.get_parameter("world_config").get_parameter_value().string_value
+            self.get_parameter('world_config').get_parameter_value().string_value
         )
         state_topic_name = (
-            self.get_parameter("state_topic").get_parameter_value().string_value
+            self.get_parameter('state_topic').get_parameter_value().string_value
         )
 
         # Init CuRobo
         self.planner = CuRoboMotionGen(robot_config=robot_cfg, world_config=world_cfg)
-        self.get_logger().info(f"Robot base frame: {self.planner.base_link}")
-        self.get_logger().info(f"Joint names: {self.planner.joint_names}")
+        self.get_logger().info(f'Robot base frame: {self.planner.base_link}')
+        self.get_logger().info(f'Joint names: {self.planner.joint_names}')
 
-        self.get_logger().info(f"{self.BLUE}Warming up CuRobo...{self.RESET}")
+        self.get_logger().info(f'{self.BLUE}Warming up CuRobo...{self.RESET}')
         self.planner.warmup()
-        self.get_logger().info(f"{self.GREEN}CuRobo Ready{self.RESET}")
+        self.get_logger().info(f'{self.GREEN}CuRobo Ready{self.RESET}')
 
         # ROS2
         cb_grp = ReentrantCallbackGroup()
         self.planning_action_server_ = ActionServer(
             self,
             PlanToGoal,
-            "plan_to_goal",
+            'plan_to_goal',
             execute_callback=self.execute_callback,
             goal_callback=self.goal_callback,
             handle_accepted_callback=self.handle_accepted_callback,
@@ -81,7 +77,7 @@ class PlanningServer(Node):
 
         # Debug: Publish World Collision Model
         self.world_collision_voxels_pubisher = self.create_publisher(
-            Marker, "/curobo/voxels", 10
+            Marker, '/curobo/voxels', 10
         )
         self.voxel_timer = self.create_timer(1.0, self.voxels_callback)
 
@@ -106,7 +102,7 @@ class PlanningServer(Node):
         marker.header.stamp = self.get_clock().now().to_msg()
         marker.id = 0
         marker.type = Marker.CUBE_LIST
-        marker.ns = "curobo_world"
+        marker.ns = 'curobo_world'
         marker.action = Marker.ADD
         marker.pose.orientation.w = 1.0
         marker.lifetime = rclpy.duration.Duration(seconds=0.0).to_msg()
@@ -150,7 +146,7 @@ class PlanningServer(Node):
         self.current_state = msg.feedback.positions
 
     def goal_callback(self, goal_request):
-        self.get_logger().info("Received goal request")
+        self.get_logger().info('Received goal request')
 
         # Check goal frame
         if goal_request.goal_pose.header.frame_id != self.planner.base_link:
@@ -175,8 +171,8 @@ class PlanningServer(Node):
 
         # Check goal feasibility
         if not self.planner.check_goal_feasible(self.goal_pose):
-            self.get_logger().debug(f"Goal: {self.goal_pose}")
-            self.get_logger().error(f"{self.RED}Goal is unreachable{self.RESET}")
+            self.get_logger().debug(f'Goal: {self.goal_pose}')
+            self.get_logger().error(f'{self.RED}Goal is unreachable{self.RESET}')
             return GoalResponse.REJECT
 
         return GoalResponse.ACCEPT
@@ -185,7 +181,7 @@ class PlanningServer(Node):
         with self._goal_lock:
             # This server only allows one goal at a time
             if self._goal_handle is not None and self._goal_handle.is_active:
-                self.get_logger().info("Aborting previous goal")
+                self.get_logger().info('Aborting previous goal')
                 # Abort the existing goal
                 self._goal_handle.abort()
             self._goal_handle = goal_handle
@@ -194,20 +190,20 @@ class PlanningServer(Node):
 
     def cancel_callback(self, goal):
         """Accept or reject a client request to cancel an action."""
-        self.get_logger().info("Received cancel request")
+        self.get_logger().info('Received cancel request')
         return CancelResponse.ACCEPT
 
     def execute_callback(self, goal_handle):
         # Check if CuRobo planner is warmed up
         if not self.planner._warmed_up:
-            self.get_logger().error(f"{self.RED}Planner not initialized.{self.RESET}")
+            self.get_logger().error(f'{self.RED}Planner not initialized.{self.RESET}')
             return PlanToGoal.Result()
 
         # Check if current state is available
         counter = 0
         while rclpy.ok():
             self.get_logger().error(
-                f"{self.YELLOW}Waiting for controller_state topic{self.RESET}"
+                f'{self.YELLOW}Waiting for controller_state topic{self.RESET}'
             )
             if self.current_state is not None:
                 break
@@ -217,17 +213,17 @@ class PlanningServer(Node):
             time.sleep(0.03)
             counter += 1
 
-        self.get_logger().info("Executing goal...")
+        self.get_logger().info('Executing goal...')
 
         # If goal is flagged as no longer active (ie. another goal was accepted),
         # then stop executing
         if not goal_handle.is_active:
-            self.get_logger().error("Goal aborted")
+            self.get_logger().error('Goal aborted')
             return PlanToGoal.Result()
 
         if goal_handle.is_cancel_requested:
             goal_handle.canceled()
-            self.get_logger().error("Goal canceled")
+            self.get_logger().error('Goal canceled')
             return PlanToGoal.Result()
 
         # Planning Request
@@ -240,7 +236,7 @@ class PlanningServer(Node):
         # Create ROS2 Trajectory
         if plan.size == 0:
             goal_handle.abort()
-            self.get_logger().info("Goal aborted")
+            self.get_logger().info('Goal aborted')
             return PlanToGoal.Result()
         else:
             trajectory_msg = JointTrajectory()
@@ -260,10 +256,10 @@ class PlanningServer(Node):
 
         with self._goal_lock:
             if not goal_handle.is_active:
-                self.get_logger().info("Goal aborted")
+                self.get_logger().info('Goal aborted')
                 return PlanToGoal.Result()
 
-            self.get_logger().info(f"{self.GREEN}Plan Succeeded{self.RESET}")
+            self.get_logger().info(f'{self.GREEN}Plan Succeeded{self.RESET}')
             goal_handle.succeed()
 
         result = PlanToGoal.Result()

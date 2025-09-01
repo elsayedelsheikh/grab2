@@ -68,7 +68,7 @@ services:
       - ./grab2_behavior_tree:/ros2_ws/src/grab2_behavior_tree:ro
       - ./grab2_controller:/ros2_ws/src/grab2_controller:ro
       - ./grab2_interfaces:/ros2_ws/src/grab2_interfaces:ro
-      - ./grab2_planner:/ros2_ws/src/grab2_planner:ro
+      - ./grab2_curobo_planner:/ros2_ws/src/grab2_curobo_planner:ro
       - ./.colcon/build/:/ros2_ws/build/:rw
       - ./.colcon/install/:/ros2_ws/install/:rw
       - ./.colcon/log/:/ros2_ws/log/:rw

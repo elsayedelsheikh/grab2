@@ -15,6 +15,7 @@
     <!-- arm -->
     <!-- <Modified from filename="$(find ur_description)/urdf/ur.urdf.xacro"/> -->
     <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+    <!-- In ROS2 Humble, Add (generate_ros2_control_tag="false") to the following macro -->
     <xacro:ur_robot
         name="$(arg name)"
         tf_prefix=""
@@ -23,7 +24,6 @@
         kinematics_parameters_file="$(arg kinematics_params)"
         physical_parameters_file="$(arg physical_params)"
         visual_parameters_file="$(arg visual_params)"
-        generate_ros2_control_tag="false"
         >
         <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
     </xacro:ur_robot>
