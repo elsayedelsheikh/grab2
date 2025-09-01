@@ -1,20 +1,20 @@
 from functools import wraps
-from typing import List, Dict
+from typing import Dict, List
 
-import torch
-import numpy as np
-from curobo.types.math import Pose
-from curobo.geom.types import Cuboid
-from curobo.types.robot import JointState
-from curobo.types.base import TensorDeviceType
 from curobo.geom.sdf.world import CollisionCheckerType
+from curobo.geom.types import Cuboid
+from curobo.types.base import TensorDeviceType
+from curobo.types.math import Pose
+from curobo.types.robot import JointState
 from curobo.wrap.reacher.motion_gen import MotionGen, MotionGenConfig
+import numpy as np
+import torch
 
 
 def requires_warmup(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
-        if not getattr(self, "_warmed_up", False):
+        if not getattr(self, '_warmed_up', False):
             raise RuntimeError(
                 f"Cannot call '{func.__name__}' before calling warmup()."
             )
@@ -28,12 +28,12 @@ class CuRoboMotionGen:
 
     def __init__(
         self,
-        robot_config="franka.yml",
-        world_config="collision_table.yml",
+        robot_config='franka.yml',
+        world_config='collision_table.yml',
         interpolation_dt=0.02,
         collision_activation_distance=0.02,
     ):
-        self.tensor_args = TensorDeviceType(device=torch.device("cuda:0"))
+        self.tensor_args = TensorDeviceType(device=torch.device('cuda:0'))
         motion_gen_cfg = MotionGenConfig.load_from_robot_config(
             robot_config,
             world_config,
@@ -72,7 +72,7 @@ class CuRoboMotionGen:
     def get_world_collision_voxels(self):
         voxels = self.world_collision.get_occupancy_in_bounding_box(
             Cuboid(
-                name="test",
+                name='test',
                 pose=[0.0, 0.0, 0.0, 1, 0, 0, 0],  # x, y, z, qw, qx, qy, qz
                 dims=[2.0, 2.0, 2.0],
             ),
