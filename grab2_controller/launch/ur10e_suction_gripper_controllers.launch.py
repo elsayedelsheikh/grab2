@@ -1,8 +1,9 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.conditions import LaunchConfigurationEquals
+from launch.conditions import IfCondition
 from launch.substitutions import (
     Command,
+    EqualsSubstitution,
     FindExecutable,
     LaunchConfiguration,
     PathJoinSubstitution,
@@ -129,7 +130,9 @@ def generate_launch_description():
             'world',
             'base_link',
         ],
-        condition=LaunchConfigurationEquals('world', 'toybox'),
+        condition=IfCondition(
+            EqualsSubstitution(LaunchConfiguration('world'), 'toybox')
+        ),
     )
 
     world2robot_tf_table = Node(
@@ -147,7 +150,9 @@ def generate_launch_description():
             'world',
             'base_link',
         ],
-        condition=LaunchConfigurationEquals('world', 'table'),
+        condition=IfCondition(
+            EqualsSubstitution(LaunchConfiguration('world'), 'table')
+        ),
     )
 
     return LaunchDescription(
