@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    name: build-against-${{ matrix.ros-distro }}
+    name: build-and-test-against-${{ matrix.ros-distro }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
