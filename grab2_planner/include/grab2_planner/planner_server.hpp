@@ -6,9 +6,15 @@
 #include <string>
 #include <memory>
 
+#include "rclcpp/version.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
+
+#if RCLCPP_VERSION_GTE(28, 0, 0)
 #include "moveit/move_group_interface/move_group_interface.hpp"
+#else
+#include "moveit/move_group_interface/move_group_interface.h"
+#endif
 
 #include "geometry_msgs/msg/pose.hpp"
 #include "grab2_msgs/action/compute_plan_to_pose.hpp"
