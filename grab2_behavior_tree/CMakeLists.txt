@@ -19,7 +19,7 @@ find_package(vision_msgs REQUIRED)
 find_package(vision_msgs_rviz_plugins REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
-find_package(grab2_interfaces REQUIRED)
+find_package(grab2_msgs REQUIRED)
 find_package(behaviortree_cpp REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
 
@@ -37,7 +37,7 @@ set(THIS_PACK_DEPS
   trajectory_msgs
   ament_index_cpp
   control_msgs
-  grab2_interfaces
+  grab2_msgs
   behaviortree_cpp
   behaviortree_ros2
 )

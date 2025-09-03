@@ -9,14 +9,14 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "trajectory_msgs/msg/joint_trajectory.hpp"
-#include "grab2_interfaces/action/plan_to_goal.hpp"
+#include "grab2_msgs/action/compute_plan_to_pose.hpp"
 
 #include "grab2_behavior_tree/utils.hpp"
 
 namespace grab2_behavior_tree
 {
 
-using PlanToGoal = grab2_interfaces::action::PlanToGoal;
+using PlanToGoal = grab2_msgs::action::ComputePlanToPose;
 
 class Plan : public BT::RosActionNode<PlanToGoal>
 {

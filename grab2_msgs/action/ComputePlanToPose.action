@@ -1,6 +1,6 @@
 #Goal Definition
 std_msgs/Header header
-geometry_msgs/PoseStamped goal_pose
+geometry_msgs/PoseStamped goal
 float64 interpolation_dt  0.1 # Optional (Seconds): used while forming trajectory msg
 ---
 #Result Definition: modified copy of control_msgs/action/FollowJointTrajectory
