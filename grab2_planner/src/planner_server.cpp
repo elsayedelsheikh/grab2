@@ -1,3 +1,5 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #include "grab2_planner/planner_server.hpp"
 
 namespace grab2_planner
@@ -25,7 +27,7 @@ void
 PlannerServer::initialize()
 {
   if (!initialized_) {
-    // Get planning group from paramters
+    // Get planning group from parameters
     this->get_parameter_or("planning_group", planning_group_, std::string("panda_arm"));
 
     // Create MoveGroupInterface
@@ -83,7 +85,7 @@ void PlannerServer::computePlanThroughPoses(
     initialize();
   }
 
-  // TODO: Implement your planning logic here
+  // TODO(ElSayed): Implement your planning logic here
   // Example:
   // - Use move_group_interface_ to plan through goal->target_poses
   // - Fill result->trajectory

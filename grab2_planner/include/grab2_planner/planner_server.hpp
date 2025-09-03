@@ -1,5 +1,10 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #ifndef GRAB2_PLANNER__PLANNER_SERVER_HPP_
 #define GRAB2_PLANNER__PLANNER_SERVER_HPP_
+
+#include <string>
+#include <memory>
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
@@ -51,36 +56,34 @@ protected:
 
   template<typename ActionT>
   typename rclcpp_action::Server<ActionT>::SharedPtr create_action_server(
-    const std::string& name,
+    const std::string & name,
     ExecuteCallback<ActionT> execute_callback)
   {
-    using namespace std::placeholders;
-
     auto handle_goal = [this, name](
       const rclcpp_action::GoalUUID & uuid,
       std::shared_ptr<const typename ActionT::Goal> goal) -> rclcpp_action::GoalResponse
-    {
-      (void)uuid;
-      (void)goal;
-      RCLCPP_INFO(this->get_logger(), "Received goal request for %s", name.c_str());
-      return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
-    };
+      {
+        (void)uuid;
+        (void)goal;
+        RCLCPP_INFO(this->get_logger(), "Received goal request for %s", name.c_str());
+        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+      };
 
     auto handle_cancel = [this, name](
       const std::shared_ptr<GoalHandle<ActionT>> goal_handle) -> rclcpp_action::CancelResponse
-    {
-      (void)goal_handle;
-      RCLCPP_INFO(this->get_logger(), "Received request to cancel goal for %s", name.c_str());
-      return rclcpp_action::CancelResponse::ACCEPT;
-    };
+      {
+        (void)goal_handle;
+        RCLCPP_INFO(this->get_logger(), "Received request to cancel goal for %s", name.c_str());
+        return rclcpp_action::CancelResponse::ACCEPT;
+      };
 
     auto handle_accepted = [this, execute_callback](
       const std::shared_ptr<GoalHandle<ActionT>> goal_handle)
-    {
-      std::thread{[execute_callback, goal_handle]() {
-        execute_callback(goal_handle);
-      }}.detach();
-    };
+      {
+        std::thread{[execute_callback, goal_handle]() {
+            execute_callback(goal_handle);
+          }}.detach();
+      };
 
     return rclcpp_action::create_server<ActionT>(
       this->get_node_base_interface(),
@@ -109,7 +112,6 @@ protected:
   //   RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
   //   return rclcpp_action::CancelResponse::ACCEPT;
   // }
-
 };
 
 }  // namespace grab2_planner

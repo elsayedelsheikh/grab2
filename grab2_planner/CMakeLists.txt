@@ -31,10 +31,10 @@ set(executable_name planner_server)
 set(library_name ${executable_name}_core)
 
 add_library(${library_name} SHARED
- src/planner_server.cpp
+  src/planner_server.cpp
 )
 
-target_include_directories(${library_name} 
+target_include_directories(${library_name}
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
@@ -90,7 +90,7 @@ target_link_libraries(${executable_name} PRIVATE ${library_name} rclcpp::rclcpp)
 
 # TODO: Register as ROS2 Component
 # rclcpp_components_register_node(${library_name}
-#   PLUGIN "grab2_planner::PlannerServer" 
+#   PLUGIN "grab2_planner::PlannerServer"
 # )
 
 install(
@@ -112,7 +112,7 @@ install(
 
 install(
   DIRECTORY launch config
-  DESTINATION share/${PROJECT_NAME} 
+  DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
