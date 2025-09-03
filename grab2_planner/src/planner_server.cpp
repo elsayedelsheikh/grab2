@@ -63,7 +63,13 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
   auto const success = static_cast<bool>(move_group_interface_->plan(plan_msg));
 
   if(success) {
+    // For Jazzy and Later Support
+    #if RCLCPP_VERSION_GTE(28, 0, 0)
     result->trajectory = plan_msg.trajectory.joint_trajectory;
+    #else
+    result->trajectory = plan_msg.trajectory_.joint_trajectory;
+    #endif
+
     goal_handle->succeed(result);
   } else {
     result->error_string = "Failed to plan";
