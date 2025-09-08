@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4" main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <KeepRunningUntilFailure> 
+    <KeepRunningUntilFailure>
       <Sequence>
         <SubTree ID="GoToHomePose"/>
         <ReactiveFallback>
@@ -17,7 +17,7 @@
         <SubTree ID="PickToy" pre="{pregrasp_pose}" item="{grasp_pose}"/>
         <SubTree ID="DropIntoToyBox"/>
       </Sequence>
-    </KeepRunningUntilFailure> 
+    </KeepRunningUntilFailure>
   </BehaviorTree>
 
   <BehaviorTree ID="LookAround">

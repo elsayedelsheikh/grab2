@@ -78,7 +78,7 @@
                   <param name="initial_value">0.0</param>
                 </state_interface>
             </joint>
-      
+
             <!-- Gripper -->
             <joint name="panda_finger_joint1">
                 <command_interface name="position" />
