@@ -30,8 +30,8 @@ Supported Motion Planners
 -------------------------
 
 * Moveit2
-* NVIDIA cuRobo 
-  
+* NVIDIA cuRobo
+
 Supported Simulators
 -------------------------
 
