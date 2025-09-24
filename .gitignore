@@ -1,5 +1,10 @@
-BehaviorTree.ROS2/
 **/__pycache__/
 .hypothesis/*
-.colcon/
 .thumbs/
+
+.colcon/
+BehaviorTree.ROS2/
+
+# Sphinx documentation
+docs/build/
+docs/venv/
