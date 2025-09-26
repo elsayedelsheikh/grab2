@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Set ROS 2 distribution and RMW implementation
+export ROS_DISTRO=jazzy
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
 # Set possible Isaac Sim paths
 ISAAC_SIM_PATHS=("$HOME/isaacsim" "/isaac-sim")
 
@@ -15,6 +19,8 @@ done
 # Look for a valid Isaac Sim installation
 for ISAAC_SIM_PATH in "${ISAAC_SIM_PATHS[@]}"; do
     if [[ -f "$ISAAC_SIM_PATH/python.sh" ]]; then
+        # Export LD_LIBRARY_PATH for ROS 2 bridge using Isaac Sim internal libraries
+        export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISAAC_SIM_PATH/exts/isaacsim.ros2.bridge/$ROS_DISTRO/lib
         "$ISAAC_SIM_PATH/python.sh" $NEW_ARGS
         exit 0
     fi

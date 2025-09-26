@@ -44,17 +44,12 @@ from pxr import Sdf, Gf, UsdGeom, UsdShade  # noqa E402  isort: skip
 extensions.enable_extension('isaacsim.ros2.bridge')
 extensions.enable_extension('isaacsim.core.nodes')
 
-# Action Graphs
-import omni.graph.core as og  # noqa E402  isort: skip
-from isaacsim.ros2.bridge.scripts.og_shortcuts.og_rtx_sensors import (  # noqa E402  isort: skip
-    Ros2CameraGraph,
-)
-from isaacsim.ros2.bridge.scripts.og_shortcuts.og_utils import (  # noqa E402  isort: skip
-    Ros2JointStatesGraph,
-    Ros2TfPubGraph,
-)
-
 simulation_context = SimulationContext(stage_units_in_meters=1.0)
+
+# Action Graphs
+# Add current directory to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from util import helpers  # noqa E402  isort: skip
 
 # Setup Stage
 # Locate Isaac Sim assets directory to load robot
@@ -128,94 +123,21 @@ for car_name, color in cars.items():
 simulation_app.update()
 
 # Camera
-# Fix camera settings since the defaults in the realsense model are inaccurate
-realsense_prim = UsdGeom.Camera(stage.get_current_stage().GetPrimAtPath(CAMERA_PRIM))
-realsense_prim.GetHorizontalApertureAttr().Set(20.955)
-realsense_prim.GetVerticalApertureAttr().Set(15.7)
-realsense_prim.GetFocalLengthAttr().Set(18.8)
-realsense_prim.GetFocusDistanceAttr().Set(400)
-
-# Create Camera Action Graph
-CAMERA_GRAPH_PATH = '/World/Graphs/Camera'
-camera_graph = Ros2CameraGraph()
-camera_graph._og_path = CAMERA_GRAPH_PATH
-camera_graph._camera_prim = CAMERA_PRIM
-camera_graph._frame_id = 'realsense_camera'
-
-# Topics
-camera_graph._node_namespace = 'eef_camera'
-camera_graph._rgb_topic = 'image_raw'
-camera_graph._depth_topic = 'image_depth'
-camera_graph._bbox3d_pub = True
-camera_graph.__bbox3d_topic = 'bbox3d'
-
-param_check = camera_graph._check_params()
-if param_check:
-    print('Creating Articualtion Graph')
-    camera_graph.make_graph()
-else:
-    carb.log_error('Check Articualtion Graph parameters')
-
-# Issue: Even though frameId is set to camera frame,
-# bbox3d array is published with respect to world
-# Change bbox3d frameId to world so that it appears correctly in rviz2
-BBOX3D_NODE_PATH = f'{CAMERA_GRAPH_PATH}/Bbox3dPublish'
-try:
-    frameid_attr = og.Controller.attribute(f'{BBOX3D_NODE_PATH}.inputs:frameId')
-    semantics_attr = og.Controller.attribute(
-        f'{BBOX3D_NODE_PATH}.inputs:enableSemanticLabels'
-    )
-    og.Controller.set(frameid_attr, 'world')
-    og.Controller.set(
-        semantics_attr, False
-    )  # Change this if you need semantics published
-except Exception as e:
-    print('Error accessing attribute:', e)
-
-simulation_app.update()
+# helpers.create_camera_graph(CAMERA_PRIM, bbox3d_pub=True)
+# simulation_app.update()
 
 # Create Tf Action Graph
 # You can add any prim_path to the following list to publish their tf with respect to /World
-tf_target_prims = [
-    CAMERA_PRIM,
-]
-
-TF_GRAPH_PATH = '/World/Graphs/Transforms'
-tf_graph = Ros2TfPubGraph()
-tf_graph._og_path = TF_GRAPH_PATH
-
-param_check = tf_graph._check_params()
-if param_check:
-    print('Creating Transforms Graph')
-    tf_graph.make_graph()
-else:
-    carb.log_error('Check Transforms Graph parameters')
-
-set_target_prims(
-    primPath=TF_GRAPH_PATH + '/PublisherTF',
-    inputName='inputs:targetPrims',
-    targetPrimPaths=tf_target_prims,
-)
-
-simulation_app.update()
+# tf_target_prims = [
+#     CAMERA_PRIM,
+# ]
+# helpers.create_tf_graph(tf_target_prims)
+# simulation_app.update()
 
 # Create Articulation Action Graph
-robot_graph = Ros2JointStatesGraph()
-robot_graph._og_path = '/World/Graphs/Articulation'
-robot_graph._art_root_path = ROBOT_PRIM
-robot_graph._publisher = True
-robot_graph._pub_topic = 'isaac_joint_states'
-robot_graph._subscriber = True
-robot_graph._sub_topic = 'isaac_joint_commands'
-
-param_check = robot_graph._check_params()
-if param_check:
-    print('Creating Articualtion Graph')
-    robot_graph.make_graph()
-else:
-    carb.log_error('Check Articualtion Graph parameters')
-
+helpers.create_js_graph(ROBOT_PRIM)
 simulation_app.update()
+
 simulation_context.play()
 
 # Simulation Loop

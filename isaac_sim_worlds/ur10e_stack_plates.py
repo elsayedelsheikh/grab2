@@ -44,16 +44,11 @@ from isaacsim.core.prims import XFormPrim  # noqa E402  isort: skip
 extensions.enable_extension('isaacsim.ros2.bridge')
 extensions.enable_extension('isaacsim.core.nodes')
 
-# Action Graphs
-from isaacsim.ros2.bridge.scripts.og_shortcuts.og_rtx_sensors import (  # noqa E402  isort: skip
-    Ros2CameraGraph,
-)
-from isaacsim.ros2.bridge.scripts.og_shortcuts.og_utils import (  # noqa E402  isort: skip
-    Ros2JointStatesGraph,
-    Ros2TfPubGraph,
-)
-
 simulation_context = SimulationContext(stage_units_in_meters=1.0)
+
+# Add current directory to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from util import helpers  # noqa E402  isort: skip
 
 # Locate Isaac Sim assets folder to load environment and robot stages
 nvidia_assets_root_path = get_assets_root_path()
@@ -104,74 +99,18 @@ objects_view.set_world_poses(
 simulation_app.update()
 
 # Camera
-# Fix camera settings
-# camera_prim = UsdGeom.Camera(stage.get_current_stage().GetPrimAtPath(CAMERA_PRIM))
-# camera_prim.GetHorizontalApertureAttr().Set(20.955)
-# camera_prim.GetVerticalApertureAttr().Set(15.7)
-# camera_prim.GetFocalLengthAttr().Set(18.8)
-# camera_prim.GetFocusDistanceAttr().Set(400)
-
-# # Create Camera Action Graph
-# CAMERA_GRAPH_PATH = '/World/Graphs/Camera'
-# camera_graph = Ros2CameraGraph()
-# camera_graph._og_path = CAMERA_GRAPH_PATH
-# camera_graph._camera_prim = CAMERA_PRIM
-# camera_graph._frame_id = 'realsense_camera'
-
-# # Topics
-# camera_graph._node_namespace = 'eef_camera'
-# camera_graph._rgb_topic = 'image_raw'
-# camera_graph._depth_topic = 'image_depth'
-
-# param_check = camera_graph._check_params()
-# if param_check:
-#     print('Creating Articualtion Graph')
-#     camera_graph.make_graph()
-# else:
-#     carb.log_error('Check Articualtion Graph parameters')
-
-# simulation_app.update()
+helpers.create_camera_graph(CAMERA_PRIM)
+simulation_app.update()
 
 # Create Tf Action Graph
-# You can add any prim_path to the following list to publish their tf with respect to /World
-# tf_target_prims = [
-#     CAMERA_PRIM,
-# ]
-
-# TF_GRAPH_PATH = '/World/Graphs/Transforms'
-# tf_graph = Ros2TfPubGraph()
-# tf_graph._og_path = TF_GRAPH_PATH
-
-# param_check = tf_graph._check_params()
-# if param_check:
-#     print('Creating Transforms Graph')
-#     tf_graph.make_graph()
-# else:
-#     carb.log_error('Check Transforms Graph parameters')
-
-# set_target_prims(
-#     primPath=TF_GRAPH_PATH + '/PublisherTF',
-#     inputName='inputs:targetPrims',
-#     targetPrimPaths=tf_target_prims,
-# )
-
-# simulation_app.update()
+tf_target_prims = [
+    CAMERA_PRIM,
+]
+helpers.create_tf_graph(tf_target_prims)
+simulation_app.update()
 
 # Create Articulation Action Graph
-robot_graph = Ros2JointStatesGraph()
-robot_graph._og_path = '/World/Graphs/Articulation'
-robot_graph._art_root_path = ROBOT_PRIM + '/root_joint'
-robot_graph._publisher = True
-robot_graph._pub_topic = 'isaac_joint_states'
-robot_graph._subscriber = True
-robot_graph._sub_topic = 'isaac_joint_commands'
-
-param_check = robot_graph._check_params()
-if param_check:
-    print('Creating Articualtion Graph')
-    robot_graph.make_graph()
-else:
-    carb.log_error('Check Articualtion Graph parameters')
+helpers.create_js_graph(ROBOT_PRIM)
 simulation_app.update()
 
 simulation_context.play()
