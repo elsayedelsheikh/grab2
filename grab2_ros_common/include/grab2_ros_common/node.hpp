@@ -1,5 +1,10 @@
+// Copyright (c) 2025, ElSayed ElSheikh
+
 #ifndef GRAB2_ROS_COMMON__NODE_HPP_
 #define GRAB2_ROS_COMMON__NODE_HPP_
+
+#include <string>
+#include <memory>
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
