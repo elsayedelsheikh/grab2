@@ -55,7 +55,6 @@ private:
   rclcpp_action::Server<ActionToPose>::SharedPtr action_server_pose_;
   rclcpp_action::Server<ActionThroughPoses>::SharedPtr action_server_poses_;
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
-
 };
 
 }  // namespace grab2_planner
