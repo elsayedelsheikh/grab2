@@ -15,6 +15,7 @@
   <depend>geometry_msgs</depend>
   <depend>moveit_msgs</depend>
   <depend>grab2_msgs</depend>
+  <depend>grab2_ros_common</depend>
   <depend>tf2_ros</depend>
   <depend>yaml-cpp</depend>
 
