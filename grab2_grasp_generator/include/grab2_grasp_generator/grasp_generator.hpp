@@ -4,6 +4,9 @@
 #define GRAB2_GRASP_GENERATOR__GRASP_GENERATOR_HPP_
 
 #include <memory>
+#include <vector>
+#include <string>
+#include <filesystem>
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"

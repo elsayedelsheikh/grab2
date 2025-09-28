@@ -2,13 +2,9 @@
 
 #include "grab2_grasp_generator/grasp_generator.hpp"
 
-#include <filesystem>
-#include <string>
-
-#include "trajectory_msgs/msg/joint_trajectory.hpp"
-
 #include "tf2/LinearMath/Transform.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
+#include "trajectory_msgs/msg/joint_trajectory.hpp"
 
 #include "yaml-cpp/yaml.h"
 #include "ament_index_cpp/get_package_share_directory.hpp"
@@ -37,8 +33,8 @@ GraspGenerator::parseYAML(const std::string & file_path, GraspVectorPtr object_t
   try {
     RCLCPP_DEBUG(this->get_logger(), "Parsing YAML: %s", file_path.c_str());
 
-    // TODO(sayed): Gripper frame - This should be used to check if we're dealing with the right gripper or not
-    // auto isaac_grip_frame = config["gripper_frame_link"].as<std::string>(); // Expected /World/panda_hand
+    // TODO(sayed): Gripper frame - This should be used to check if this is the right gripper
+    // auto isaac_grip_frame = config["gripper_frame_link"].as<std::string>();
     // size_t pos = isaac_grip_frame.find_last_of('/');
     // std::string grip_frame;
     // if (pos != std::string::npos) {
@@ -147,9 +143,8 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
     return;
   }
 
-  // Process grasps: Transform them into the same frame as the detected object (world_to_object.header.frame_id)
-  for (auto object_to_gripper_grasp: * object_to_gripper_grasps)
-  {
+  // Transform grasps into the same frame as the detected object (world_to_object.header.frame_id)
+  for (auto object_to_gripper_grasp : *object_to_gripper_grasps) {
     auto object_to_gripper = object_to_gripper_grasp.grasp_pose.pose;
 
     // Get Target Gripper pose in World frame
@@ -168,7 +163,7 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   }
 
   // Return result
-  if (object_to_gripper_grasps && !object_to_gripper_grasps->empty()){
+  if (object_to_gripper_grasps && !object_to_gripper_grasps->empty()) {
     result->grasps = std::move(*object_to_gripper_grasps);
     object_to_gripper_grasps.reset();
   } else {
