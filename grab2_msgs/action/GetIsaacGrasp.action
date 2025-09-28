@@ -1,0 +1,13 @@
+# Goal Definition
+
+# Object Pose
+geometry_msgs/PoseStamped object_pose
+
+# Path to the isaac_grasp YAML file
+string isaac_grasp
+---
+# Result Definition
+
+# All grasps
+moveit_msgs/Grasp[] grasps
+---
