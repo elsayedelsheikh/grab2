@@ -84,7 +84,14 @@ install(
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  find_package(ament_cmake_gtest REQUIRED)
+
+  # the following line skips the linter which checks for copyrights
+  set(ament_cmake_copyright_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  ament_find_gtest()
+  add_subdirectory(test)
 endif()
 
 ament_export_include_directories(
