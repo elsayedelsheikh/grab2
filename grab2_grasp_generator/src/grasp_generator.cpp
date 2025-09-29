@@ -12,8 +12,8 @@
 namespace grab2_grasp_generator
 {
 
-GraspGenerator::GraspGenerator()
-: Node("grasp_generator")
+GraspGenerator::GraspGenerator(const rclcpp::NodeOptions & options)
+: Node("grasp_generator", options)
 {
   this->action_server_get_grasp_ = create_action_server<ActionGetGrasp>(
     "get_isaac_grasp",
@@ -144,7 +144,7 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   }
 
   // Transform grasps into the same frame as the detected object (world_to_object.header.frame_id)
-  for (auto object_to_gripper_grasp : *object_to_gripper_grasps) {
+  for (auto & object_to_gripper_grasp : *object_to_gripper_grasps) {
     auto object_to_gripper = object_to_gripper_grasp.grasp_pose.pose;
 
     // Get Target Gripper pose in World frame
@@ -155,17 +155,37 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
     // Target Gripper pose
     tf2::Transform tf_world_to_gripper = tf_world_to_object * tf_object_to_gripper;
 
-    geometry_msgs::msg::PoseStamped grasp_pose;
-    grasp_pose.header.frame_id = world_to_object.header.frame_id;
-    tf2::toMsg(tf_world_to_gripper, grasp_pose.pose);
+    geometry_msgs::msg::PoseStamped target_grasp_pose;
+    target_grasp_pose.header.frame_id = world_to_object.header.frame_id;
+    tf2::toMsg(tf_world_to_gripper, target_grasp_pose.pose);
 
-    object_to_gripper_grasp.grasp_pose = grasp_pose;
+    object_to_gripper_grasp.grasp_pose = target_grasp_pose;
+    RCLCPP_DEBUG(this->get_logger(), "Grasp ID: %s", object_to_gripper_grasp.id.c_str());
+    RCLCPP_DEBUG(this->get_logger(),
+      "Grasp in object frame Pos: [%.3f, %.3f, %.3f]",
+      object_to_gripper.position.x, object_to_gripper.position.y, object_to_gripper.position.z
+    );
+    RCLCPP_DEBUG(this->get_logger(),
+      "Grasp in world frame Pos: [%.3f, %.3f, %.3f]",
+      target_grasp_pose.pose.position.x,
+      target_grasp_pose.pose.position.y,
+      target_grasp_pose.pose.position.z
+    );
   }
 
   // Return result
   if (object_to_gripper_grasps && !object_to_gripper_grasps->empty()) {
     result->grasps = std::move(*object_to_gripper_grasps);
     object_to_gripper_grasps.reset();
+    for (const auto & grasp : result->grasps) {
+      RCLCPP_DEBUG(this->get_logger(), "Returning Grasp ID: %s", grasp.id.c_str());
+      RCLCPP_DEBUG(this->get_logger(),
+        "Return Grasp Pos: [%.3f, %.3f, %.3f]",
+        grasp.grasp_pose.pose.position.x,
+        grasp.grasp_pose.pose.position.y,
+        grasp.grasp_pose.pose.position.z
+      );
+    }
   } else {
     goal_handle->abort(result);
     return;
