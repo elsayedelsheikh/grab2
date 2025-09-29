@@ -33,13 +33,13 @@ target_include_directories(${library_name} PUBLIC
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 
 target_link_libraries(${library_name} PUBLIC
+  yaml-cpp
   rclcpp::rclcpp
   rclcpp_action::rclcpp_action
   grab2_ros_common::grab2_ros_common
   tf2::tf2
   tf2_ros::tf2_ros
   ${tf2_geometry_msgs_TARGETS}
-  yaml-cpp::yaml-cpp
   ament_index_cpp::ament_index_cpp
   ${std_msgs_TARGETS}
   ${control_msgs_TARGETS}
