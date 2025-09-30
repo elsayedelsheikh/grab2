@@ -35,4 +35,3 @@ jobs:
         with:
           target-ros2-distro: ${{ matrix.ros-distro }}
           vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
-          skip-tests: true
