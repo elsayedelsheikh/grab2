@@ -88,6 +88,9 @@ if(BUILD_TESTING)
 
   # the following line skips the linter which checks for copyrights
   set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips linters
+  # set(ament_cmake_cpplint_FOUND TRUE)
+  # set(ament_cmake_uncrustify_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 
   ament_find_gtest()
