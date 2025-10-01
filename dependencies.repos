@@ -3,8 +3,8 @@
 repositories:
   BehaviorTree.ROS2:
     type: git
-    url: https://github.com/BehaviorTree/BehaviorTree.ROS2.git
-    version: humble
+    url: https://github.com/elsayedelsheikh/BehaviorTree.ROS2.git
+    version: deprecate_ament_target_deps
   topic_based_ros2_control:
     type: git
     url: https://github.com/PickNikRobotics/topic_based_ros2_control.git
