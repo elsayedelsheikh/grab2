@@ -152,13 +152,13 @@ GraspGenerator::parseYAML(const std::string & file_path)
 
     const YAML::Node & yaml_grasps = config["grasps"];
 
-    for (auto it = yaml_grasps.begin(); it != yaml_grasps.end(); ++it) {
+    for (auto grasp_it = yaml_grasps.begin(); grasp_it != yaml_grasps.end(); ++grasp_it) {
       // Construct Grasp Message
       moveit_msgs::msg::Grasp grasp_msg;
 
       // Grasp id
-      grasp_msg.id = it->first.as<std::string>();
-      const YAML::Node & grasp = it->second;
+      grasp_msg.id = grasp_it->first.as<std::string>();
+      const YAML::Node & grasp = grasp_it->second;
 
       // Grasp quality or/ confidence
       grasp_msg.grasp_quality = grasp["confidence"].as<double>();
@@ -178,12 +178,12 @@ GraspGenerator::parseYAML(const std::string & file_path)
       grasp_msg.grasp_pose.pose.orientation.w = w;
 
       const YAML::Node & grasp_cspace_pos = grasp["cspace_position"];
-      for (auto it = grasp_cspace_pos.begin(); it != grasp_cspace_pos.end(); ++it) {
+      for (auto j_it = grasp_cspace_pos.begin(); j_it != grasp_cspace_pos.end(); ++j_it) {
         trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(it->first.as<std::string>());
+        jt.joint_names.push_back(j_it->first.as<std::string>());
 
         trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(it->second.as<double>());
+        pt.positions.push_back(j_it->second.as<double>());
         pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
 
         jt.points.push_back(pt);
@@ -191,12 +191,12 @@ GraspGenerator::parseYAML(const std::string & file_path)
       }
 
       const YAML::Node & pregrasp_cspace_pos = grasp["pregrasp_cspace_position"];
-      for (auto it = pregrasp_cspace_pos.begin(); it != pregrasp_cspace_pos.end(); ++it) {
+      for (auto j_it = pregrasp_cspace_pos.begin(); j_it != pregrasp_cspace_pos.end(); ++j_it) {
         trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(it->first.as<std::string>());
+        jt.joint_names.push_back(j_it->first.as<std::string>());
 
         trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(it->second.as<double>());
+        pt.positions.push_back(j_it->second.as<double>());
         pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
 
         jt.points.push_back(pt);
