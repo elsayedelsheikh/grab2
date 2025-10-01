@@ -16,6 +16,8 @@ jobs:
       matrix:
         include:
           - os: [ubuntu-24.04]
+            ros-distro: "rolling"
+          - os: [ubuntu-24.04]
             ros-distro: "kilted"
           - os: [ubuntu-24.04]
             ros-distro: "jazzy"
