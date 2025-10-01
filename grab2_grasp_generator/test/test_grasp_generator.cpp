@@ -249,32 +249,6 @@ TEST_F(GraspGeneratorTestFixture, testTransformGraspFrameRotation)
   EXPECT_NEAR(grasp.grasp_pose.pose.position.z, 0.0, 1e-5);
 }
 
-TEST_F(GraspGeneratorTestFixture, testParseYAMLJointTrajectories)
-{
-  std::string yaml_content = createValidGraspYAML();
-  std::string filename = "test_joints.yaml";
-  createTestYAMLFile(filename, yaml_content);
-
-  auto grasps_opt = node_->parseYAML((test_dir_ / filename).string());
-
-  ASSERT_TRUE(grasps_opt.has_value());
-  auto grasps = grasps_opt.value();
-
-  ASSERT_EQ(grasps.size(), 2u);
-
-  // Check grasp posture
-  ASSERT_EQ(grasps[0].grasp_posture.joint_names.size(), 1u);
-  EXPECT_EQ(grasps[0].grasp_posture.joint_names[0], "panda_finger_joint1");
-  ASSERT_EQ(grasps[0].grasp_posture.points.size(), 1u);
-  EXPECT_DOUBLE_EQ(grasps[0].grasp_posture.points[0].positions[0], 0.001);
-
-  // Check pre-grasp posture
-  ASSERT_EQ(grasps[0].pre_grasp_posture.joint_names.size(), 1u);
-  EXPECT_EQ(grasps[0].pre_grasp_posture.joint_names[0], "panda_finger_joint1");
-  ASSERT_EQ(grasps[0].pre_grasp_posture.points.size(), 1u);
-  EXPECT_DOUBLE_EQ(grasps[0].pre_grasp_posture.points[0].positions[0], 0.04);
-}
-
 TEST_F(GraspGeneratorTestFixture, testParseMultipleGraspsWithQualities)
 {
   std::string yaml_content =

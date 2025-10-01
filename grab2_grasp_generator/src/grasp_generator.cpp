@@ -177,32 +177,6 @@ GraspGenerator::parseYAML(const std::string & file_path)
       grasp_msg.grasp_pose.pose.orientation.z = xyz[2];
       grasp_msg.grasp_pose.pose.orientation.w = w;
 
-      const YAML::Node & grasp_cspace_pos = grasp["cspace_position"];
-      for (auto j_it = grasp_cspace_pos.begin(); j_it != grasp_cspace_pos.end(); ++j_it) {
-        trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(j_it->first.as<std::string>());
-
-        trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(j_it->second.as<double>());
-        pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
-
-        jt.points.push_back(pt);
-        grasp_msg.grasp_posture = jt;
-      }
-
-      const YAML::Node & pregrasp_cspace_pos = grasp["pregrasp_cspace_position"];
-      for (auto j_it = pregrasp_cspace_pos.begin(); j_it != pregrasp_cspace_pos.end(); ++j_it) {
-        trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(j_it->first.as<std::string>());
-
-        trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(j_it->second.as<double>());
-        pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
-
-        jt.points.push_back(pt);
-        grasp_msg.pre_grasp_posture = jt;
-      }
-
       // Add the grasp to the vector
       grasps.push_back(grasp_msg);
     }
