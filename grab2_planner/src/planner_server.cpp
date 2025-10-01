@@ -33,12 +33,14 @@ PlannerServer::initialize()
     // Create MoveGroupInterface
     move_group_interface_ =
       std::make_unique<moveit::planning_interface::MoveGroupInterface>(
-        this->shared_from_this(),
-        planning_group_);
+      this->shared_from_this(),
+      planning_group_);
 
     initialized_ = true;
-    RCLCPP_INFO(this->get_logger(), "PlannerServer initialized with planning group: %s",
-                planning_group_.c_str());
+    RCLCPP_INFO(
+      this->get_logger(),
+      "PlannerServer initialized with planning group: %s",
+      planning_group_.c_str());
   }
 }
 
@@ -62,7 +64,7 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
 
   auto const success = static_cast<bool>(move_group_interface_->plan(plan_msg));
 
-  if(success) {
+  if (success) {
     // For Jazzy and Later Support
     #if RCLCPP_VERSION_GTE(28, 0, 0)
     result->trajectory = plan_msg.trajectory.joint_trajectory;

@@ -53,7 +53,8 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   }
 
   // Parse YAML file
-  RCLCPP_INFO(this->get_logger(), "Loading grasps from: %s",
+  RCLCPP_INFO(
+    this->get_logger(), "Loading grasps from: %s",
     (filename + ".yaml").c_str());
 
   auto grasps_opt = parseYAML(file_path);
@@ -77,7 +78,8 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   RCLCPP_INFO(this->get_logger(), "Returning %zu grasps", result->grasps.size());
 
   for (const auto & grasp : result->grasps) {
-    RCLCPP_DEBUG(this->get_logger(),
+    RCLCPP_DEBUG(
+      this->get_logger(),
       "  Grasp '%s': [%.3f, %.3f, %.3f] quality=%.2f",
       grasp.id.c_str(),
       grasp.grasp_pose.pose.position.x,
@@ -98,7 +100,7 @@ GraspGenerator::transfromGraspFrame(
   const auto object_to_gripper = grasp.grasp_pose.pose;
 
   // Get Target Gripper pose in World frame
-  tf2::Transform  tf_world_to_object, tf_object_to_gripper;
+  tf2::Transform tf_world_to_object, tf_object_to_gripper;
   tf2::fromMsg(world_to_object.pose, tf_world_to_object);
   tf2::fromMsg(grasp.grasp_pose.pose, tf_object_to_gripper);
 
@@ -110,12 +112,14 @@ GraspGenerator::transfromGraspFrame(
   tf2::toMsg(tf_world_to_gripper, grasp.grasp_pose.pose);
 
   RCLCPP_DEBUG(this->get_logger(), "Grasp '%s' transformed:", grasp.id.c_str());
-  RCLCPP_DEBUG(this->get_logger(),
+  RCLCPP_DEBUG(
+    this->get_logger(),
     "  Object frame Pos: [%.3f, %.3f, %.3f]",
     object_to_gripper.position.x,
     object_to_gripper.position.y,
     object_to_gripper.position.z);
-  RCLCPP_DEBUG(this->get_logger(),
+  RCLCPP_DEBUG(
+    this->get_logger(),
     "  Reference/World frame Pos: [%.3f, %.3f, %.3f]",
     grasp.grasp_pose.pose.position.x,
     grasp.grasp_pose.pose.position.y,
@@ -202,7 +206,7 @@ GraspGenerator::parseYAML(const std::string & file_path)
       // Add the grasp to the vector
       grasps.push_back(grasp_msg);
     }
-  } catch(const YAML::Exception & e) {
+  } catch (const YAML::Exception & e) {
     RCLCPP_ERROR(this->get_logger(), "YAML error: %s", e.what());
     return std::nullopt;
   } catch (const std::exception & e) {
