@@ -60,9 +60,7 @@ protected:
       grasp_0:
         confidence: 0.95
         position: [0.1, 0.2, 0.3]
-        orientation:
-          w: 1.0
-          xyz: [0.0, 0.0, 0.0]
+        orientation: {w: 1.0, xyz: [0.0, 0.0, 0.0]}
         cspace_position:
           panda_finger_joint1: 0.001
         pregrasp_cspace_position:
@@ -70,9 +68,7 @@ protected:
       grasp_1:
         confidence: 0.85
         position: [0.15, 0.25, 0.35]
-        orientation:
-          w: 0.00332
-          xyz: [0.98453, 0.16837, 0.04837]
+        orientation: {w: 0.00332, xyz: [0.98453, 0.16837, 0.04837]}
         cspace_position:
           panda_finger_joint1: 0.01
         pregrasp_cspace_position:
