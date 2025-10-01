@@ -35,7 +35,7 @@ public:
   using GoalHandle = rclcpp_action::ServerGoalHandle<ActionT>;
 
   template<typename ActionT>
-  using ExecuteCallback = std::function<void(const std::shared_ptr<GoalHandle<ActionT>>)>;
+  using ExecuteCallback = std::function<void (const std::shared_ptr<GoalHandle<ActionT>>)>;
 
   template<typename ActionT>
   typename rclcpp_action::Server<ActionT>::SharedPtr create_action_server(

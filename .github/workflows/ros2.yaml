@@ -10,18 +10,21 @@ on:
 jobs:
   build-and-test:
     name: build-and-test-against-${{ matrix.ros-distro }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - docker-image: "ubuntu:24.04"
+          - os: [ubuntu-24.04]
+            ros-distro: "kilted"
+          - os: [ubuntu-24.04]
             ros-distro: "jazzy"
-          - docker-image: "ubuntu:22.04"
+          - os: [ubuntu-22.04]
             ros-distro: "humble"
-    container:
-      image: ${{ matrix.docker-image }}
     steps:
+      - name: Install yaml-cpp deps
+        run: sudo apt-get install -y libyaml-cpp-dev
+
       - name: Checkout
         uses: actions/checkout@v5
 
@@ -35,4 +38,9 @@ jobs:
         with:
           target-ros2-distro: ${{ matrix.ros-distro }}
           vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
-          skip-tests: true
+          colcon-defaults: |
+            {
+              "test": {
+                "parallel-workers" : 1
+              }
+            }

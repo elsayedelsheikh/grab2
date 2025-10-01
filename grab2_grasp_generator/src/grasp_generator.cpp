@@ -53,7 +53,8 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   }
 
   // Parse YAML file
-  RCLCPP_INFO(this->get_logger(), "Loading grasps from: %s",
+  RCLCPP_INFO(
+    this->get_logger(), "Loading grasps from: %s",
     (filename + ".yaml").c_str());
 
   auto grasps_opt = parseYAML(file_path);
@@ -77,7 +78,8 @@ GraspGenerator::getGraspFromYAML(const std::shared_ptr<GoalHandle<ActionGetGrasp
   RCLCPP_INFO(this->get_logger(), "Returning %zu grasps", result->grasps.size());
 
   for (const auto & grasp : result->grasps) {
-    RCLCPP_DEBUG(this->get_logger(),
+    RCLCPP_DEBUG(
+      this->get_logger(),
       "  Grasp '%s': [%.3f, %.3f, %.3f] quality=%.2f",
       grasp.id.c_str(),
       grasp.grasp_pose.pose.position.x,
@@ -98,7 +100,7 @@ GraspGenerator::transfromGraspFrame(
   const auto object_to_gripper = grasp.grasp_pose.pose;
 
   // Get Target Gripper pose in World frame
-  tf2::Transform  tf_world_to_object, tf_object_to_gripper;
+  tf2::Transform tf_world_to_object, tf_object_to_gripper;
   tf2::fromMsg(world_to_object.pose, tf_world_to_object);
   tf2::fromMsg(grasp.grasp_pose.pose, tf_object_to_gripper);
 
@@ -110,12 +112,14 @@ GraspGenerator::transfromGraspFrame(
   tf2::toMsg(tf_world_to_gripper, grasp.grasp_pose.pose);
 
   RCLCPP_DEBUG(this->get_logger(), "Grasp '%s' transformed:", grasp.id.c_str());
-  RCLCPP_DEBUG(this->get_logger(),
+  RCLCPP_DEBUG(
+    this->get_logger(),
     "  Object frame Pos: [%.3f, %.3f, %.3f]",
     object_to_gripper.position.x,
     object_to_gripper.position.y,
     object_to_gripper.position.z);
-  RCLCPP_DEBUG(this->get_logger(),
+  RCLCPP_DEBUG(
+    this->get_logger(),
     "  Reference/World frame Pos: [%.3f, %.3f, %.3f]",
     grasp.grasp_pose.pose.position.x,
     grasp.grasp_pose.pose.position.y,
@@ -148,13 +152,13 @@ GraspGenerator::parseYAML(const std::string & file_path)
 
     const YAML::Node & yaml_grasps = config["grasps"];
 
-    for (auto it = yaml_grasps.begin(); it != yaml_grasps.end(); ++it) {
+    for (auto grasp_it = yaml_grasps.begin(); grasp_it != yaml_grasps.end(); ++grasp_it) {
       // Construct Grasp Message
       moveit_msgs::msg::Grasp grasp_msg;
 
       // Grasp id
-      grasp_msg.id = it->first.as<std::string>();
-      const YAML::Node & grasp = it->second;
+      grasp_msg.id = grasp_it->first.as<std::string>();
+      const YAML::Node & grasp = grasp_it->second;
 
       // Grasp quality or/ confidence
       grasp_msg.grasp_quality = grasp["confidence"].as<double>();
@@ -173,36 +177,10 @@ GraspGenerator::parseYAML(const std::string & file_path)
       grasp_msg.grasp_pose.pose.orientation.z = xyz[2];
       grasp_msg.grasp_pose.pose.orientation.w = w;
 
-      const YAML::Node & grasp_cspace_pos = grasp["cspace_position"];
-      for (auto it = grasp_cspace_pos.begin(); it != grasp_cspace_pos.end(); ++it) {
-        trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(it->first.as<std::string>());
-
-        trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(it->second.as<double>());
-        pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
-
-        jt.points.push_back(pt);
-        grasp_msg.grasp_posture = jt;
-      }
-
-      const YAML::Node & pregrasp_cspace_pos = grasp["pregrasp_cspace_position"];
-      for (auto it = pregrasp_cspace_pos.begin(); it != pregrasp_cspace_pos.end(); ++it) {
-        trajectory_msgs::msg::JointTrajectory jt;
-        jt.joint_names.push_back(it->first.as<std::string>());
-
-        trajectory_msgs::msg::JointTrajectoryPoint pt;
-        pt.positions.push_back(it->second.as<double>());
-        pt.time_from_start = rclcpp::Duration::from_seconds(0.5);
-
-        jt.points.push_back(pt);
-        grasp_msg.pre_grasp_posture = jt;
-      }
-
       // Add the grasp to the vector
       grasps.push_back(grasp_msg);
     }
-  } catch(const YAML::Exception & e) {
+  } catch (const YAML::Exception & e) {
     RCLCPP_ERROR(this->get_logger(), "YAML error: %s", e.what());
     return std::nullopt;
   } catch (const std::exception & e) {
