@@ -23,7 +23,7 @@ jobs:
       image: ${{ matrix.docker-image }}
     steps:
       - name: Install yaml-cpp deps
-        uses: sudo apt-get install -y libyaml-cpp-dev
+        run: sudo apt-get install -y libyaml-cpp-dev
 
       - name: Checkout
         uses: actions/checkout@v5
