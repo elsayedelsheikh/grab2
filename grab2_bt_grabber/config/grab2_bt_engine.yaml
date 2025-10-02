@@ -1,0 +1,13 @@
+grab2_bt_engine:
+  ros__parameters:
+    action_name: "grab_object"
+    tick_frequency: 100 # Optional (defaults to 100 Hz)
+    groot2_port: 1667 # Optional (defaults to 1667)
+    ros_plugins_timeout: 1000  # Optional (defaults 1000 ms)
+
+    plugins:
+      - behaviortree_cpp/bt_plugins
+      - grab2_behavior_tree/bt_plugins
+
+    behavior_trees:
+      - grab2_bt_grabber/behavior_trees
