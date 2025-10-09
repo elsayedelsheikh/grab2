@@ -1,0 +1,93 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found behaviortree_ros2: 0.2.0 (/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zaynap/grab/grab2/build/btcpp_ros2_samples
+[  5%] [32mBuilding CXX object CMakeFiles/sample_bt_executor.dir/src/sample_bt_executor.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/sleep_client.dir/src/sleep_action.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/sleep_client.dir/src/sleep_client.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/sleep_server.dir/src/sleep_server.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/sleep_plugin.dir/src/sleep_action.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/bool_client.dir/src/bool_client.cpp.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/bool_server.dir/src/bool_server.cpp.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/subscriber_test.dir/src/subscriber_test.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable sleep_server[0m
+[ 55%] [32m[1mLinking CXX executable bool_server[0m
+[ 55%] Built target bool_server
+[ 61%] [32mBuilding CXX object CMakeFiles/bool_client.dir/src/set_bool_node.cpp.o[0m
+[ 61%] Built target sleep_server
+[ 66%] [32m[1mLinking CXX shared library libsleep_plugin.so[0m
+[ 66%] Built target sleep_plugin
+[ 72%] [32mBuilding CXX object CMakeFiles/sleep_client_dyn.dir/src/sleep_client.cpp.o[0m
+[ 77%] [32m[1mLinking CXX executable sleep_client[0m
+[ 77%] Built target sleep_client
+[ 83%] [32m[1mLinking CXX executable bool_client[0m
+[ 83%] Built target bool_client
+[ 88%] [32m[1mLinking CXX executable sample_bt_executor[0m
+[ 88%] Built target sample_bt_executor
+[ 94%] [32m[1mLinking CXX executable subscriber_test[0m
+[100%] [32m[1mLinking CXX executable sleep_client_dyn[0m
+[100%] Built target sleep_client_dyn
+[100%] Built target subscriber_test
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client_dyn
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_server
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/libsleep_plugin.so
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/subscriber_test
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sample_bt_executor
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_client
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_server
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/bt_plugins/libsleep_plugin.so
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/cross_door.xml
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/door_closed.xml
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/sleep_action.xml
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//config/sample_bt_executor.yaml
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//launch/sample_bt_executor.launch.xml
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/package_run_dependencies/btcpp_ros2_samples
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/parent_prefix_path/btcpp_ros2_samples
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.sh
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.dsv
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.sh
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.dsv
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.bash
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.sh
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.zsh
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.dsv
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.dsv
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/packages/btcpp_ros2_samples
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig.cmake
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig-version.cmake
+-- Symlinking: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.xml

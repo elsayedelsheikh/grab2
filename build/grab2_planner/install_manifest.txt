@@ -1,0 +1,3 @@
+/home/zaynap/grab/grab2/install/grab2_planner/lib/libplanner_server_core.so
+/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/cmake/planner_server_coreExport.cmake
+/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/cmake/planner_server_coreExport-noconfig.cmake

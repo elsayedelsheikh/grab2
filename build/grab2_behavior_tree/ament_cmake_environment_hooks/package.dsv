@@ -1,0 +1,4 @@
+source;share/grab2_behavior_tree/local_setup.bash
+source;share/grab2_behavior_tree/local_setup.dsv
+source;share/grab2_behavior_tree/local_setup.sh
+source;share/grab2_behavior_tree/local_setup.zsh

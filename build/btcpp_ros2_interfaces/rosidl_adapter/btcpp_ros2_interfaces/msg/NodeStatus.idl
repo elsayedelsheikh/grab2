@@ -1,0 +1,21 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from btcpp_ros2_interfaces/msg/NodeStatus.msg
+// generated code does not contain a copyright notice
+
+
+module btcpp_ros2_interfaces {
+  module msg {
+    module NodeStatus_Constants {
+      const uint8 IDLE = 0;
+      const uint8 RUNNING = 1;
+      const uint8 SUCCESS = 2;
+      const uint8 FAILURE = 3;
+      const uint8 SKIPPED = 4;
+    };
+    @verbatim (language="comment", text=
+      "NodeStatus Enums")
+    struct NodeStatus {
+      uint8 status;
+    };
+  };
+};

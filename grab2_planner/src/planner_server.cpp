@@ -102,90 +102,108 @@ void PlannerServer::computePlanThroughPoses(
   }
 
   if (goal->goals.empty()) {
+    RCLCPP_ERROR(this->get_logger(), "No goals provided!");
     result->error_code = result->INVALID_GOAL;
     result->error_string = "No goals provided";
     goal_handle->abort(result);
     return;
   }
 
-  moveit::planning_interface::MoveGroupInterface::Plan plan;
-  moveit_msgs::msg::RobotTrajectory combined_trajectory;
+  // containers
+  std::vector<moveit::planning_interface::MoveGroupInterface::Plan> successful_plans;
   std::vector<size_t> successful_indices;
   std::vector<size_t> failed_indices;
 
+  // start from the current state
   moveit::core::RobotStatePtr current_state = move_group_interface_->getCurrentState();
   move_group_interface_->setStartState(*current_state);
 
-  double total_duration = 0.0;
-
+  // PLAN for all poses first (store successful plans)
   for (size_t i = 0; i < goal->goals.size(); ++i) {
-    const auto & pose = goal->goals[i].pose;
+    if (!goal_handle->is_active()) {
+      RCLCPP_WARN(this->get_logger(), "Goal no longer active, stopping planning loop");
+      break;
+    }
+
+    const auto &pose = goal->goals[i].pose;
     move_group_interface_->setPoseTarget(pose);
 
     RCLCPP_INFO(this->get_logger(), "Planning for pose %zu...", i);
+    moveit::planning_interface::MoveGroupInterface::Plan plan;
     bool success = static_cast<bool>(move_group_interface_->plan(plan));
 
     if (!success) {
-      RCLCPP_WARN(this->get_logger(), "Failed to plan for pose index %zu", i);
+      RCLCPP_WARN(this->get_logger(), "Failed to plan for pose index %zu (pos: [%.3f, %.3f, %.3f])",
+                  i, pose.position.x, pose.position.y, pose.position.z);
       failed_indices.push_back(i);
       continue;
     }
 
-    const auto & traj = plan.trajectory_.joint_trajectory;
-
-    // Append trajectory points
-    if (combined_trajectory.joint_trajectory.joint_names.empty()) {
-      combined_trajectory.joint_trajectory.joint_names = traj.joint_names;
-    }
-    combined_trajectory.joint_trajectory.points.insert(
-      combined_trajectory.joint_trajectory.points.end(),
-      traj.points.begin(),
-      traj.points.end()
-    );
-
-    // Add duration (time_from_start of last point)
-    if (!traj.points.empty()) {
-      total_duration += traj.points.back().time_from_start.sec +
-        traj.points.back().time_from_start.nanosec * 1e-9;
-    }
-
+    // store successful plan
+    successful_plans.push_back(plan);
     successful_indices.push_back(i);
 
-    // Update start state
-    moveit::core::RobotState next_state(*current_state);
-    next_state.setVariablePositions(traj.joint_names, traj.points.back().positions);
-    move_group_interface_->setStartState(next_state);
-    *current_state = next_state;
-  }
+    // update start state for next plan using last point of this plan
+    if (!plan.trajectory_.joint_trajectory.points.empty()) {
+      const auto &last_pt = plan.trajectory_.joint_trajectory.points.back();
+      moveit::core::RobotState next_start_state(*current_state);
+      next_start_state.setVariablePositions(plan.trajectory_.joint_trajectory.joint_names,
+                                           last_pt.positions);
+      move_group_interface_->setStartState(next_start_state);
+      *current_state = next_start_state;
+    }
+  } // end planning loop
 
-  if (successful_indices.empty()) {
+  if (successful_plans.empty()) {
+    RCLCPP_ERROR(this->get_logger(), "Failed to plan for ALL poses!");
     result->error_code = result->INVALID_GOAL;
     result->error_string = "Failed to plan any valid trajectories.";
     goal_handle->abort(result);
     return;
   }
 
-  result->trajectory = combined_trajectory.joint_trajectory;
-  result->total_duration = total_duration;
-  result->successful_count = successful_indices.size();
-  result->failed_count = failed_indices.size();
+  // report summary
+  RCLCPP_INFO(this->get_logger(), "Planned successfully for %zu poses.", successful_indices.size());
+  if (!failed_indices.empty()) {
+    RCLCPP_INFO(this->get_logger(), "Failed to plan for %zu poses.", failed_indices.size());
+    for (auto idx : failed_indices) {
+      RCLCPP_WARN(this->get_logger(), "Pose index %zu failed.", idx);
+    }
+  }
 
-  // for (auto idx : failed_indices) {
-  //   result->failed_indices.push_back((idx));
-  // }
+  // EXECUTE the successful plans sequentially
+  for (size_t k = 0; k < successful_plans.size(); ++k) {
+    if (!goal_handle->is_active()) {
+      RCLCPP_WARN(this->get_logger(), "Goal not active, aborting execution.");
+      result->error_code = result->INVALID_GOAL;
+      result->error_string = "Goal cancelled or preempted during execution.";
+      goal_handle->abort(result);
+      return;
+    }
 
+    RCLCPP_INFO(this->get_logger(), "Executing planned segment %zu (pose index %zu)...", k, successful_indices[k]);
+    auto exec_ret = move_group_interface_->execute(successful_plans[k]);
+
+    if (exec_ret != moveit::core::MoveItErrorCode::SUCCESS) {
+      RCLCPP_ERROR(this->get_logger(), "Execution failed for planned segment %zu (pose index %zu).", k, successful_indices[k]);
+      result->error_code = result->INVALID_GOAL;
+      result->error_string = "Execution failed for one of the planned segments.";
+      goal_handle->abort(result);
+      return;
+    }
+  }
+
+  // If we reached here, at least one plan executed successfully
+  // Build a basic combined trajectory result if you want (optional).
+  // Here we'll return the last executed plan's joint trajectory as result.
+  result->trajectory = successful_plans.back().trajectory_.joint_trajectory;
   result->error_code = result->SUCCESSFUL;
-  result->error_string = "Planning completed successfully.";
-
   goal_handle->succeed(result);
-
-  RCLCPP_INFO(this->get_logger(),
-              "Planning finished: %zu successful, %zu failed, total duration %.2f sec",
-              successful_indices.size(), failed_indices.size(), total_duration);
-}
+  RCLCPP_INFO(this->get_logger(), "Successfully executed %zu planned segments.", successful_plans.size());
 }
 
-  // namespace grab2_planner
+
+}  // namespace grab2_planner
 
 #include "rclcpp_components/register_node_macro.hpp"
 

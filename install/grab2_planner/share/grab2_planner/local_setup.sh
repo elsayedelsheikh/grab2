@@ -1,0 +1,1 @@
+/home/zaynap/grab/grab2/build/grab2_planner/ament_cmake_environment_hooks/local_setup.sh
