@@ -1,0 +1,73 @@
+[0.013s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_controller': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_controller
+[0.100s] -- The C compiler identification is GNU 11.4.0
+[0.180s] -- The CXX compiler identification is GNU 11.4.0
+[0.193s] -- Detecting C compiler ABI info
+[0.303s] -- Detecting C compiler ABI info - done
+[0.318s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.318s] -- Detecting C compile features
+[0.320s] -- Detecting C compile features - done
+[0.323s] -- Detecting CXX compiler ABI info
+[0.453s] -- Detecting CXX compiler ABI info - done
+[0.469s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.469s] -- Detecting CXX compile features
+[0.470s] -- Detecting CXX compile features - done
+[0.474s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.124s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.240s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.287s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.471s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.472s] -- Added test 'lint_cmake' to check CMake code style
+[1.473s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.477s] -- Added test 'xmllint' to check XML markup files
+[1.479s] -- Configuring done
+[1.482s] -- Generating done
+[1.485s] -- Build files have been written to: /home/zaynap/grab/grab2/build/grab2_controller
+[1.491s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_controller' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_controller
+[1.493s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_controller': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_controller -- -j8 -l8
+[1.550s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_controller' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_controller -- -j8 -l8
+[1.551s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_controller': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_controller
+[1.561s] -- Install configuration: ""
+[1.561s] -- Execute custom install script
+[1.562s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/launch/franka_controllers.launch.py
+[1.575s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/launch/ur10e_suction_gripper_controllers.launch.py
+[1.587s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/launch/ur5e_robotiq_2f_140_controllers.launch.py
+[1.601s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/panda/panda.ros2_control.xacro
+[1.615s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/panda/panda.urdf.xacro
+[1.627s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/README.md
+[1.640s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_140_inner_finger.stl
+[1.653s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_140_inner_knuckle.stl
+[1.666s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_140_outer_finger.stl
+[1.679s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_140_outer_knuckle.stl
+[1.692s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_base_link.stl
+[1.705s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/collision/robotiq_arg2f_coupling.stl
+[1.718s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_140_inner_finger.stl
+[1.731s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_140_inner_knuckle.stl
+[1.746s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_140_outer_finger.stl
+[1.758s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_140_outer_knuckle.stl
+[1.772s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_base_link.stl
+[1.785s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/meshes/visual/robotiq_arg2f_coupling.stl
+[1.798s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/robotiq_2f_140/robotiq_2f_140.xacro
+[1.811s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/ur/ur.ros2_control.xacro
+[1.823s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/description/ur/ur.urdf.xacro
+[1.836s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/panda/initial_positions.yaml
+[1.849s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/panda/ros2_controllers.yaml
+[1.861s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/rviz2/3d_detection_cfg.yaml
+[1.876s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/rviz2/rviz2_config.rviz
+[1.887s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/ur/initial_positions.yaml
+[1.899s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/config/ur/ros2_controllers.yaml
+[1.912s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/ament_index/resource_index/package_run_dependencies/grab2_controller
+[1.925s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/ament_index/resource_index/parent_prefix_path/grab2_controller
+[1.938s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/environment/ament_prefix_path.sh
+[1.951s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/environment/ament_prefix_path.dsv
+[1.971s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/environment/path.sh
+[1.983s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/environment/path.dsv
+[1.992s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/local_setup.bash
+[2.001s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/local_setup.sh
+[2.010s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/local_setup.zsh
+[2.019s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/local_setup.dsv
+[2.028s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.dsv
+[2.037s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/ament_index/resource_index/packages/grab2_controller
+[2.046s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/cmake/grab2_controllerConfig.cmake
+[2.055s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/cmake/grab2_controllerConfig-version.cmake
+[2.063s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.xml
+[2.075s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_controller' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:${LD_LIBRARY_PATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_controller

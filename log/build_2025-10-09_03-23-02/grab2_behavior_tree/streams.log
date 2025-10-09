@@ -1,0 +1,161 @@
+[0.015s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_behavior_tree -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_behavior_tree
+[0.069s] -- The C compiler identification is GNU 11.4.0
+[0.127s] -- The CXX compiler identification is GNU 11.4.0
+[0.134s] -- Detecting C compiler ABI info
+[0.202s] -- Detecting C compiler ABI info - done
+[0.210s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.210s] -- Detecting C compile features
+[0.211s] -- Detecting C compile features - done
+[0.214s] -- Detecting CXX compiler ABI info
+[0.289s] -- Detecting CXX compiler ABI info - done
+[0.303s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.304s] -- Detecting CXX compile features
+[0.304s] -- Detecting CXX compile features - done
+[0.308s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.725s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.798s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.831s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.877s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.882s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.891s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.903s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.920s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.968s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.971s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.050s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.078s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.120s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.130s] -- Looking for pthread.h
+[1.198s] -- Looking for pthread.h - found
+[1.198s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.279s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.281s] -- Found Threads: TRUE  
+[1.371s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.420s] -- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.452s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.467s] -- Found tf2_geometry_msgs: 0.25.16 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.484s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.485s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.485s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.528s] -- Found vision_msgs: 4.1.1 (/opt/ros/humble/share/vision_msgs/cmake)
+[1.545s] -- Found vision_msgs_rviz_plugins: 4.1.1 (/opt/ros/humble/share/vision_msgs_rviz_plugins/cmake)
+[1.566s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[1.572s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[1.573s] -- Found OGRE
+[1.574s] --   static     : OFF
+[1.574s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[1.574s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[1.574s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[1.574s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[1.574s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[1.574s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[1.574s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[1.574s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[1.575s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[1.575s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[1.575s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[1.594s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[1.598s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[1.733s] -- Found X11: /usr/include   
+[1.739s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[1.944s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[1.944s] -- Looking for gethostbyname
+[2.111s] -- Looking for gethostbyname - found
+[2.111s] -- Looking for connect
+[2.305s] -- Looking for connect - found
+[2.305s] -- Looking for remove
+[2.509s] -- Looking for remove - found
+[2.509s] -- Looking for shmat
+[2.728s] -- Looking for shmat - found
+[2.728s] -- Looking for IceConnectionNumber in ICE
+[2.958s] -- Looking for IceConnectionNumber in ICE - found
+[3.205s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[3.452s] -- Found control_msgs: 4.8.0 (/opt/ros/humble/share/control_msgs/cmake)
+[3.635s] -- Found grab2_msgs: 0.0.0 (/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/cmake)
+[3.972s] -- Found behaviortree_cpp: 4.7.1 (/opt/ros/humble/share/behaviortree_cpp/cmake)
+[3.985s] -- Found behaviortree_ros2: 0.2.0 (/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake)
+[4.235s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.666s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.672s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/grab2_behavior_tree/include>
+[4.672s] -- Configured cppcheck exclude dirs and/or files: 
+[4.678s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.678s] -- Configured cpplint exclude dirs and/or files: 
+[4.681s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.685s] -- Added test 'lint_cmake' to check CMake code style
+[4.686s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[4.692s] -- Added test 'uncrustify' to check C / C++ code style
+[4.692s] -- Configured uncrustify additional arguments: 
+[4.694s] -- Added test 'xmllint' to check XML markup files
+[4.701s] -- Configuring done
+[4.962s] -- Generating done
+[5.070s] -- Build files have been written to: /home/zaynap/grab/grab2/build/grab2_behavior_tree
+[5.104s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_behavior_tree -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_behavior_tree
+[5.109s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[5.286s] [  6%] [32mBuilding CXX object CMakeFiles/grab2_get_grasp_hardcoded.dir/plugins/get_grasp_hardcoded.cpp.o[0m
+[5.294s] [ 12%] [32mBuilding CXX object CMakeFiles/grab2_get_grasp.dir/plugins/get_grasp.cpp.o[0m
+[5.298s] [ 18%] [32mBuilding CXX object CMakeFiles/grab2_get_trajectory_hardcoded.dir/plugins/get_trajectory_hardcoded.cpp.o[0m
+[5.298s] [ 25%] [32mBuilding CXX object CMakeFiles/grab2_plan.dir/plugins/plan.cpp.o[0m
+[5.305s] [ 31%] [32mBuilding CXX object CMakeFiles/grab2_detect_object.dir/plugins/detect_object.cpp.o[0m
+[5.315s] [ 37%] [32mBuilding CXX object CMakeFiles/grab2_move.dir/plugins/move.cpp.o[0m
+[5.323s] [ 43%] [32mBuilding CXX object CMakeFiles/grab2_engine.dir/src/main.cpp.o[0m
+[5.343s] [ 50%] [32mBuilding CXX object CMakeFiles/grab2_grip.dir/plugins/grip.cpp.o[0m
+[17.767s] [ 56%] [32m[1mLinking CXX shared library libgrab2_get_trajectory_hardcoded.so[0m
+[18.346s] [ 62%] [32m[1mLinking CXX shared library libgrab2_get_grasp_hardcoded.so[0m
+[18.783s] [ 62%] Built target grab2_get_grasp_hardcoded
+[19.304s] [ 62%] Built target grab2_get_trajectory_hardcoded
+[26.006s] [ 68%] [32m[1mLinking CXX shared library libgrab2_plan.so[0m
+[27.022s] [ 68%] Built target grab2_plan
+[27.493s] [ 75%] [32m[1mLinking CXX shared library libgrab2_get_grasp.so[0m
+[27.980s] [ 81%] [32m[1mLinking CXX executable grab2_engine[0m
+[28.029s] [ 81%] Built target grab2_get_grasp
+[28.075s] [ 87%] [32m[1mLinking CXX shared library libgrab2_move.so[0m
+[28.616s] [ 87%] Built target grab2_engine
+[28.816s] [ 87%] Built target grab2_move
+[30.585s] [ 93%] [32m[1mLinking CXX shared library libgrab2_grip.so[0m
+[31.156s] [ 93%] Built target grab2_grip
+[38.562s] [100%] [32m[1mLinking CXX shared library libgrab2_detect_object.so[0m
+[39.282s] [100%] Built target grab2_detect_object
+[39.292s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[39.293s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree
+[39.300s] -- Install configuration: ""
+[39.300s] -- Execute custom install script
+[39.301s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_trajectory_hardcoded.so
+[39.309s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp_hardcoded.so
+[39.316s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_detect_object.so
+[39.324s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp.so
+[39.331s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_plan.so
+[39.338s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_move.so
+[39.345s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_grip.so
+[39.352s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/grab2_behavior_tree/grab2_engine
+[39.360s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/detect_object.hpp
+[39.368s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp.hpp
+[39.374s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp_hardcoded.hpp
+[39.381s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_trajectory_hardcoded.hpp
+[39.389s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/grip.hpp
+[39.396s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/move.hpp
+[39.403s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/plan.hpp
+[39.410s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/utils.hpp
+[39.417s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/bt_groot2.btproj
+[39.425s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_cubes.xml
+[39.431s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_toys.xml
+[39.439s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/lookaround_demo.xml
+[39.446s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/stack_cubes.xml
+[39.453s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/target_ik_demo.xml
+[39.461s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/bt_demo.launch.py
+[39.468s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/grab2_engine.launch.py
+[39.476s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/grab2_behavior_tree
+[39.484s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/grab2_behavior_tree
+[39.491s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.sh
+[39.499s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.dsv
+[39.506s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.sh
+[39.513s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.dsv
+[39.520s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.bash
+[39.527s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.sh
+[39.535s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.zsh
+[39.542s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.dsv
+[39.549s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv
+[39.556s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/packages/grab2_behavior_tree
+[39.565s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig.cmake
+[39.572s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig-version.cmake
+[39.579s] -- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.xml
+[39.588s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree

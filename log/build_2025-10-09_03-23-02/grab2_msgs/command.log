@@ -1,0 +1,6 @@
+Invoking command in '/home/zaynap/grab/grab2/build/grab2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/zaynap/grab/grab2/grab2_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_msgs
+Invoked command in '/home/zaynap/grab/grab2/build/grab2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/zaynap/grab/grab2/grab2_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_msgs
+Invoking command in '/home/zaynap/grab/grab2/build/grab2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_msgs -- -j8 -l8
+Invoked command in '/home/zaynap/grab/grab2/build/grab2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_msgs -- -j8 -l8
+Invoking command in '/home/zaynap/grab/grab2/build/grab2_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_msgs
+Invoked command in '/home/zaynap/grab/grab2/build/grab2_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_msgs
