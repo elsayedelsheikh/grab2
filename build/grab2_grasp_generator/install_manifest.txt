@@ -1,0 +1,3 @@
+/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/libgrasp_generator_core.so
+/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/export_grab2_grasp_generatorExport.cmake
+/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/export_grab2_grasp_generatorExport-noconfig.cmake

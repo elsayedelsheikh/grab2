@@ -1,0 +1,24 @@
+#Goal Definition
+std_msgs/Header header
+geometry_msgs/PoseStamped[] goals
+float64 interpolation_dt  0.1 # Optional (Seconds): used while forming trajectory msg
+---
+#Result Definition: modified copy of control_msgs/action/FollowJointTrajectory
+trajectory_msgs/JointTrajectory trajectory
+
+int32 error_code
+int32 SUCCESSFUL = 0
+int32 INVALID_GOAL = -1
+int32 INVALID_JOINTS = -2
+int32 OLD_HEADER_TIMESTAMP = -3
+
+# Human readable description of the error code. Contains complementary
+# information that is especially useful when execution fails, for instance:
+# - INVALID_GOAL: The reason for the invalid goal (e.g., the requested
+#   trajectory is in the past).
+# - INVALID_JOINTS: The mismatch between the expected controller joints
+#   and those provided in the goal.
+string error_string
+
+---
+#Feedback Definition

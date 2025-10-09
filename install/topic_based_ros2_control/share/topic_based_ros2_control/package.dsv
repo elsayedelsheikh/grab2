@@ -1,0 +1,11 @@
+source;share/topic_based_ros2_control/hook/cmake_prefix_path.ps1
+source;share/topic_based_ros2_control/hook/cmake_prefix_path.dsv
+source;share/topic_based_ros2_control/hook/cmake_prefix_path.sh
+source;share/topic_based_ros2_control/hook/ld_library_path_lib.ps1
+source;share/topic_based_ros2_control/hook/ld_library_path_lib.dsv
+source;share/topic_based_ros2_control/hook/ld_library_path_lib.sh
+source;share/topic_based_ros2_control/local_setup.bash
+source;share/topic_based_ros2_control/local_setup.dsv
+source;share/topic_based_ros2_control/local_setup.ps1
+source;share/topic_based_ros2_control/local_setup.sh
+source;share/topic_based_ros2_control/local_setup.zsh

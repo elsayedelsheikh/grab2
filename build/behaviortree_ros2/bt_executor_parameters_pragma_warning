@@ -1,0 +1,1 @@
+#pragma message("#include \"bt_executor_parameters.hpp\" is deprecated. Use #include <behaviortree_ros2/bt_executor_parameters.hpp> instead.")

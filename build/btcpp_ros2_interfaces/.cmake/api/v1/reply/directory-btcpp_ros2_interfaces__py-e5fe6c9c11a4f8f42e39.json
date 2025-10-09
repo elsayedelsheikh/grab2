@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "btcpp_ros2_interfaces__py",
+		"source" : "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/btcpp_ros2_interfaces__py"
+	}
+}

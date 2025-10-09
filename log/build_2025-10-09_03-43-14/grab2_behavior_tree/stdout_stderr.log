@@ -1,0 +1,49 @@
+[ 12%] Built target grab2_get_grasp
+[ 25%] Built target grab2_get_grasp_hardcoded
+[ 37%] Built target grab2_move
+[ 50%] Built target grab2_plan
+[ 62%] Built target grab2_grip
+[ 75%] Built target grab2_get_trajectory_hardcoded
+[ 87%] Built target grab2_detect_object
+[100%] Built target grab2_engine
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_trajectory_hardcoded.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp_hardcoded.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_detect_object.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_plan.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_move.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_grip.so
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/grab2_behavior_tree/grab2_engine
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/detect_object.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp_hardcoded.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_trajectory_hardcoded.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/grip.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/move.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/plan.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/utils.hpp
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/bt_groot2.btproj
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_cubes.xml
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_toys.xml
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/lookaround_demo.xml
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/stack_cubes.xml
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/target_ik_demo.xml
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/bt_demo.launch.py
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/grab2_engine.launch.py
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/grab2_behavior_tree
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/grab2_behavior_tree
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.sh
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.dsv
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.bash
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.sh
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.zsh
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.dsv
+-- Symlinking: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/packages/grab2_behavior_tree
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig.cmake
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig-version.cmake
+-- Up-to-date symlink: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.xml
