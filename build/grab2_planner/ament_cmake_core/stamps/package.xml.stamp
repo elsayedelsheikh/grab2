@@ -27,6 +27,7 @@
   <!-- <depend>moveit_configs_utils</depend> -->
   <depend>moveit_resources_panda_moveit_config</depend>
   <depend>grab2_ros_common</depend>
+  <depend>moveit_core</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

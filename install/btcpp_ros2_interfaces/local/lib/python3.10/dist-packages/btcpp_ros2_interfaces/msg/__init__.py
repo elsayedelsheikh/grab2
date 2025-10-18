@@ -1,1 +1,1 @@
-/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_generator_py/btcpp_ros2_interfaces/msg/__init__.py
+from btcpp_ros2_interfaces.msg._node_status import NodeStatus  # noqa: F401

@@ -1,0 +1,142 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-c94bae038b34ea4220ff.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "grab2_behavior_tree",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_behavior_tree_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_behavior_tree_uninstall-1ef273a008a4b12add40.json",
+					"name" : "grab2_behavior_tree_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_detect_object::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_detect_object-329a67308325b1b9237d.json",
+					"name" : "grab2_detect_object",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_engine::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_engine-67fb845487f907f2e1ab.json",
+					"name" : "grab2_engine",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_get_grasp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_get_grasp-b811fac7dd4ec844e5f0.json",
+					"name" : "grab2_get_grasp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_get_grasp_hardcoded::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_get_grasp_hardcoded-7881425a4a9b687edba5.json",
+					"name" : "grab2_get_grasp_hardcoded",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_get_trajectory_hardcoded::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_get_trajectory_hardcoded-b5271c7f922d784dd589.json",
+					"name" : "grab2_get_trajectory_hardcoded",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_grip::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_grip-c6980b039f0a21a8d677.json",
+					"name" : "grab2_grip",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_move-be1c429198915dc812f5.json",
+					"name" : "grab2_move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "grab2_plan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-grab2_plan-7e05b2364d28fedcd5b9.json",
+					"name" : "grab2_plan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-174ee183fbb3fdb6a309.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/zaynap/grab/grab2/build/grab2_behavior_tree",
+		"source" : "/home/zaynap/grab/grab2/grab2_behavior_tree"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

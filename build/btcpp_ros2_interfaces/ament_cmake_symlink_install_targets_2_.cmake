@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_generator_py/btcpp_ros2_interfaces/btcpp_ros2_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" "TARGETS" "btcpp_ros2_interfaces__rosidl_typesupport_c__pyext" "DESTINATION" "local/lib/python3.10/dist-packages/btcpp_ros2_interfaces")

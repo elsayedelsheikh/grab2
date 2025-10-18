@@ -1,1 +1,6 @@
-/home/zaynap/grab/grab2/build/grab2_msgs/ament_cmake_index/share/ament_index/resource_index/rosidl_interfaces/grab2_msgs
+action/ComputePlanThroughPoses.action
+action/ComputePlanThroughPoses.idl
+action/ComputePlanToPose.action
+action/ComputePlanToPose.idl
+action/GetIsaacGrasp.action
+action/GetIsaacGrasp.idl

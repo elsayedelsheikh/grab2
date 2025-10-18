@@ -2,6 +2,7 @@
 
 #include "grab2_planner/planner_server.hpp"
 
+
 namespace grab2_planner
 {
 
@@ -15,9 +16,20 @@ PlannerServer::PlannerServer()
     std::bind(&PlannerServer::computePlan, this, std::placeholders::_1)
   );
 
+  // this->action_server_poses_ = create_action_server<ActionThroughPoses>(
+  //   "compute_plan_through_poses",
+  //   std::bind(&PlannerServer::computePlanThroughPoses, this, std::placeholders::_1)
+  // );
+
   this->action_server_poses_ = create_action_server<ActionThroughPoses>(
     "compute_plan_through_poses",
-    std::bind(&PlannerServer::computePlanThroughPoses, this, std::placeholders::_1)
+    [this](const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle)
+    {
+      // Run in background thread safely
+      std::thread([this, goal_handle]() {
+        this->computePlanThroughPoses(goal_handle);
+      }).detach();
+    }
   );
 
   RCLCPP_INFO(this->get_logger(), "PlannerServer constructed");
@@ -80,17 +92,21 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
   }
 }
 
+
 void PlannerServer::computePlanThroughPoses(
   const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle)
 {
   RCLCPP_INFO(this->get_logger(), "Executing ComputePlanThroughPoses");
 
+
   const auto goal = goal_handle->get_goal();
   auto result = std::make_shared<ActionThroughPoses::Result>();
+
 
   if (!initialized_) {
     initialize();
   }
+
 
   if (goal->goals.empty()) {
     RCLCPP_ERROR(this->get_logger(), "No goals provided!");
@@ -100,14 +116,15 @@ void PlannerServer::computePlanThroughPoses(
     return;
   }
 
-  // containers
+
   std::vector<moveit::planning_interface::MoveGroupInterface::Plan> successful_plans;
   std::vector<size_t> successful_indices;
   std::vector<size_t> failed_indices;
 
-  // start from the current state
+
   moveit::core::RobotStatePtr current_state = move_group_interface_->getCurrentState();
   move_group_interface_->setStartState(*current_state);
+
 
   // PLAN for all poses first (store successful plans)
   for (size_t i = 0; i < goal->goals.size(); ++i) {
@@ -116,12 +133,15 @@ void PlannerServer::computePlanThroughPoses(
       break;
     }
 
+
     const auto &pose = goal->goals[i].pose;
     move_group_interface_->setPoseTarget(pose);
+
 
     RCLCPP_INFO(this->get_logger(), "Planning for pose %zu...", i);
     moveit::planning_interface::MoveGroupInterface::Plan plan;
     bool success = static_cast<bool>(move_group_interface_->plan(plan));
+
 
     if (!success) {
       RCLCPP_WARN(this->get_logger(), "Failed to plan for pose index %zu (pos: [%.3f, %.3f, %.3f])",
@@ -130,9 +150,11 @@ void PlannerServer::computePlanThroughPoses(
       continue;
     }
 
+
     // store successful plan
     successful_plans.push_back(plan);
     successful_indices.push_back(i);
+
 
     // update start state for next plan using last point of this plan
     if (!plan.trajectory_.joint_trajectory.points.empty()) {
@@ -143,7 +165,8 @@ void PlannerServer::computePlanThroughPoses(
       move_group_interface_->setStartState(next_start_state);
       *current_state = next_start_state;
     }
-  } // end planning loop
+  } 
+
 
   if (successful_plans.empty()) {
     RCLCPP_ERROR(this->get_logger(), "Failed to plan for ALL poses!");
@@ -153,7 +176,7 @@ void PlannerServer::computePlanThroughPoses(
     return;
   }
 
-  // report summary
+
   RCLCPP_INFO(this->get_logger(), "Planned successfully for %zu poses.", successful_indices.size());
   if (!failed_indices.empty()) {
     RCLCPP_INFO(this->get_logger(), "Failed to plan for %zu poses.", failed_indices.size());
@@ -161,6 +184,7 @@ void PlannerServer::computePlanThroughPoses(
       RCLCPP_WARN(this->get_logger(), "Pose index %zu failed.", idx);
     }
   }
+
 
   // EXECUTE the successful plans sequentially
   for (size_t k = 0; k < successful_plans.size(); ++k) {
@@ -172,8 +196,10 @@ void PlannerServer::computePlanThroughPoses(
       return;
     }
 
+
     RCLCPP_INFO(this->get_logger(), "Executing planned segment %zu (pose index %zu)...", k, successful_indices[k]);
     auto exec_ret = move_group_interface_->execute(successful_plans[k]);
+
 
     if (exec_ret != moveit::core::MoveItErrorCode::SUCCESS) {
       RCLCPP_ERROR(this->get_logger(), "Execution failed for planned segment %zu (pose index %zu).", k, successful_indices[k]);
@@ -184,14 +210,14 @@ void PlannerServer::computePlanThroughPoses(
     }
   }
 
-  // If we reached here, at least one plan executed successfully
-  // Build a basic combined trajectory result if you want (optional).
-  // Here we'll return the last executed plan's joint trajectory as result.
   result->trajectory = successful_plans.back().trajectory_.joint_trajectory;
   result->error_code = result->SUCCESSFUL;
   goal_handle->succeed(result);
   RCLCPP_INFO(this->get_logger(), "Successfully executed %zu planned segments.", successful_plans.size());
 }
+
+// TODO: implementation with threads and optimization 
+// no need for streching or smoothing just minimize the error 
 
 
 }  // namespace grab2_planner

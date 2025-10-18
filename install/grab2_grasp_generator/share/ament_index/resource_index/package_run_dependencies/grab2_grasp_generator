@@ -1,1 +1,1 @@
-/home/zaynap/grab/grab2/build/grab2_grasp_generator/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/grab2_grasp_generator
+rclcpp;rclcpp_action;rclcpp_components;geometry_msgs;moveit_msgs;grab2_msgs;grab2_ros_common;tf2_ros;yaml-cpp;ament_lint_auto;ament_lint_common;ament_lint_gtest

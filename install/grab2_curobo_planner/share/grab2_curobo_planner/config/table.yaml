@@ -1,1 +1,4 @@
-/home/zaynap/grab/grab2/build/grab2_curobo_planner/config/table.yaml
+cuboid:
+  table:
+    dims: [5.0, 5.0, 0.2] # x, y, z
+    pose: [0.0, 0.0, -0.1, 1, 0, 0, 0.0] # x, y, z, qx, qy, qz, qw

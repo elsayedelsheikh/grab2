@@ -1,1 +1,1 @@
-/home/zaynap/grab/grab2/build/grab2_msgs/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/grab2_msgs
+builtin_interfaces;std_msgs;geometry_msgs;action_msgs;control_msgs;moveit_msgs;trajectory_msgs

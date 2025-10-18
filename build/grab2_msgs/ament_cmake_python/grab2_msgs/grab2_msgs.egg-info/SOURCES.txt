@@ -4,7 +4,3 @@ grab2_msgs.egg-info/PKG-INFO
 grab2_msgs.egg-info/SOURCES.txt
 grab2_msgs.egg-info/dependency_links.txt
 grab2_msgs.egg-info/top_level.txt
-grab2_msgs/action/__init__.py
-grab2_msgs/action/_compute_plan_through_poses.py
-grab2_msgs/action/_compute_plan_to_pose.py
-grab2_msgs/action/_get_isaac_grasp.py

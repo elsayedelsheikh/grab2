@@ -4,6 +4,3 @@ source;share/grab2_curobo_planner/hook/pythonpath.sh
 source;share/grab2_curobo_planner/hook/ament_prefix_path.ps1
 source;share/grab2_curobo_planner/hook/ament_prefix_path.dsv
 source;share/grab2_curobo_planner/hook/ament_prefix_path.sh
-source;../../build/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath_develop.ps1
-source;../../build/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath_develop.dsv
-source;../../build/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath_develop.sh
