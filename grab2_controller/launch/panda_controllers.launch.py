@@ -120,14 +120,14 @@ def generate_launch_description():
         arguments=['panda_hand_controller', '-c', '/controller_manager'],
     )
 
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='log',
-        arguments=['-d', rviz_config_file],
-        condition=IfCondition(use_rviz),
-    )
+    # rviz_node = Node(
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     name='rviz2',
+    #     output='log',
+    #     arguments=['-d', rviz_config_file],
+    #     condition=IfCondition(use_rviz),
+    # )
 
     world2robot_tf_toybox = Node(
         package='tf2_ros',
@@ -175,7 +175,7 @@ def generate_launch_description():
             declare_use_rviz_cmd,
             declare_ros2_control_hardware_type,
             declare_sim_world,
-            rviz_node,
+            # rviz_node,
             robot_state_publisher,
             ros2_control_node,
             joint_state_broadcaster_spawner,

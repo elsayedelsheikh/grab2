@@ -1,1 +1,29 @@
-/home/zaynap/grab/grab2/grab2_grasp_generator/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>grab2_grasp_generator</name>
+  <version>0.0.1</version>
+  <description>Grab2 grasp generator package</description>
+  <maintainer email="elsayed.elsheikh97@gmail.com">ElSayed ElSheikh</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>rclcpp_components</depend>
+  <depend>geometry_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>grab2_msgs</depend>
+  <depend>grab2_ros_common</depend>
+  <depend>tf2_ros</depend>
+  <depend>yaml-cpp</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_lint_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

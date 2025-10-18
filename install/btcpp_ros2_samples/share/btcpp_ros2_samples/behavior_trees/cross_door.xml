@@ -1,1 +1,13 @@
-/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_samples/behavior_trees/cross_door.xml
+<root BTCPP_format="4">
+  <BehaviorTree ID="CrossDoor">
+    <Sequence>
+      <Fallback>
+        <Inverter>
+          <IsDoorClosed/>
+        </Inverter>
+        <SubTree ID="DoorClosed"/>
+      </Fallback>
+      <PassThroughDoor/>
+    </Sequence>
+  </BehaviorTree>
+</root>

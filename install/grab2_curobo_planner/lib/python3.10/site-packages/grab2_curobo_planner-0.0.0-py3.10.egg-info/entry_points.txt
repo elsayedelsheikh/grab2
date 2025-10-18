@@ -1,0 +1,2 @@
+[console_scripts]
+planning_server = grab2_curobo_planner.planning_server:main

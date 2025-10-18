@@ -9,6 +9,12 @@
 #include "rclcpp/version.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
+#include <thread>
+#include <future>
+#include <mutex>
+// #include <moveit/trajectory_processing/iterative_parabolic_time_parameterization.h>
+// #include <moveit/robot_trajectory/robot_trajectory.h>
+
 
 // For Jazzy and Later Support
 #if RCLCPP_VERSION_GTE(28, 0, 0)
@@ -47,6 +53,44 @@ public:
   void computePlanThroughPoses(
     const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle);
 
+  /**
+//    * @brief Plans and executes sequentially through given poses.
+//    * Supports asynchronous pre-planning for smoother transitions.
+//    */
+//   void planAndExecuteThroughPoses(
+//     const std::vector<geometry_msgs::msg::Pose> &poses);
+
+//   struct PlanResult
+// {
+//   bool success;
+//   moveit::planning_interface::MoveGroupInterface::Plan plan;
+// };
+
+
+  // /**
+  //  * @brief Execute a given MoveIt plan.
+  //  */
+  // bool executePlan(const PlanResult &plan_result);
+
+  // /**
+  //  * @brief Get the robot's current end-effector pose.
+  //  */
+  // geometry_msgs::msg::Pose getRobotCurrentPose();
+
+  // /**
+  //  * @brief Compute Euclidean distance between two poses.
+  //  */
+  // double distanceBetweenPoses(
+  //   const geometry_msgs::msg::Pose &p1,
+  //   const geometry_msgs::msg::Pose &p2);
+
+
+  // PlanResult ComputePlan(const geometry_msgs::msg::Pose &start,
+  //                const geometry_msgs::msg::Pose &goal);
+
+
+
+
 private:
   void initialize();
 
@@ -55,6 +99,9 @@ private:
   rclcpp_action::Server<ActionToPose>::SharedPtr action_server_pose_;
   rclcpp_action::Server<ActionThroughPoses>::SharedPtr action_server_poses_;
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
+  std::mutex planning_mutex_;
+  rclcpp::Node::SharedPtr node_; 
+
 };
 
 }  // namespace grab2_planner
