@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: grab2_curobo_planner
+Version: 0.0.0
+Summary: TODO: Package description
+Maintainer: sayed
+Maintainer-email: elsayed.elsheikh97@gmail.com
+License: TODO: License declaration
+Requires-Dist: setuptools
+Dynamic: license
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: requires-dist
+Dynamic: summary

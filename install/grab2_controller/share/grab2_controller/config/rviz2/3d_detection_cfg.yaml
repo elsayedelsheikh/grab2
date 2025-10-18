@@ -1,1 +1,5 @@
-/home/zaynap/grab/grab2/grab2_controller/config/rviz2/3d_detection_cfg.yaml
+## Car Class
+'0':
+  r: 0
+  g: 255
+  b: 0

@@ -1,1 +1,2 @@
-/home/zaynap/grab/grab2/build/grab2_behavior_tree/ament_cmake_environment_hooks/local_setup.dsv
+source;share/grab2_behavior_tree/environment/ament_prefix_path.sh
+source;share/grab2_behavior_tree/environment/path.sh

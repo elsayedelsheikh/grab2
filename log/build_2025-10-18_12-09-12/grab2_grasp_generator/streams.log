@@ -1,0 +1,107 @@
+[0.021s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/zaynap/grab/grab2/grab2_grasp_generator -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_grasp_generator
+[0.089s] -- The C compiler identification is GNU 11.4.0
+[0.172s] -- The CXX compiler identification is GNU 11.4.0
+[0.179s] -- Detecting C compiler ABI info
+[0.256s] -- Detecting C compiler ABI info - done
+[0.264s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.264s] -- Detecting C compile features
+[0.265s] -- Detecting C compile features - done
+[0.269s] -- Detecting CXX compiler ABI info
+[0.368s] -- Detecting CXX compiler ABI info - done
+[0.384s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.385s] -- Detecting CXX compile features
+[0.385s] -- Detecting CXX compile features - done
+[0.388s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.949s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.126s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.142s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[1.212s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.221s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.236s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.251s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.273s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.332s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.336s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.434s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.470s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.518s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.531s] -- Looking for pthread.h
+[1.610s] -- Looking for pthread.h - found
+[1.610s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.688s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.690s] -- Found Threads: TRUE  
+[1.772s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.835s] -- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.886s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.909s] -- Found moveit_msgs: 2.2.1 (/opt/ros/humble/share/moveit_msgs/cmake)
+[2.147s] -- Found grab2_ros_common: 0.0.0 (/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake)
+[2.300s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.303s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.303s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.375s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.579s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[2.597s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.597s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/grab2_grasp_generator/include>
+[2.597s] -- Configured cppcheck exclude dirs and/or files: 
+[2.599s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.599s] -- Configured cpplint exclude dirs and/or files: 
+[2.599s] -- Added test 'lint_cmake' to check CMake code style
+[2.601s] -- Added test 'uncrustify' to check C / C++ code style
+[2.602s] -- Configured uncrustify additional arguments: 
+[2.603s] -- Added test 'xmllint' to check XML markup files
+[2.608s] -- Configuring done
+[2.663s] -- Generating done
+[2.685s] -- Build files have been written to: /home/zaynap/grab/grab2/build/grab2_grasp_generator
+[2.711s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake /home/zaynap/grab/grab2/grab2_grasp_generator -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_grasp_generator
+[2.713s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_grasp_generator -- -j8 -l8
+[2.796s] [ 10%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[2.796s] [ 20%] [32mBuilding CXX object CMakeFiles/grasp_generator_core.dir/src/grasp_generator.cpp.o[0m
+[2.806s] [ 30%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[4.437s] [ 40%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[4.542s] [ 40%] Built target gtest_main
+[7.401s] [ 50%] [32m[1mLinking CXX static library libgtest.a[0m
+[7.490s] [ 50%] Built target gtest
+[10.158s] [ 60%] [32m[1mLinking CXX shared library libgrasp_generator_core.so[0m
+[10.913s] [ 60%] Built target grasp_generator_core
+[10.979s] [ 70%] [32mBuilding CXX object CMakeFiles/grasp_generator.dir/src/main.cpp.o[0m
+[10.984s] [ 80%] [32mBuilding CXX object test/CMakeFiles/test_grasp_generator.dir/test_grasp_generator.cpp.o[0m
+[27.595s] [ 90%] [32m[1mLinking CXX executable grasp_generator[0m
+[28.460s] [ 90%] Built target grasp_generator
+[32.347s] [100%] [32m[1mLinking CXX executable test_grasp_generator[0m
+[33.492s] [100%] Built target test_grasp_generator
+[33.547s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_grasp_generator -- -j8 -l8
+[33.548s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_grasp_generator
+[33.576s] -- Install configuration: ""
+[33.576s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/include/grab2_grasp_generator
+[33.577s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/include/grab2_grasp_generator/grab2_grasp_generator
+[33.577s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/include/grab2_grasp_generator/grab2_grasp_generator/grasp_generator.hpp
+[33.577s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/include/grab2_grasp_generator/grab2_grasp_generator/visibility_control.h
+[33.577s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/libgrasp_generator_core.so
+[33.583s] -- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/libgrasp_generator_core.so" to ""
+[33.584s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/grab2_grasp_generator/grasp_generator
+[33.584s] -- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/grab2_grasp_generator/grasp_generator" to ""
+[33.584s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/config
+[33.585s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/config/isaac_grasp.yaml
+[33.586s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/library_path.sh
+[33.586s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/library_path.dsv
+[33.587s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/ament_index/resource_index/package_run_dependencies/grab2_grasp_generator
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/ament_index/resource_index/parent_prefix_path/grab2_grasp_generator
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/ament_prefix_path.sh
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/ament_prefix_path.dsv
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/path.sh
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/environment/path.dsv
+[33.588s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/local_setup.bash
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/local_setup.sh
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/local_setup.zsh
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/local_setup.dsv
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.dsv
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/ament_index/resource_index/packages/grab2_grasp_generator
+[33.589s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/export_grab2_grasp_generatorExport.cmake
+[33.599s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/export_grab2_grasp_generatorExport-noconfig.cmake
+[33.599s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/ament_cmake_export_include_directories-extras.cmake
+[33.599s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/ament_cmake_export_libraries-extras.cmake
+[33.600s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/ament_cmake_export_targets-extras.cmake
+[33.600s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/grab2_grasp_generatorConfig.cmake
+[33.616s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/cmake/grab2_grasp_generatorConfig-version.cmake
+[33.616s] -- Installing: /home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.xml
+[33.617s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_grasp_generator
