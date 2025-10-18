@@ -1,0 +1,102 @@
+[0.013s] Invoking command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake /home/zaynap/grab/grab2/topic_based_ros2_control -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/topic_based_ros2_control
+[0.079s] -- The CXX compiler identification is GNU 11.4.0
+[0.088s] -- Detecting CXX compiler ABI info
+[0.171s] -- Detecting CXX compiler ABI info - done
+[0.179s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.179s] -- Detecting CXX compile features
+[0.179s] -- Detecting CXX compile features - done
+[0.182s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.578s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.690s] -- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)
+[0.694s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.748s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.753s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.762s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.774s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.790s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.844s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.847s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.928s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.958s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.998s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.008s] -- Looking for C++ include pthread.h
+[1.091s] -- Looking for C++ include pthread.h - found
+[1.091s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.173s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.174s] -- Found Threads: TRUE  
+[1.229s] -- Found hardware_interface: 2.52.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[1.397s] -- Found ament_cmake_gtest: 1.3.12 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+[1.400s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.403s] -- Found ament_cmake_pytest: 1.3.12 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[1.405s] -- Found ros2_control_test_assets: 2.52.0 (/opt/ros/humble/share/ros2_control_test_assets/cmake)
+[1.407s] -- Found ros_testing: 0.4.0 (/opt/ros/humble/share/ros_testing/cmake)
+[1.408s] -- Found launch_testing_ament_cmake: 1.0.10 (/opt/ros/humble/share/launch_testing_ament_cmake/cmake)
+[1.410s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.433s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.439s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.439s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.439s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.439s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.462s] -- Found PythonExtra: .so  
+[1.743s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.744s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.744s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.822s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[1.862s] -- The C compiler identification is GNU 11.4.0
+[1.870s] -- Detecting C compiler ABI info
+[1.934s] -- Detecting C compiler ABI info - done
+[1.942s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.942s] -- Detecting C compile features
+[1.943s] -- Detecting C compile features - done
+[1.953s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.958s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.958s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/topic_based_ros2_control/include>
+[1.958s] -- Configured cppcheck exclude dirs and/or files: 
+[1.960s] -- Added test 'lint_cmake' to check CMake code style
+[1.961s] -- Added test 'xmllint' to check XML markup files
+[1.964s] -- Configuring done
+[1.991s] -- Generating done
+[2.004s] -- Build files have been written to: /home/zaynap/grab/grab2/build/topic_based_ros2_control
+[2.019s] Invoked command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake /home/zaynap/grab/grab2/topic_based_ros2_control -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/topic_based_ros2_control
+[2.021s] Invoking command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/topic_based_ros2_control -- -j8 -l8
+[2.077s] [ 37%] [32mBuilding CXX object CMakeFiles/topic_based_ros2_control.dir/src/topic_based_system.cpp.o[0m
+[2.077s] [ 37%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[2.077s] [ 37%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[3.629s] [ 50%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[3.732s] [ 50%] Built target gtest_main
+[8.650s] [ 62%] [32m[1mLinking CXX static library libgtest.a[0m
+[8.838s] [ 62%] Built target gtest
+[15.754s] [ 75%] [32m[1mLinking CXX shared library libtopic_based_ros2_control.so[0m
+[16.774s] [ 75%] Built target topic_based_ros2_control
+[16.799s] [ 87%] [32mBuilding CXX object CMakeFiles/topic_based_system_test.dir/test/topic_based_system_test.cpp.o[0m
+[21.089s] [100%] [32m[1mLinking CXX executable topic_based_system_test[0m
+[21.510s] [100%] Built target topic_based_system_test
+[21.533s] Invoked command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/topic_based_ros2_control -- -j8 -l8
+[21.536s] Invoking command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/topic_based_ros2_control
+[21.550s] -- Install configuration: ""
+[21.551s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/libtopic_based_ros2_control.so
+[21.557s] -- Set runtime path of "/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/libtopic_based_ros2_control.so" to ""
+[21.557s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/topic_based_ros2_control_plugin_description.xml
+[21.558s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/library_path.sh
+[21.558s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/library_path.dsv
+[21.559s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/package_run_dependencies/topic_based_ros2_control
+[21.560s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/parent_prefix_path/topic_based_ros2_control
+[21.560s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/ament_prefix_path.sh
+[21.561s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/ament_prefix_path.dsv
+[21.562s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/path.sh
+[21.562s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/path.dsv
+[21.563s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.bash
+[21.563s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.sh
+[21.564s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.zsh
+[21.564s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.dsv
+[21.565s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.dsv
+[21.565s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/packages/topic_based_ros2_control
+[21.566s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/topic_based_ros2_control
+[21.566s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlTargetsExport.cmake
+[21.567s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlTargetsExport-noconfig.cmake
+[21.567s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/ament_cmake_export_targets-extras.cmake
+[21.568s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/ament_cmake_export_dependencies-extras.cmake
+[21.568s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlConfig.cmake
+[21.569s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlConfig-version.cmake
+[21.570s] -- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.xml
+[21.574s] Invoked command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/topic_based_ros2_control

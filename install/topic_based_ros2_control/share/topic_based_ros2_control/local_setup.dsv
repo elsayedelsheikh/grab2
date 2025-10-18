@@ -1,1 +1,3 @@
-/home/zaynap/grab/grab2/build/topic_based_ros2_control/ament_cmake_environment_hooks/local_setup.dsv
+source;share/topic_based_ros2_control/environment/ament_prefix_path.sh
+source;share/topic_based_ros2_control/environment/library_path.sh
+source;share/topic_based_ros2_control/environment/path.sh

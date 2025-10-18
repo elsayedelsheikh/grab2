@@ -1,1 +1,6 @@
-/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/ament_cmake_python/btcpp_ros2_interfaces/btcpp_ros2_interfaces.egg-info/SOURCES.txt
+setup.py
+btcpp_ros2_interfaces/__init__.py
+btcpp_ros2_interfaces.egg-info/PKG-INFO
+btcpp_ros2_interfaces.egg-info/SOURCES.txt
+btcpp_ros2_interfaces.egg-info/dependency_links.txt
+btcpp_ros2_interfaces.egg-info/top_level.txt

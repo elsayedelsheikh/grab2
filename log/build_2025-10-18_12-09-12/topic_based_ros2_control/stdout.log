@@ -1,0 +1,96 @@
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)
+-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found hardware_interface: 2.52.0 (/opt/ros/humble/share/hardware_interface/cmake)
+-- Found ament_cmake_gtest: 1.3.12 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Found ament_cmake_pytest: 1.3.12 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+-- Found ros2_control_test_assets: 2.52.0 (/opt/ros/humble/share/ros2_control_test_assets/cmake)
+-- Found ros_testing: 0.4.0 (/opt/ros/humble/share/ros_testing/cmake)
+-- Found launch_testing_ament_cmake: 1.0.10 (/opt/ros/humble/share/launch_testing_ament_cmake/cmake)
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+-- The C compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/topic_based_ros2_control/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zaynap/grab/grab2/build/topic_based_ros2_control
+[ 37%] [32mBuilding CXX object CMakeFiles/topic_based_ros2_control.dir/src/topic_based_system.cpp.o[0m
+[ 37%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[ 37%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[ 50%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[ 50%] Built target gtest_main
+[ 62%] [32m[1mLinking CXX static library libgtest.a[0m
+[ 62%] Built target gtest
+[ 75%] [32m[1mLinking CXX shared library libtopic_based_ros2_control.so[0m
+[ 75%] Built target topic_based_ros2_control
+[ 87%] [32mBuilding CXX object CMakeFiles/topic_based_system_test.dir/test/topic_based_system_test.cpp.o[0m
+[100%] [32m[1mLinking CXX executable topic_based_system_test[0m
+[100%] Built target topic_based_system_test
+-- Install configuration: ""
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/libtopic_based_ros2_control.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/libtopic_based_ros2_control.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/topic_based_ros2_control_plugin_description.xml
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/library_path.sh
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/library_path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/package_run_dependencies/topic_based_ros2_control
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/parent_prefix_path/topic_based_ros2_control
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/ament_prefix_path.sh
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/ament_prefix_path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/path.sh
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/environment/path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.bash
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.sh
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.zsh
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/local_setup.dsv
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.dsv
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/packages/topic_based_ros2_control
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/topic_based_ros2_control
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlTargetsExport.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlTargetsExport-noconfig.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlConfig.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/cmake/topic_based_ros2_controlConfig-version.cmake
+-- Installing: /home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.xml

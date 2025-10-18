@@ -27,6 +27,8 @@ find_package(moveit_msgs REQUIRED)
 # find_package(moveit_visual_tools REQUIRED) for now
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_core REQUIRED)
+
 
 set(executable_name planner_server)
 set(library_name ${executable_name}_core)
