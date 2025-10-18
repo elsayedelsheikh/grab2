@@ -1,6 +1,0 @@
-setup.py
-grab2_msgs/__init__.py
-grab2_msgs.egg-info/PKG-INFO
-grab2_msgs.egg-info/SOURCES.txt
-grab2_msgs.egg-info/dependency_links.txt
-grab2_msgs.egg-info/top_level.txt
