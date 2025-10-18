@@ -1,4 +1,0 @@
-source;share/topic_based_ros2_control/local_setup.bash
-source;share/topic_based_ros2_control/local_setup.dsv
-source;share/topic_based_ros2_control/local_setup.sh
-source;share/topic_based_ros2_control/local_setup.zsh
