@@ -1,0 +1,64 @@
+[0.022s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[0.097s] [35m[1mConsolidate compiler generated dependencies of target grab2_get_trajectory_hardcoded[0m
+[0.116s] [35m[1mConsolidate compiler generated dependencies of target grab2_get_grasp_hardcoded[0m
+[0.117s] [35m[1mConsolidate compiler generated dependencies of target grab2_detect_object[0m
+[0.121s] [35m[1mConsolidate compiler generated dependencies of target grab2_get_grasp[0m
+[0.121s] [35m[1mConsolidate compiler generated dependencies of target grab2_grip[0m
+[0.129s] [35m[1mConsolidate compiler generated dependencies of target grab2_plan[0m
+[0.131s] [35m[1mConsolidate compiler generated dependencies of target grab2_move[0m
+[0.132s] [35m[1mConsolidate compiler generated dependencies of target grab2_engine[0m
+[0.151s] [ 12%] Built target grab2_get_grasp_hardcoded
+[0.155s] [ 25%] Built target grab2_get_trajectory_hardcoded
+[0.166s] [ 37%] Built target grab2_get_grasp
+[0.179s] [ 50%] Built target grab2_grip
+[0.182s] [ 62%] Built target grab2_move
+[0.187s] [ 75%] Built target grab2_detect_object
+[0.191s] [ 87%] Built target grab2_engine
+[0.192s] [100%] Built target grab2_plan
+[0.213s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[0.215s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree
+[0.224s] -- Install configuration: ""
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_trajectory_hardcoded.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp_hardcoded.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_detect_object.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_plan.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_move.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_grip.so
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/grab2_behavior_tree/grab2_engine
+[0.226s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp_hardcoded.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/detect_object.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/move.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/utils.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_trajectory_hardcoded.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/plan.hpp
+[0.227s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/grip.hpp
+[0.232s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees
+[0.232s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_toys.xml
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_cubes.xml
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/stack_cubes.xml
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/bt_groot2.btproj
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/target_ik_demo.xml
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/lookaround_demo.xml
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/bt_demo.launch.py
+[0.233s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/grab2_engine.launch.py
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/grab2_behavior_tree
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/grab2_behavior_tree
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.sh
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.dsv
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.sh
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.dsv
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.bash
+[0.234s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.sh
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.zsh
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.dsv
+[0.235s] -- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/packages/grab2_behavior_tree
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig.cmake
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig-version.cmake
+[0.235s] -- Up-to-date: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.xml
+[0.260s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree

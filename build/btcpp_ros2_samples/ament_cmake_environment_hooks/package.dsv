@@ -1,0 +1,4 @@
+source;share/btcpp_ros2_samples/local_setup.bash
+source;share/btcpp_ros2_samples/local_setup.dsv
+source;share/btcpp_ros2_samples/local_setup.sh
+source;share/btcpp_ros2_samples/local_setup.zsh

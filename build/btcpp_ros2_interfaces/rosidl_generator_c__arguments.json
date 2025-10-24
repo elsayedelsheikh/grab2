@@ -1,0 +1,44 @@
+{
+  "package_name": "btcpp_ros2_interfaces",
+  "output_dir": "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_generator_c/btcpp_ros2_interfaces",
+  "template_dir": "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource",
+  "idl_tuples": [
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces:msg/NodeStatus.idl",
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces:action/ExecuteTree.idl",
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces:action/Sleep.idl"
+  ],
+  "ros_interface_dependencies": [
+    "action_msgs:/opt/ros/humble/share/action_msgs/msg/GoalInfo.idl",
+    "action_msgs:/opt/ros/humble/share/action_msgs/msg/GoalStatus.idl",
+    "action_msgs:/opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl",
+    "action_msgs:/opt/ros/humble/share/action_msgs/srv/CancelGoal.idl",
+    "builtin_interfaces:/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
+    "builtin_interfaces:/opt/ros/humble/share/builtin_interfaces/msg/Time.idl",
+    "unique_identifier_msgs:/opt/ros/humble/share/unique_identifier_msgs/msg/UUID.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../../../local/lib/python3.10/dist-packages/rosidl_generator_c/__init__.py",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/action__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__functions.c.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__functions.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__struct.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/idl__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__functions.c.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__functions.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
+    "/opt/ros/humble/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces/msg/NodeStatus.idl",
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces/action/ExecuteTree.idl",
+    "/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces/rosidl_adapter/btcpp_ros2_interfaces/action/Sleep.idl",
+    "/opt/ros/humble/share/action_msgs/msg/GoalInfo.idl",
+    "/opt/ros/humble/share/action_msgs/msg/GoalStatus.idl",
+    "/opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl",
+    "/opt/ros/humble/share/action_msgs/srv/CancelGoal.idl",
+    "/opt/ros/humble/share/builtin_interfaces/msg/Duration.idl",
+    "/opt/ros/humble/share/builtin_interfaces/msg/Time.idl",
+    "/opt/ros/humble/share/unique_identifier_msgs/msg/UUID.idl"
+  ]
+}

@@ -1,0 +1,100 @@
+[0.010s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_planner': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_planner -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_planner
+[0.063s] -- The C compiler identification is GNU 11.4.0
+[0.119s] -- The CXX compiler identification is GNU 11.4.0
+[0.126s] -- Detecting C compiler ABI info
+[0.195s] -- Detecting C compiler ABI info - done
+[0.209s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.210s] -- Detecting C compile features
+[0.210s] -- Detecting C compile features - done
+[0.215s] -- Detecting CXX compiler ABI info
+[0.298s] -- Detecting CXX compiler ABI info - done
+[0.306s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.306s] -- Detecting CXX compile features
+[0.307s] -- Detecting CXX compile features - done
+[0.309s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.708s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.829s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.837s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.886s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.891s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.900s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.913s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.930s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.979s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.983s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.126s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.163s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.231s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.245s] -- Looking for pthread.h
+[1.332s] -- Looking for pthread.h - found
+[1.332s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.432s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.433s] -- Found Threads: TRUE  
+[1.532s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.591s] -- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.639s] -- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.673s] -- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)
+[1.699s] -- Found grab2_msgs: 0.0.0 (/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/cmake)
+[2.007s] -- Found grab2_ros_common: 0.0.0 (/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake)
+[2.034s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[2.036s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.036s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.165s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[2.813s] -- Found moveit_ros_planning: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning/cmake)
+[3.355s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[4.598s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[5.170s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[5.300s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[5.997s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[6.581s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[6.588s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[6.828s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[7.178s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[7.690s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[7.800s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[7.800s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/grab2_planner/include>
+[7.800s] -- Configured cppcheck exclude dirs and/or files: 
+[7.801s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[7.801s] -- Configured cpplint exclude dirs and/or files: 
+[7.801s] -- Added test 'flake8' to check Python code syntax and style conventions
+[7.802s] -- Added test 'lint_cmake' to check CMake code style
+[7.802s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[7.826s] -- Added test 'uncrustify' to check C / C++ code style
+[7.826s] -- Configured uncrustify additional arguments: 
+[7.826s] -- Added test 'xmllint' to check XML markup files
+[7.830s] -- Configuring done
+[8.935s] -- Generating done
+[8.949s] -- Build files have been written to: /home/zaynap/grab/grab2/build/grab2_planner
+[8.965s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_planner' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_planner -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_planner
+[8.967s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_planner': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_planner -- -j8 -l8
+[9.020s] [ 25%] [32mBuilding CXX object CMakeFiles/planner_server_core.dir/src/planner_server.cpp.o[0m
+[19.745s] [01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:[m[K In member function ‘[01m[Kvoid grab2_planner::PlannerServer::computePlanThroughPoses(std::shared_ptr<rclcpp_action::ServerGoalHandle<grab2_msgs::action::ComputePlanThroughPoses> >)[m[K’:
+[19.745s] [01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:144:37:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::vector<int>::push_back(std::string)[m[K’
+[19.745s]   144 |     [01;31m[Kresult->failed_indices.push_back(std::to_string(idx))[m[K;
+[19.745s]       |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~[m[K
+[19.745s] In file included from [01m[K/usr/include/c++/11/vector:67[m[K,
+[19.746s]                  from [01m[K/usr/include/c++/11/functional:62[m[K,
+[19.746s]                  from [01m[K/usr/include/c++/11/pstl/glue_algorithm_defs.h:13[m[K,
+[19.746s]                  from [01m[K/usr/include/c++/11/algorithm:74[m[K,
+[19.746s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:18[m[K,
+[19.746s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[19.746s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[19.746s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[19.746s]                  from [01m[K/home/zaynap/grab/grab2/grab2_planner/include/grab2_planner/planner_server.hpp:10[m[K,
+[19.746s]                  from [01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:3[m[K:
+[19.746s] [01m[K/usr/include/c++/11/bits/stl_vector.h:1187:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int][m[K’
+[19.746s]  1187 |       [01;36m[Kpush_back[m[K(const value_type& __x)
+[19.746s]       |       [01;36m[K^~~~~~~~~[m[K
+[19.746s] [01m[K/usr/include/c++/11/bits/stl_vector.h:1187:35:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} to ‘[01m[Kconst value_type&[m[K’ {aka ‘[01m[Kconst int&[m[K’}
+[19.746s]  1187 |       push_back([01;36m[Kconst value_type& __x[m[K)
+[19.746s]       |                 [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[19.746s] [01m[K/usr/include/c++/11/bits/stl_vector.h:1203:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int][m[K’
+[19.746s]  1203 |       [01;36m[Kpush_back[m[K(value_type&& __x)
+[19.747s]       |       [01;36m[K^~~~~~~~~[m[K
+[19.747s] [01m[K/usr/include/c++/11/bits/stl_vector.h:1203:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} to ‘[01m[Kstd::vector<int>::value_type&&[m[K’ {aka ‘[01m[Kint&&[m[K’}
+[19.747s]  1203 |       push_back([01;36m[Kvalue_type&& __x[m[K)
+[19.747s]       |                 [01;36m[K~~~~~~~~~~~~~^~~[m[K
+[25.670s] gmake[2]: *** [CMakeFiles/planner_server_core.dir/build.make:76: CMakeFiles/planner_server_core.dir/src/planner_server.cpp.o] Error 1
+[25.670s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/planner_server_core.dir/all] Error 2
+[25.670s] gmake: *** [Makefile:146: all] Error 2
+[25.672s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_planner' returned '2': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_planner -- -j8 -l8

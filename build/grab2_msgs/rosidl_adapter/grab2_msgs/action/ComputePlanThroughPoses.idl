@@ -1,0 +1,71 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from grab2_msgs/action/ComputePlanThroughPoses.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+#include "std_msgs/msg/Header.idl"
+#include "trajectory_msgs/msg/JointTrajectory.idl"
+
+module grab2_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "----- Goal Definition -----")
+    struct ComputePlanThroughPoses_Goal {
+      std_msgs::msg::Header header;
+
+      sequence<geometry_msgs::msg::PoseStamped> goals;
+
+      @verbatim (language="comment", text=
+        "Optional (seconds), used when forming the trajectory message")
+      @default (value=0.1)
+      double interpolation_dt;
+    };
+    module ComputePlanThroughPoses_Result_Constants {
+      const int32 SUCCESSFUL = 0;
+      const int32 INVALID_GOAL = -1;
+      const int32 INVALID_JOINTS = -2;
+      const int32 OLD_HEADER_TIMESTAMP = -3;
+    };
+    @verbatim (language="comment", text=
+      "----- Result Definition -----")
+    struct ComputePlanThroughPoses_Result {
+      trajectory_msgs::msg::JointTrajectory trajectory;
+
+      int32 error_code;
+
+      @verbatim (language="comment", text=
+        "Human-readable explanation of the error" "\n"
+        "Examples:" "\n"
+        " - INVALID_GOAL: The reason for the invalid goal (e.g., no goals provided or unreachable pose)" "\n"
+        " - INVALID_JOINTS: The mismatch between expected and provided joints" "\n"
+        " - OLD_HEADER_TIMESTAMP: Timestamp in the past")
+      string error_string;
+
+      @verbatim (language="comment", text=
+        "Total time of the combined trajectory (seconds)")
+      double total_duration;
+
+      @verbatim (language="comment", text=
+        "Number of poses planned successfully")
+      int32 successful_count;
+
+      @verbatim (language="comment", text=
+        "Number of poses that failed")
+      int32 failed_count;
+
+      @verbatim (language="comment", text=
+        "Indices of poses that failed to plan")
+      sequence<int32> failed_indices;
+    };
+    struct ComputePlanThroughPoses_Feedback {
+      @verbatim (language="comment", text=
+        "----- Feedback Definition -----" "\n"
+        "(0–100) Planning progress feedback")
+      float progress_percentage;
+
+      @verbatim (language="comment", text=
+        "Optional short text (e.g., \"Planning pose 3/5\")")
+      string current_status;
+    };
+  };
+};

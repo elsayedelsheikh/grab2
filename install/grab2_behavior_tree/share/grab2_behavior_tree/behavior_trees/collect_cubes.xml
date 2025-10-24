@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+      <SubTree ID="PickAndDrop" name="cube1"/>
+      <SubTree ID="PickAndDrop" name="cube0"/>
+      <SubTree ID="PickAndDrop" name="cube2"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="PickAndDrop">
+    <Sequence>
+      <Script code=" retract_pose:='-0.34;-0.3;0.6;1.0;0.0;0.0;0.0' " />
+      <SubTree ID="MoveTo" name="Retract Pose" target="{retract_pose}"/>
+      <SubTree ID="Pick"/>
+      <SubTree ID="MoveTo" name="Retract Pose" target="{retract_pose}"/>
+      <SubTree ID="Drop"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Pick">
+    <Sequence>
+      <GetGraspHardcoded pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
+      <SubTree ID="MoveTo" target="{pregrasp_pose}"/>
+      <Grip pose="0.04"/>
+      <SubTree ID="MoveTo" target="{grasp_pose}"/>
+      <Grip pose="0.02"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Drop">
+    <Sequence>
+      <SubTree ID="MoveTo" name="Pre-Drop Pose" target="0.34;-0.3;0.6;1.0;0.0;0.0;0.0"/>
+      <SubTree ID="MoveTo" name="Drop Pose" target="0.34;-0.3;0.4;1.0;0.0;0.0;0.0"/>
+      <Grip pose="0.04"/>
+      <SubTree ID="MoveTo" name="Post-Drop Pose" target="0.34;-0.3;0.6;1.0;0.0;0.0;0.0"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="MoveTo">
+    <Sequence>
+      <Plan target_ik="{target}" trajectory="{trajectory_msg}"/>
+      <Move trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+</root>

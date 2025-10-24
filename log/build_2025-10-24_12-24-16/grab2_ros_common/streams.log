@@ -1,0 +1,80 @@
+[0.012s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_ros_common': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_ros_common -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_ros_common
+[0.119s] -- The C compiler identification is GNU 11.4.0
+[0.178s] -- The CXX compiler identification is GNU 11.4.0
+[0.187s] -- Detecting C compiler ABI info
+[0.251s] -- Detecting C compiler ABI info - done
+[0.264s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.264s] -- Detecting C compile features
+[0.265s] -- Detecting C compile features - done
+[0.270s] -- Detecting CXX compiler ABI info
+[0.350s] -- Detecting CXX compiler ABI info - done
+[0.364s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.365s] -- Detecting CXX compile features
+[0.365s] -- Detecting CXX compile features - done
+[0.369s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.745s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.877s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.920s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.925s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.934s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.951s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.968s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.019s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.022s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.114s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.143s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.183s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.192s] -- Looking for pthread.h
+[1.265s] -- Looking for pthread.h - found
+[1.265s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.333s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.335s] -- Found Threads: TRUE  
+[1.391s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.426s] -- Found tf2: 0.25.16 (/opt/ros/humble/share/tf2/cmake)
+[1.450s] -- Found tf2_ros: 0.25.16 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.554s] -- Found tf2_geometry_msgs: 0.25.16 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.577s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.578s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.578s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.580s] -- Found grab2_msgs: 0.0.0 (/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/cmake)
+[1.777s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.115s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.116s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/zaynap/grab/grab2/grab2_ros_common/include>
+[2.116s] -- Configured cppcheck exclude dirs and/or files: 
+[2.127s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.127s] -- Configured cpplint exclude dirs and/or files: 
+[2.138s] -- Added test 'lint_cmake' to check CMake code style
+[2.152s] -- Added test 'uncrustify' to check C / C++ code style
+[2.153s] -- Configured uncrustify additional arguments: 
+[2.153s] -- Added test 'xmllint' to check XML markup files
+[2.155s] -- Configuring done
+[2.160s] -- Generating done
+[2.162s] -- Build files have been written to: /home/zaynap/grab/grab2/build/grab2_ros_common
+[2.173s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_ros_common' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/zaynap/grab/grab2/grab2_ros_common -DCMAKE_INSTALL_PREFIX=/home/zaynap/grab/grab2/install/grab2_ros_common
+[2.174s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_ros_common': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_ros_common -- -j8 -l8
+[2.209s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_ros_common' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_ros_common -- -j8 -l8
+[2.211s] Invoking command in '/home/zaynap/grab/grab2/build/grab2_ros_common': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_ros_common
+[2.217s] -- Install configuration: ""
+[2.217s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/include/grab2_ros_common
+[2.217s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/include/grab2_ros_common/grab2_ros_common
+[2.218s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/include/grab2_ros_common/grab2_ros_common/node.hpp
+[2.246s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/ament_index/resource_index/package_run_dependencies/grab2_ros_common
+[2.246s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/ament_index/resource_index/parent_prefix_path/grab2_ros_common
+[2.246s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/environment/ament_prefix_path.sh
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/environment/ament_prefix_path.dsv
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/environment/path.sh
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/environment/path.dsv
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/local_setup.bash
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/local_setup.sh
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/local_setup.zsh
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/local_setup.dsv
+[2.247s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.dsv
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/ament_index/resource_index/packages/grab2_ros_common
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/grab2_ros_commonExport.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/ament_cmake_export_targets-extras.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/grab2_ros_commonConfig.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/cmake/grab2_ros_commonConfig-version.cmake
+[2.248s] -- Installing: /home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.xml
+[2.250s] Invoked command in '/home/zaynap/grab/grab2/build/grab2_ros_common' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_ros_common

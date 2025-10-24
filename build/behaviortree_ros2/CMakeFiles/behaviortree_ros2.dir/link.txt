@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbehaviortree_ros2.a CMakeFiles/behaviortree_ros2.dir/src/bt_ros2.cpp.o CMakeFiles/behaviortree_ros2.dir/src/bt_utils.cpp.o CMakeFiles/behaviortree_ros2.dir/src/tree_execution_server.cpp.o
+/usr/bin/ranlib libbehaviortree_ros2.a

@@ -1,0 +1,48 @@
+[15.804s] Invoking command in '/home/zaynap/grab/grab2/grab2_curobo_planner': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/build/grab2_curobo_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages:/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/grab2_curobo_planner build --build-base /home/zaynap/grab/grab2/build/grab2_curobo_planner/build install --record /home/zaynap/grab/grab2/build/grab2_curobo_planner/install.log --single-version-externally-managed install_data
+[15.977s] /home/zaynap/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:270: UserWarning: Unknown distribution option: 'tests_require'
+[15.977s]   warnings.warn(msg)
+[16.131s] running egg_info
+[16.155s] creating ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info
+[16.155s] writing ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/PKG-INFO
+[16.156s] writing dependency_links to ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/dependency_links.txt
+[16.156s] writing entry points to ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/entry_points.txt
+[16.156s] writing requirements to ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/requires.txt
+[16.156s] writing top-level names to ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/top_level.txt
+[16.156s] writing manifest file '../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/SOURCES.txt'
+[16.208s] reading manifest file '../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/SOURCES.txt'
+[16.209s] writing manifest file '../build/grab2_curobo_planner/grab2_curobo_planner.egg-info/SOURCES.txt'
+[16.209s] running build
+[16.209s] running build_py
+[16.209s] creating /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner
+[16.209s] copying grab2_curobo_planner/planning_server.py -> /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner
+[16.210s] copying grab2_curobo_planner/__init__.py -> /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner
+[16.210s] creating /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/curobo
+[16.210s] copying grab2_curobo_planner/curobo/motion_generation.py -> /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/curobo
+[16.210s] copying grab2_curobo_planner/curobo/__init__.py -> /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/curobo
+[16.210s] running install
+[16.216s] running install_lib
+[16.243s] creating /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner
+[16.243s] copying /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/planning_server.py -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner
+[16.243s] copying /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/__init__.py -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner
+[16.243s] creating /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/curobo
+[16.243s] copying /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/curobo/motion_generation.py -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/curobo
+[16.243s] copying /home/zaynap/grab/grab2/build/grab2_curobo_planner/build/lib/grab2_curobo_planner/curobo/__init__.py -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/curobo
+[16.244s] byte-compiling /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/planning_server.py to planning_server.cpython-310.pyc
+[16.246s] byte-compiling /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/__init__.py to __init__.cpython-310.pyc
+[16.246s] byte-compiling /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/curobo/motion_generation.py to motion_generation.cpython-310.pyc
+[16.247s] byte-compiling /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner/curobo/__init__.py to __init__.cpython-310.pyc
+[16.247s] running install_data
+[16.247s] creating /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/ament_index/resource_index/packages
+[16.248s] copying resource/grab2_curobo_planner -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/ament_index/resource_index/packages
+[16.248s] copying package.xml -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner
+[16.248s] creating /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/launch
+[16.248s] copying launch/planning_server.launch.py -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/launch
+[16.248s] creating /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/config
+[16.248s] copying config/table.yaml -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/config
+[16.249s] copying config/toybox.yaml -> /home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/config
+[16.249s] running install_egg_info
+[16.276s] Copying ../build/grab2_curobo_planner/grab2_curobo_planner.egg-info to /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages/grab2_curobo_planner-0.0.0-py3.10.egg-info
+[16.276s] running install_scripts
+[16.473s] Installing planning_server script to /home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/grab2_curobo_planner
+[16.474s] writing list of installed files to '/home/zaynap/grab/grab2/build/grab2_curobo_planner/install.log'
+[16.509s] Invoked command in '/home/zaynap/grab/grab2/grab2_curobo_planner' returned '0': AMENT_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/zaynap/grab/grab2/build/grab2_curobo_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages:/home/zaynap/grab/grab2/install/grab2_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/grab2_curobo_planner build --build-base /home/zaynap/grab/grab2/build/grab2_curobo_planner/build install --record /home/zaynap/grab/grab2/build/grab2_curobo_planner/install.log --single-version-externally-managed install_data

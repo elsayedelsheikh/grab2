@@ -1,0 +1,84 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+-- Found behaviortree_cpp: 4.7.1 (/opt/ros/humble/share/behaviortree_cpp/cmake)
+-- Found btcpp_ros2_interfaces: 0.2.0 (/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/cmake)
+-- Found generate_parameter_library: 0.5.0 (/opt/ros/humble/share/generate_parameter_library/cmake)
+-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+-- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zaynap/grab/grab2/build/behaviortree_ros2
+[ 16%] [34m[1mRunning `/opt/ros/humble/bin/generate_parameter_library_cpp /home/zaynap/grab/grab2/build/behaviortree_ros2/include/behaviortree_ros2/bt_executor_parameters.hpp /home/zaynap/grab/grab2/BehaviorTree.ROS2/behaviortree_ros2/src/bt_executor_parameters.yaml `[0m
+[ 33%] [34m[1mCreating deprecated header file /home/zaynap/grab/grab2/build/behaviortree_ros2/include/bt_executor_parameters.hpp[0m
+[ 33%] Built target bt_executor_parameters
+[ 66%] [32mBuilding CXX object CMakeFiles/behaviortree_ros2.dir/src/bt_utils.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/behaviortree_ros2.dir/src/bt_ros2.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/behaviortree_ros2.dir/src/tree_execution_server.cpp.o[0m
+[100%] [32m[1mLinking CXX static library libbehaviortree_ros2.a[0m
+[100%] Built target behaviortree_ros2
+-- Install configuration: ""
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include/behaviortree_ros2
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include/behaviortree_ros2/bt_executor_parameters.hpp
+-- Up-to-date: /home/zaynap/grab/grab2/install/behaviortree_ros2/include/
+-- Up-to-date: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/tree_execution_server.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/bt_topic_sub_node.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/bt_utils.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/bt_topic_pub_node.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/plugins.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/bt_service_node.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/bt_action_node.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/include//behaviortree_ros2/ros_node_params.hpp
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/library_path.sh
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/library_path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/lib/libbehaviortree_ros2.a
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/ament_index/resource_index/package_run_dependencies/behaviortree_ros2
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/ament_index/resource_index/parent_prefix_path/behaviortree_ros2
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/ament_prefix_path.sh
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/ament_prefix_path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/path.sh
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/environment/path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/local_setup.bash
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/local_setup.sh
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/local_setup.zsh
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/local_setup.dsv
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.dsv
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/ament_index/resource_index/packages/behaviortree_ros2
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/behaviortree_ros2TargetsExport.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/behaviortree_ros2TargetsExport-noconfig.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/behaviortree_ros2Config.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/cmake/behaviortree_ros2Config-version.cmake
+-- Installing: /home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.xml
