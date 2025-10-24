@@ -1,0 +1,76 @@
+[  6%] [32mBuilding CXX object CMakeFiles/grab2_get_trajectory_hardcoded.dir/plugins/get_trajectory_hardcoded.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/grab2_get_grasp.dir/plugins/get_grasp.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/grab2_get_grasp_hardcoded.dir/plugins/get_grasp_hardcoded.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/grab2_detect_object.dir/plugins/detect_object.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/grab2_move.dir/plugins/move.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/grab2_plan.dir/plugins/plan.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/grab2_engine.dir/src/main.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/grab2_grip.dir/plugins/grip.cpp.o[0m
+[ 56%] [32m[1mLinking CXX shared library libgrab2_get_trajectory_hardcoded.so[0m
+[ 62%] [32m[1mLinking CXX shared library libgrab2_get_grasp_hardcoded.so[0m
+[ 62%] Built target grab2_get_trajectory_hardcoded
+[ 62%] Built target grab2_get_grasp_hardcoded
+[ 68%] [32m[1mLinking CXX executable grab2_engine[0m
+[ 75%] [32m[1mLinking CXX shared library libgrab2_get_grasp.so[0m
+[ 75%] Built target grab2_get_grasp
+[ 75%] Built target grab2_engine
+[ 81%] [32m[1mLinking CXX shared library libgrab2_move.so[0m
+[ 87%] [32m[1mLinking CXX shared library libgrab2_grip.so[0m
+[ 87%] Built target grab2_move
+[ 87%] Built target grab2_grip
+[ 93%] [32m[1mLinking CXX shared library libgrab2_plan.so[0m
+[ 93%] Built target grab2_plan
+[100%] [32m[1mLinking CXX shared library libgrab2_detect_object.so[0m
+[100%] Built target grab2_detect_object
+-- Install configuration: ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_trajectory_hardcoded.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_trajectory_hardcoded.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp_hardcoded.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp_hardcoded.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_detect_object.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_detect_object.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_get_grasp.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_plan.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_plan.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_move.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_move.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_grip.so
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/libgrab2_grip.so" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/grab2_behavior_tree/grab2_engine
+-- Set runtime path of "/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/grab2_behavior_tree/grab2_engine" to ""
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp_hardcoded.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/detect_object.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/move.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_grasp.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/utils.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/get_trajectory_hardcoded.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/plan.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/include/grab2_behavior_tree/grip.hpp
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_toys.xml
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/collect_cubes.xml
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/stack_cubes.xml
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/bt_groot2.btproj
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/target_ik_demo.xml
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/behavior_trees/lookaround_demo.xml
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/bt_demo.launch.py
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/launch/grab2_engine.launch.py
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/package_run_dependencies/grab2_behavior_tree
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/parent_prefix_path/grab2_behavior_tree
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.sh
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/ament_prefix_path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.sh
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/environment/path.dsv
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.bash
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.sh
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.zsh
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/local_setup.dsv
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/ament_index/resource_index/packages/grab2_behavior_tree
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig.cmake
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/cmake/grab2_behavior_treeConfig-version.cmake
+-- Installing: /home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.xml

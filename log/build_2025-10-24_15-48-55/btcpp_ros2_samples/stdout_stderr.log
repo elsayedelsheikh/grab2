@@ -1,0 +1,42 @@
+[ 11%] Built target subscriber_test
+[ 22%] Built target bool_server
+[ 38%] Built target sleep_client
+[ 50%] Built target sample_bt_executor
+[ 61%] Built target sleep_plugin
+[ 72%] Built target sleep_server
+[ 88%] Built target bool_client
+[100%] Built target sleep_client_dyn
+-- Install configuration: ""
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_client_dyn
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sleep_server
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/libsleep_plugin.so
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/subscriber_test
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/sample_bt_executor
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_client
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/btcpp_ros2_samples/bool_server
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/bt_plugins/libsleep_plugin.so
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/sleep_action.xml
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/cross_door.xml
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//behavior_trees/door_closed.xml
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//config
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//config/sample_bt_executor.yaml
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//launch
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples//launch/sample_bt_executor.launch.xml
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/package_run_dependencies/btcpp_ros2_samples
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/parent_prefix_path/btcpp_ros2_samples
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.sh
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.sh
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/environment/path.dsv
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.bash
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.sh
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.zsh
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/local_setup.dsv
+-- Installing: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.dsv
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/ament_index/resource_index/packages/btcpp_ros2_samples
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig.cmake
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/cmake/btcpp_ros2_samplesConfig-version.cmake
+-- Up-to-date: /home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.xml

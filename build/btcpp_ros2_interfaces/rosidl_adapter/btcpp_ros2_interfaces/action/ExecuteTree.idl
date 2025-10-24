@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from btcpp_ros2_interfaces/action/ExecuteTree.action
+// generated code does not contain a copyright notice
+
+#include "btcpp_ros2_interfaces/msg/NodeStatus.idl"
+
+module btcpp_ros2_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Request ####")
+    struct ExecuteTree_Goal {
+      @verbatim (language="comment", text=
+        "Name of the tree to execute")
+      string target_tree;
+
+      @verbatim (language="comment", text=
+        "Optional, implementation-dependent, payload.")
+      string payload;
+    };
+    @verbatim (language="comment", text=
+      "Result ####")
+    struct ExecuteTree_Result {
+      @verbatim (language="comment", text=
+        "Status of the tree")
+      btcpp_ros2_interfaces::msg::NodeStatus node_status;
+
+      @verbatim (language="comment", text=
+        "result payload or error message")
+      string return_message;
+    };
+    @verbatim (language="comment", text=
+      "Feedback ####")
+    struct ExecuteTree_Feedback {
+      @verbatim (language="comment", text=
+        "This can be customized by the user")
+      string message;
+    };
+  };
+};

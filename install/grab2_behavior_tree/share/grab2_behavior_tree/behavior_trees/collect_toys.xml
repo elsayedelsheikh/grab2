@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <KeepRunningUntilFailure>
+      <Sequence>
+        <SubTree ID="GoToHomePose"/>
+        <ReactiveFallback>
+          <DetectObject pose="{toy_pose}"/>
+          <Inverter>
+            <SubTree ID="LookAround"/>
+          </Inverter>
+          <Inverter>
+            <SaySomething message="No toys left on the ground"/>
+          </Inverter>
+        </ReactiveFallback>
+        <GetGrasp object_pose="{toy_pose}" pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
+        <SubTree ID="PickToy" pre="{pregrasp_pose}" item="{grasp_pose}"/>
+        <SubTree ID="DropIntoToyBox"/>
+      </Sequence>
+    </KeepRunningUntilFailure>
+  </BehaviorTree>
+
+  <BehaviorTree ID="LookAround">
+    <Sequence>
+      <SaySomething message="Looking for a toy"/>
+      <!-- Get to a starting point with collision-aware planning -->
+      <SubTree ID="MoveTo" target="0.0;0.7;0.65;1;0;0;0"/>
+      <!-- This sets the trajectory directly without collision avoidance -->
+      <GetTrajectoryHardcoded trajectory="{trajectory_msg}"/>
+      <Move trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="PickToy">
+    <Sequence>
+      <SubTree ID="MoveTo" target="{pre}"/>
+      <Grip pose="0.04"/>
+      <SubTree ID="MoveTo" target="{item}"/>
+      <Grip pose="0.02"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="GoToHomePose">
+    <Sequence>
+      <Plan target_ik="0.35;0.35;0.6;1;0;0;0" trajectory="{trajectory_msg}"/>
+      <Move trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="DropIntoToyBox">
+    <Sequence>
+      <SubTree ID="MoveTo" target="0.4;-0.17;0.33;1;0;0;0"/>
+      <Grip pose="0.04"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="MoveTo">
+    <!-- Plan and Execute a path to a point (px,py,pz,qx,qy,qz,qw) -->
+    <Sequence>
+      <Plan target_ik="{target}" trajectory="{trajectory_msg}"/>
+      <Move trajectory="{trajectory_msg}"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Move" editable="true">
+      <input_port name="trajectory"/>
+    </Action>
+    <Action ID="SaySomething" editable="true">
+      <input_port name="message"/>
+    </Action>
+    <Action ID="GetTrajectoryHardcoded" editable="true">
+      <input_port name="trajectory"/>
+    </Action>
+  </TreeNodesModel>
+
+</root>
