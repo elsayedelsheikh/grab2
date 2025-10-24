@@ -1,0 +1,29 @@
+[01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:[m[K In member function ‘[01m[Kvoid grab2_planner::PlannerServer::computePlanThroughPoses(std::shared_ptr<rclcpp_action::ServerGoalHandle<grab2_msgs::action::ComputePlanThroughPoses> >)[m[K’:
+[01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:144:37:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::vector<int>::push_back(std::string)[m[K’
+  144 |     [01;31m[Kresult->failed_indices.push_back(std::to_string(idx))[m[K;
+      |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/vector:67[m[K,
+                 from [01m[K/usr/include/c++/11/functional:62[m[K,
+                 from [01m[K/usr/include/c++/11/pstl/glue_algorithm_defs.h:13[m[K,
+                 from [01m[K/usr/include/c++/11/algorithm:74[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/zaynap/grab/grab2/grab2_planner/include/grab2_planner/planner_server.hpp:10[m[K,
+                 from [01m[K/home/zaynap/grab/grab2/grab2_planner/src/planner_server.cpp:3[m[K:
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1187:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int][m[K’
+ 1187 |       [01;36m[Kpush_back[m[K(const value_type& __x)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1187:35:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} to ‘[01m[Kconst value_type&[m[K’ {aka ‘[01m[Kconst int&[m[K’}
+ 1187 |       push_back([01;36m[Kconst value_type& __x[m[K)
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1203:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::value_type = int][m[K’
+ 1203 |       [01;36m[Kpush_back[m[K(value_type&& __x)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1203:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} to ‘[01m[Kstd::vector<int>::value_type&&[m[K’ {aka ‘[01m[Kint&&[m[K’}
+ 1203 |       push_back([01;36m[Kvalue_type&& __x[m[K)
+      |                 [01;36m[K~~~~~~~~~~~~~^~~[m[K
+gmake[2]: *** [CMakeFiles/planner_server_core.dir/build.make:76: CMakeFiles/planner_server_core.dir/src/planner_server.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/planner_server_core.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

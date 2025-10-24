@@ -1,0 +1,912 @@
+[0.117s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.117s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x73ba781b69e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x73ba782abf40>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x73ba782abf40>>, mixin_verb=('build',))
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.155s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.155s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/zaynap/grab/grab2'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.155s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['ignore', 'ignore_ament_install']
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'ignore'
+[0.179s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'ros'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['cmake', 'python']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'cmake'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'python'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extensions ['python_setup_py']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2) by extension 'python_setup_py'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extension 'ignore'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extension 'ignore_ament_install'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extensions ['colcon_pkg']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extension 'colcon_pkg'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extensions ['colcon_meta']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extension 'colcon_meta'
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extensions ['ros']
+[0.180s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/behaviortree_ros2) by extension 'ros'
+[0.183s] DEBUG:colcon.colcon_core.package_identification:Package 'BehaviorTree.ROS2/behaviortree_ros2' with type 'ros.ament_cmake' and name 'behaviortree_ros2'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extension 'ignore_ament_install'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extensions ['colcon_pkg']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extension 'colcon_pkg'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extensions ['colcon_meta']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_interfaces) by extension 'ros'
+[0.184s] DEBUG:colcon.colcon_core.package_identification:Package 'BehaviorTree.ROS2/btcpp_ros2_interfaces' with type 'ros.ament_cmake' and name 'btcpp_ros2_interfaces'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extensions ['colcon_meta']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extension 'colcon_meta'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extensions ['ros']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(BehaviorTree.ROS2/btcpp_ros2_samples) by extension 'ros'
+[0.185s] DEBUG:colcon.colcon_core.package_identification:Package 'BehaviorTree.ROS2/btcpp_ros2_samples' with type 'ros.ament_cmake' and name 'btcpp_ros2_samples'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(docs) ignored
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extension 'colcon_pkg'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extensions ['colcon_meta']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extension 'colcon_meta'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extensions ['ros']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_behavior_tree) by extension 'ros'
+[0.188s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_behavior_tree' with type 'ros.ament_cmake' and name 'grab2_behavior_tree'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extension 'colcon_pkg'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_controller) by extension 'ros'
+[0.190s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_controller' with type 'ros.ament_cmake' and name 'grab2_controller'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extension 'ignore'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extension 'ignore_ament_install'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extensions ['colcon_pkg']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extension 'colcon_pkg'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extensions ['colcon_meta']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extension 'colcon_meta'
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extensions ['ros']
+[0.190s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_curobo_planner) by extension 'ros'
+[0.191s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_curobo_planner' with type 'ros.ament_python' and name 'grab2_curobo_planner'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_grasp_generator) by extension 'ros'
+[0.193s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_grasp_generator' with type 'ros.ament_cmake' and name 'grab2_grasp_generator'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_msgs) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_msgs' with type 'ros.ament_cmake' and name 'grab2_msgs'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extension 'ignore_ament_install'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extensions ['colcon_pkg']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extension 'colcon_pkg'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extensions ['colcon_meta']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extension 'colcon_meta'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extensions ['ros']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_planner) by extension 'ros'
+[0.196s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_planner' with type 'ros.ament_cmake' and name 'grab2_planner'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extensions ['ignore', 'ignore_ament_install']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extension 'ignore'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extension 'ignore_ament_install'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extensions ['colcon_pkg']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extension 'colcon_pkg'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extensions ['colcon_meta']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extension 'colcon_meta'
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extensions ['ros']
+[0.197s] Level 1:colcon.colcon_core.package_identification:_identify(grab2_ros_common) by extension 'ros'
+[0.198s] DEBUG:colcon.colcon_core.package_identification:Package 'grab2_ros_common' with type 'ros.ament_cmake' and name 'grab2_ros_common'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['colcon_meta']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'ros'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['cmake', 'python']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'cmake'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'python'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extensions ['python_setup_py']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds) by extension 'python_setup_py'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'ignore'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'ignore_ament_install'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['colcon_pkg']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'colcon_pkg'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['colcon_meta']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'ros'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['cmake', 'python']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'cmake'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'python'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extensions ['python_setup_py']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets) by extension 'python_setup_py'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'ros'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['cmake', 'python']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'cmake'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'python'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extensions ['python_setup_py']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/objects) by extension 'python_setup_py'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'ros'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['cmake', 'python']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'cmake'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'python'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extensions ['python_setup_py']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/robots) by extension 'python_setup_py'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['ignore', 'ignore_ament_install']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'ignore'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'ignore_ament_install'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'ros'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['cmake', 'python']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'cmake'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'python'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extensions ['python_setup_py']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds) by extension 'python_setup_py'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['ignore', 'ignore_ament_install']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'ignore'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'ignore_ament_install'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['colcon_pkg']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'colcon_pkg'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['colcon_meta']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'colcon_meta'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['ros']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'ros'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['cmake', 'python']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'cmake'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'python'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extensions ['python_setup_py']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world) by extension 'python_setup_py'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['ignore', 'ignore_ament_install']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'ignore'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'ignore_ament_install'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['colcon_pkg']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'colcon_pkg'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['colcon_meta']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'colcon_meta'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['ros']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'ros'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['cmake', 'python']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'cmake'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'python'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extensions ['python_setup_py']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(isaac_sim_worlds/assets/worlds/toybox_world/Textures) by extension 'python_setup_py'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extensions ['ignore', 'ignore_ament_install']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extension 'ignore'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extension 'ignore_ament_install'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extensions ['colcon_pkg']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extension 'colcon_pkg'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extensions ['colcon_meta']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extension 'colcon_meta'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extensions ['ros']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(topic_based_ros2_control) by extension 'ros'
+[0.204s] DEBUG:colcon.colcon_core.package_identification:Package 'topic_based_ros2_control' with type 'ros.ament_cmake' and name 'topic_based_ros2_control'
+[0.205s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.205s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.205s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.205s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.205s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.226s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.226s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.228s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 11 installed packages in /home/zaynap/grab/grab2/install
+[0.230s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 468 installed packages in /opt/ros/humble
+[0.232s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.297s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.297s] DEBUG:colcon.colcon_core.verb:Building package 'btcpp_ros2_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'grab2_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.298s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_msgs', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_args' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_target' from command line to 'None'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.298s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'topic_based_ros2_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.299s] DEBUG:colcon.colcon_core.verb:Building package 'topic_based_ros2_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/topic_based_ros2_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/topic_based_ros2_control', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/topic_based_ros2_control', 'symlink_install': False, 'test_result_base': None}
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_target' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.299s] Level 5:colcon.colcon_core.verb:set package 'behaviortree_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.299s] DEBUG:colcon.colcon_core.verb:Building package 'behaviortree_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/behaviortree_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/behaviortree_ros2', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/BehaviorTree.ROS2/behaviortree_ros2', 'symlink_install': False, 'test_result_base': None}
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_target' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.300s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_controller', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_controller', 'symlink_install': False, 'test_result_base': None}
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_target' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.300s] Level 5:colcon.colcon_core.verb:set package 'grab2_curobo_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.300s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_curobo_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_curobo_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_curobo_planner', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_curobo_planner', 'symlink_install': False, 'test_result_base': None}
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_target' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_clean_cache' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_clean_first' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'cmake_force_configure' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'ament_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'catkin_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'grab2_ros_common' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.301s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_ros_common' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_ros_common', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_ros_common', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_ros_common', 'symlink_install': False, 'test_result_base': None}
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_target' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_clean_cache' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_clean_first' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'cmake_force_configure' from command line to 'False'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'ament_cmake_args' from command line to 'None'
+[0.301s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'catkin_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'btcpp_ros2_samples' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.302s] DEBUG:colcon.colcon_core.verb:Building package 'btcpp_ros2_samples' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/btcpp_ros2_samples', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/btcpp_ros2_samples', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_samples', 'symlink_install': False, 'test_result_base': None}
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_target' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_clean_cache' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_clean_first' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'cmake_force_configure' from command line to 'False'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'ament_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'catkin_cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_behavior_tree' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.302s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_behavior_tree' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_behavior_tree', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_behavior_tree', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_behavior_tree', 'symlink_install': False, 'test_result_base': None}
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_args' from command line to 'None'
+[0.302s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_target' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_clean_first' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'cmake_force_configure' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'ament_cmake_args' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_grasp_generator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.303s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_grasp_generator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_grasp_generator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_grasp_generator', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_grasp_generator', 'symlink_install': False, 'test_result_base': None}
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_args' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_target' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.303s] Level 5:colcon.colcon_core.verb:set package 'grab2_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.303s] DEBUG:colcon.colcon_core.verb:Building package 'grab2_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zaynap/grab/grab2/build/grab2_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zaynap/grab/grab2/install/grab2_planner', 'merge_install': False, 'path': '/home/zaynap/grab/grab2/grab2_planner', 'symlink_install': False, 'test_result_base': None}
+[0.303s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.304s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.305s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_msgs' with build type 'ament_cmake'
+[0.305s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_msgs'
+[0.307s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.307s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.307s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.311s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_interfaces' with build type 'ament_cmake'
+[0.311s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_interfaces'
+[0.311s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.311s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.315s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/topic_based_ros2_control' with build type 'ament_cmake'
+[0.315s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/topic_based_ros2_control'
+[0.316s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.316s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.326s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_msgs -- -j8 -l8
+[0.329s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/btcpp_ros2_interfaces -- -j8 -l8
+[0.333s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/topic_based_ros2_control -- -j8 -l8
+[0.485s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/topic_based_ros2_control -- -j8 -l8
+[0.496s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/topic_based_ros2_control
+[0.507s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(topic_based_ros2_control)
+[0.508s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/topic_based_ros2_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/topic_based_ros2_control
+[0.511s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control' for CMake module files
+[0.512s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control' for CMake config files
+[0.512s] Level 1:colcon.colcon_core.shell:create_environment_hook('topic_based_ros2_control', 'cmake_prefix_path')
+[0.513s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.ps1'
+[0.514s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.dsv'
+[0.514s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.sh'
+[0.516s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib'
+[0.516s] Level 1:colcon.colcon_core.shell:create_environment_hook('topic_based_ros2_control', 'ld_library_path_lib')
+[0.516s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.ps1'
+[0.517s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.dsv'
+[0.517s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.sh'
+[0.518s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/bin'
+[0.518s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/pkgconfig/topic_based_ros2_control.pc'
+[0.518s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/python3.10/site-packages'
+[0.518s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/bin'
+[0.519s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.ps1'
+[0.520s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.dsv'
+[0.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.sh'
+[0.522s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.bash'
+[0.523s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.zsh'
+[0.523s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/colcon-core/packages/topic_based_ros2_control)
+[0.524s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(topic_based_ros2_control)
+[0.524s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control' for CMake module files
+[0.525s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control' for CMake config files
+[0.525s] Level 1:colcon.colcon_core.shell:create_environment_hook('topic_based_ros2_control', 'cmake_prefix_path')
+[0.525s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.ps1'
+[0.526s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.dsv'
+[0.526s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/cmake_prefix_path.sh'
+[0.527s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib'
+[0.527s] Level 1:colcon.colcon_core.shell:create_environment_hook('topic_based_ros2_control', 'ld_library_path_lib')
+[0.527s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.ps1'
+[0.527s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.dsv'
+[0.528s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/hook/ld_library_path_lib.sh'
+[0.528s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/bin'
+[0.528s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/pkgconfig/topic_based_ros2_control.pc'
+[0.528s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib/python3.10/site-packages'
+[0.528s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/topic_based_ros2_control/bin'
+[0.529s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.ps1'
+[0.530s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.dsv'
+[0.530s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.sh'
+[0.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.bash'
+[0.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/topic_based_ros2_control/package.zsh'
+[0.533s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/topic_based_ros2_control/share/colcon-core/packages/topic_based_ros2_control)
+[0.534s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_controller' with build type 'ament_cmake'
+[0.534s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_controller'
+[0.534s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.534s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.550s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_controller': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_controller -- -j8 -l8
+[0.596s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_controller' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_controller -- -j8 -l8
+[0.597s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_controller': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_controller
+[0.610s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_controller)
+[0.610s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller' for CMake module files
+[0.611s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller' for CMake config files
+[0.612s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_controller' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_controller
+[0.613s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_controller', 'cmake_prefix_path')
+[0.613s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.ps1'
+[0.613s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.dsv'
+[0.614s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.sh'
+[0.614s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/bin'
+[0.614s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/lib/pkgconfig/grab2_controller.pc'
+[0.614s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/lib/python3.10/site-packages'
+[0.615s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/bin'
+[0.615s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.ps1'
+[0.615s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.dsv'
+[0.616s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.sh'
+[0.616s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.bash'
+[0.616s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.zsh'
+[0.617s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_controller/share/colcon-core/packages/grab2_controller)
+[0.617s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_controller)
+[0.617s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller' for CMake module files
+[0.618s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller' for CMake config files
+[0.618s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_controller', 'cmake_prefix_path')
+[0.618s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.ps1'
+[0.619s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.dsv'
+[0.619s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/hook/cmake_prefix_path.sh'
+[0.620s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/bin'
+[0.620s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/lib/pkgconfig/grab2_controller.pc'
+[0.620s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/lib/python3.10/site-packages'
+[0.620s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_controller/bin'
+[0.621s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.ps1'
+[0.621s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.dsv'
+[0.622s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.sh'
+[0.622s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.bash'
+[0.623s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_controller/share/grab2_controller/package.zsh'
+[0.623s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_controller/share/colcon-core/packages/grab2_controller)
+[0.913s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/btcpp_ros2_interfaces -- -j8 -l8
+[0.915s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/btcpp_ros2_interfaces
+[0.916s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_msgs -- -j8 -l8
+[0.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_msgs
+[0.979s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(btcpp_ros2_interfaces)
+[0.979s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces' for CMake module files
+[0.980s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/btcpp_ros2_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/btcpp_ros2_interfaces
+[0.981s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces' for CMake config files
+[0.981s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_interfaces', 'cmake_prefix_path')
+[0.982s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.ps1'
+[0.982s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.dsv'
+[0.982s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.sh'
+[0.983s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib'
+[0.983s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_interfaces', 'ld_library_path_lib')
+[0.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.ps1'
+[0.983s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.dsv'
+[0.984s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.sh'
+[0.984s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/bin'
+[0.984s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib/pkgconfig/btcpp_ros2_interfaces.pc'
+[0.984s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib/python3.10/site-packages'
+[0.985s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/bin'
+[0.985s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.ps1'
+[0.986s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.dsv'
+[0.986s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.sh'
+[0.987s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.bash'
+[0.987s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.zsh'
+[0.987s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/colcon-core/packages/btcpp_ros2_interfaces)
+[0.988s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(btcpp_ros2_interfaces)
+[0.988s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces' for CMake module files
+[0.989s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces' for CMake config files
+[0.989s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_interfaces', 'cmake_prefix_path')
+[0.989s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.ps1'
+[0.990s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.dsv'
+[0.990s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/cmake_prefix_path.sh'
+[0.990s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib'
+[0.990s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_interfaces', 'ld_library_path_lib')
+[0.991s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.ps1'
+[0.991s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.dsv'
+[0.991s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/hook/ld_library_path_lib.sh'
+[0.992s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/bin'
+[0.992s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib/pkgconfig/btcpp_ros2_interfaces.pc'
+[0.992s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib/python3.10/site-packages'
+[0.992s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/bin'
+[0.992s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.ps1'
+[0.993s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.dsv'
+[0.993s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.sh'
+[0.994s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.bash'
+[0.994s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/btcpp_ros2_interfaces/package.zsh'
+[0.994s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/share/colcon-core/packages/btcpp_ros2_interfaces)
+[0.995s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/behaviortree_ros2' with build type 'ament_cmake'
+[0.995s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/behaviortree_ros2'
+[0.995s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.995s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.999s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_msgs)
+[1.000s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs' for CMake module files
+[1.000s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_msgs
+[1.001s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs' for CMake config files
+[1.001s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_msgs', 'cmake_prefix_path')
+[1.001s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.ps1'
+[1.002s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.dsv'
+[1.002s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.sh'
+[1.003s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib'
+[1.003s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_msgs', 'ld_library_path_lib')
+[1.003s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.ps1'
+[1.003s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.dsv'
+[1.004s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.sh'
+[1.004s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/bin'
+[1.004s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib/pkgconfig/grab2_msgs.pc'
+[1.004s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib/python3.10/site-packages'
+[1.005s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/bin'
+[1.005s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.ps1'
+[1.005s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.dsv'
+[1.006s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.sh'
+[1.006s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.bash'
+[1.007s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.zsh'
+[1.007s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_msgs/share/colcon-core/packages/grab2_msgs)
+[1.007s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_msgs)
+[1.008s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs' for CMake module files
+[1.009s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs' for CMake config files
+[1.009s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_msgs', 'cmake_prefix_path')
+[1.009s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.ps1'
+[1.010s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.dsv'
+[1.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/cmake_prefix_path.sh'
+[1.011s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib'
+[1.011s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_msgs', 'ld_library_path_lib')
+[1.011s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.ps1'
+[1.012s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.dsv'
+[1.012s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/hook/ld_library_path_lib.sh'
+[1.012s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/bin'
+[1.012s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib/pkgconfig/grab2_msgs.pc'
+[1.013s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/lib/python3.10/site-packages'
+[1.013s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_msgs/bin'
+[1.013s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.ps1'
+[1.014s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.dsv'
+[1.014s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.sh'
+[1.014s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.bash'
+[1.015s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_msgs/share/grab2_msgs/package.zsh'
+[1.015s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_msgs/share/colcon-core/packages/grab2_msgs)
+[1.016s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_ros_common' with build type 'ament_cmake'
+[1.016s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_ros_common'
+[1.016s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.016s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.020s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_curobo_planner' with build type 'ament_python'
+[1.021s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_curobo_planner', 'ament_prefix_path')
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/ament_prefix_path.ps1'
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/ament_prefix_path.dsv'
+[1.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/ament_prefix_path.sh'
+[1.022s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.022s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.031s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/behaviortree_ros2': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/behaviortree_ros2 -- -j8 -l8
+[1.033s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_ros_common': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_ros_common -- -j8 -l8
+[1.285s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/zaynap/grab/grab2/grab2_curobo_planner'
+[1.285s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.285s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.291s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_ros_common' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_ros_common -- -j8 -l8
+[1.293s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_ros_common': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_ros_common
+[1.293s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/behaviortree_ros2' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/behaviortree_ros2 -- -j8 -l8
+[1.294s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/behaviortree_ros2': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/behaviortree_ros2
+[1.305s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_ros_common)
+[1.306s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common' for CMake module files
+[1.307s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common' for CMake config files
+[1.308s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_ros_common' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_ros_common
+[1.308s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_ros_common', 'cmake_prefix_path')
+[1.308s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.ps1'
+[1.309s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.dsv'
+[1.309s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.sh'
+[1.310s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/bin'
+[1.310s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/lib/pkgconfig/grab2_ros_common.pc'
+[1.310s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/lib/python3.10/site-packages'
+[1.310s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/bin'
+[1.310s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.ps1'
+[1.311s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.dsv'
+[1.311s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.sh'
+[1.311s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.bash'
+[1.312s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.zsh'
+[1.312s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_ros_common/share/colcon-core/packages/grab2_ros_common)
+[1.313s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_ros_common)
+[1.313s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common' for CMake module files
+[1.313s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common' for CMake config files
+[1.313s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_ros_common', 'cmake_prefix_path')
+[1.314s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.ps1'
+[1.314s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.dsv'
+[1.314s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/hook/cmake_prefix_path.sh'
+[1.315s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/bin'
+[1.315s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/lib/pkgconfig/grab2_ros_common.pc'
+[1.315s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/lib/python3.10/site-packages'
+[1.315s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_ros_common/bin'
+[1.315s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.ps1'
+[1.316s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.dsv'
+[1.316s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.sh'
+[1.317s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.bash'
+[1.317s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_ros_common/share/grab2_ros_common/package.zsh'
+[1.317s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_ros_common/share/colcon-core/packages/grab2_ros_common)
+[1.318s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(behaviortree_ros2)
+[1.318s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2' for CMake module files
+[1.319s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2' for CMake config files
+[1.319s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/behaviortree_ros2' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/behaviortree_ros2
+[1.319s] Level 1:colcon.colcon_core.shell:create_environment_hook('behaviortree_ros2', 'cmake_prefix_path')
+[1.319s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.ps1'
+[1.320s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.dsv'
+[1.320s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.sh'
+[1.321s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib'
+[1.321s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/bin'
+[1.321s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib/pkgconfig/behaviortree_ros2.pc'
+[1.321s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib/python3.10/site-packages'
+[1.321s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/bin'
+[1.322s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.ps1'
+[1.322s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.dsv'
+[1.322s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.sh'
+[1.323s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.bash'
+[1.323s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.zsh'
+[1.323s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/behaviortree_ros2/share/colcon-core/packages/behaviortree_ros2)
+[1.324s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(behaviortree_ros2)
+[1.324s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2' for CMake module files
+[1.325s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2' for CMake config files
+[1.325s] Level 1:colcon.colcon_core.shell:create_environment_hook('behaviortree_ros2', 'cmake_prefix_path')
+[1.325s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.ps1'
+[1.325s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.dsv'
+[1.326s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/hook/cmake_prefix_path.sh'
+[1.326s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib'
+[1.326s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/bin'
+[1.326s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib/pkgconfig/behaviortree_ros2.pc'
+[1.326s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/lib/python3.10/site-packages'
+[1.327s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/behaviortree_ros2/bin'
+[1.327s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.ps1'
+[1.327s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.dsv'
+[1.328s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.sh'
+[1.328s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.bash'
+[1.328s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/behaviortree_ros2/share/behaviortree_ros2/package.zsh'
+[1.329s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/behaviortree_ros2/share/colcon-core/packages/behaviortree_ros2)
+[1.329s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_samples' with build type 'ament_cmake'
+[1.329s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/BehaviorTree.ROS2/btcpp_ros2_samples'
+[1.329s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.330s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.334s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_behavior_tree' with build type 'ament_cmake'
+[1.335s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_behavior_tree'
+[1.335s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.335s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.339s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_grasp_generator' with build type 'ament_cmake'
+[1.340s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_grasp_generator'
+[1.340s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.340s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.347s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zaynap/grab/grab2/grab2_planner' with build type 'ament_cmake'
+[1.347s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zaynap/grab/grab2/grab2_planner'
+[1.347s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.347s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.356s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/btcpp_ros2_samples': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/btcpp_ros2_samples -- -j8 -l8
+[1.359s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[1.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_grasp_generator -- -j8 -l8
+[1.367s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_planner': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_planner -- -j8 -l8
+[1.526s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_behavior_tree -- -j8 -l8
+[1.526s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree
+[1.544s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/btcpp_ros2_samples' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/btcpp_ros2_samples -- -j8 -l8
+[1.546s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/btcpp_ros2_samples': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/btcpp_ros2_samples
+[1.546s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_behavior_tree)
+[1.547s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree' for CMake module files
+[1.548s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_behavior_tree' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_behavior_tree
+[1.548s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree' for CMake config files
+[1.549s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_behavior_tree', 'cmake_prefix_path')
+[1.549s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.ps1'
+[1.550s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.dsv'
+[1.550s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.sh'
+[1.551s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib'
+[1.551s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_behavior_tree', 'ld_library_path_lib')
+[1.552s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.ps1'
+[1.552s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.dsv'
+[1.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.sh'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/bin'
+[1.554s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/pkgconfig/grab2_behavior_tree.pc'
+[1.555s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/python3.10/site-packages'
+[1.555s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/bin'
+[1.555s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.ps1'
+[1.556s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv'
+[1.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.sh'
+[1.558s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.bash'
+[1.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.zsh'
+[1.559s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/colcon-core/packages/grab2_behavior_tree)
+[1.560s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_behavior_tree)
+[1.561s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree' for CMake module files
+[1.561s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree' for CMake config files
+[1.563s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_behavior_tree', 'cmake_prefix_path')
+[1.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.ps1'
+[1.563s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.dsv'
+[1.564s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/cmake_prefix_path.sh'
+[1.564s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib'
+[1.564s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_behavior_tree', 'ld_library_path_lib')
+[1.565s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.ps1'
+[1.565s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.dsv'
+[1.565s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/hook/ld_library_path_lib.sh'
+[1.566s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/bin'
+[1.566s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/pkgconfig/grab2_behavior_tree.pc'
+[1.566s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib/python3.10/site-packages'
+[1.566s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_behavior_tree/bin'
+[1.566s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.ps1'
+[1.567s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.dsv'
+[1.567s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.sh'
+[1.568s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.bash'
+[1.568s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/grab2_behavior_tree/package.zsh'
+[1.569s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_behavior_tree/share/colcon-core/packages/grab2_behavior_tree)
+[1.570s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_grasp_generator -- -j8 -l8
+[1.571s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_grasp_generator
+[1.572s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(btcpp_ros2_samples)
+[1.572s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples' for CMake module files
+[1.573s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/btcpp_ros2_samples' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/btcpp_ros2_samples
+[1.573s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples' for CMake config files
+[1.573s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_samples', 'cmake_prefix_path')
+[1.574s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.ps1'
+[1.574s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.dsv'
+[1.574s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.sh'
+[1.575s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib'
+[1.575s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/bin'
+[1.575s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/pkgconfig/btcpp_ros2_samples.pc'
+[1.575s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/python3.10/site-packages'
+[1.575s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/bin'
+[1.576s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.ps1'
+[1.576s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.dsv'
+[1.576s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.sh'
+[1.577s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.bash'
+[1.577s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.zsh'
+[1.577s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/colcon-core/packages/btcpp_ros2_samples)
+[1.578s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(btcpp_ros2_samples)
+[1.578s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples' for CMake module files
+[1.581s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples' for CMake config files
+[1.582s] Level 1:colcon.colcon_core.shell:create_environment_hook('btcpp_ros2_samples', 'cmake_prefix_path')
+[1.582s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.ps1'
+[1.583s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.dsv'
+[1.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/hook/cmake_prefix_path.sh'
+[1.584s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib'
+[1.584s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/bin'
+[1.584s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/pkgconfig/btcpp_ros2_samples.pc'
+[1.584s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/lib/python3.10/site-packages'
+[1.584s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/bin'
+[1.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.ps1'
+[1.585s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.dsv'
+[1.585s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.sh'
+[1.586s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.bash'
+[1.586s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/btcpp_ros2_samples/package.zsh'
+[1.587s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/btcpp_ros2_samples/share/colcon-core/packages/btcpp_ros2_samples)
+[1.588s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_planner' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/zaynap/grab/grab2/build/grab2_planner -- -j8 -l8
+[1.589s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/build/grab2_planner': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_planner
+[1.590s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_grasp_generator)
+[1.591s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator' for CMake module files
+[1.591s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_grasp_generator' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_grasp_generator
+[1.592s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator' for CMake config files
+[1.592s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_grasp_generator', 'cmake_prefix_path')
+[1.592s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.ps1'
+[1.593s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.dsv'
+[1.594s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.sh'
+[1.594s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib'
+[1.594s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_grasp_generator', 'ld_library_path_lib')
+[1.595s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.ps1'
+[1.595s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.dsv'
+[1.596s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.sh'
+[1.597s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/bin'
+[1.597s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/pkgconfig/grab2_grasp_generator.pc'
+[1.598s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/python3.10/site-packages'
+[1.598s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/bin'
+[1.599s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.ps1'
+[1.600s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.dsv'
+[1.601s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.sh'
+[1.603s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.bash'
+[1.604s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.zsh'
+[1.605s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/colcon-core/packages/grab2_grasp_generator)
+[1.605s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_grasp_generator)
+[1.605s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator' for CMake module files
+[1.606s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator' for CMake config files
+[1.606s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_grasp_generator', 'cmake_prefix_path')
+[1.606s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.ps1'
+[1.607s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.dsv'
+[1.607s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/cmake_prefix_path.sh'
+[1.608s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib'
+[1.608s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_grasp_generator', 'ld_library_path_lib')
+[1.608s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.ps1'
+[1.608s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.dsv'
+[1.609s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/hook/ld_library_path_lib.sh'
+[1.609s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/bin'
+[1.609s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/pkgconfig/grab2_grasp_generator.pc'
+[1.609s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib/python3.10/site-packages'
+[1.609s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_grasp_generator/bin'
+[1.610s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.ps1'
+[1.610s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.dsv'
+[1.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.sh'
+[1.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.bash'
+[1.611s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/grab2_grasp_generator/package.zsh'
+[1.612s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_grasp_generator/share/colcon-core/packages/grab2_grasp_generator)
+[1.613s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_planner)
+[1.613s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner' for CMake module files
+[1.613s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/build/grab2_planner' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces:/home/zaynap/grab/grab2/install/grab2_curobo_planner:/opt/ros/humble LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/zaynap/grab/grab2/build/grab2_planner
+[1.614s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner' for CMake config files
+[1.614s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_planner', 'cmake_prefix_path')
+[1.614s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.ps1'
+[1.615s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.dsv'
+[1.615s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.sh'
+[1.615s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib'
+[1.615s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_planner', 'ld_library_path_lib')
+[1.616s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.ps1'
+[1.616s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.dsv'
+[1.616s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.sh'
+[1.617s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/bin'
+[1.617s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib/pkgconfig/grab2_planner.pc'
+[1.617s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib/python3.10/site-packages'
+[1.617s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/bin'
+[1.617s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.ps1'
+[1.618s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.dsv'
+[1.618s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.sh'
+[1.619s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.bash'
+[1.619s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.zsh'
+[1.619s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_planner/share/colcon-core/packages/grab2_planner)
+[1.620s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_planner)
+[1.620s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner' for CMake module files
+[1.621s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner' for CMake config files
+[1.621s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_planner', 'cmake_prefix_path')
+[1.621s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.ps1'
+[1.621s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.dsv'
+[1.622s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/cmake_prefix_path.sh'
+[1.622s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib'
+[1.622s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_planner', 'ld_library_path_lib')
+[1.622s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.ps1'
+[1.623s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.dsv'
+[1.623s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/hook/ld_library_path_lib.sh'
+[1.623s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/bin'
+[1.624s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib/pkgconfig/grab2_planner.pc'
+[1.624s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/lib/python3.10/site-packages'
+[1.624s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_planner/bin'
+[1.624s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.ps1'
+[1.625s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.dsv'
+[1.625s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.sh'
+[1.626s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.bash'
+[1.626s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_planner/share/grab2_planner/package.zsh'
+[1.626s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_planner/share/colcon-core/packages/grab2_planner)
+[2.076s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zaynap/grab/grab2/grab2_curobo_planner': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/zaynap/grab/grab2/build/grab2_curobo_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/grab2_curobo_planner build --build-base /home/zaynap/grab/grab2/build/grab2_curobo_planner/build install --record /home/zaynap/grab/grab2/build/grab2_curobo_planner/install.log --single-version-externally-managed install_data
+[2.754s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner' for CMake module files
+[2.755s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zaynap/grab/grab2/grab2_curobo_planner' returned '0': CMAKE_PREFIX_PATH=/home/zaynap/grab/grab2/install/grab2_msgs:/home/zaynap/grab/grab2/install/grab2_controller:/home/zaynap/grab/grab2/install/topic_based_ros2_control:/home/zaynap/grab/grab2/install/grab2_planner:/home/zaynap/grab/grab2/install/grab2_grasp_generator:/home/zaynap/grab/grab2/install/grab2_ros_common:/home/zaynap/grab/grab2/install/grab2_behavior_tree:/home/zaynap/grab/grab2/install/btcpp_ros2_samples:/home/zaynap/grab/grab2/install/behaviortree_ros2:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces LD_LIBRARY_PATH=/home/zaynap/grab/grab2/install/grab2_msgs/lib:/home/zaynap/grab/grab2/install/topic_based_ros2_control/lib:/home/zaynap/grab/grab2/install/grab2_planner/lib:/home/zaynap/grab/grab2/install/grab2_grasp_generator/lib:/home/zaynap/grab/grab2/install/grab2_behavior_tree/lib:/home/zaynap/grab/grab2/install/behaviortree_ros2/lib:/home/zaynap/grab/grab2/install/btcpp_ros2_interfaces/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/zaynap/grab/grab2/build/grab2_curobo_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/grab2_curobo_planner build --build-base /home/zaynap/grab/grab2/build/grab2_curobo_planner/build install --record /home/zaynap/grab/grab2/build/grab2_curobo_planner/install.log --single-version-externally-managed install_data
+[2.755s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner' for CMake config files
+[2.756s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib'
+[2.756s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner/bin'
+[2.756s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/pkgconfig/grab2_curobo_planner.pc'
+[2.756s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner/lib/python3.10/site-packages'
+[2.756s] Level 1:colcon.colcon_core.shell:create_environment_hook('grab2_curobo_planner', 'pythonpath')
+[2.756s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath.ps1'
+[2.757s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath.dsv'
+[2.757s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/hook/pythonpath.sh'
+[2.758s] Level 1:colcon.colcon_core.environment:checking '/home/zaynap/grab/grab2/install/grab2_curobo_planner/bin'
+[2.758s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grab2_curobo_planner)
+[2.758s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/package.ps1'
+[2.759s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/package.dsv'
+[2.759s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/package.sh'
+[2.759s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/package.bash'
+[2.760s] INFO:colcon.colcon_core.shell:Creating package script '/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/grab2_curobo_planner/package.zsh'
+[2.760s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zaynap/grab/grab2/install/grab2_curobo_planner/share/colcon-core/packages/grab2_curobo_planner)
+[2.760s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.761s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.761s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.761s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.766s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.766s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.766s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.778s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.778s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zaynap/grab/grab2/install/local_setup.ps1'
+[2.779s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zaynap/grab/grab2/install/_local_setup_util_ps1.py'
+[2.781s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zaynap/grab/grab2/install/setup.ps1'
+[2.782s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zaynap/grab/grab2/install/local_setup.sh'
+[2.782s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zaynap/grab/grab2/install/_local_setup_util_sh.py'
+[2.783s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zaynap/grab/grab2/install/setup.sh'
+[2.784s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zaynap/grab/grab2/install/local_setup.bash'
+[2.785s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zaynap/grab/grab2/install/setup.bash'
+[2.786s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zaynap/grab/grab2/install/local_setup.zsh'
+[2.786s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zaynap/grab/grab2/install/setup.zsh'

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="Project">
+    <include path="collect_cubes.xml"/>
+    <include path="collect_toys.xml"/>
+    <include path="lookaround_demo.xml"/>
+    <include path="target_ik_demo.xml"/>
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="DetectObject" editable="true">
+            <output_port name="pose"/>
+        </Action>
+        <Action ID="GetGrasp" editable="true">
+            <input_port name="object_pose"/>
+            <output_port name="pregrasp"/>
+            <output_port name="grasp"/>
+        </Action>
+        <Action ID="GetGraspHardcoded" editable="true">
+            <output_port name="pregrasp"/>
+            <output_port name="grasp"/>
+        </Action>
+        <Action ID="GetTrajectoryHardcoded" editable="true">
+            <input_port name="trajectory"/>
+        </Action>
+        <Action ID="Grip" editable="true">
+            <input_port name="pose"/>
+        </Action>
+        <Action ID="Move" editable="true">
+            <input_port name="trajectory"/>
+        </Action>
+        <Action ID="Plan" editable="true">
+            <input_port name="target_ik"/>
+            <output_port name="trajectory"/>
+        </Action>
+        <Action ID="SaySomething" editable="true">
+            <input_port name="message"/>
+        </Action>
+    </TreeNodesModel>
+</root>
