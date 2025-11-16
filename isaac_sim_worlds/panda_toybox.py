@@ -5,9 +5,6 @@ import carb
 import numpy as np
 
 # USD Assets
-# Nvidia Isaac Server Assets
-ROBOT_USD_PATH = 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Robots/Franka/franka_alt_fingers.usd'
-
 # User Assets
 USER_PATH = (
     os.getcwd()
@@ -16,10 +13,6 @@ TOY_CAR_USD_PATH = os.path.join(USER_PATH, 'assets', 'objects', 'toy_car.usd')
 BACKGROUND_USD_PATH = os.path.join(
     USER_PATH, 'assets', 'worlds', 'toybox_world', 'world.usd'
 )
-
-# Prim Paths
-ROBOT_PRIM = '/World/Franka'
-CAMERA_PRIM = f'{ROBOT_PRIM}/panda_hand/geometry/realsense/realsense_camera'
 
 from isaacsim import SimulationApp  # noqa E402  isort: skip
 
@@ -35,10 +28,7 @@ from omni.isaac.core.utils import (  # noqa E402  isort: skip
     stage,
     viewports,
 )
-from omni.isaac.core_nodes.scripts.utils import (  # noqa E402  isort: skip
-    set_target_prims,
-)
-from pxr import Sdf, Gf, UsdGeom, UsdShade  # noqa E402  isort: skip
+from pxr import Sdf, Gf, UsdShade  # noqa E402  isort: skip
 
 # enable ROS2 bridge extension
 extensions.enable_extension('isaacsim.ros2.bridge')
@@ -46,10 +36,8 @@ extensions.enable_extension('isaacsim.core.nodes')
 
 simulation_context = SimulationContext(stage_units_in_meters=1.0)
 
-# Action Graphs
-# Add current directory to Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from grab2_utils import helpers  # noqa E402  isort: skip
+# Utils
+from grab2_utils.helpers import add_franka  # noqa E402  isort: skip
 
 # Setup Stage
 # Locate Isaac Sim assets directory to load robot
@@ -66,12 +54,8 @@ viewports.set_camera_view(eye=np.array([2.0, 1.35, 1.8]), target=np.array([0, 0,
 stage.add_reference_to_stage(BACKGROUND_USD_PATH, '/World/background')
 
 # Loading the Robot
-prims.create_prim(
-    ROBOT_PRIM,
-    'Xform',
-    position=np.array([0.0, 0.25, 0]),
-    usd_path=ROBOT_USD_PATH,
-)
+ROBOT_PRIM_PATH = '/World/Franka'
+add_franka(ROBOT_PRIM_PATH, position=[0, 0.25, 0])
 
 # Loading the Toys
 prims.create_prim(
@@ -121,23 +105,6 @@ for car_name, color in cars.items():
     change_color(stage, material, color)
 
 simulation_app.update()
-
-# Camera
-# helpers.create_camera_graph(CAMERA_PRIM, bbox3d_pub=True)
-# simulation_app.update()
-
-# Create Tf Action Graph
-# You can add any prim_path to the following list to publish their tf with respect to /World
-# tf_target_prims = [
-#     CAMERA_PRIM,
-# ]
-# helpers.create_tf_graph(tf_target_prims)
-# simulation_app.update()
-
-# Create Articulation Action Graph
-# helpers.create_js_graph(ROBOT_PRIM)
-# simulation_app.update()
-
 simulation_context.play()
 
 # Simulation Loop

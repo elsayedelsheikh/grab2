@@ -17,14 +17,9 @@ from omni.isaac.core.utils import (  # noqa E402  isort: skip
     extensions,
     nucleus,
     prims,
-    rotations,
     stage,
     viewports,
 )
-from omni.isaac.core_nodes.scripts.utils import (  # noqa E402  isort: skip
-    set_target_prims,
-)
-from pxr import Gf, UsdGeom  # noqa E402  isort: skip
 from isaacsim.core.prims import RigidPrim  # noqa E402  isort: skip
 from isaacsim.core.api.objects import DynamicCuboid  # noqa E402  isort: skip
 
@@ -33,6 +28,9 @@ extensions.enable_extension('isaacsim.ros2.bridge')
 extensions.enable_extension('isaacsim.core.nodes')
 
 simulation_context = SimulationContext(stage_units_in_meters=1.0)
+
+# Utils
+from grab2_utils.helpers import add_franka  # noqa E402  isort: skip
 
 # Locate Isaac Sim assets folder to load environment and robot stages
 assets_root_path = nucleus.get_assets_root_path()
@@ -50,8 +48,6 @@ stage.add_reference_to_stage(
 )
 
 # Loading the Robot
-from grab2_utils.helpers import add_franka  # noqa E402  isort: skip
-
 ROBOT_PRIM_PATH = '/World/Franka'
 add_franka(ROBOT_PRIM_PATH, position=[0, -0.64, 0])
 

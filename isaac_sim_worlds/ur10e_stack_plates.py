@@ -13,12 +13,6 @@ USER_PATH = (
     os.getcwd()
 )  # Make sure you're running the script from the correct directory
 PLATE_USD_PATH = os.path.join(USER_PATH, 'assets', 'objects', 'plate.usd')
-ROBOT_USD_PATH = os.path.join(USER_PATH, 'assets', 'robots', 'ur10e_short_suction.usd')
-
-# Prim Paths
-ROBOT_PRIM = '/World/UR10e'
-SUCTION_GRIPPER = f'{ROBOT_PRIM}/ee_link'
-CAMERA_PRIM = f'{SUCTION_GRIPPER}/Camera'
 
 from isaacsim import SimulationApp  # noqa E402  isort: skip
 
@@ -28,15 +22,10 @@ simulation_app = SimulationApp({'renderer': 'RayTracedLighting', 'headless': Fal
 from omni.isaac.core import SimulationContext  # noqa E402  isort: skip
 from omni.isaac.core.utils import (  # noqa E402  isort: skip
     extensions,
-    rotations,
     prims,
     stage,
     viewports,
 )
-from omni.isaac.core_nodes.scripts.utils import (  # noqa E402  isort: skip
-    set_target_prims,
-)
-from pxr import Gf, UsdGeom  # noqa E402  isort: skip
 from isaacsim.storage.native import get_assets_root_path  # noqa E402  isort: skip
 from isaacsim.core.prims import XFormPrim  # noqa E402  isort: skip
 
@@ -46,9 +35,8 @@ extensions.enable_extension('isaacsim.core.nodes')
 
 simulation_context = SimulationContext(stage_units_in_meters=1.0)
 
-# Add current directory to Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from grab2_utils import helpers  # noqa E402  isort: skip
+# Utils
+from grab2_utils.helpers import add_ur10e_with_suction_cup  # noqa E402  isort: skip
 
 # Locate Isaac Sim assets folder to load environment and robot stages
 nvidia_assets_root_path = get_assets_root_path()
@@ -66,12 +54,8 @@ stage.add_reference_to_stage(
 )
 
 # Loading the Robot
-prims.create_prim(
-    ROBOT_PRIM,
-    'Xform',
-    position=np.array([0, -0.64, 0]),
-    usd_path=ROBOT_USD_PATH,
-)
+ROBOT_PRIM = '/World/UR10e'
+add_ur10e_with_suction_cup(ROBOT_PRIM, position=[0, -0.64, 0])
 
 # Loading Objects
 for i in range(4):
@@ -97,23 +81,8 @@ objects_view.set_world_poses(
 )
 
 simulation_app.update()
-
-# Camera
-helpers.create_camera_graph(CAMERA_PRIM)
-simulation_app.update()
-
-# Create Tf Action Graph
-tf_target_prims = [
-    CAMERA_PRIM,
-]
-helpers.create_tf_graph(tf_target_prims)
-simulation_app.update()
-
-# Create Articulation Action Graph
-helpers.create_js_graph(ROBOT_PRIM)
-simulation_app.update()
-
 simulation_context.play()
+
 while simulation_app.is_running():
     simulation_context.step(render=True)
 
