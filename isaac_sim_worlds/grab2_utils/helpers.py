@@ -1,20 +1,153 @@
-import carb
-import numpy as np
 from typing import Optional
+import carb
+import omni
+import numpy as np
 from pxr import Gf, UsdGeom
 import omni.graph.core as og
+import omni.replicator.core as rep
+import omni.syntheticdata._syntheticdata as sd
 from omni.isaac.core.utils import stage, prims, rotations
-from omni.isaac.core_nodes.scripts.utils import set_target_prims
+from isaacsim.core.utils.prims import is_prim_path_valid
+
+from isaacsim.sensors.camera import Camera
 
 ########################################### Action Graphs ###########################################
-# Camera Action Graph
+# Camera Action Graphs
+def publish_camera_info(camera: Camera, freq, topic_name, frame_id, node_namespace = ''):
+    from isaacsim.ros2.bridge import read_camera_info
+    # The following code will link the camera's render product and publish the data to the specified topic name.
+    render_product = camera._render_product_path
+    step_size = int(60/freq)
+    queue_size = 1
+
+    writer = rep.writers.get("ROS2PublishCameraInfo")
+    camera_info, _ = read_camera_info(render_product_path=render_product)
+    writer.initialize(
+        frameId=frame_id,
+        nodeNamespace=node_namespace,
+        queueSize=queue_size,
+        topicName=topic_name,
+        width=camera_info.width,
+        height=camera_info.height,
+        projectionType=camera_info.distortion_model,
+        k=camera_info.k.reshape([1, 9]),
+        r=camera_info.r.reshape([1, 9]),
+        p=camera_info.p.reshape([1, 12]),
+        physicalDistortionModel=camera_info.distortion_model,
+        physicalDistortionCoefficients=camera_info.d,
+    )
+    writer.attach([render_product])
+
+    gate_path = omni.syntheticdata.SyntheticData._get_node_path(
+        "PostProcessDispatch" + "IsaacSimulationGate", render_product
+    )
+
+    # Set step input of the Isaac Simulation Gate nodes upstream of ROS publishers to control their execution rate
+    og.Controller.attribute(gate_path + ".inputs:step").set(step_size)
+    return
+
+def publish_camera_rgb(camera: Camera, freq, topic_name, frame_id, node_namespace = ''):
+    # The following code will link the camera's render product and publish the data to the specified topic name.
+    render_product = camera._render_product_path
+    step_size = int(60/freq)
+    queue_size = 1
+
+    rv = omni.syntheticdata.SyntheticData.convert_sensor_type_to_rendervar(sd.SensorType.Rgb.name)
+    writer = rep.writers.get(rv + "ROS2PublishImage")
+    writer.initialize(
+        frameId=frame_id,
+        nodeNamespace=node_namespace,
+        queueSize=queue_size,
+        topicName=topic_name
+    )
+    writer.attach([render_product])
+
+    # Set step input of the Isaac Simulation Gate nodes upstream of ROS publishers to control their execution rate
+    gate_path = omni.syntheticdata.SyntheticData._get_node_path(
+        rv + "IsaacSimulationGate", render_product
+    )
+    og.Controller.attribute(gate_path + ".inputs:step").set(step_size)
+
+    return
+
+def publish_camera_depth(camera: Camera, freq, topic_name, frame_id, node_namespace = ''):
+    # The following code will link the camera's render product and publish the data to the specified topic name.
+    render_product = camera._render_product_path
+    step_size = int(60/freq)
+    queue_size = 1
+
+    rv = omni.syntheticdata.SyntheticData.convert_sensor_type_to_rendervar(
+                            sd.SensorType.DistanceToImagePlane.name
+                        )
+    writer = rep.writers.get(rv + "ROS2PublishImage")
+    writer.initialize(
+        frameId=frame_id,
+        nodeNamespace=node_namespace,
+        queueSize=queue_size,
+        topicName=topic_name
+    )
+    writer.attach([render_product])
+
+    # Set step input of the Isaac Simulation Gate nodes upstream of ROS publishers to control their execution rate
+    gate_path = omni.syntheticdata.SyntheticData._get_node_path(
+        rv + "IsaacSimulationGate", render_product
+    )
+    og.Controller.attribute(gate_path + ".inputs:step").set(step_size)
+
+    return
+
+# TODO: Publish BBOX3D
+# def publish_camera_bbox3d()
+# if bbox3d_pub:
+#   # Issue: Even though frameId is set to camera frame,
+#   # bbox3d array is published with respect to world
+#   # Change bbox3d frameId to world so that it appears correctly in rviz2
+#   BBOX3D_NODE_PATH = f'{graph_path}/Bbox3dPublish'
+#   try:
+#       frameid_attr = og.Controller.attribute(f'{BBOX3D_NODE_PATH}.inputs:frameId')
+#       semantics_attr = og.Controller.attribute(
+#           f'{BBOX3D_NODE_PATH}.inputs:enableSemanticLabels'
+#       )
+#       og.Controller.set(frameid_attr, 'world')
+#       og.Controller.set(
+#           semantics_attr, False
+#       )  # Change this if you need semantics published
+#   except Exception as e:
+#       print('Error accessing attribute:', e)
+
 def create_camera_graph(
+    camera_stage_path: str,
+    frequency: int = 30,
+    camera_frame_id: str = 'realsense_camera',
+    node_namespace: str = 'realsense_camera',
+    topic_info: str = 'camera_info',
+    topic_rgb: str = 'color',
+    topic_depth: Optional[str] = None,
+    topic_bbox3d: Optional[str] = None,
+    publish_tf: bool = True
+  ):
+    # Get camera object
+    camera_obj = Camera(prim_path=camera_stage_path)
+    camera_obj.initialize()
+
+    # Publish camera topics
+    publish_camera_info(camera_obj, frequency, topic_info, camera_frame_id, node_namespace)
+    publish_camera_rgb(camera_obj, frequency, topic_rgb, camera_frame_id, node_namespace)
+    
+    if publish_tf:
+      publish_camera_tf(camera_stage_path,camera_frame_id)
+
+    if topic_depth is not None:
+      publish_camera_depth(camera_obj, frequency, topic_depth, camera_frame_id, node_namespace)
+
+# Deprecated Function: Requires active viewport
+def create_camera_graph_deprecated(
     camera_stage_path: str,
     graph_path: str = '/World/Graphs/Camera',
     node_namespace: str = 'node_namespace',
     topic_info: str = 'camera_info',
     topic_rgb: str = 'color',
-    topic_depth: Optional[str] = None,
+    topic_depth: str = 'depth',
     topic_bbox3d: Optional[str] = None
   ):
   camera_frame_id = 'realsense_camera'
@@ -78,56 +211,61 @@ def create_camera_graph(
       )
 
   except Exception as e:
-    carb.log_error('Camera action graph error', e)
-
-
-  # # Create Camera Action Graph
-  # camera_graph = Ros2CameraGraph()
-  # camera_graph._og_path = graph_path
-  # camera_graph._camera_prim = camera_prim
-  # camera_graph._frame_id = 'realsense_camera'
-
-  # # Topics
-  # camera_graph._node_namespace = 'eef_camera'
-  # camera_graph._rgb_topic = 'image_raw'
-  # camera_graph._depth_topic = 'image_depth'
-  # camera_graph._bbox3d_pub = bbox3d_pub
-  # camera_graph.__bbox3d_topic = 'bbox3d'
-
-  # if bbox3d_pub:
-  #   # Issue: Even though frameId is set to camera frame,
-  #   # bbox3d array is published with respect to world
-  #   # Change bbox3d frameId to world so that it appears correctly in rviz2
-  #   BBOX3D_NODE_PATH = f'{graph_path}/Bbox3dPublish'
-  #   try:
-  #       frameid_attr = og.Controller.attribute(f'{BBOX3D_NODE_PATH}.inputs:frameId')
-  #       semantics_attr = og.Controller.attribute(
-  #           f'{BBOX3D_NODE_PATH}.inputs:enableSemanticLabels'
-  #       )
-  #       og.Controller.set(frameid_attr, 'world')
-  #       og.Controller.set(
-  #           semantics_attr, False
-  #       )  # Change this if you need semantics published
-  #   except Exception as e:
-  #       print('Error accessing attribute:', e)
+    carb.log_error(f'Camera action graph error: {e}')
 
 # ROS2 Transformations Action Graph
-# def create_tf_graph(tf_target_prims, graph_path='/World/Graphs/Transforms'):
-#   tf_graph = Ros2TfPubGraph()
-#   tf_graph._og_path = graph_path
+def publish_camera_tf(camera_stage_path: str, camera_frame_id, graph_path: str = '/World/Graphs/Transforms'):
 
-#   param_check = tf_graph._check_params()
-#   if param_check:
-#       print('Creating Transforms Graph')
-#       tf_graph.make_graph()
-#   else:
-#       carb.log_error('Check Transforms Graph parameters')
+    if not is_prim_path_valid(camera_stage_path):
+        raise ValueError(f"Camera path '{camera_stage_path}' is invalid.")
 
-#   set_target_prims(
-#       primPath=graph_path + '/PublisherTF',
-#       inputName='inputs:targetPrims',
-#       targetPrimPaths=tf_target_prims,
-#   )
+    try:
+        # Generate the camera_frame_id. OmniActionGraph will use the last part of
+        # the full camera prim path as the frame name, so we will extract it here
+        # and use it for the pointcloud frame_id.
+        # camera_frame_id=camera_stage_path.split("/")[-1]
+
+        # If a camera graph is not found, create a new one.
+        if not is_prim_path_valid(graph_path):
+            (ros_camera_graph, _, _, _) = og.Controller.edit(
+                {
+                    "graph_path": graph_path,
+                    "evaluator_name": "execution",
+                    "pipeline_stage": og.GraphPipelineStage.GRAPH_PIPELINE_STAGE_SIMULATION,
+                },
+                {
+                    og.Controller.Keys.CREATE_NODES: [
+                        ("OnTick", "omni.graph.action.OnTick"),
+                        ("IsaacClock", "isaacsim.core.nodes.IsaacReadSimulationTime"),
+                        ("RosPublisher", "isaacsim.ros2.bridge.ROS2PublishClock"),
+                    ],
+                    og.Controller.Keys.CONNECT: [
+                        ("OnTick.outputs:tick", "RosPublisher.inputs:execIn"),
+                        ("IsaacClock.outputs:simulationTime", "RosPublisher.inputs:timeStamp"),
+                    ]
+                }
+            )
+        og.Controller.edit(
+            graph_path,
+            {
+                og.Controller.Keys.CREATE_NODES: [
+                    ("PublishTF_"+camera_frame_id, "isaacsim.ros2.bridge.ROS2PublishTransformTree"),
+                ],
+                og.Controller.Keys.SET_VALUES: [
+                    ("PublishTF_"+camera_frame_id+".inputs:topicName", "/tf"),
+                    ("PublishTF_"+camera_frame_id+".inputs:targetPrims", camera_stage_path),
+                ],
+                og.Controller.Keys.CONNECT: [
+                    (graph_path+"/OnTick.outputs:tick",
+                        "PublishTF_"+camera_frame_id+".inputs:execIn"),
+                    (graph_path+"/IsaacClock.outputs:simulationTime",
+                        "PublishTF_"+camera_frame_id+".inputs:timeStamp"),
+                ],
+            },
+        )
+    except Exception as e:
+        print(e)
+    return
 
 # JointState Action Graph
 def create_jointstates_graph(robot_stage_path: str, graph_stage_path: str ='/World/Graphs/JointStateGraph'):
@@ -168,15 +306,14 @@ def create_jointstates_graph(robot_stage_path: str, graph_stage_path: str ='/Wor
         },
     )
   except Exception as e:
-    carb.log_error('JointState action graph error', e)
+    carb.log_error(f'JointState action graph error: {e}')
 
 ########################################### Robots ###########################################
 def add_franka(
     robot_stage_path: str,
     position: list[float] = (0.0, 0.0, 0.0),
     use_jointstates_action_graph: bool = True,
-    use_camera_action_graph: bool = True,
-    use_ros2_tf_action_graph: bool = True
+    use_camera_action_graph: bool = True
 ):
     # Create Robot Prim
     ROBOT_USD_PATH = 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Robots/Franka/franka_alt_fingers.usd'
@@ -201,5 +338,5 @@ def add_franka(
     if use_jointstates_action_graph:
       create_jointstates_graph(robot_stage_path)
     if use_camera_action_graph:
-       create_camera_graph(camera_stage_path)
+      create_camera_graph(camera_stage_path, node_namespace='realsense_camera')
        
