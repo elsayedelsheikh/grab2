@@ -48,7 +48,7 @@ simulation_context = SimulationContext(stage_units_in_meters=1.0)
 
 # Add current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from util import helpers  # noqa E402  isort: skip
+from grab2_utils import helpers  # noqa E402  isort: skip
 
 # Locate Isaac Sim assets folder to load environment and robot stages
 nvidia_assets_root_path = get_assets_root_path()

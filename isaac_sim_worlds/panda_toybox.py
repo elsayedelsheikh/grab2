@@ -6,7 +6,7 @@ import numpy as np
 
 # USD Assets
 # Nvidia Isaac Server Assets
-ROBOT_USD_PATH = '/Isaac/Robots/Franka/franka_alt_fingers.usd'
+ROBOT_USD_PATH = 'https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Robots/Franka/franka_alt_fingers.usd'
 
 # User Assets
 USER_PATH = (
@@ -49,7 +49,7 @@ simulation_context = SimulationContext(stage_units_in_meters=1.0)
 # Action Graphs
 # Add current directory to Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from util import helpers  # noqa E402  isort: skip
+from grab2_utils import helpers  # noqa E402  isort: skip
 
 # Setup Stage
 # Locate Isaac Sim assets directory to load robot
@@ -70,7 +70,7 @@ prims.create_prim(
     ROBOT_PRIM,
     'Xform',
     position=np.array([0.0, 0.25, 0]),
-    usd_path=assets_root_path + ROBOT_USD_PATH,
+    usd_path=ROBOT_USD_PATH,
 )
 
 # Loading the Toys
@@ -135,8 +135,8 @@ simulation_app.update()
 # simulation_app.update()
 
 # Create Articulation Action Graph
-helpers.create_js_graph(ROBOT_PRIM)
-simulation_app.update()
+# helpers.create_js_graph(ROBOT_PRIM)
+# simulation_app.update()
 
 simulation_context.play()
 
