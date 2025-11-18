@@ -87,6 +87,15 @@ install(
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
+# Install plugins for other packages to load
+install(
+  TARGETS
+  ${plugin_libs}
+  LIBRARY DESTINATION share/${PROJECT_NAME}/bt_plugins
+  ARCHIVE DESTINATION share/${PROJECT_NAME}/bt_plugins
+  RUNTIME DESTINATION share/${PROJECT_NAME}/bt_plugins
+)
+
 # Install directories
 install(
   DIRECTORY include/
