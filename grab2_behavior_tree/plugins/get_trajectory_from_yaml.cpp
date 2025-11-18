@@ -103,7 +103,7 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
         throw BT::RuntimeError("trajectory '" + name + "' missing joint_names");
       }
 
-      for (const auto & j: traj_data["joint_names"]) {
+      for (const auto & j : traj_data["joint_names"]) {
         traj_msg.joint_names.push_back(j.as<std::string>());
       }
 
@@ -112,10 +112,10 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
         throw BT::RuntimeError("trajectory '" + name + "' missing points");
       }
 
-      for (const auto & point_yaml_node: traj_data["points"]) {
+      for (const auto & point_yaml_node : traj_data["points"]) {
         trajectory_msgs::msg::JointTrajectoryPoint traj_pt_msg;
 
-        for (const auto & pos: point_yaml_node["positions"]) {
+        for (const auto & pos : point_yaml_node["positions"]) {
           traj_pt_msg.positions.push_back(pos.as<double>());
         }
 
@@ -155,7 +155,6 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
       "Successfully loaded %zu trajectories from '%s'",
       trajectories_.size(), config_file.c_str()
     );
-
   } catch (const YAML::Exception & e) {
     throw BT::RuntimeError("YAML parsing error: " + std::string(e.what()));
   } catch (const std::exception & e) {
