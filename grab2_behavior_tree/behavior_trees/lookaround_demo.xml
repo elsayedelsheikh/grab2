@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root BTCPP_format="4">
   <BehaviorTree ID="MainTree">
-    <Repeat num_cycles="3">
       <Sequence>
-        <SaySomething message="Moving"/>
-        <GetTrajectoryHardcoded trajectory="{trajectory_msg}"/>
-        <Move trajectory="{trajectory_msg}"/>
+        <SaySomething message="Sweeping"/>
+        <Script name="Configure ROS2 Actions" code="arm_action:='panda_arm_controller/follow_joint_trajectory'"/>
+
+        <GetTrajectoryFromYAML trajectory_name="home" package_name="grab2_behavior_tree" config_file="panda_joint_trajectories" trajectory="{trajectory_msg}"/>
+        <Move action_name="{arm_action}" trajectory="{trajectory_msg}"/>
       </Sequence>
-    </Repeat>
   </BehaviorTree>
 </root>

@@ -8,6 +8,7 @@
 
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
+#include "trajectory_msgs/msg/joint_trajectory.hpp"
 
 namespace grab2_behavior_tree
 {

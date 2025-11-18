@@ -7,6 +7,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(yaml-cpp REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_components REQUIRED)
@@ -43,7 +44,7 @@ set(THIS_PACK_DEPS
 )
 
 # Libraries
-add_library(grab2_get_trajectory_hardcoded SHARED plugins/get_trajectory_hardcoded.cpp)
+add_library(grab2_get_trajectory_from_yaml SHARED plugins/get_trajectory_from_yaml.cpp)
 add_library(grab2_get_grasp_hardcoded SHARED plugins/get_grasp_hardcoded.cpp)
 add_library(grab2_detect_object SHARED plugins/detect_object.cpp)
 add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
@@ -52,7 +53,7 @@ add_library(grab2_move SHARED plugins/move.cpp)
 add_library(grab2_grip SHARED plugins/grip.cpp)
 
 list(APPEND plugin_libs
-  grab2_get_trajectory_hardcoded
+  grab2_get_trajectory_from_yaml
   grab2_get_grasp_hardcoded
   grab2_detect_object
   grab2_get_grasp
@@ -69,6 +70,10 @@ foreach(bt_plugin ${plugin_libs})
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 endforeach()
+
+target_link_libraries(grab2_get_trajectory_from_yaml
+  yaml-cpp
+)
 
 # Executables
 add_executable(grab2_engine src/main.cpp)
@@ -103,7 +108,7 @@ install(
 )
 
 install(
-  DIRECTORY behavior_trees launch
+  DIRECTORY behavior_trees launch config
   DESTINATION share/${PROJECT_NAME}
 )
 
