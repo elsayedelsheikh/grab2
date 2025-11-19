@@ -22,6 +22,7 @@ find_package(trajectory_msgs REQUIRED)
 find_package(grab2_msgs REQUIRED)
 find_package(behaviortree_cpp REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -50,6 +51,9 @@ add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
 add_library(grab2_plan SHARED plugins/plan.cpp)
 add_library(grab2_move SHARED plugins/move.cpp)
 add_library(grab2_grip SHARED plugins/grip.cpp)
+add_library(grab2_check_gripper_has_object SHARED
+  plugins/check_gripper_has_object.cpp
+)  
 
 list(APPEND plugin_libs
   grab2_get_trajectory_hardcoded
@@ -59,6 +63,7 @@ list(APPEND plugin_libs
   grab2_plan
   grab2_move
   grab2_grip
+  grab2_check_gripper_has_object
 )
 
 foreach(bt_plugin ${plugin_libs})
@@ -77,6 +82,9 @@ target_include_directories(grab2_engine PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
+
+
+
 # Install Libs & Exec
 install(
   TARGETS
@@ -86,6 +94,12 @@ install(
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
+
+# install(TARGETS grab2_check_gripper_has_object
+#   ARCHIVE DESTINATION lib
+#   LIBRARY DESTINATION lib
+#   RUNTIME DESTINATION bin
+# )
 
 # Install directories
 install(
