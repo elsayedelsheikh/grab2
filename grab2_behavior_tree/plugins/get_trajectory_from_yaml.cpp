@@ -41,7 +41,7 @@ GetTrajectoryFromYAML::tick()
     package_share_directory + "/config/" + config_file.value() + ".yaml";
 
   // Check if file exists
-  if(!std::filesystem::exists(full_config_file_path)) {
+  if (!std::filesystem::exists(full_config_file_path)) {
     throw BT::RuntimeError("Config file '" + full_config_file_path + "' does not exist");
   }
 
@@ -83,7 +83,7 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
   try {
     YAML::Node config = YAML::LoadFile(config_file);
 
-    if(!config["trajectories"]) {
+    if (!config["trajectories"]) {
       throw BT::RuntimeError("YAML file doesn't contain 'trajectories' field");
     }
 
@@ -94,12 +94,12 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
       trajectory_msgs::msg::JointTrajectory traj_msg;
 
       // Load frame_id
-      if(traj_data["frame_id"]) {
+      if (traj_data["frame_id"]) {
         traj_msg.header.frame_id = traj_data["frame_id"].as<std::string>();
       }
 
       // Load joint_names
-      if(!traj_data["joint_names"]) {
+      if (!traj_data["joint_names"]) {
         throw BT::RuntimeError("trajectory '" + name + "' missing joint_names");
       }
 
@@ -108,7 +108,7 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
       }
 
       // Load trajectory points
-      if(!traj_data["points"]) {
+      if (!traj_data["points"]) {
         throw BT::RuntimeError("trajectory '" + name + "' missing points");
       }
 
@@ -121,13 +121,14 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
 
         // Validate positions counts matches joint_names
         if (traj_pt_msg.positions.size() != traj_msg.joint_names.size()) {
-          throw BT::RuntimeError("Position count mismatch in trajectory '" + name + "': " +
+          throw BT::RuntimeError(
+            "Position count mismatch in trajectory '" + name + "': " +
             std::to_string(traj_pt_msg.positions.size()) + " positions for " +
             std::to_string(traj_msg.joint_names.size()) + " joints"
           );
         }
 
-        if(!point_yaml_node["time_from_start"]) {
+        if (!point_yaml_node["time_from_start"]) {
           throw BT::RuntimeError("trajectory '" + name + "' point missing time_from_start");
         }
 

@@ -33,7 +33,8 @@ public:
     return
       {
         BT::InputPort<std::string>("trajectory_name", "Name of the trajectory to load"),
-        BT::InputPort<std::string>("config_file",
+        BT::InputPort<std::string>(
+          "config_file",
           "Path to the config file inside the package's config/ folder (without .yaml extension)"),
         BT::InputPort<std::string>("package_name", "Package containing the config_file"),
         BT::OutputPort<trajectory_msgs::msg::JointTrajectory>("trajectory")
