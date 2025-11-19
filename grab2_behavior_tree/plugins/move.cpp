@@ -16,6 +16,11 @@ bool
 Move::setGoal(BT::RosActionNode<FollowTrajectory>::Goal & goal)
 {
   getInput("trajectory", goal.trajectory);
+  RCLCPP_INFO(
+    logger(), "[%s] Sending trajectory with %zu points",
+    name().c_str(),
+    goal.trajectory.points.size()
+  );
   return true;
 }
 
