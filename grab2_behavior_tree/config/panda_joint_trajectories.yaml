@@ -1,6 +1,6 @@
 trajectories:
   sweeping:
-    frame_id: "panda_link0"
+    frame_id: ""
     joint_names:
       - "panda_joint1"
       - "panda_joint2"
