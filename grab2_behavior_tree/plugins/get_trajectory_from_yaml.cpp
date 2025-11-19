@@ -122,9 +122,9 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
         // Validate positions counts matches joint_names
         if (traj_pt_msg.positions.size() != traj_msg.joint_names.size()) {
           throw BT::RuntimeError(
-            "Position count mismatch in trajectory '" + name + "': " +
-            std::to_string(traj_pt_msg.positions.size()) + " positions for " +
-            std::to_string(traj_msg.joint_names.size()) + " joints"
+                  "Position count mismatch in trajectory '" + name + "': " +
+                  std::to_string(traj_pt_msg.positions.size()) + " positions for " +
+                  std::to_string(traj_msg.joint_names.size()) + " joints"
           );
         }
 
