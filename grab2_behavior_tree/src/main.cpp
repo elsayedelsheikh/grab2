@@ -20,7 +20,9 @@ int main(int argc, char ** argv)
   // Register Native BT Nodes
   factory.registerFromPlugin(loader.getOSName("grab2_get_grasp"));
   factory.registerFromPlugin(loader.getOSName("grab2_get_grasp_hardcoded"));
-  factory.registerFromPlugin(loader.getOSName("grab2_get_trajectory_from_yaml"));
+  factory.registerFromPlugin(loader.getOSName("grab2_get_trajectory_hardcoded"));
+  // factory.registerFromPlugin(loader.getOSName("grab2_check_gripper_has_object"));  // added 
+
 
   // Declare Parameters
   node->declare_parameter("behavior_tree", "");
@@ -48,6 +50,10 @@ int main(int argc, char ** argv)
     factory,
     loader.getOSName("grab2_detect_object"),
     {node, "/eef_camera/bbox_3d"});
+  RegisterRosNode(
+    factory,
+    loader.getOSName("grab2_check_gripper_has_object"),
+    {node});
 
   // SaySomething BT Node
   BT::PortsList say_something_ports = {BT::InputPort<std::string>("message")};
