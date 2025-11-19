@@ -52,7 +52,7 @@ GetTrajectoryFromYAML::tick()
   auto trajectory = getTrajectory(trajectory_name.value());
 
   // Set timestamp
-  trajectory.header.stamp = rclcpp::Clock().now();
+  // trajectory.header.stamp = rclcpp::Clock().now();
 
   // Set output
   setOutput("trajectory", trajectory);
