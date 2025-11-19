@@ -1,0 +1,30 @@
+trajectories:
+  sweeping:
+    frame_id: ""
+    joint_names:
+      - "panda_joint1"
+      - "panda_joint2"
+      - "panda_joint3"
+      - "panda_joint4"
+      - "panda_joint5"
+      - "panda_joint6"
+      - "panda_joint7"
+    points:
+      - positions: [1.57, -0.7841, 0.0, -2.3571, 0.0, 1.787, 0.7672]
+        time_from_start: 1.0
+      - positions: [0.0, -0.7841, 0.0, -2.3571, 0.0, 1.787, 0.7672]
+        time_from_start: 3.0
+
+  home:
+    frame_id: "panda_link0"
+    joint_names:
+      - "panda_joint1"
+      - "panda_joint2"
+      - "panda_joint3"
+      - "panda_joint4"
+      - "panda_joint5"
+      - "panda_joint6"
+      - "panda_joint7"
+    points:
+      - positions: [0.0, -0.7841, 0.0, -2.3571, 0.0, 1.787, 0.7672]
+        time_from_start: 2.0
