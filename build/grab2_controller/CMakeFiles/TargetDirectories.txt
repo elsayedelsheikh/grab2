@@ -1,9 +1,0 @@
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/uninstall.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/grab2_controller_uninstall.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/test.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/edit_cache.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/rebuild_cache.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/list_install_components.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/install.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/install/local.dir
-/home/zaynap/grab/grab2/build/grab2_controller/CMakeFiles/install/strip.dir
