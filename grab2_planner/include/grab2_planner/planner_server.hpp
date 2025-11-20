@@ -88,9 +88,6 @@ public:
   // PlanResult ComputePlan(const geometry_msgs::msg::Pose &start,
   //                const geometry_msgs::msg::Pose &goal);
 
-
-
-
 private:
   void initialize();
 
@@ -100,7 +97,7 @@ private:
   rclcpp_action::Server<ActionThroughPoses>::SharedPtr action_server_poses_;
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
   std::mutex planning_mutex_;
-  rclcpp::Node::SharedPtr node_; 
+  rclcpp::Node::SharedPtr node_;
 
 };
 

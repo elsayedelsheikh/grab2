@@ -30,4 +30,3 @@ int32[] failed_indices        # Indices of poses that failed to plan
 # ----- Feedback Definition -----
 float32 progress_percentage    # (0–100) Planning progress feedback
 string current_status          # Optional short text (e.g., "Planning pose 3/5")
-
