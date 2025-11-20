@@ -76,7 +76,7 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
     result->error_string = "Failed to plan";
     goal_handle->abort(result);
 
-} 
+}
 
 void PlannerServer::computePlanThroughPoses(
   const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle)
@@ -108,7 +108,7 @@ void PlannerServer::computePlanThroughPoses(
   double total_duration = 0.0;
 
   for (size_t i = 0; i < goal->goals.size(); ++i) {
-    const auto& pose = goal->goals[i].pose;
+    const auto & pose = goal->goals[i].pose;
     move_group_interface_->setPoseTarget(pose);
 
     RCLCPP_INFO(this->get_logger(), "Planning for pose %zu...", i);
@@ -120,7 +120,7 @@ void PlannerServer::computePlanThroughPoses(
       continue;
     }
 
-    const auto& traj = plan.trajectory_.joint_trajectory;
+    const auto & traj = plan.trajectory_.joint_trajectory;
 
     // Append trajectory points
     if (combined_trajectory.joint_trajectory.joint_names.empty()) {
@@ -135,7 +135,7 @@ void PlannerServer::computePlanThroughPoses(
     // Add duration (time_from_start of last point)
     if (!traj.points.empty()) {
       total_duration += traj.points.back().time_from_start.sec +
-                        traj.points.back().time_from_start.nanosec * 1e-9;
+        traj.points.back().time_from_start.nanosec * 1e-9;
     }
 
     successful_indices.push_back(i);

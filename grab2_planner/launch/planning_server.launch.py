@@ -59,4 +59,3 @@ def generate_launch_description():
     )
 
     return LaunchDescription([rviz_node, move_group_node, planner_server_node])
-
