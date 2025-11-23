@@ -1,7 +1,7 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
 #include <cmath>  // for M_PI
-#include "grab2_behavior_tree/get_grasp.hpp"
+#include "grab2_behavior_tree/plugins/action/get_grasp.hpp"
 
 #include "tf2/utils.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"

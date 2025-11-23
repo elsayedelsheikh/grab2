@@ -44,13 +44,13 @@ set(THIS_PACK_DEPS
 )
 
 # Libraries
-add_library(grab2_get_trajectory_from_yaml SHARED plugins/get_trajectory_from_yaml.cpp)
-add_library(grab2_get_grasp_hardcoded SHARED plugins/get_grasp_hardcoded.cpp)
-add_library(grab2_detect_object SHARED plugins/detect_object.cpp)
-add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
-add_library(grab2_plan SHARED plugins/plan.cpp)
-add_library(grab2_move SHARED plugins/move.cpp)
-add_library(grab2_grip SHARED plugins/grip.cpp)
+add_library(grab2_get_trajectory_from_yaml SHARED plugins/action/get_trajectory_from_yaml.cpp)
+add_library(grab2_get_grasp_hardcoded SHARED plugins/action/get_grasp_hardcoded.cpp)
+add_library(grab2_detect_object SHARED plugins/action/detect_object.cpp)
+add_library(grab2_get_grasp SHARED plugins/action/get_grasp.cpp)
+add_library(grab2_plan SHARED plugins/action/plan.cpp)
+add_library(grab2_move SHARED plugins/action/move.cpp)
+add_library(grab2_grip SHARED plugins/action/grip.cpp)
 
 list(APPEND plugin_libs
   grab2_get_trajectory_from_yaml
