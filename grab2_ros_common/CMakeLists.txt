@@ -16,6 +16,9 @@ find_package(tf2_msgs REQUIRED)
 find_package(grab2_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(moveit_msgs REQUIRED)
+find_package(behaviortree_cpp REQUIRED)
+find_package(behaviortree_ros2 REQUIRED)
+find_package(btcpp_ros2_interfaces REQUIRED)
 
 add_library(${PROJECT_NAME} INTERFACE)
 target_include_directories(${PROJECT_NAME}
@@ -27,10 +30,14 @@ target_include_directories(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} INTERFACE
   ${geometry_msgs_TARGETS}
   ${grab2_msgs_TARGETS}
+  ${btcpp_ros2_interfaces_TARGETS}
   rclcpp::rclcpp
   tf2_ros::tf2_ros
   rclcpp_action::rclcpp_action
   tf2_geometry_msgs::tf2_geometry_msgs
+  behaviortree_cpp::behaviortree_cpp
+  behaviortree_ros2::behaviortree_ros2
+
 )
 
 install(DIRECTORY include/
@@ -62,6 +69,9 @@ ament_export_dependencies(
   tf2
   tf2_geometry_msgs
   tf2_ros
+  behaviortree_cpp
+  behaviortree_ros2
+  btcpp_ros2_interfaces
 )
 
 ament_export_targets(${PROJECT_NAME})

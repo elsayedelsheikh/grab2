@@ -3,13 +3,13 @@
 #include <memory>
 
 #include "rclcpp/rclcpp.hpp"
-#include "grab2_bt_grabber/bt_grabber.hpp"
+#include "grab2_bt_grabber/grabbers/reach_object.hpp"
 
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
   rclcpp::NodeOptions options;
-  auto bt_engine = std::make_shared<grab2_bt_grabber::BtGrabber>(options);
+  auto bt_engine = std::make_shared<grab2_bt_grabber::ReachObject>(options);
 
   rclcpp::executors::MultiThreadedExecutor exec(rclcpp::ExecutorOptions(), 0, false,
     std::chrono::milliseconds(250));

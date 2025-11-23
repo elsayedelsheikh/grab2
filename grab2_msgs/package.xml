@@ -17,6 +17,7 @@
   <depend>control_msgs</depend>
   <depend>moveit_msgs</depend>
   <depend>trajectory_msgs</depend>
+  <depend>btcpp_ros2_interfaces</depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
 
