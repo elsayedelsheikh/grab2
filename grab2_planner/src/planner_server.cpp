@@ -32,14 +32,14 @@ PlannerServer::initialize()
 
     // Create MoveGroupInterface
   #if RCLCPP_VERSION_GTE(28, 0, 0)
-    
+
     move_group_interface_ =
       std::make_unique<moveit::planning_interface::MoveGroupInterface>(
         this->shared_from_this(),
         planning_group_,
         "robot_description");
   #else
-    
+
     move_group_interface_ =
       std::make_unique<moveit::planning_interface::MoveGroupInterface>(
         this->shared_from_this(),
