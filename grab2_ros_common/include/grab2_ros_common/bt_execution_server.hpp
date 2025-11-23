@@ -44,7 +44,7 @@ namespace BT
  * A `BT::Groot2Publisher` is included inside (see BehaviorTree.CPP for more information).
  *
  * It can be customized by overriding its virtual functions.
- * 
+ *
  * @tparam ActionT ROS2 action type to use for the server
  */
 template<typename ActionT>
@@ -62,8 +62,8 @@ public:
    * @param options Node options
    * @param action_name Name of the action server
    */
-  explicit TreeExecutionServer(const rclcpp::NodeOptions& options, const std::string& action_name)
-    : TreeExecutionServer(std::make_shared<rclcpp::Node>("bt_action_server", options), action_name)
+  explicit TreeExecutionServer(const rclcpp::NodeOptions & options, const std::string & action_name)
+  : TreeExecutionServer(std::make_shared<rclcpp::Node>("bt_action_server", options), action_name)
   {}
 
   /**
@@ -71,8 +71,10 @@ public:
    * @param node Shared pointer to existing node
    * @param action_name Name of the action server
   */
-  explicit TreeExecutionServer(const rclcpp::Node::SharedPtr& node, const std::string& action_name)
-    : node_(node)
+  explicit TreeExecutionServer(
+    const rclcpp::Node::SharedPtr & node,
+    const std::string & action_name)
+  : node_(node)
     , global_blackboard_(BT::Blackboard::create())
   {
     param_listener_ = std::make_shared<bt_server::ParamListener>(node_);
@@ -80,39 +82,40 @@ public:
 
     // Create the action server
     RCLCPP_INFO(node_->get_logger(), "Starting Action Server: %s", action_name.c_str());
-    
+
     action_server_ = rclcpp_action::create_server<ActionT>(
-      node_, 
+      node_,
       action_name,
-      std::bind(&TreeExecutionServer::handle_goal, this, std::placeholders::_1, std::placeholders::_2),
+      std::bind(&TreeExecutionServer::handle_goal, this, std::placeholders::_1,
+        std::placeholders::_2),
       std::bind(&TreeExecutionServer::handle_cancel, this, std::placeholders::_1),
       std::bind(&TreeExecutionServer::handle_accepted, this, std::placeholders::_1)
     );
 
     // Service to get loaded trees
     get_trees_service_ = node_->create_service<GetTrees>(
-      "get_loaded_trees", 
+      "get_loaded_trees",
       [this](const std::shared_ptr<GetTrees::Request>,
-             std::shared_ptr<GetTrees::Response> response) {
+      std::shared_ptr<GetTrees::Response> response) {
         response->tree_ids = factory_.registeredBehaviorTrees();
       }
     );
 
     // Single-shot timer for async registration
     rclcpp::VoidCallbackType callback = [this]() {
-      if(!factory_initialized_) {
-        executeRegistration();
-      }
-      single_shot_timer_->cancel();
-    };
-    
+        if(!factory_initialized_) {
+          executeRegistration();
+        }
+        single_shot_timer_->cancel();
+      };
+
     single_shot_timer_ = node_->create_wall_timer(
-      std::chrono::milliseconds(1), 
+      std::chrono::milliseconds(1),
       callback
     );
   }
 
-  virtual ~TreeExecutionServer() 
+  virtual ~TreeExecutionServer()
   {
     if(action_thread_.joinable()) {
       action_thread_.join();
@@ -136,19 +139,19 @@ public:
   }
 
   /// @brief Name of the tree being executed
-  const std::string& treeName() const
+  const std::string & treeName() const
   {
     return tree_name_;
   }
 
   /// @brief The goal received in the last request
-  const std::shared_ptr<const GoalType>& goal() const
+  const std::shared_ptr<const GoalType> & goal() const
   {
     return current_goal_;
   }
 
   /// @brief Tree being executed.
-  const BT::Tree& tree() const
+  const BT::Tree & tree() const
   {
     return tree_;
   }
@@ -160,7 +163,7 @@ public:
   }
 
   /// @brief The behavior tree factory
-  BT::BehaviorTreeFactory& factory()
+  BT::BehaviorTreeFactory & factory()
   {
     return factory_;
   }
@@ -169,10 +172,10 @@ protected:
   /**
    * @brief Callback invoked when a goal is received and before the tree is created.
    * If it returns false, the goal will be rejected.
-   * 
+   *
    * @param goal The goal received from the action client
   */
-  virtual bool onGoalReceived(const GoalType& goal)
+  virtual bool onGoalReceived(const GoalType & goal)
   {
     return true;
   }
@@ -184,7 +187,7 @@ protected:
    * @param tree The tree that was created
    * @param goal The goal that triggered the tree creation
   */
-  virtual void onTreeCreated(BT::Tree& tree, const GoalType& goal)
+  virtual void onTreeCreated(BT::Tree & tree, const GoalType & goal)
   {}
 
   /**
@@ -194,7 +197,7 @@ protected:
    *
    * @param factory The factory to use to register nodes
   */
-  virtual void registerNodesIntoFactory(BT::BehaviorTreeFactory& factory)
+  virtual void registerNodesIntoFactory(BT::BehaviorTreeFactory & factory)
   {}
 
   /**
@@ -217,7 +220,9 @@ protected:
    * @param was_cancelled True if the action was cancelled by the Action Client
    * @param result The result object to be filled (can be modified)
   */
-  virtual void onTreeExecutionCompleted(BT::NodeStatus status, bool was_cancelled, ResultType& result)
+  virtual void onTreeExecutionCompleted(
+    BT::NodeStatus status, bool was_cancelled,
+    ResultType & result)
   {}
 
   /**
@@ -227,21 +232,21 @@ protected:
    * @param feedback The feedback object to be filled (can be modified)
    * @return true if feedback should be published, false otherwise
   */
-  virtual bool onLoopFeedback(FeedbackType& feedback)
+  virtual bool onLoopFeedback(FeedbackType & feedback)
   {
     return false;
   }
 
   /**
    * @brief Extract tree name from the goal. Override this to customize behavior.
-   * 
+   *
    * Default implementation returns empty string to use main_tree_to_execute from XML.
    * Override this method if your goal contains a tree name field.
-   * 
+   *
    * @param goal The goal received from the action client
    * @return Tree name to execute, or empty string to use main_tree_to_execute from XML
   */
-  virtual std::string getTreeName(const GoalType& goal)
+  virtual std::string getTreeName(const GoalType & goal)
   {
     return "";
   }
@@ -262,13 +267,13 @@ protected:
     factory_.clearRegisteredBehaviorTrees();
 
     params_ = param_listener_->get_params();
-    
+
     // User defined method
     registerNodesIntoFactory(factory_);
-    
+
     // Load plugins from multiple directories
     RegisterPlugins(params_, factory_, node_);
-    
+
     // Modified: Load single tree from file path parameter
     registerSingleTree();
 
@@ -310,7 +315,7 @@ private:
     node_->get_parameter("tree_file", bt_xml_filename);
 
     if (bt_xml_filename.empty()) {
-      RCLCPP_WARN(node_->get_logger(), 
+      RCLCPP_WARN(node_->get_logger(),
                   "Parameter 'tree_file' is empty. No behavior tree will be loaded.");
       return;
     }
@@ -318,13 +323,13 @@ private:
     const auto entry = std::filesystem::directory_entry(bt_xml_filename);
 
     if (!entry.exists()) {
-      RCLCPP_ERROR(node_->get_logger(), 
+      RCLCPP_ERROR(node_->get_logger(),
                    "Behavior tree file does not exist: %s", bt_xml_filename.c_str());
       return;
     }
 
     if (entry.path().extension() != ".xml") {
-      RCLCPP_ERROR(node_->get_logger(), 
+      RCLCPP_ERROR(node_->get_logger(),
                    "File is not an XML file: %s", bt_xml_filename.c_str());
       return;
     }
@@ -333,9 +338,9 @@ private:
       factory_.registerBehaviorTreeFromFile(entry.path().string());
       RCLCPP_INFO(node_->get_logger(),
                   "Registered BehaviorTree: %s", entry.path().filename().c_str());
-    } catch(const std::exception& e) {
+    } catch(const std::exception & e) {
       RCLCPP_ERROR(node_->get_logger(),
-                   "Failed to register BehaviorTree: %s\n%s", 
+                   "Failed to register BehaviorTree: %s\n%s",
                    entry.path().filename().c_str(), e.what());
     }
   }
@@ -347,17 +352,14 @@ private:
    * @return GoalResponse response of the goal processed
    */
   rclcpp_action::GoalResponse handle_goal(
-    const rclcpp_action::GoalUUID& uuid,
+    const rclcpp_action::GoalUUID & uuid,
     std::shared_ptr<const GoalType> goal)
   {
     RCLCPP_INFO(node_->get_logger(), "Received goal request");
-    
-    if(onGoalReceived(*goal))
-    {
+
+    if(onGoalReceived(*goal)) {
       return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
-    }
-    else
-    {
+    } else {
       return rclcpp_action::GoalResponse::REJECT;
     }
   }
@@ -371,9 +373,8 @@ private:
     const std::shared_ptr<GoalHandle> goal_handle)
   {
     RCLCPP_INFO(node_->get_logger(), "Received request to cancel goal");
-    if(!goal_handle->is_active())
-    {
-      RCLCPP_WARN(node_->get_logger(), 
+    if(!goal_handle->is_active()) {
+      RCLCPP_WARN(node_->get_logger(),
                   "Rejecting request to cancel goal because the server is not processing one.");
       return rclcpp_action::CancelResponse::REJECT;
     }
@@ -387,12 +388,11 @@ private:
   void handle_accepted(const std::shared_ptr<GoalHandle> goal_handle)
   {
     // Join the previous execute thread before replacing it with a new one
-    if(action_thread_.joinable())
-    {
+    if(action_thread_.joinable()) {
       action_thread_.join();
     }
     // To avoid blocking the executor start a new thread to process the goal
-    action_thread_ = std::thread{ [this, goal_handle]() { execute(goal_handle); } };
+    action_thread_ = std::thread{[this, goal_handle]() {execute(goal_handle);}};
   }
 
   /**
@@ -406,44 +406,38 @@ private:
     auto action_result = std::make_shared<ResultType>();
 
     // Before executing check if we have new Behaviors or Subtrees to reload
-    if(param_listener_->is_old(params_))
-    {
+    if(param_listener_->is_old(params_)) {
       executeRegistration();
     }
 
     // Loop until something happens with ROS or the node completes
-    try
-    {
+    try {
       // This blackboard will be owned by "MainTree". Its parent is global_blackboard_
       auto root_blackboard = BT::Blackboard::create(global_blackboard_);
 
       tree_name_ = getTreeName(*current_goal_);
-      
+
       // If tree_name is empty, use main_tree_to_execute from XML
       // Otherwise, create the specific tree by name
-      if(tree_name_.empty())
-      {
+      if(tree_name_.empty()) {
         // Get the list of registered trees
         auto registered_trees = factory_.registeredBehaviorTrees();
-        if(registered_trees.empty())
-        {
+        if(registered_trees.empty()) {
           throw std::runtime_error("No behavior trees registered in factory");
         }
-        
+
         // Use the first registered tree (which should be the main_tree_to_execute)
         tree_name_ = registered_trees.front();
         tree_ = factory_.createTree(tree_name_, root_blackboard);
         RCLCPP_INFO(node_->get_logger(), "Executing main tree: %s", tree_name_.c_str());
-      }
-      else
-      {
+      } else {
         tree_ = factory_.createTree(tree_name_, root_blackboard);
         RCLCPP_INFO(node_->get_logger(), "Executing specified tree: %s", tree_name_.c_str());
       }
 
       // Call user defined function after the tree has been created
       onTreeCreated(tree_, *current_goal_);
-      
+
       groot_publisher_.reset();
       groot_publisher_ = std::make_shared<BT::Groot2Publisher>(tree_, params_.groot2_port);
 
@@ -455,17 +449,15 @@ private:
 
       // Operations to be done if the tree execution is aborted, either by
       // cancel requested or by onLoopAfterTick()
-      auto stop_action = [this, &action_result](BT::NodeStatus status, 
-                                                const std::string& message) {
-        tree_.haltTree();
-        onTreeExecutionCompleted(status, true, *action_result);
-        RCLCPP_WARN(node_->get_logger(), "%s", message.c_str());
-      };
+      auto stop_action = [this, &action_result](BT::NodeStatus status,
+        const std::string & message) {
+          tree_.haltTree();
+          onTreeExecutionCompleted(status, true, *action_result);
+          RCLCPP_WARN(node_->get_logger(), "%s", message.c_str());
+        };
 
-      while(rclcpp::ok() && status == BT::NodeStatus::RUNNING)
-      {
-        if(goal_handle->is_canceling())
-        {
+      while(rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
+        if(goal_handle->is_canceling()) {
           stop_action(status, "Action Server canceling and halting Behavior Tree");
           goal_handle->canceled(action_result);
           return;
@@ -474,8 +466,7 @@ private:
         // Tick the tree once
         status = tree_.tickExactlyOnce();
 
-        if(const auto res = onLoopAfterTick(status); res.has_value())
-        {
+        if(const auto res = onLoopAfterTick(status); res.has_value()) {
           stop_action(res.value(), "Action Server aborted by onLoopAfterTick()");
           goal_handle->abort(action_result);
           return;
@@ -483,22 +474,18 @@ private:
 
         // Publish feedback if user wants to
         auto feedback = std::make_shared<FeedbackType>();
-        if(onLoopFeedback(*feedback))
-        {
+        if(onLoopFeedback(*feedback)) {
           goal_handle->publish_feedback(feedback);
         }
 
         const auto now = std::chrono::steady_clock::now();
-        if(now < loop_deadline)
-        {
+        if(now < loop_deadline) {
           tree_.sleep(std::chrono::duration_cast<std::chrono::system_clock::duration>(
             loop_deadline - now));
         }
         loop_deadline += period;
       }
-    }
-    catch(const std::exception& ex)
-    {
+    } catch(const std::exception & ex) {
       std::string error_msg = std::string("Behavior Tree exception: ") + ex.what();
       RCLCPP_ERROR(node_->get_logger(), "%s", error_msg.c_str());
       onTreeExecutionCompleted(BT::NodeStatus::FAILURE, false, *action_result);
@@ -510,13 +497,10 @@ private:
     onTreeExecutionCompleted(status, false, *action_result);
 
     // Return success or aborted for the action result
-    if(status == BT::NodeStatus::SUCCESS)
-    {
+    if(status == BT::NodeStatus::SUCCESS) {
       RCLCPP_INFO(node_->get_logger(), "Goal succeeded");
       goal_handle->succeed(action_result);
-    }
-    else
-    {
+    } else {
       RCLCPP_ERROR(node_->get_logger(), "Goal aborted");
       goal_handle->abort(action_result);
     }

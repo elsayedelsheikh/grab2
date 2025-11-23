@@ -15,13 +15,13 @@ public:
   explicit ReachObject(const rclcpp::NodeOptions & options);
 
 protected:
-  std::string getTreeName(const GoalType& goal) override;
-  void onTreeCreated(BT::Tree& tree, const GoalType& goal) override;
+  std::string getTreeName(const GoalType & goal) override;
+  void onTreeCreated(BT::Tree & tree, const GoalType & goal) override;
 
 private:
   void configure();
 };
- 
+
 }  // namespace grab2_bt_grabber
 
 #endif  // GRAB2_BT_GRABBER__REACH_OBJECT_HPP_

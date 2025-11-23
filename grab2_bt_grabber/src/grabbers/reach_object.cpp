@@ -11,7 +11,7 @@ ReachObject::ReachObject(const rclcpp::NodeOptions & options)
   this->configure();
 }
 
-void 
+void
 ReachObject::configure()
 {
   // Initialize parameters
@@ -21,7 +21,7 @@ ReachObject::configure()
     std::string pkg_share_dir = ament_index_cpp::get_package_share_directory("grab2_bt_grabber");
     node()->declare_parameter<std::string>(
       "tree_file",
-      pkg_share_dir + 
+      pkg_share_dir +
       "/behavior_trees/reach_object.xml");
   }
 
@@ -41,8 +41,8 @@ ReachObject::configure()
 
 }
 
-std::string 
-ReachObject::getTreeName(const GoalType& goal)
+std::string
+ReachObject::getTreeName(const GoalType & goal)
 {
   if (!goal.target_tree.empty()) {
     return goal.target_tree;
@@ -50,8 +50,8 @@ ReachObject::getTreeName(const GoalType& goal)
   return "";
 }
 
-void 
-ReachObject::onTreeCreated(BT::Tree& tree, const GoalType& goal)
+void
+ReachObject::onTreeCreated(BT::Tree & tree, const GoalType & goal)
 {
   // Get blackboard
   auto blackboard = tree.rootBlackboard();
@@ -59,7 +59,7 @@ ReachObject::onTreeCreated(BT::Tree& tree, const GoalType& goal)
   // Set goal object pose on blackboard
   blackboard->set<geometry_msgs::msg::PoseStamped>("target_pose", goal.target_pose);
   std::stringstream ss;
-  ss << "frame: " << goal.target_pose.header.frame_id 
+  ss  << "frame: " << goal.target_pose.header.frame_id
       << ", x: " << goal.target_pose.pose.position.x
       << ", y: " << goal.target_pose.pose.position.y
       << ", z: " << goal.target_pose.pose.position.z;
