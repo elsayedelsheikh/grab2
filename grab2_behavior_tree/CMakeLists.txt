@@ -44,34 +44,36 @@ set(THIS_PACK_DEPS
 )
 
 # Libraries
-add_library(grab2_get_trajectory_from_yaml SHARED plugins/action/get_trajectory_from_yaml.cpp)
-add_library(grab2_get_grasp_hardcoded SHARED plugins/action/get_grasp_hardcoded.cpp)
-add_library(grab2_detect_object SHARED plugins/action/detect_object.cpp)
-add_library(grab2_get_grasp SHARED plugins/action/get_grasp.cpp)
-add_library(grab2_plan SHARED plugins/action/plan.cpp)
-add_library(grab2_move SHARED plugins/action/move.cpp)
-add_library(grab2_grip SHARED plugins/action/grip.cpp)
+add_library(grab2_get_trajectory_from_yaml_bt_node SHARED plugins/action/get_trajectory_from_yaml.cpp)
+add_library(grab2_get_grasp_hardcoded_bt_node SHARED plugins/action/get_grasp_hardcoded.cpp)
+add_library(grab2_detect_object_bt_node SHARED plugins/action/detect_object.cpp)
+add_library(grab2_get_grasp_bt_node SHARED plugins/action/get_grasp.cpp)
+add_library(grab2_plan_bt_node SHARED plugins/action/plan.cpp)
+add_library(grab2_move_bt_node SHARED plugins/action/move.cpp)
+add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
+add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
 
 list(APPEND plugin_libs
-  grab2_get_trajectory_from_yaml
-  grab2_get_grasp_hardcoded
-  grab2_detect_object
-  grab2_get_grasp
-  grab2_plan
-  grab2_move
-  grab2_grip
+  grab2_get_trajectory_from_yaml_bt_node
+  grab2_get_grasp_hardcoded_bt_node
+  grab2_detect_object_bt_node
+  grab2_get_grasp_bt_node
+  grab2_plan_bt_node
+  grab2_move_bt_node
+  grab2_grip_bt_node
+  grab2_reach_object_bt_node
 )
 
 foreach(bt_plugin ${plugin_libs})
   ament_target_dependencies(${bt_plugin} ${THIS_PACK_DEPS})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
   target_include_directories(${bt_plugin}
-    PRIVATE
+    PUBLIC  # Changed from PRIVATE to PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
+    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)  # Fixed path
 endforeach()
 
-target_link_libraries(grab2_get_trajectory_from_yaml
+target_link_libraries(grab2_get_trajectory_from_yaml_bt_node
   yaml-cpp
 )
 
@@ -80,7 +82,7 @@ add_executable(grab2_engine src/main.cpp)
 ament_target_dependencies(grab2_engine ${THIS_PACK_DEPS})
 target_include_directories(grab2_engine PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 
 # Install Libs & Exec
 install(
@@ -104,7 +106,7 @@ install(
 # Install directories
 install(
   DIRECTORY include/
-  DESTINATION include
+  DESTINATION include/${PROJECT_NAME}
 )
 
 install(
@@ -112,10 +114,8 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-
   set(ament_cmake_copyright_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
