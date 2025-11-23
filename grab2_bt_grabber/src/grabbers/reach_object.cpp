@@ -38,7 +38,6 @@ ReachObject::configure()
       "gripper_controller_action",
       "hand_controller/gripper_cmd");
   }
-
 }
 
 std::string

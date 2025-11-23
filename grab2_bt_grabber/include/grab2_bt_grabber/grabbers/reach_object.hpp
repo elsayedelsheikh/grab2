@@ -1,7 +1,9 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#ifndef GRAB2_BT_GRABBER__REACH_OBJECT_HPP_
-#define GRAB2_BT_GRABBER__REACH_OBJECT_HPP_
+#ifndef GRAB2_BT_GRABBER__GRABBERS__REACH_OBJECT_HPP_
+#define GRAB2_BT_GRABBER__GRABBERS__REACH_OBJECT_HPP_
+
+#include <string>
 
 #include "grab2_ros_common/bt_execution_server.hpp"
 #include "grab2_msgs/action/reach_object.hpp"
@@ -24,4 +26,4 @@ private:
 
 }  // namespace grab2_bt_grabber
 
-#endif  // GRAB2_BT_GRABBER__REACH_OBJECT_HPP_
+#endif  // GRAB2_BT_GRABBER__GRABBERS__REACH_OBJECT_HPP_
