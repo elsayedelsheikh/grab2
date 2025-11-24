@@ -16,7 +16,8 @@
 namespace grab2_behavior_tree
 {
 
-class ComputePlanToTargetIKAction : public BT::RosActionNode<grab2_msgs::action::ComputePlanToTargetIK>
+class ComputePlanToTargetIKAction :
+  public BT::RosActionNode<grab2_msgs::action::ComputePlanToTargetIK>
 {
   using Act = grab2_msgs::action::ComputePlanToTargetIK;
 
