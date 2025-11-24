@@ -19,7 +19,7 @@
 
 #include "grab2_ros_common/node.hpp"
 #include "geometry_msgs/msg/pose.hpp"
-#include "grab2_msgs/action/compute_plan_to_pose.hpp"
+#include "grab2_msgs/action/compute_plan_to_target_ik.hpp"
 #include "grab2_msgs/action/compute_plan_through_poses.hpp"
 
 namespace grab2_planner
@@ -28,7 +28,7 @@ namespace grab2_planner
 class PlannerServer : public grab2::Node
 {
 public:
-  using ActionToPose = grab2_msgs::action::ComputePlanToPose;
+  using ActionToPose = grab2_msgs::action::ComputePlanToTargetIK;
   using ActionThroughPoses = grab2_msgs::action::ComputePlanThroughPoses;
 
   PlannerServer();

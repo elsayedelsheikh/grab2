@@ -18,7 +18,7 @@ find_package(btcpp_ros2_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "action/ComputePlanToPose.action"
+  "action/ComputePlanToTargetIK.action"
   "action/ComputePlanThroughPoses.action"
   "action/GetIsaacGrasp.action"
   "action/ReachObject.action"

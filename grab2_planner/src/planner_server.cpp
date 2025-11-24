@@ -11,7 +11,7 @@ PlannerServer::PlannerServer()
   initialized_(false)
 {
   this->action_server_pose_ = create_action_server<ActionToPose>(
-    "compute_plan_to_pose",
+    "compute_plan_to_target_ik",
     std::bind(&PlannerServer::computePlan, this, std::placeholders::_1)
   );
 
@@ -47,7 +47,7 @@ PlannerServer::initialize()
 void
 PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_handle)
 {
-  RCLCPP_INFO(this->get_logger(), "Executing ComputePlanToPose");
+  RCLCPP_INFO(this->get_logger(), "Executing ComputePlanToTargetIK");
 
   const auto goal = goal_handle->get_goal();
   auto result = std::make_shared<ActionToPose::Result>();
@@ -57,7 +57,7 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
   }
 
   // Planning logic
-  const auto target = goal->goal.pose;
+  const auto target = goal->target_pose.pose;
 
   moveit::planning_interface::MoveGroupInterface::Plan plan_msg;
   move_group_interface_->setPoseTarget(target);
