@@ -1,6 +1,6 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#include "grab2_behavior_tree/get_trajectory_from_yaml.hpp"
+#include "grab2_behavior_tree/plugins/action/get_trajectory_from_yaml.hpp"
 
 namespace grab2_behavior_tree
 {

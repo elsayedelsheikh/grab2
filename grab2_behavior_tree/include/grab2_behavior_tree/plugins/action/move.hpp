@@ -1,7 +1,7 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#ifndef GRAB2_BEHAVIOR_TREE__MOVE_HPP_
-#define GRAB2_BEHAVIOR_TREE__MOVE_HPP_
+#ifndef GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__MOVE_HPP_
+#define GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__MOVE_HPP_
 
 #include <string>
 #include "behaviortree_ros2/bt_action_node.hpp"
@@ -48,4 +48,4 @@ public:
 
 }  // namespace grab2_behavior_tree
 
-#endif  // GRAB2_BEHAVIOR_TREE__MOVE_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__MOVE_HPP_

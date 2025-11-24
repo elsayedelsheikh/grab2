@@ -1,7 +1,7 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#ifndef GRAB2_BEHAVIOR_TREE__GRIP_HPP_
-#define GRAB2_BEHAVIOR_TREE__GRIP_HPP_
+#ifndef GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__GRIP_HPP_
+#define GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__GRIP_HPP_
 
 #include <string>
 #include <memory>
@@ -39,4 +39,4 @@ public:
 
 }  // namespace grab2_behavior_tree
 
-#endif  // GRAB2_BEHAVIOR_TREE__GRIP_HPP_
+#endif  // GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__GRIP_HPP_

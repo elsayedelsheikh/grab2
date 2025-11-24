@@ -1,6 +1,7 @@
-grab2_bt_engine:
+reach_object:
   ros__parameters:
-    action_name: "grab_object"
+    arm_controller_action: panda_arm_controller/follow_joint_trajectory
+    gripper_controller_action: panda_hand_controller/gripper_cmd
     tick_frequency: 100 # Optional (defaults to 100 Hz)
     groot2_port: 1667 # Optional (defaults to 1667)
     ros_plugins_timeout: 1000  # Optional (defaults 1000 ms)

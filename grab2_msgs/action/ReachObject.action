@@ -1,0 +1,9 @@
+# Goal Definition
+geometry_msgs/PoseStamped target_pose
+string target_tree
+---
+# Result Definition
+btcpp_ros2_interfaces/NodeStatus node_status
+string error_message
+---
+# Feedback Definition

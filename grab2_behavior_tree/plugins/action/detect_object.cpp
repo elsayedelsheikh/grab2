@@ -2,7 +2,7 @@
 
 #include <cmath>  // for M_PI
 #include "vision_msgs/msg/detection3_d.hpp"
-#include "grab2_behavior_tree/detect_object.hpp"
+#include "grab2_behavior_tree/plugins/action/detect_object.hpp"
 
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 

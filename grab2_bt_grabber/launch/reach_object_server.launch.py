@@ -10,14 +10,14 @@ def generate_launch_description():
         [
             FindPackageShare('grab2_bt_grabber'),
             'config',
-            'grab2_bt_engine.yaml',
+            'reach_object.yaml',
         ]
     )
 
     bt_engine = Node(
         package='grab2_bt_grabber',
         executable='bt_engine',
-        name='grab2_bt_engine',
+        name='reach_object',
         output='screen',
         parameters=[param_config],
     )

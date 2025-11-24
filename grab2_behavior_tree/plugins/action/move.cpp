@@ -1,6 +1,6 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#include "grab2_behavior_tree/move.hpp"
+#include "grab2_behavior_tree/plugins/action/move.hpp"
 
 namespace grab2_behavior_tree
 {
