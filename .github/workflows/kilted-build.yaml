@@ -1,0 +1,43 @@
+name: Kilted Source Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: build-and-test-against-${{ matrix.ros-distro }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: [ubuntu-24.04]
+            ros-distro: "kilted"
+
+    steps:
+      - name: Install yaml-cpp deps
+        run: sudo apt-get install -y libyaml-cpp-dev
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup ROS 2
+        uses: ros-tooling/setup-ros@0.7.15
+        with:
+          required-ros-distributions: ${{ matrix.ros-distro }}
+
+      - name: Build and Test
+        uses: ros-tooling/action-ros-ci@0.4.5
+        with:
+          target-ros2-distro: ${{ matrix.ros-distro }}
+          vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
+          colcon-defaults: |
+            {
+              "test": {
+                "parallel-workers" : 1
+              }
+            }

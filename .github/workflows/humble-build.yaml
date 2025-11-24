@@ -1,4 +1,4 @@
-name: ROS2 CI
+name: Humble Source Build
 
 on:
   pull_request:
@@ -15,12 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: [ubuntu-24.04]
-            ros-distro: "kilted"
-          - os: [ubuntu-24.04]
-            ros-distro: "jazzy"
           - os: [ubuntu-22.04]
             ros-distro: "humble"
+
     steps:
       - name: Install yaml-cpp deps
         run: sudo apt-get install -y libyaml-cpp-dev
@@ -39,15 +36,3 @@ jobs:
           target-ros2-distro: ${{ matrix.ros-distro }}
           vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
           skip-tests: true
-
-      - name: Test
-        uses: ros-tooling/action-ros-ci@0.4.5
-        with:
-          target-ros2-distro: "kilted"
-          vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
-          colcon-defaults: |
-            {
-              "test": {
-                "parallel-workers" : 1
-              }
-            }
