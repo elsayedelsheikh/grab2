@@ -445,7 +445,7 @@ private:
       // Operations to be done if the tree execution is aborted, either by
       // cancel requested or by onLoopAfterTick()
       auto stop_action =
-        [this, &action_result] (BT::NodeStatus status, const std::string & message)
+        [this, &action_result](BT::NodeStatus status, const std::string & message)
         {
           tree_.haltTree();
           onTreeExecutionCompleted(status, true, *action_result);
