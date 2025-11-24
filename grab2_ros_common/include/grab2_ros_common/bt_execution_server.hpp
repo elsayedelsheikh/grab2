@@ -433,7 +433,6 @@ private:
 
       // Call user defined function after the tree has been created
       onTreeCreated(tree_, *current_goal_);
-
       groot_publisher_.reset();
       groot_publisher_ = std::make_shared<BT::Groot2Publisher>(tree_, params_.groot2_port);
 
@@ -445,8 +444,8 @@ private:
 
       // Operations to be done if the tree execution is aborted, either by
       // cancel requested or by onLoopAfterTick()
-      auto stop_action = [this, &action_result]
-        (BT::NodeStatus status, const std::string & message)
+      auto stop_action =
+        [this, &action_result](BT::NodeStatus status, const std::string & message)
         {
           tree_.haltTree();
           onTreeExecutionCompleted(status, true, *action_result);

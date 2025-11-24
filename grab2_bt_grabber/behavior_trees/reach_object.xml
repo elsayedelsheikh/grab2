@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root BTCPP_format="4" main_tree_to_execute="ReachObject">
-  <BehaviorTree ID="ReachObject">
+<root BTCPP_format="4" main_tree_to_execute="Reach">
+  <BehaviorTree ID="Reach">
     <Sequence>
       <Script name="Configure ROS2 Actions" code="planner_action:='compute_plan_to_pose'"/>
       <SaySomething name="Print message" message="Reaching object..."/>
