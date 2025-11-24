@@ -1,4 +1,4 @@
-name: ROS2 CI
+name: ROS2 Kilted
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    name: build-and-test-against-${{ matrix.ros-distro }}
+    name: build-and-test
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -17,10 +17,7 @@ jobs:
         include:
           - os: [ubuntu-24.04]
             ros-distro: "kilted"
-          - os: [ubuntu-24.04]
-            ros-distro: "jazzy"
-          - os: [ubuntu-22.04]
-            ros-distro: "humble"
+
     steps:
       - name: Install yaml-cpp deps
         run: sudo apt-get install -y libyaml-cpp-dev

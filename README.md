@@ -1,6 +1,10 @@
-# Grab2 Behavior Demos
+# grab2
 
-[![ROS2 CI](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml)
+ROS 2 Distro | Build Status |
+:----------: | :-----------: |
+Humble | [![ROS2 Humble](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-humble.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-humble.yaml) |
+Jazzy | [![ROS2 Jazzy](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-jazzy.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-jazzy.yaml) |
+Kilted | [![ROS2 Kilted](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-kilted.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-kilted.yaml) |
 
 This repository provides manipulation demos
 
