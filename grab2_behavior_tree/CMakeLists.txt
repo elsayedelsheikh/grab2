@@ -68,9 +68,9 @@ foreach(bt_plugin ${plugin_libs})
   ament_target_dependencies(${bt_plugin} ${THIS_PACK_DEPS})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
   target_include_directories(${bt_plugin}
-    PUBLIC  # Changed from PRIVATE to PUBLIC
+    PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)  # Fixed path
+    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 endforeach()
 
 target_link_libraries(grab2_get_trajectory_from_yaml_bt_node
