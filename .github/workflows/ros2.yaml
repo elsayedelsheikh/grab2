@@ -33,10 +33,17 @@ jobs:
         with:
           required-ros-distributions: ${{ matrix.ros-distro }}
 
-      - name: Build and Test
+      - name: Build
         uses: ros-tooling/action-ros-ci@0.4.5
         with:
           target-ros2-distro: ${{ matrix.ros-distro }}
+          vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
+          skip-tests: true
+
+      - name: Test
+        uses: ros-tooling/action-ros-ci@0.4.5
+        with:
+          target-ros2-distro: "kilted"
           vcs-repo-file-url: ${GITHUB_WORKSPACE}/dependencies.repos
           colcon-defaults: |
             {

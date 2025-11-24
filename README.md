@@ -2,6 +2,12 @@
 
 [![ROS2 CI](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml)
 
+ROS 2 Distro | Build Status |
+:----------: | :-----------: |
+Humble | ![Humble Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:humble) |
+Jazzy | ![Jazzy Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:jazzy) |
+Kilted | ![Kilted Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:kilted) |
+
 This repository provides manipulation demos
 
 - Using BehaviorTree.CPP, Moveit2, Nvidia cuRobo, and ROS2 with Nvidia Isaac sim.
