@@ -76,8 +76,8 @@ public:
     action_server_ = rclcpp_action::create_server<ActionT>(
       node_,
       action_name,
-      std::bind(&TreeExecutionServer::handle_goal, this, std::placeholders::_1,
-        std::placeholders::_2),
+      std::bind(
+        &TreeExecutionServer::handle_goal, this, std::placeholders::_1, std::placeholders::_2),
       std::bind(&TreeExecutionServer::handle_cancel, this, std::placeholders::_1),
       std::bind(&TreeExecutionServer::handle_accepted, this, std::placeholders::_1)
     );
@@ -93,7 +93,7 @@ public:
 
     // Single-shot timer for async registration
     rclcpp::VoidCallbackType callback = [this]() {
-        if(!factory_initialized_) {
+        if (!factory_initialized_) {
           executeRegistration();
         }
         single_shot_timer_->cancel();
@@ -107,7 +107,7 @@ public:
 
   virtual ~TreeExecutionServer()
   {
-    if(action_thread_.joinable()) {
+    if (action_thread_.joinable()) {
       action_thread_.join();
     }
   }
@@ -305,33 +305,38 @@ private:
     node_->get_parameter("tree_file", bt_xml_filename);
 
     if (bt_xml_filename.empty()) {
-      RCLCPP_WARN(node_->get_logger(),
-                  "Parameter 'tree_file' is empty. No behavior tree will be loaded.");
+      RCLCPP_WARN(
+        node_->get_logger(),
+        "Parameter 'tree_file' is empty. No behavior tree will be loaded.");
       return;
     }
 
     const auto entry = std::filesystem::directory_entry(bt_xml_filename);
 
     if (!entry.exists()) {
-      RCLCPP_ERROR(node_->get_logger(),
-                   "Behavior tree file does not exist: %s", bt_xml_filename.c_str());
+      RCLCPP_ERROR(
+        node_->get_logger(),
+        "Behavior tree file does not exist: %s", bt_xml_filename.c_str());
       return;
     }
 
     if (entry.path().extension() != ".xml") {
-      RCLCPP_ERROR(node_->get_logger(),
-                   "File is not an XML file: %s", bt_xml_filename.c_str());
+      RCLCPP_ERROR(
+        node_->get_logger(),
+        "File is not an XML file: %s", bt_xml_filename.c_str());
       return;
     }
 
     try {
       factory_.registerBehaviorTreeFromFile(entry.path().string());
-      RCLCPP_INFO(node_->get_logger(),
-                  "Registered BehaviorTree: %s", entry.path().filename().c_str());
-    } catch(const std::exception & e) {
-      RCLCPP_ERROR(node_->get_logger(),
-                   "Failed to register BehaviorTree: %s\n%s",
-                   entry.path().filename().c_str(), e.what());
+      RCLCPP_INFO(
+        node_->get_logger(),
+        "Registered BehaviorTree: %s", entry.path().filename().c_str());
+    } catch (const std::exception & e) {
+      RCLCPP_ERROR(
+        node_->get_logger(),
+        "Failed to register BehaviorTree: %s\n%s",
+        entry.path().filename().c_str(), e.what());
     }
   }
 
@@ -347,7 +352,7 @@ private:
   {
     RCLCPP_INFO(node_->get_logger(), "Received goal request");
 
-    if(onGoalReceived(*goal)) {
+    if (onGoalReceived(*goal)) {
       return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
     } else {
       return rclcpp_action::GoalResponse::REJECT;
@@ -363,9 +368,10 @@ private:
     const std::shared_ptr<GoalHandle> goal_handle)
   {
     RCLCPP_INFO(node_->get_logger(), "Received request to cancel goal");
-    if(!goal_handle->is_active()) {
-      RCLCPP_WARN(node_->get_logger(),
-                  "Rejecting request to cancel goal because the server is not processing one.");
+    if (!goal_handle->is_active()) {
+      RCLCPP_WARN(
+        node_->get_logger(),
+        "Rejecting request to cancel goal because the server is not processing one.");
       return rclcpp_action::CancelResponse::REJECT;
     }
     return rclcpp_action::CancelResponse::ACCEPT;
@@ -378,7 +384,7 @@ private:
   void handle_accepted(const std::shared_ptr<GoalHandle> goal_handle)
   {
     // Join the previous execute thread before replacing it with a new one
-    if(action_thread_.joinable()) {
+    if (action_thread_.joinable()) {
       action_thread_.join();
     }
     // To avoid blocking the executor start a new thread to process the goal
@@ -396,7 +402,7 @@ private:
     auto action_result = std::make_shared<ResultType>();
 
     // Before executing check if we have new Behaviors or Subtrees to reload
-    if(param_listener_->is_old(params_)) {
+    if (param_listener_->is_old(params_)) {
       executeRegistration();
     }
 
@@ -409,10 +415,10 @@ private:
 
       // If tree_name is empty, use main_tree_to_execute from XML
       // Otherwise, create the specific tree by name
-      if(tree_name_.empty()) {
+      if (tree_name_.empty()) {
         // Get the list of registered trees
         auto registered_trees = factory_.registeredBehaviorTrees();
-        if(registered_trees.empty()) {
+        if (registered_trees.empty()) {
           throw std::runtime_error("No behavior trees registered in factory");
         }
 
@@ -446,8 +452,8 @@ private:
           RCLCPP_WARN(node_->get_logger(), "%s", message.c_str());
         };
 
-      while(rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
-        if(goal_handle->is_canceling()) {
+      while (rclcpp::ok() && status == BT::NodeStatus::RUNNING) {
+        if (goal_handle->is_canceling()) {
           stop_action(status, "Action Server canceling and halting Behavior Tree");
           goal_handle->canceled(action_result);
           return;
@@ -456,7 +462,7 @@ private:
         // Tick the tree once
         status = tree_.tickExactlyOnce();
 
-        if(const auto res = onLoopAfterTick(status); res.has_value()) {
+        if (const auto res = onLoopAfterTick(status); res.has_value()) {
           stop_action(res.value(), "Action Server aborted by onLoopAfterTick()");
           goal_handle->abort(action_result);
           return;
@@ -464,18 +470,18 @@ private:
 
         // Publish feedback if user wants to
         auto feedback = std::make_shared<FeedbackType>();
-        if(onLoopFeedback(*feedback)) {
+        if (onLoopFeedback(*feedback)) {
           goal_handle->publish_feedback(feedback);
         }
 
         const auto now = std::chrono::steady_clock::now();
-        if(now < loop_deadline) {
-          tree_.sleep(std::chrono::duration_cast<std::chrono::system_clock::duration>(
-            loop_deadline - now));
+        if (now < loop_deadline) {
+          tree_.sleep(
+            std::chrono::duration_cast<std::chrono::system_clock::duration>(loop_deadline - now));
         }
         loop_deadline += period;
       }
-    } catch(const std::exception & ex) {
+    } catch (const std::exception & ex) {
       std::string error_msg = std::string("Behavior Tree exception: ") + ex.what();
       RCLCPP_ERROR(node_->get_logger(), "%s", error_msg.c_str());
       onTreeExecutionCompleted(BT::NodeStatus::FAILURE, false, *action_result);

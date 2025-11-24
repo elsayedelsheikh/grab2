@@ -58,10 +58,10 @@ ReachObject::onTreeCreated(BT::Tree & tree, const GoalType & goal)
   // Set goal object pose on blackboard
   blackboard->set<geometry_msgs::msg::PoseStamped>("target_pose", goal.target_pose);
   std::stringstream ss;
-  ss  << "frame: " << goal.target_pose.header.frame_id
-      << ", x: " << goal.target_pose.pose.position.x
-      << ", y: " << goal.target_pose.pose.position.y
-      << ", z: " << goal.target_pose.pose.position.z;
+  ss << "frame: " << goal.target_pose.header.frame_id
+     << ", x: " << goal.target_pose.pose.position.x
+     << ", y: " << goal.target_pose.pose.position.y
+     << ", z: " << goal.target_pose.pose.position.z;
   RCLCPP_INFO(
     node()->get_logger(), "Received target goal: %s", ss.str().c_str()
   );
