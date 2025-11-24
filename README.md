@@ -1,10 +1,10 @@
-# grab2 
+# grab2
 
 ROS 2 Distro | Build Status |
 :----------: | :-----------: |
-Humble | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml) |
-Jazzy | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml) |
-Kilted | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml) |
+Humble | [![Humble](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml) |
+Jazzy | [![Jazzy](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml) |
+Kilted | [![Kilted](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml) |
 
 This repository provides manipulation demos
 
