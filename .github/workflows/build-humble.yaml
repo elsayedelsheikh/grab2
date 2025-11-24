@@ -1,4 +1,4 @@
-name: Kilted
+name: ROS2 Humble
 
 on:
   pull_request:
@@ -15,8 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: [ubuntu-24.04]
-            ros-distro: "kilted"
+          - os: [ubuntu-22.04]
+            ros-distro: "humble"
 
     steps:
       - name: Install yaml-cpp deps

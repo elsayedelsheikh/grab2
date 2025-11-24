@@ -1,4 +1,4 @@
-name: Jazzy
+name: ROS2 Jazzy
 
 on:
   pull_request:
