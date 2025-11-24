@@ -22,12 +22,12 @@ def generate_launch_description():
     )
 
     declare_use_rviz_cmd = DeclareLaunchArgument(
-        'use_rviz', default_value='True', description='Whether to start RVIZ'
+        'use_rviz', default_value='False', description='Whether to start RVIZ'
     )
 
     declare_ros2_control_hardware_type = DeclareLaunchArgument(
         'hardware',
-        default_value='isaac',
+        default_value='mock_components',
         description=(
             'ROS2 control hardware interface type to use for the launch file -- '
             'possible values: [mock_components, isaac]'
