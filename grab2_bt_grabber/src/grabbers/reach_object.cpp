@@ -62,7 +62,7 @@ ReachObject::onTreeCreated(BT::Tree & tree, const GoalType & goal)
      << ", x: " << goal.target_pose.pose.position.x
      << ", y: " << goal.target_pose.pose.position.y
      << ", z: " << goal.target_pose.pose.position.z;
-  RCLCPP_INFO(
+  RCLCPP_DEBUG(
     node()->get_logger(), "Received target goal: %s", ss.str().c_str()
   );
 

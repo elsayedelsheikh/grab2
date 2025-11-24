@@ -4,7 +4,7 @@ import time
 from control_msgs.msg import JointTrajectoryControllerState
 from geometry_msgs.msg import Point
 from grab2_curobo_planner.curobo.motion_generation import CuRoboMotionGen
-from grab2_msgs.action import ComputePlanToPose
+from grab2_msgs.action import ComputePlanToTargetIK
 
 import rclpy
 from rclpy.action import ActionServer, CancelResponse, GoalResponse
@@ -59,8 +59,8 @@ class PlanningServer(Node):
         cb_grp = ReentrantCallbackGroup()
         self.planning_action_server_ = ActionServer(
             self,
-            ComputePlanToPose,
-            'plan_to_goal',
+            ComputePlanToTargetIK,
+            'compute_plan_to_target_ik',
             execute_callback=self.execute_callback,
             goal_callback=self.goal_callback,
             handle_accepted_callback=self.handle_accepted_callback,
@@ -149,23 +149,23 @@ class PlanningServer(Node):
         self.get_logger().info('Received goal request')
 
         # Check goal frame
-        if goal_request.goal.header.frame_id != self.planner.base_link:
+        if goal_request.target_pose.header.frame_id != self.planner.base_link:
             try:
                 # Transform into planning frame
                 pose_stamped_goal = self.tf_buffer.transform(
-                    goal_request.goal, self.planner.base_link
+                    goal_request.target_pose, self.planner.base_link
                 )
                 pos = pose_stamped_goal.pose.position
                 ori = pose_stamped_goal.pose.orientation
             except Exception as e:
                 self.get_logger().error(
-                    f"Couldn't transform Pose from '{goal_request.goal.header.frame_id}' "
+                    f"Couldn't transform Pose from '{goal_request.target_pose.header.frame_id}' "
                     f"to planning frame '{self.planner.base_link}': {str(e)}"
                 )
                 return GoalResponse.REJECT
         else:
-            pos = goal_request.goal.pose.position
-            ori = goal_request.goal.pose.orientation
+            pos = goal_request.target_pose.pose.position
+            ori = goal_request.target_pose.pose.orientation
         # Set goal pose
         self.goal_pose = [pos.x, pos.y, pos.z, ori.w, ori.x, ori.y, ori.z]
 
@@ -197,7 +197,7 @@ class PlanningServer(Node):
         # Check if CuRobo planner is warmed up
         if not self.planner._warmed_up:
             self.get_logger().error(f'{self.RED}Planner not initialized.{self.RESET}')
-            return ComputePlanToPose.Result()
+            return ComputePlanToTargetIK.Result()
 
         # Check if current state is available
         counter = 0
@@ -209,7 +209,7 @@ class PlanningServer(Node):
                 break
             if counter > 20:
                 goal_handle.abort()
-                return ComputePlanToPose.Result()
+                return ComputePlanToTargetIK.Result()
             time.sleep(0.03)
             counter += 1
 
@@ -219,12 +219,12 @@ class PlanningServer(Node):
         # then stop executing
         if not goal_handle.is_active:
             self.get_logger().error('Goal aborted')
-            return ComputePlanToPose.Result()
+            return ComputePlanToTargetIK.Result()
 
         if goal_handle.is_cancel_requested:
             goal_handle.canceled()
             self.get_logger().error('Goal canceled')
-            return ComputePlanToPose.Result()
+            return ComputePlanToTargetIK.Result()
 
         # Planning Request
         # req_goal = goal_handle.request.goal
@@ -237,7 +237,7 @@ class PlanningServer(Node):
         if plan.size == 0:
             goal_handle.abort()
             self.get_logger().info('Goal aborted')
-            return ComputePlanToPose.Result()
+            return ComputePlanToTargetIK.Result()
         else:
             trajectory_msg = JointTrajectory()
             trajectory_msg.header.frame_id = self.planner.base_link
@@ -257,12 +257,12 @@ class PlanningServer(Node):
         with self._goal_lock:
             if not goal_handle.is_active:
                 self.get_logger().info('Goal aborted')
-                return ComputePlanToPose.Result()
+                return ComputePlanToTargetIK.Result()
 
             self.get_logger().info(f'{self.GREEN}Plan Succeeded{self.RESET}')
             goal_handle.succeed()
 
-        result = ComputePlanToPose.Result()
+        result = ComputePlanToTargetIK.Result()
         result.trajectory = trajectory_msg
         return result
 

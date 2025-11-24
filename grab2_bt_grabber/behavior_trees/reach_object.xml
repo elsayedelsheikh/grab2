@@ -2,16 +2,15 @@
 <root BTCPP_format="4" main_tree_to_execute="Reach">
   <BehaviorTree ID="Reach">
     <Sequence>
-      <Script name="Configure ROS2 Actions" code="planner_action:='compute_plan_to_pose'"/>
       <SaySomething name="Print message" message="Reaching object..."/>
 
-      <GetGrasp name="Get object grasp pose" object_pose="{target_pose}" pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
+      <ComputeTopDownGrasp object_pose="{target_pose}" pregrasp="{pregrasp_pose}" grasp="{grasp_pose}"/>
 
-      <Plan action_name="{planner_action}" name="Plan to pre-grasp pose" target_ik="{pregrasp_pose}" trajectory="{trajectory_msg}"/>
+      <ComputePlanToTargetIK name="Plan to pre-grasp pose" target_ik="{pregrasp_pose}" trajectory="{trajectory_msg}"/>
       <Move action_name="{arm_controller_action}" name="Move to pre-grasp pose" trajectory="{trajectory_msg}"/>
       <Grip action_name="{gripper_controller_action}" name="Open Gripper" pose="0.04"/>
 
-      <Plan action_name="{planner_action}" name="Plan to grasp pose" target_ik="{grasp_pose}" trajectory="{trajectory_msg}"/>
+      <ComputePlanToTargetIK name="Plan to grasp pose" target_ik="{grasp_pose}" trajectory="{trajectory_msg}"/>
       <Move action_name="{arm_controller_action}" name="Move to grasp pose" trajectory="{trajectory_msg}"/>
       <Grip action_name="{gripper_controller_action}" name="Close Gripper" pose="0.00"/>
 

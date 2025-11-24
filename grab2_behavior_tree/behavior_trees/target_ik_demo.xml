@@ -15,7 +15,7 @@
 
   <BehaviorTree ID="MoveTo">
     <Sequence>
-      <Plan target_ik="{target}" trajectory="{trajectory_msg}"/>
+      <ComputePlanToTargetIK target_ik="{target}" trajectory="{trajectory_msg}"/>
       <Move trajectory="{trajectory_msg}"/>
     </Sequence>
   </BehaviorTree>

@@ -1,7 +1,7 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
 #include <cmath>  // for M_PI
-#include "grab2_behavior_tree/plugins/action/get_grasp.hpp"
+#include "grab2_behavior_tree/plugins/action/compute_top_down_grasp.hpp"
 
 #include "tf2/utils.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
@@ -9,7 +9,7 @@
 namespace grab2_behavior_tree
 {
 
-GetGrasp::GetGrasp(
+ComputeTopDownGrasp::ComputeTopDownGrasp(
   const std::string & name,
   const BT::NodeConfig & conf
 )
@@ -18,22 +18,26 @@ GetGrasp::GetGrasp(
 }
 
 BT::NodeStatus
-GetGrasp::tick()
+ComputeTopDownGrasp::tick()
 {
   // Get object pose
   geometry_msgs::msg::PoseStamped object_pose;
-  getInput("object_pose", object_pose);
+  if (!getInput("object_pose", object_pose)) {
+    throw BT::RuntimeError("missing required input [object_pose]");
+  }
+
+  // Get offsets
+  double grasp_offset, pregrasp_offset;
+  getInput("grasp_offset", grasp_offset);
+  getInput("pregrasp_offset", pregrasp_offset);
 
   // Generate Grasp Pose
-  // TODO(ElSayed): Get Grasp pose from a yaml file that corresponds to the object type
   geometry_msgs::msg::PoseStamped grasp_pose(object_pose);
-
-  // Position
-  grasp_pose.pose.position.z += 0.12;
+  grasp_pose.pose.position.z += grasp_offset;
 
   // Orientation
-  double yaw = tf2::getYaw(grasp_pose.pose.orientation);
   tf2::Quaternion target_quat;
+  double yaw = tf2::getYaw(grasp_pose.pose.orientation);
   target_quat.setRPY(M_PI, 0, yaw);
   grasp_pose.pose.orientation = tf2::toMsg(target_quat);
 
@@ -41,9 +45,8 @@ GetGrasp::tick()
   setOutput("grasp", grasp_pose);
 
   // Set pre-grasp pose
-  grasp_pose.pose.position.z += 0.1;
+  grasp_pose.pose.position.z += pregrasp_offset;
   setOutput("pregrasp", grasp_pose);
-
 
   return BT::NodeStatus::SUCCESS;
 }
@@ -52,5 +55,5 @@ GetGrasp::tick()
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<grab2_behavior_tree::GetGrasp>("GetGrasp");
+  factory.registerNodeType<grab2_behavior_tree::ComputeTopDownGrasp>("ComputeTopDownGrasp");
 }
