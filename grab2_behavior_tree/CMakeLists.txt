@@ -10,7 +10,6 @@ find_package(ament_cmake REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
-find_package(rclcpp_components REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(builtin_interfaces REQUIRED)
@@ -25,23 +24,6 @@ find_package(behaviortree_cpp REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
-
-set(THIS_PACK_DEPS
-  rclcpp
-  rclcpp_action
-  rclcpp_components
-  std_msgs
-  builtin_interfaces
-  geometry_msgs
-  tf2_geometry_msgs
-  vision_msgs
-  trajectory_msgs
-  ament_index_cpp
-  control_msgs
-  grab2_msgs
-  behaviortree_cpp
-  behaviortree_ros2
-)
 
 # Libraries
 add_library(grab2_get_trajectory_from_yaml_bt_node SHARED plugins/action/get_trajectory_from_yaml.cpp)
@@ -65,24 +47,49 @@ list(APPEND plugin_libs
 )
 
 foreach(bt_plugin ${plugin_libs})
-  ament_target_dependencies(${bt_plugin} ${THIS_PACK_DEPS})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
   target_include_directories(${bt_plugin}
     PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+  target_link_libraries(${bt_plugin}
+    yaml-cpp
+    rclcpp::rclcpp
+    rclcpp_action::rclcpp_action
+    ${std_msgs_TARGETS}
+    ${builtin_interfaces_TARGETS}
+    ${geometry_msgs_TARGETS}
+    ${tf2_geometry_msgs_TARGETS}
+    ${vision_msgs_TARGETS}
+    ${trajectory_msgs_TARGETS}
+    ament_index_cpp::ament_index_cpp
+    ${control_msgs_TARGETS}
+    ${grab2_msgs_TARGETS}
+    behaviortree_cpp::behaviortree_cpp
+    behaviortree_ros2::behaviortree_ros2
+  )
 endforeach()
-
-target_link_libraries(grab2_get_trajectory_from_yaml_bt_node
-  yaml-cpp
-)
 
 # Executables
 add_executable(grab2_engine src/main.cpp)
-ament_target_dependencies(grab2_engine ${THIS_PACK_DEPS})
 target_include_directories(grab2_engine PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+target_link_libraries(grab2_engine
+  rclcpp::rclcpp
+  rclcpp_action::rclcpp_action
+  ${std_msgs_TARGETS}
+  ${builtin_interfaces_TARGETS}
+  ${geometry_msgs_TARGETS}
+  ${tf2_geometry_msgs_TARGETS}
+  ${vision_msgs_TARGETS}
+  ${trajectory_msgs_TARGETS}
+  ament_index_cpp::ament_index_cpp
+  ${control_msgs_TARGETS}
+  ${grab2_msgs_TARGETS}
+  behaviortree_cpp::behaviortree_cpp
+  behaviortree_ros2::behaviortree_ros2
+)
 
 # Install Libs & Exec
 install(
