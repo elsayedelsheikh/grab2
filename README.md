@@ -1,12 +1,10 @@
-# Grab2 Behavior Demos
-
-[![ROS2 CI](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml)
+# grab2 
 
 ROS 2 Distro | Build Status |
 :----------: | :-----------: |
-Humble | ![Humble Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:humble) |
-Jazzy | ![Jazzy Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:jazzy) |
-Kilted | ![Kilted Build](https://github.com/elsayedelsheikh/grab2/actions/workflows/ros2.yaml/badge.svg?branch=main&event=push&matrix=ros_distro:kilted) |
+Humble | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/humble-build.yaml) |
+Jazzy | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/jazzy-build.yaml) |
+Kilted | [![build](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/kilted-build.yaml) |
 
 This repository provides manipulation demos
 
