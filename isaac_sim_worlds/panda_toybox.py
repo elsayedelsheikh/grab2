@@ -54,7 +54,7 @@ viewports.set_camera_view(eye=np.array([2.0, 1.35, 1.8]), target=np.array([0, 0,
 stage.add_reference_to_stage(BACKGROUND_USD_PATH, '/World/background')
 
 # Loading the Robot
-ROBOT_PRIM_PATH = '/World/Franka'
+ROBOT_PRIM_PATH = '/World/Panda'
 add_franka(ROBOT_PRIM_PATH, position=[0, 0.25, 0])
 
 # Loading the Toys

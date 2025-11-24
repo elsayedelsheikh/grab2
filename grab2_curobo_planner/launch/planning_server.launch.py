@@ -17,8 +17,8 @@ def get_launch_nodes(context, *args, **kwargs):
     )
 
     # Prepare configs
-    # Franka equipped with finger gripper
-    if robot == 'franka':
+    # Franka Panda equipped with finger gripper
+    if robot == 'panda':
         state_topic_name = '/panda_arm_controller/controller_state'
 
     # For UR5e with 2-finger gripper or/ UR10e with suction gripper
@@ -45,9 +45,9 @@ def generate_launch_description():
     # Command-line arguments
     robot_model_declaration = DeclareLaunchArgument(
         'robot',
-        default_value='franka',
+        default_value='panda',
         description=(
-            'Robot model used with cuRobo -- ' 'Supported robots: [franka, ur10e]'
+            'Robot model used with cuRobo -- ' 'Supported robots: [panda, ur10e]'
         ),
     )
 

@@ -48,7 +48,7 @@ stage.add_reference_to_stage(
 )
 
 # Loading the Robot
-ROBOT_PRIM_PATH = '/World/Franka'
+ROBOT_PRIM_PATH = '/World/Panda'
 add_franka(ROBOT_PRIM_PATH, position=[0, -0.64, 0])
 
 simulation_app.update()
