@@ -445,8 +445,9 @@ private:
 
       // Operations to be done if the tree execution is aborted, either by
       // cancel requested or by onLoopAfterTick()
-      auto stop_action = [this, &action_result](BT::NodeStatus status,
-        const std::string & message) {
+      auto stop_action = [this, &action_result]
+        (BT::NodeStatus status, const std::string & message)
+        {
           tree_.haltTree();
           onTreeExecutionCompleted(status, true, *action_result);
           RCLCPP_WARN(node_->get_logger(), "%s", message.c_str());
@@ -493,7 +494,7 @@ private:
     onTreeExecutionCompleted(status, false, *action_result);
 
     // Return success or aborted for the action result
-    if(status == BT::NodeStatus::SUCCESS) {
+    if (status == BT::NodeStatus::SUCCESS) {
       RCLCPP_INFO(node_->get_logger(), "Goal succeeded");
       goal_handle->succeed(action_result);
     } else {
