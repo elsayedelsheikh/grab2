@@ -122,7 +122,12 @@ void PlannerServer::computePlanThroughPoses(
       continue;
     }
 
+    // For Jazzy and Later Support
+    #if RCLCPP_VERSION_GTE(28, 0, 0)
+    const auto & traj = plan.trajectory.joint_trajectory;
+    #else
     const auto & traj = plan.trajectory_.joint_trajectory;
+    #endif
 
     // Append trajectory points
     if (combined_trajectory.joint_trajectory.joint_names.empty()) {
@@ -170,9 +175,10 @@ void PlannerServer::computePlanThroughPoses(
 
   goal_handle->succeed(result);
 
-  RCLCPP_INFO(this->get_logger(),
-              "Planning finished: %zu successful, %zu failed, total duration %.2f sec",
-              successful_indices.size(), failed_indices.size(), total_duration);
+  RCLCPP_INFO(
+    this->get_logger(),
+    "Planning finished: %zu successful, %zu failed, total duration %.2f sec",
+    successful_indices.size(), failed_indices.size(), total_duration);
 }
 
 }  // namespace grab2_planner
