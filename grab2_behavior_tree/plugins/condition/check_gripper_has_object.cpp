@@ -1,6 +1,6 @@
 // Copyright 2025, Zaynab Ahmed
 
-#include "grab2_behavior_tree/condition/check_gripper_has_object.hpp"  // Include the header!
+#include "grab2_behavior_tree/plugins/condition/check_gripper_has_object.hpp"
 #include "behaviortree_cpp/condition_node.h"
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
