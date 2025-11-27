@@ -36,7 +36,7 @@ add_library(grab2_move_bt_node SHARED plugins/action/move.cpp)
 add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
 add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
 add_library(grab2_check_gripper_has_object_bt_node SHARED
-  plugins/check_gripper_has_object.cpp
+  plugins/condition/check_gripper_has_object.cpp
 )  
 
 list(APPEND plugin_libs

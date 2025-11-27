@@ -1,4 +1,4 @@
-#include "grab2_behavior_tree/check_gripper_has_object.hpp"  // Include the header!
+#include "grab2_behavior_tree/condition/check_gripper_has_object.hpp"  // Include the header!
 #include "behaviortree_cpp/condition_node.h"
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joint_state.hpp"
