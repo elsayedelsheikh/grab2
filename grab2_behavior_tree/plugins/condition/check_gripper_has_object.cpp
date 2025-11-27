@@ -34,8 +34,9 @@ BT::PortsList CheckGripperHasObject::providedPorts()
 {
   return {
     BT::InputPort<double>("force_threshold", 0.5, "Force threshold to detect object"),
-    BT::InputPort<double>("position_threshold", 0.01,
-        "Minimum gripper opening when holding object"),
+    BT::InputPort<double>(
+      "position_threshold", 0.01,
+      "Minimum gripper opening when holding object"),
     BT::OutputPort<bool>("has_object", "Whether gripper has object")
   };
 }
@@ -57,14 +58,16 @@ BT::NodeStatus CheckGripperHasObject::tick()
   setOutput("has_object", has_object);
 
   if (has_object) {
-    RCLCPP_INFO(node_->get_logger(),
-                "[%s] Object detected: pos=%.3f, effort=%.3f",
-                name().c_str(), gripper_position, gripper_effort);
+    RCLCPP_INFO(
+      node_->get_logger(),
+      "[%s] Object detected: pos=%.3f, effort=%.3f",
+      name().c_str(), gripper_position, gripper_effort);
     return BT::NodeStatus::SUCCESS;
   } else {
-    RCLCPP_WARN(node_->get_logger(),
-                "[%s] No object: pos=%.3f, effort=%.3f",
-                name().c_str(), gripper_position, gripper_effort);
+    RCLCPP_WARN(
+      node_->get_logger(),
+      "[%s] No object: pos=%.3f, effort=%.3f",
+      name().c_str(), gripper_position, gripper_effort);
     return BT::NodeStatus::FAILURE;
   }
 }
