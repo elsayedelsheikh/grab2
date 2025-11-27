@@ -5,16 +5,13 @@
 
 #include <string>
 #include <memory>
+#include <future>
+#include <mutex>
+#include <thread>
 
 #include "rclcpp/version.h"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
-#include <thread>
-#include <future>
-#include <mutex>
-// #include <moveit/trajectory_processing/iterative_parabolic_time_parameterization.h>
-// #include <moveit/robot_trajectory/robot_trajectory.h>
-
 
 // For Jazzy and Later Support
 #if RCLCPP_VERSION_GTE(28, 0, 0)
@@ -98,7 +95,6 @@ private:
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
   std::mutex planning_mutex_;
   rclcpp::Node::SharedPtr node_;
-
 };
 
 }  // namespace grab2_planner

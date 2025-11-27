@@ -63,10 +63,8 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
 
   if (!initialized_) {
     initialize();
-
   }
   goal_handle->abort(result);
-
 }
 
 void PlannerServer::computePlanThroughPoses(
@@ -163,9 +161,8 @@ void PlannerServer::computePlanThroughPoses(
               "Planning finished: %zu successful, %zu failed, total duration %.2f sec",
               successful_indices.size(), failed_indices.size(), total_duration);
 }
-}
 
-  // namespace grab2_planner
+}  // namespace grab2_planner
 
 #include "rclcpp_components/register_node_macro.hpp"
 
