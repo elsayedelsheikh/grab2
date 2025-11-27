@@ -31,25 +31,16 @@ PlannerServer::initialize()
     this->get_parameter_or("planning_group", planning_group_, std::string("panda_arm"));
 
     // Create MoveGroupInterface
-  #if RCLCPP_VERSION_GTE(28, 0, 0)
-
     move_group_interface_ =
       std::make_unique<moveit::planning_interface::MoveGroupInterface>(
-        this->shared_from_this(),
-        planning_group_,
-        "robot_description");
-  #else
-
-    move_group_interface_ =
-      std::make_unique<moveit::planning_interface::MoveGroupInterface>(
-        this->shared_from_this(),
-        planning_group_);
-  #endif
-
+      this->shared_from_this(),
+      planning_group_);
 
     initialized_ = true;
-    RCLCPP_INFO(this->get_logger(), "PlannerServer initialized with planning group: %s",
-                planning_group_.c_str());
+    RCLCPP_INFO(
+      this->get_logger(),
+      "PlannerServer initialized with planning group: %s",
+      planning_group_.c_str());
   }
 }
 
@@ -64,7 +55,29 @@ PlannerServer::computePlan(const std::shared_ptr<GoalHandle<ActionToPose>> goal_
   if (!initialized_) {
     initialize();
   }
-  goal_handle->abort(result);
+
+  // Planning logic
+  const auto target = goal->target_pose.pose;
+
+  moveit::planning_interface::MoveGroupInterface::Plan plan_msg;
+  move_group_interface_->setPoseTarget(target);
+
+  auto const success = static_cast<bool>(move_group_interface_->plan(plan_msg));
+
+  if (success) {
+    // For Jazzy and Later Support
+    #if RCLCPP_VERSION_GTE(28, 0, 0)
+    result->trajectory = plan_msg.trajectory.joint_trajectory;
+    #else
+    result->trajectory = plan_msg.trajectory_.joint_trajectory;
+    #endif
+
+    goal_handle->succeed(result);
+  } else {
+    result->error_string = "Failed to plan";
+    goal_handle->abort(result);
+    RCLCPP_ERROR(this->get_logger(), "Planning failed!");
+  }
 }
 
 void PlannerServer::computePlanThroughPoses(

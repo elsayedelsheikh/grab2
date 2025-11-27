@@ -50,41 +50,6 @@ public:
   void computePlanThroughPoses(
     const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle);
 
-  /**
-//    * @brief Plans and executes sequentially through given poses.
-//    * Supports asynchronous pre-planning for smoother transitions.
-//    */
-//   void planAndExecuteThroughPoses(
-//     const std::vector<geometry_msgs::msg::Pose> &poses);
-
-//   struct PlanResult
-// {
-//   bool success;
-//   moveit::planning_interface::MoveGroupInterface::Plan plan;
-// };
-
-
-  // /**
-  //  * @brief Execute a given MoveIt plan.
-  //  */
-  // bool executePlan(const PlanResult &plan_result);
-
-  // /**
-  //  * @brief Get the robot's current end-effector pose.
-  //  */
-  // geometry_msgs::msg::Pose getRobotCurrentPose();
-
-  // /**
-  //  * @brief Compute Euclidean distance between two poses.
-  //  */
-  // double distanceBetweenPoses(
-  //   const geometry_msgs::msg::Pose &p1,
-  //   const geometry_msgs::msg::Pose &p2);
-
-
-  // PlanResult ComputePlan(const geometry_msgs::msg::Pose &start,
-  //                const geometry_msgs::msg::Pose &goal);
-
 private:
   void initialize();
 
