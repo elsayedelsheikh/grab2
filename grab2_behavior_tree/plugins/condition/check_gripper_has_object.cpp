@@ -1,3 +1,5 @@
+// Copyright 2025, Zaynab Ahmed
+
 #include "grab2_behavior_tree/condition/check_gripper_has_object.hpp"  // Include the header!
 #include "behaviortree_cpp/condition_node.h"
 #include "rclcpp/rclcpp.hpp"
@@ -8,10 +10,10 @@ namespace grab2_behavior_tree
 
 // Constructor definition
 CheckGripperHasObject::CheckGripperHasObject(
-  const std::string& name,
-  const BT::NodeConfig& config,
-  const BT::RosNodeParams& params)
-  : BT::ConditionNode(name, config), params_(params)  // Now OK
+  const std::string & name,
+  const BT::NodeConfig & config,
+  const BT::RosNodeParams & params)
+: BT::ConditionNode(name, config), params_(params)    // Now OK
 {
   node_ = params.nh.lock();
   if (!node_) {
@@ -32,7 +34,8 @@ BT::PortsList CheckGripperHasObject::providedPorts()
 {
   return {
     BT::InputPort<double>("force_threshold", 0.5, "Force threshold to detect object"),
-    BT::InputPort<double>("position_threshold", 0.01, "Minimum gripper opening when holding object"),
+    BT::InputPort<double>("position_threshold", 0.01,
+        "Minimum gripper opening when holding object"),
     BT::OutputPort<bool>("has_object", "Whether gripper has object")
   };
 }
@@ -48,19 +51,19 @@ BT::NodeStatus CheckGripperHasObject::tick()
   double gripper_position = getGripperPosition();
   double gripper_effort = getGripperEffort();
 
-  bool has_object = (gripper_position > position_threshold_) && 
-                    (gripper_effort > force_threshold_);
+  bool has_object = (gripper_position > position_threshold_) &&
+    (gripper_effort > force_threshold_);
 
   setOutput("has_object", has_object);
 
   if (has_object) {
-    RCLCPP_INFO(node_->get_logger(), 
-                "[%s] Object detected: pos=%.3f, effort=%.3f", 
+    RCLCPP_INFO(node_->get_logger(),
+                "[%s] Object detected: pos=%.3f, effort=%.3f",
                 name().c_str(), gripper_position, gripper_effort);
     return BT::NodeStatus::SUCCESS;
   } else {
-    RCLCPP_WARN(node_->get_logger(), 
-                "[%s] No object: pos=%.3f, effort=%.3f", 
+    RCLCPP_WARN(node_->get_logger(),
+                "[%s] No object: pos=%.3f, effort=%.3f",
                 name().c_str(), gripper_position, gripper_effort);
     return BT::NodeStatus::FAILURE;
   }
@@ -92,7 +95,7 @@ double CheckGripperHasObject::getGripperEffort()
   return 0.0;
 }
 
-} // namespace grab2_behavior_tree
+}  // namespace grab2_behavior_tree
 
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::CheckGripperHasObject, "CheckGripperHasObject")
+CreateRosNodePlugin(grab2_behavior_tree::CheckGripperHasObject, "CheckGripperHasObject")  // NOLINT

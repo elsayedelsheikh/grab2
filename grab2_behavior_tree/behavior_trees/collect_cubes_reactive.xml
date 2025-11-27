@@ -16,7 +16,7 @@
 
       <SubTree ID="Pick"/>
 
-      <CheckGripperHasObject 
+      <CheckGripperHasObject
           name="Check After Pick"
           force_threshold="0.5"
           position_threshold="0.01"
@@ -24,7 +24,7 @@
 
       <SubTree ID="MoveTo" name="Retract Pose" target="{retract_pose}"/>
 
-      <CheckGripperHasObject 
+      <CheckGripperHasObject
           name="Check Before Drop"
           force_threshold="0.5"
           position_threshold="0.01"

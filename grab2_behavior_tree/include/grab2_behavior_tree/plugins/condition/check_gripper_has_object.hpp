@@ -1,4 +1,8 @@
+// Copyright 2025, Zaynab Ahmed
+
 #pragma once
+
+#include <string>
 
 #include "behaviortree_cpp/condition_node.h"
 #include "behaviortree_ros2/bt_topic_sub_node.hpp"  // For BT::RosNodeParams
@@ -12,9 +16,9 @@ class CheckGripperHasObject : public BT::ConditionNode
 {
 public:
   CheckGripperHasObject(
-    const std::string& name,
-    const BT::NodeConfig& config,
-    const BT::RosNodeParams& params);
+    const std::string & name,
+    const BT::NodeConfig & config,
+    const BT::RosNodeParams & params);
 
   static BT::PortsList providedPorts();
   BT::NodeStatus tick() override;
@@ -24,7 +28,7 @@ private:
   double getGripperPosition();
   double getGripperEffort();
 
-  BT::RosNodeParams params_; 
+  BT::RosNodeParams params_;
 
   rclcpp::Node::SharedPtr node_;
   rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr joint_state_sub_;
