@@ -5,6 +5,9 @@
 
 #include <string>
 #include <memory>
+#include <future>
+#include <mutex>
+#include <thread>
 
 #include "rclcpp/version.h"
 #include "rclcpp/rclcpp.hpp"
@@ -55,6 +58,8 @@ private:
   rclcpp_action::Server<ActionToPose>::SharedPtr action_server_pose_;
   rclcpp_action::Server<ActionThroughPoses>::SharedPtr action_server_poses_;
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
+  std::mutex planning_mutex_;
+  rclcpp::Node::SharedPtr node_;
 };
 
 }  // namespace grab2_planner
