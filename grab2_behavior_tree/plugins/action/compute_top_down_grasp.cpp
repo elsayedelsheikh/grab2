@@ -55,5 +55,5 @@ ComputeTopDownGrasp::tick()
 
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<grab2_behavior_tree::GetGrasp>("GetGrasp");
+  factory.registerNodeType<grab2_behavior_tree::ComputeTopDownGrasp>("ComputeTopDownGrasp");
 }

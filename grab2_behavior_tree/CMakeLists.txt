@@ -27,26 +27,28 @@ find_package(sensor_msgs REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 
 # Libraries
-add_library(grab2_get_trajectory_hardcoded SHARED plugins/get_trajectory_hardcoded.cpp)
-add_library(grab2_get_grasp_hardcoded SHARED plugins/get_grasp_hardcoded.cpp)
-add_library(grab2_detect_object SHARED plugins/detect_object.cpp)
-add_library(grab2_get_grasp SHARED plugins/get_grasp.cpp)
-add_library(grab2_plan SHARED plugins/plan.cpp)
-add_library(grab2_move SHARED plugins/move.cpp)
-add_library(grab2_grip SHARED plugins/grip.cpp)
-add_library(grab2_check_gripper_has_object SHARED
+add_library(grab2_detect_object_bt_node SHARED plugins/action/detect_object.cpp)
+add_library(grab2_get_trajectory_from_yaml_bt_node SHARED plugins/action/get_trajectory_from_yaml.cpp)
+add_library(grab2_get_grasp_hardcoded_bt_node SHARED plugins/action/get_grasp_hardcoded.cpp)
+add_library(grab2_compute_top_down_grasp_bt_node SHARED plugins/action/compute_top_down_grasp.cpp)
+add_library(grab2_compute_plan_to_target_ik_bt_node SHARED plugins/action/compute_plan_to_target_ik.cpp)
+add_library(grab2_move_bt_node SHARED plugins/action/move.cpp)
+add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
+add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
+add_library(grab2_check_gripper_has_object_bt_node SHARED
   plugins/check_gripper_has_object.cpp
 )  
 
 list(APPEND plugin_libs
-  grab2_get_trajectory_hardcoded
-  grab2_get_grasp_hardcoded
-  grab2_detect_object
-  grab2_get_grasp
-  grab2_plan
-  grab2_move
-  grab2_grip
-  grab2_check_gripper_has_object
+  grab2_detect_object_bt_node
+  grab2_get_trajectory_from_yaml_bt_node
+  grab2_get_grasp_hardcoded_bt_node
+  grab2_compute_top_down_grasp_bt_node
+  grab2_compute_plan_to_target_ik_bt_node
+  grab2_move_bt_node
+  grab2_grip_bt_node
+  grab2_reach_object_bt_node
+  grab2_check_gripper_has_object_bt_node
 )
 
 foreach(bt_plugin ${plugin_libs})
@@ -68,6 +70,7 @@ foreach(bt_plugin ${plugin_libs})
     ament_index_cpp::ament_index_cpp
     ${control_msgs_TARGETS}
     ${grab2_msgs_TARGETS}
+    ${sensor_msgs_TARGETS}
     behaviortree_cpp::behaviortree_cpp
     behaviortree_ros2::behaviortree_ros2
   )
@@ -90,12 +93,10 @@ target_link_libraries(grab2_engine
   ament_index_cpp::ament_index_cpp
   ${control_msgs_TARGETS}
   ${grab2_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
   behaviortree_cpp::behaviortree_cpp
   behaviortree_ros2::behaviortree_ros2
 )
-
-
-
 
 # Install Libs & Exec
 install(
@@ -107,11 +108,14 @@ install(
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
-# install(TARGETS grab2_check_gripper_has_object
-#   ARCHIVE DESTINATION lib
-#   LIBRARY DESTINATION lib
-#   RUNTIME DESTINATION bin
-# )
+# Install plugins for other packages to load
+install(
+  TARGETS
+  ${plugin_libs}
+  LIBRARY DESTINATION share/${PROJECT_NAME}/bt_plugins
+  ARCHIVE DESTINATION share/${PROJECT_NAME}/bt_plugins
+  RUNTIME DESTINATION share/${PROJECT_NAME}/bt_plugins
+)
 
 # Install directories
 install(
