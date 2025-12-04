@@ -28,7 +28,7 @@ find_package(moveit_visual_tools REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 
-set(executable_name planner_server)
+set(executable_name grab2_planner_server)
 set(library_name ${executable_name}_core)
 
 add_library(${library_name} SHARED

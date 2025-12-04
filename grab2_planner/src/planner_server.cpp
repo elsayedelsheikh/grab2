@@ -28,7 +28,7 @@ PlannerServer::initialize()
 {
   if (!initialized_) {
     // Get planning group from parameters
-    this->get_parameter_or("planning_group", planning_group_, std::string("panda_arm"));
+    this->get_parameter_or("planning_group", planning_group_, std::string("arm"));
 
     // Create MoveGroupInterface
     move_group_interface_ =

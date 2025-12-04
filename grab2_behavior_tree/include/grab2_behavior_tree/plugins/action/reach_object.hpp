@@ -4,6 +4,10 @@
 #define GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__REACH_OBJECT_HPP_
 
 #include <string>
+#include <chrono>
+
+#include "behaviortree_cpp/bt_factory.h"
+#include "behaviortree_ros2/ros_node_params.hpp"
 #include "behaviortree_ros2/bt_action_node.hpp"
 
 #include "geometry_msgs/msg/pose.hpp"
@@ -16,12 +20,12 @@
 namespace grab2_behavior_tree
 {
 
-using ReachObjectAction = grab2_msgs::action::ReachObject;
-
-class ReachObject : public BT::RosActionNode<ReachObjectAction>
+class ReachObjectAction : public BT::RosActionNode<grab2_msgs::action::ReachObject>
 {
+using ActionMsg = grab2_msgs::action::ReachObject;
+
 public:
-  explicit ReachObject(
+  explicit ReachObjectAction(
     const std::string & name,
     const BT::NodeConfig & conf,
     const BT::RosNodeParams & params
@@ -36,7 +40,7 @@ public:
     );
   }
 
-  bool setGoal(BT::RosActionNode<ReachObjectAction>::Goal & goal) override;
+  bool setGoal(BT::RosActionNode<ActionMsg>::Goal & goal) override;
   BT::NodeStatus onResultReceived(const WrappedResult & wr) override;
 };
 

@@ -5,6 +5,10 @@
 
 #include <string>
 #include <memory>
+#include <chrono>
+
+#include "behaviortree_cpp/bt_factory.h"
+#include "behaviortree_ros2/ros_node_params.hpp"
 #include "behaviortree_ros2/bt_action_node.hpp"
 
 #include "control_msgs/action/gripper_command.hpp"
@@ -14,10 +18,10 @@
 namespace grab2_behavior_tree
 {
 
-using GripperCommand = control_msgs::action::GripperCommand;
-
-class Grip : public BT::RosActionNode<GripperCommand>
+class Grip : public BT::RosActionNode<control_msgs::action::GripperCommand>
 {
+using ActionMsg = control_msgs::action::GripperCommand;
+
 public:
   explicit Grip(
     const std::string & name,
@@ -32,7 +36,7 @@ public:
       });
   }
 
-  bool setGoal(BT::RosActionNode<GripperCommand>::Goal & goal) override;
+  bool setGoal(BT::RosActionNode<ActionMsg>::Goal & goal) override;
   BT::NodeStatus onResultReceived(const WrappedResult & wr) override;
   BT::NodeStatus onFeedback(const std::shared_ptr<const Feedback> feedback) override;
 };

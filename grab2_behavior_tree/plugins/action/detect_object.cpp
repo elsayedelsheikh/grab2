@@ -1,11 +1,6 @@
 // Copyright (c) 2025, ElSayed ElSheikh
 
-#include <cmath>  // for M_PI
-#include "vision_msgs/msg/detection3_d.hpp"
 #include "grab2_behavior_tree/plugins/action/detect_object.hpp"
-
-#include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-
 
 namespace grab2_behavior_tree
 {
@@ -43,5 +38,21 @@ DetectObject::onTick(const std::shared_ptr<vision_msgs::msg::Detection3DArray> &
 
 }  // namespace grab2_behavior_tree
 
-#include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::DetectObject, "DetectObject")  // NOLINT
+BT_REGISTER_NODES(factory)
+{
+  BT::NodeBuilder builder =
+    [](const std::string & name, const BT::NodeConfiguration & config)
+    {
+      BT::RosNodeParams params;
+      params.nh = config.blackboard->get<rclcpp::Node::SharedPtr>("node");
+      params.default_port_value = "detect_bbox_3d";
+      params.server_timeout= config.blackboard->get<std::chrono::milliseconds>("server_timeout");
+      params.wait_for_server_timeout = config.blackboard->get<std::chrono::milliseconds>("wait_for_service_timeout");
+
+      return std::make_unique<grab2_behavior_tree::DetectObject>(
+        name, config, params);
+    };
+
+  factory.registerBuilder<grab2_behavior_tree::DetectObject>(
+    "DetectObject", builder);
+}

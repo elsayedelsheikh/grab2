@@ -53,7 +53,7 @@ def generate_launch_description():
     planner_server_node = Node(
         name='planner_server',
         package='grab2_planner',
-        executable='planner_server',
+        executable='grab2_planner_server',
         output='screen',
         parameters=[moveit_config.to_dict()],
     )
