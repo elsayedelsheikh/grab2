@@ -18,7 +18,8 @@
 namespace grab2_behavior_tree
 {
 
-class FollowJointTrajectoryAction : public BT::RosActionNode<control_msgs::action::FollowJointTrajectory>
+class FollowJointTrajectoryAction
+  : public BT::RosActionNode<control_msgs::action::FollowJointTrajectory>
 {
   using ActionMsg = control_msgs::action::FollowJointTrajectory;
 
