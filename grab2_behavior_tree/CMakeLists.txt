@@ -22,6 +22,7 @@ find_package(trajectory_msgs REQUIRED)
 find_package(grab2_msgs REQUIRED)
 find_package(behaviortree_cpp REQUIRED)
 find_package(behaviortree_ros2 REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -34,6 +35,9 @@ add_library(grab2_compute_plan_to_target_ik_bt_node SHARED plugins/action/comput
 add_library(grab2_follow_joint_trajectory_bt_node SHARED plugins/action/follow_joint_trajectory.cpp)
 add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
 add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
+add_library(grab2_check_gripper_has_object_bt_node SHARED
+  plugins/condition/check_gripper_has_object.cpp
+)
 
 list(APPEND plugin_libs
   grab2_detect_object_bt_node
@@ -44,6 +48,7 @@ list(APPEND plugin_libs
   grab2_follow_joint_trajectory_bt_node
   grab2_grip_bt_node
   grab2_reach_object_bt_node
+  grab2_check_gripper_has_object_bt_node
 )
 
 foreach(bt_plugin ${plugin_libs})
@@ -65,6 +70,7 @@ foreach(bt_plugin ${plugin_libs})
     ament_index_cpp::ament_index_cpp
     ${control_msgs_TARGETS}
     ${grab2_msgs_TARGETS}
+    ${sensor_msgs_TARGETS}
     behaviortree_cpp::behaviortree_cpp
     behaviortree_ros2::behaviortree_ros2
   )
@@ -87,6 +93,7 @@ target_link_libraries(grab2_engine
   ament_index_cpp::ament_index_cpp
   ${control_msgs_TARGETS}
   ${grab2_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
   behaviortree_cpp::behaviortree_cpp
   behaviortree_ros2::behaviortree_ros2
 )
