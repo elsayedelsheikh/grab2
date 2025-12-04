@@ -5,12 +5,18 @@
 
 #include <string>
 #include <memory>
+#include <chrono>
+#include <cmath>  // for M_PI
 
+#include "behaviortree_cpp/bt_factory.h"
+#include "behaviortree_ros2/ros_node_params.hpp"
 #include "behaviortree_ros2/bt_topic_sub_node.hpp"
 
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
+#include "vision_msgs/msg/detection3_d.hpp"
 #include "vision_msgs/msg/detection3_d_array.hpp"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 
 namespace grab2_behavior_tree
 {

@@ -4,7 +4,11 @@
 #define GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__COMPUTE_PLAN_TO_TARGET_IK_HPP_
 
 #include <string>
+#include <chrono>
+
+#include "behaviortree_cpp/bt_factory.h"
 #include "behaviortree_ros2/bt_action_node.hpp"
+#include "behaviortree_ros2/ros_node_params.hpp"
 
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
@@ -19,7 +23,7 @@ namespace grab2_behavior_tree
 class ComputePlanToTargetIKAction
   : public BT::RosActionNode<grab2_msgs::action::ComputePlanToTargetIK>
 {
-  using Act = grab2_msgs::action::ComputePlanToTargetIK;
+  using ActionMsg = grab2_msgs::action::ComputePlanToTargetIK;
 
 public:
   explicit ComputePlanToTargetIKAction(
@@ -42,7 +46,7 @@ public:
     );
   }
 
-  bool setGoal(BT::RosActionNode<Act>::Goal & goal) override;
+  bool setGoal(BT::RosActionNode<ActionMsg>::Goal & goal) override;
   BT::NodeStatus onResultReceived(const WrappedResult & wr) override;
 };
 

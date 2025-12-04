@@ -29,14 +29,14 @@ ReachObject::configure()
   if (!node()->has_parameter("arm_controller_action")) {
     node()->declare_parameter<std::string>(
       "arm_controller_action",
-      "arm_controller/follow_joint_trajectory");
+      "follow_joint_trajectory");
   }
 
   // Declare gripper controller action parameter
   if (!node()->has_parameter("gripper_controller_action")) {
     node()->declare_parameter<std::string>(
       "gripper_controller_action",
-      "hand_controller/gripper_cmd");
+      "gripper_cmd");
   }
 }
 
