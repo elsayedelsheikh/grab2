@@ -20,7 +20,7 @@ namespace grab2_behavior_tree
 
 class Grip : public BT::RosActionNode<control_msgs::action::GripperCommand>
 {
-using ActionMsg = control_msgs::action::GripperCommand;
+  using ActionMsg = control_msgs::action::GripperCommand;
 
 public:
   explicit Grip(

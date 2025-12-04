@@ -22,7 +22,7 @@ namespace grab2_behavior_tree
 
 class ReachObjectAction : public BT::RosActionNode<grab2_msgs::action::ReachObject>
 {
-using ActionMsg = grab2_msgs::action::ReachObject;
+  using ActionMsg = grab2_msgs::action::ReachObject;
 
 public:
   explicit ReachObjectAction(
