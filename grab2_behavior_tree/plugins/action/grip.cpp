@@ -51,7 +51,6 @@ BT_REGISTER_NODES(factory)
     {
       BT::RosNodeParams params;
       params.nh = config.blackboard->get<rclcpp::Node::SharedPtr>("node");
-      params.default_port_value = "gripper_cmd";
       params.server_timeout = config.blackboard->get<std::chrono::milliseconds>("server_timeout");
       params.wait_for_server_timeout =
         config.blackboard->get<std::chrono::milliseconds>("wait_for_service_timeout");

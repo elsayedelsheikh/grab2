@@ -16,7 +16,6 @@ ReachObject::configure()
 {
   // Initialize parameters
   // Declare the default behavior_tree
-  std::string bt_xml_filename;
   if (!node()->has_parameter("tree_file")) {
     std::string pkg_share_dir = ament_index_cpp::get_package_share_directory("grab2_bt_grabber");
     node()->declare_parameter<std::string>(
@@ -25,19 +24,33 @@ ReachObject::configure()
       "/behavior_trees/reach_object.xml");
   }
 
-  // Declare arm controller action parameter
+  // Declare the default controller action names
   if (!node()->has_parameter("arm_controller_action")) {
     node()->declare_parameter<std::string>(
       "arm_controller_action",
       "follow_joint_trajectory");
   }
 
-  // Declare gripper controller action parameter
   if (!node()->has_parameter("gripper_controller_action")) {
     node()->declare_parameter<std::string>(
       "gripper_controller_action",
       "gripper_cmd");
   }
+
+  int server_timeout_ms, wait_for_service_timeout_ms;
+  node()->get_parameter_or("server_timeout_ms", server_timeout_ms, 2000);
+  node()->get_parameter_or("wait_for_service_timeout_ms", wait_for_service_timeout_ms, 3000);
+
+  // Get global blackboard
+  auto blackboard = globalBlackboard();
+
+  // Set blackboard keys before tree is created
+  blackboard->set<std::chrono::milliseconds>(
+    "server_timeout",
+    std::chrono::milliseconds(server_timeout_ms));  // goal acknowledgment timeout
+  blackboard->set<std::chrono::milliseconds>(
+    "wait_for_service_timeout",
+    std::chrono::milliseconds(wait_for_service_timeout_ms));  // find service timeout
 }
 
 std::string
@@ -66,21 +79,10 @@ ReachObject::onTreeCreated(BT::Tree & tree, const GoalType & goal)
     node()->get_logger(), "Received target goal: %s", ss.str().c_str()
   );
 
-  // Set blackboard parameters from ROS2 parameters
-  std::string arm_action;
-  if (node()->has_parameter("arm_controller_action")) {
-    node()->get_parameter("arm_controller_action", arm_action);
-  } else {
-    RCLCPP_ERROR(node()->get_logger(), "Parameter 'arm_controller_action' not found!");
-  }
-
-  std::string gripper_action;
-  if (node()->has_parameter("gripper_controller_action")) {
-    node()->get_parameter("gripper_controller_action", gripper_action);
-  } else {
-    RCLCPP_ERROR(node()->get_logger(), "Parameter 'gripper_controller_action' not found!");
-  }
-
+  // Set controller action names on blackboard
+  std::string arm_action, gripper_action;
+  node()->get_parameter("arm_controller_action", arm_action);
+  node()->get_parameter("gripper_controller_action", gripper_action);
   blackboard->set<std::string>("arm_controller_action", arm_action);
   blackboard->set<std::string>("gripper_controller_action", gripper_action);
 }
