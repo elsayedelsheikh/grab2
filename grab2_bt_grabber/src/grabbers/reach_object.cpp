@@ -47,10 +47,10 @@ ReachObject::configure()
   // Set blackboard keys before tree is created
   blackboard->set<std::chrono::milliseconds>(
     "server_timeout",
-    std::chrono::milliseconds(server_timeout_ms)); // goal acknowledgment timeout
+    std::chrono::milliseconds(server_timeout_ms));  // goal acknowledgment timeout
   blackboard->set<std::chrono::milliseconds>(
     "wait_for_service_timeout",
-    std::chrono::milliseconds(wait_for_service_timeout_ms)); // find service timeout
+    std::chrono::milliseconds(wait_for_service_timeout_ms));  // find service timeout
 }
 
 std::string
