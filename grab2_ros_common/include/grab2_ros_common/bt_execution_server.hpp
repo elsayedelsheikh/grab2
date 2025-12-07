@@ -409,7 +409,8 @@ private:
     // Loop until something happens with ROS or the node completes
     try {
       // This blackboard will be owned by "MainTree". Its parent is global_blackboard_
-      auto root_blackboard = BT::Blackboard::create(global_blackboard_);
+      auto root_blackboard = global_blackboard_;
+      root_blackboard->set("node", node_);
 
       tree_name_ = getTreeName(*current_goal_);
 
