@@ -32,12 +32,14 @@ public:
   {
     return
       {
-        BT::InputPort<std::string>("trajectory_name", "Name of the trajectory to load"),
+        BT::InputPort<std::string>(
+          "trajectory_prefix",
+          "traj", "Trajectory prefix for the loaded joint trajectories"),
+        BT::InputPort<std::string>(
+          "package_name", "Package containing the config_file"),
         BT::InputPort<std::string>(
           "config_file",
-          "Path to the config file inside the package's config/ folder (without .yaml extension)"),
-        BT::InputPort<std::string>("package_name", "Package containing the config_file"),
-        BT::OutputPort<trajectory_msgs::msg::JointTrajectory>("trajectory")
+          "Path to the config file inside the package's config/ directory"),
       }
     ;
   }
@@ -45,11 +47,10 @@ public:
 
 private:
   void loadTrajectoriesFromYAML(const std::string & config_file);
-  trajectory_msgs::msg::JointTrajectory getTrajectory(const std::string & trajectory_name);
 
-  std::unordered_map<std::string, trajectory_msgs::msg::JointTrajectory> trajectories_;
   bool trajectories_loaded_;
   std::string last_config_file_;
+  std::string trajectory_prefix_;
 };
 
 }  // namespace grab2_behavior_tree

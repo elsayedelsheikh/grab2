@@ -20,7 +20,7 @@ GetTrajectoryFromYAML::tick()
   // Get input ports
   auto config_file = getInput<std::string>("config_file");
   auto package_name = getInput<std::string>("package_name");
-  auto trajectory_name = getInput<std::string>("trajectory_name");
+  trajectory_prefix_ = getInput<std::string>("trajectory_prefix").value();
 
   if (!config_file) {
     throw BT::RuntimeError("Missing required input [config_file]: ", config_file.error());
@@ -30,64 +30,41 @@ GetTrajectoryFromYAML::tick()
     throw BT::RuntimeError("Missing required input [package_name]: ", package_name.error());
   }
 
-  if (!trajectory_name) {
-    throw BT::RuntimeError("Missing required input [trajectory_name]: ", trajectory_name.error());
-  }
-
   // Resolve full path to config file
   std::string package_share_directory =
     ament_index_cpp::get_package_share_directory(package_name.value());
   std::string full_config_file_path =
-    package_share_directory + "/config/" + config_file.value() + ".yaml";
+    package_share_directory + "/config/" + config_file.value();
 
   // Check if file exists
   if (!std::filesystem::exists(full_config_file_path)) {
     throw BT::RuntimeError("Config file '" + full_config_file_path + "' does not exist");
   }
 
-  // Load trajectories from YAML file
+  // Load trajectories from YAML file and set values to the blackboard
   loadTrajectoriesFromYAML(full_config_file_path);
 
-  // Get the requested trajectory
-  auto trajectory = getTrajectory(trajectory_name.value());
-
-  // Set timestamp
-  // trajectory.header.stamp = rclcpp::Clock().now();
-
-  // Set output
-  setOutput("trajectory", trajectory);
-
   return BT::NodeStatus::SUCCESS;
-}
-
-trajectory_msgs::msg::JointTrajectory
-GetTrajectoryFromYAML::getTrajectory(const std::string & trajectory_name)
-{
-  auto it = trajectories_.find(trajectory_name);
-  if (it == trajectories_.end()) {
-    throw BT::RuntimeError("Trajectory not found: " + trajectory_name);
-  }
-  return it->second;
 }
 
 void
 GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
 {
+  auto bb = config().blackboard;
+
   // Only reload if it's a different file
   if (trajectories_loaded_ && config_file == last_config_file_) {
     return;
   }
 
-  trajectories_.clear();
-
   try {
-    YAML::Node config = YAML::LoadFile(config_file);
+    YAML::Node yaml_config = YAML::LoadFile(config_file);
 
-    if (!config["trajectories"]) {
+    if (!yaml_config["trajectories"]) {
       throw BT::RuntimeError("YAML file doesn't contain 'trajectories' field");
     }
 
-    for (const auto & traj_node : config["trajectories"]) {
+    for (const auto & traj_node : yaml_config["trajectories"]) {
       std::string name = traj_node.first.as<std::string>();
       auto traj_data = traj_node.second;
 
@@ -140,22 +117,17 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
         traj_msg.points.push_back(traj_pt_msg);
       }
 
-      trajectories_[name] = traj_msg;
+      bb->set<trajectory_msgs::msg::JointTrajectory>(trajectory_prefix_ + "." + name, traj_msg);
+
       RCLCPP_INFO(
         rclcpp::get_logger("GetTrajectoryFromYAML"),
-        "Loaded trajectory %s with %zu points",
-        name.c_str(), traj_msg.points.size()
+        "Loaded trajectory %s with %zu points into the blackboard",
+        (trajectory_prefix_ + "." + name).c_str(), traj_msg.points.size()
       );
     }
 
     trajectories_loaded_ = true;
     last_config_file_ = config_file;
-
-    RCLCPP_INFO(
-      rclcpp::get_logger("GetTrajectoryFromYAML"),
-      "Successfully loaded %zu trajectories from '%s'",
-      trajectories_.size(), config_file.c_str()
-    );
   } catch (const YAML::Exception & e) {
     throw BT::RuntimeError("YAML parsing error: " + std::string(e.what()));
   } catch (const std::exception & e) {
