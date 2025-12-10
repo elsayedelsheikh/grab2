@@ -31,6 +31,9 @@ ComputeTopDownGrasp::tick()
   getInput("grasp_offset", grasp_offset);
   getInput("pregrasp_offset", pregrasp_offset);
 
+  // Get Yaw value
+  // getInput("grasp_orient", grasp_orient);
+
   // Generate Grasp Pose
   geometry_msgs::msg::PoseStamped grasp_pose(object_pose);
   grasp_pose.pose.position.z += grasp_offset;
@@ -39,7 +42,7 @@ ComputeTopDownGrasp::tick()
   tf2::Quaternion target_quat;
   double yaw = tf2::getYaw(grasp_pose.pose.orientation);
   target_quat.setRPY(M_PI, 0, yaw);
-  grasp_pose.pose.orientation = tf2::toMsg(target_quat);
+  // grasp_pose.pose.orientation = tf2::toMsg(target_quat);
 
   // Set grasp pose
   setOutput("grasp", grasp_pose);

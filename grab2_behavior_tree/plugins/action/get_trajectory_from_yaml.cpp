@@ -117,7 +117,7 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
         traj_msg.points.push_back(traj_pt_msg);
       }
 
-      bb->set<trajectory_msgs::msg::JointTrajectory>(trajectory_prefix_ + "." + name,traj_msg);
+      bb->set<trajectory_msgs::msg::JointTrajectory>(trajectory_prefix_ + "." + name, traj_msg);
 
       RCLCPP_INFO(
         rclcpp::get_logger("GetTrajectoryFromYAML"),
@@ -128,7 +128,6 @@ GetTrajectoryFromYAML::loadTrajectoriesFromYAML(const std::string & config_file)
 
     trajectories_loaded_ = true;
     last_config_file_ = config_file;
-
   } catch (const YAML::Exception & e) {
     throw BT::RuntimeError("YAML parsing error: " + std::string(e.what()));
   } catch (const std::exception & e) {
