@@ -6,7 +6,7 @@ namespace grab2_bt_grabber
 {
 
 ReachObject::ReachObject(const rclcpp::NodeOptions & options)
-: TreeExecutionServer(options, "reach_object")
+: TreeExecutionServer(options)
 {
   this->configure();
 }
