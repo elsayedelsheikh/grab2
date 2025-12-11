@@ -14,7 +14,8 @@
   <depend>rclcpp_components</depend>
   <depend>tf2_ros</depend>
   <depend>std_msgs</depend>
-  <depend>control_msgs</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">control_msgs</depend>
+  <depend condition="$ROS_DISTRO == 'jazzy'">ros2_control_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>trajectory_msgs</depend>
   <depend>grab2_msgs</depend>
@@ -23,10 +24,11 @@
   <depend>moveit_msgs</depend>
   <depend>moveit_ros_planning</depend>
   <depend>moveit_ros_planning_interface</depend>
-  <depend>moveit_visual_tools</depend>
-  <depend>moveit_configs_utils</depend>
-  <depend>moveit_resources_panda_moveit_config</depend>
+  <!-- <depend>moveit_visual_tools</depend> -->
+  <!-- <depend>moveit_configs_utils</depend> -->
+  <depend condition="$ROS_DISTRO == 'humble'">moveit_resources_panda_moveit_config</depend>
   <depend>grab2_ros_common</depend>
+  <depend>moveit_core</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

@@ -88,18 +88,97 @@ void PlannerServer::computePlanThroughPoses(
   const auto goal = goal_handle->get_goal();
   auto result = std::make_shared<ActionThroughPoses::Result>();
 
-  // Check if we need to initialize
   if (!initialized_) {
     initialize();
   }
 
-  // TODO(ElSayed): Implement your planning logic here
-  // Example:
-  // - Use move_group_interface_ to plan through goal->target_poses
-  // - Fill result->trajectory
+  if (goal->goals.empty()) {
+    result->error_code = result->INVALID_GOAL;
+    result->error_string = "No goals provided";
+    goal_handle->abort(result);
+    return;
+  }
 
-  // For now, just abort
-  goal_handle->abort(result);
+  moveit::planning_interface::MoveGroupInterface::Plan plan;
+  moveit_msgs::msg::RobotTrajectory combined_trajectory;
+  std::vector<size_t> successful_indices;
+  std::vector<size_t> failed_indices;
+
+  moveit::core::RobotStatePtr current_state = move_group_interface_->getCurrentState();
+  move_group_interface_->setStartState(*current_state);
+
+  double total_duration = 0.0;
+
+  for (size_t i = 0; i < goal->goals.size(); ++i) {
+    const auto & pose = goal->goals[i].pose;
+    move_group_interface_->setPoseTarget(pose);
+
+    RCLCPP_INFO(this->get_logger(), "Planning for pose %zu...", i);
+    bool success = static_cast<bool>(move_group_interface_->plan(plan));
+
+    if (!success) {
+      RCLCPP_WARN(this->get_logger(), "Failed to plan for pose index %zu", i);
+      failed_indices.push_back(i);
+      continue;
+    }
+
+    // For Jazzy and Later Support
+    #if RCLCPP_VERSION_GTE(28, 0, 0)
+    const auto & traj = plan.trajectory.joint_trajectory;
+    #else
+    const auto & traj = plan.trajectory_.joint_trajectory;
+    #endif
+
+    // Append trajectory points
+    if (combined_trajectory.joint_trajectory.joint_names.empty()) {
+      combined_trajectory.joint_trajectory.joint_names = traj.joint_names;
+    }
+    combined_trajectory.joint_trajectory.points.insert(
+      combined_trajectory.joint_trajectory.points.end(),
+      traj.points.begin(),
+      traj.points.end()
+    );
+
+    // Add duration (time_from_start of last point)
+    if (!traj.points.empty()) {
+      total_duration += traj.points.back().time_from_start.sec +
+        traj.points.back().time_from_start.nanosec * 1e-9;
+    }
+
+    successful_indices.push_back(i);
+
+    // Update start state
+    moveit::core::RobotState next_state(*current_state);
+    next_state.setVariablePositions(traj.joint_names, traj.points.back().positions);
+    move_group_interface_->setStartState(next_state);
+    *current_state = next_state;
+  }
+
+  if (successful_indices.empty()) {
+    result->error_code = result->INVALID_GOAL;
+    result->error_string = "Failed to plan any valid trajectories.";
+    goal_handle->abort(result);
+    return;
+  }
+
+  result->trajectory = combined_trajectory.joint_trajectory;
+  result->total_duration = total_duration;
+  result->successful_count = successful_indices.size();
+  result->failed_count = failed_indices.size();
+
+  // for (auto idx : failed_indices) {
+  //   result->failed_indices.push_back((idx));
+  // }
+
+  result->error_code = result->SUCCESSFUL;
+  result->error_string = "Planning completed successfully.";
+
+  goal_handle->succeed(result);
+
+  RCLCPP_INFO(
+    this->get_logger(),
+    "Planning finished: %zu successful, %zu failed, total duration %.2f sec",
+    successful_indices.size(), failed_indices.size(), total_duration);
 }
 
 }  // namespace grab2_planner
