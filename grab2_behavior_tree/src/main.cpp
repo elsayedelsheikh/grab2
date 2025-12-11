@@ -48,6 +48,10 @@ int main(int argc, char ** argv)
     factory,
     loader.getOSName("grab2_detect_object"),
     {node, "/eef_camera/bbox_3d"});
+  RegisterRosNode(
+    factory,
+    loader.getOSName("grab2_check_gripper_has_object"),
+    {node});
 
   // SaySomething BT Node
   BT::PortsList say_something_ports = {BT::InputPort<std::string>("message")};

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <CheckGripperHasObject force_threshold="0.5" position_threshold="0.01" has_object="{object_grasped}" />
+  </BehaviorTree>
+</root>
