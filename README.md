@@ -6,6 +6,9 @@ Humble | [![ROS2 Humble](https://github.com/elsayedelsheikh/grab2/actions/workfl
 Jazzy | [![ROS2 Jazzy](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-jazzy.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-jazzy.yaml) |
 Kilted | [![ROS2 Kilted](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-kilted.yaml/badge.svg)](https://github.com/elsayedelsheikh/grab2/actions/workflows/build-kilted.yaml) |
 
+> [!WARNING]
+> This is an experimental, work-in-progress repository!
+
 This repository provides manipulation demos
 
 - Using BehaviorTree.CPP, Moveit2, Nvidia cuRobo, and ROS2 with Nvidia Isaac sim.
