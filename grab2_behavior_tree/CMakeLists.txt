@@ -31,7 +31,7 @@ add_library(grab2_get_trajectory_from_yaml_bt_node SHARED plugins/action/get_tra
 add_library(grab2_get_grasp_hardcoded_bt_node SHARED plugins/action/get_grasp_hardcoded.cpp)
 add_library(grab2_compute_top_down_grasp_bt_node SHARED plugins/action/compute_top_down_grasp.cpp)
 add_library(grab2_compute_plan_to_target_ik_bt_node SHARED plugins/action/compute_plan_to_target_ik.cpp)
-add_library(grab2_move_bt_node SHARED plugins/action/move.cpp)
+add_library(grab2_follow_joint_trajectory_bt_node SHARED plugins/action/follow_joint_trajectory.cpp)
 add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
 add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
 
@@ -41,7 +41,7 @@ list(APPEND plugin_libs
   grab2_get_grasp_hardcoded_bt_node
   grab2_compute_top_down_grasp_bt_node
   grab2_compute_plan_to_target_ik_bt_node
-  grab2_move_bt_node
+  grab2_follow_joint_trajectory_bt_node
   grab2_grip_bt_node
   grab2_reach_object_bt_node
 )
@@ -110,6 +110,11 @@ install(
   RUNTIME DESTINATION share/${PROJECT_NAME}/bt_plugins
 )
 
+# we will embed the list of plugin names inside a header file
+set(GENERATED_DIR ${CMAKE_CURRENT_BINARY_DIR}/gen)
+configure_file(plugins_list.hpp.in ${GENERATED_DIR}/plugins_list.hpp)
+install(FILES ${GENERATED_DIR}/plugins_list.hpp DESTINATION include/${PROJECT_NAME}/${PROJECT_NAME})
+
 # Install directories
 install(
   DIRECTORY include/
@@ -126,5 +131,9 @@ if(BUILD_TESTING)
   set(ament_cmake_copyright_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+ament_export_include_directories(
+  include/${PROJECT_NAME}
+)
 
 ament_package()

@@ -52,8 +52,8 @@ public:
    * @param options Node options
    * @param action_name Name of the action server
    */
-  explicit TreeExecutionServer(const rclcpp::NodeOptions & options, const std::string & action_name)
-  : TreeExecutionServer(std::make_shared<rclcpp::Node>("bt_action_server", options), action_name)
+  explicit TreeExecutionServer(const rclcpp::NodeOptions & options)
+  : TreeExecutionServer(std::make_shared<rclcpp::Node>("bt_action_server", options))
   {}
 
   /**
@@ -62,17 +62,16 @@ public:
    * @param action_name Name of the action server
   */
   explicit TreeExecutionServer(
-    const rclcpp::Node::SharedPtr & node,
-    const std::string & action_name)
+    const rclcpp::Node::SharedPtr & node)
   : node_(node)
     , global_blackboard_(BT::Blackboard::create())
   {
     param_listener_ = std::make_shared<bt_server::ParamListener>(node_);
     params_ = param_listener_->get_params();
 
-    // Create the action server
+    // create the action server
+    const auto action_name = params_.action_name;
     RCLCPP_INFO(node_->get_logger(), "Starting Action Server: %s", action_name.c_str());
-
     action_server_ = rclcpp_action::create_server<ActionT>(
       node_,
       action_name,
@@ -409,7 +408,8 @@ private:
     // Loop until something happens with ROS or the node completes
     try {
       // This blackboard will be owned by "MainTree". Its parent is global_blackboard_
-      auto root_blackboard = BT::Blackboard::create(global_blackboard_);
+      auto root_blackboard = global_blackboard_;
+      root_blackboard->set("node", node_);
 
       tree_name_ = getTreeName(*current_goal_);
 

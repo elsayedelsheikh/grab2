@@ -6,6 +6,9 @@
 grab2 documentation
 ===================
 
+.. note::
+   **This is an experimental, work-in-progress repository!**
+
 grab2 brings together ROS 2, NVIDIA cuRobo, BehaviorTree.CPP and NVIDIA Isaac Sim; a practical setup for a typical manipulation pipeline from perception to motion planning and behavior orchestration.
 
 Setup

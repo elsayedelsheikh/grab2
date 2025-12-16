@@ -4,16 +4,16 @@
 
 namespace grab2_behavior_tree
 {
-ReachObject::ReachObject(
+ReachObjectAction::ReachObjectAction(
   const std::string & name,
   const BT::NodeConfig & conf,
   const BT::RosNodeParams & params
 )
-: BT::RosActionNode<ReachObjectAction>(name, conf, params)
+: BT::RosActionNode<ActionMsg>(name, conf, params)
 {}
 
 bool
-ReachObject::setGoal(BT::RosActionNode<ReachObjectAction>::Goal & goal)
+ReachObjectAction::setGoal(BT::RosActionNode<ActionMsg>::Goal & goal)
 {
   // Set Goal Pose
   getInput("target_pose", goal.target_pose);
@@ -27,7 +27,7 @@ ReachObject::setGoal(BT::RosActionNode<ReachObjectAction>::Goal & goal)
 }
 
 BT::NodeStatus
-ReachObject::onResultReceived(const WrappedResult & wr)
+ReachObjectAction::onResultReceived(const WrappedResult & wr)
 {
   if (wr.code == rclcpp_action::ResultCode::SUCCEEDED) {
     RCLCPP_INFO(logger(), "[%s] Reach Object SUCCESS", name().c_str());
@@ -40,5 +40,22 @@ ReachObject::onResultReceived(const WrappedResult & wr)
 
 }  // namespace grab2_behavior_tree
 
-#include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::ReachObject, "ReachObject")  // NOLINT
+BT_REGISTER_NODES(factory)
+{
+  BT::NodeBuilder builder =
+    [](const std::string & name, const BT::NodeConfiguration & config)
+    {
+      BT::RosNodeParams params;
+      params.nh = config.blackboard->get<rclcpp::Node::SharedPtr>("node");
+      params.default_port_value = "reach_object";
+      params.server_timeout = config.blackboard->get<std::chrono::milliseconds>("server_timeout");
+      params.wait_for_server_timeout =
+        config.blackboard->get<std::chrono::milliseconds>("wait_for_service_timeout");
+
+      return std::make_unique<grab2_behavior_tree::ReachObjectAction>(
+        name, config, params);
+    };
+
+  factory.registerBuilder<grab2_behavior_tree::ReachObjectAction>(
+    "ReachObject", builder);
+}

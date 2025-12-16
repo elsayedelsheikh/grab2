@@ -1,5 +1,6 @@
 reach_object:
   ros__parameters:
+    action_name: "reach_object" # Optional (defaults to `bt_action_server`)
     arm_controller_action: panda_arm_controller/follow_joint_trajectory
     gripper_controller_action: panda_hand_controller/gripper_cmd
     tick_frequency: 100 # Optional (defaults to 100 Hz)
