@@ -20,6 +20,11 @@ PlannerServer::PlannerServer()
     std::bind(&PlannerServer::computePlanThroughPoses, this, std::placeholders::_1)
   );
 
+  this->action_server_joint_ = create_action_server<ActionToJoint>(
+    "compute_plan_to_joint",
+    std::bind(&PlannerServer::ComputePlanToJoint, this, std::placeholders::_1)
+  );
+
   RCLCPP_INFO(this->get_logger(), "PlannerServer constructed");
 }
 
@@ -101,6 +106,60 @@ void PlannerServer::computePlanThroughPoses(
   // For now, just abort
   goal_handle->abort(result);
 }
+
+
+void PlannerServer::ComputePlanToJoint(
+  const std::shared_ptr<GoalHandle<ActionToJoint>> goal_handle)
+{
+  RCLCPP_INFO(this->get_logger(), "Executing ComputePlanToJoint (PLAN ONLY)");
+
+  const auto goal = goal_handle->get_goal();
+  auto result = std::make_shared<ActionToJoint::Result>();
+
+  if (!initialized_) {
+    initialize();
+  }
+
+  if (goal->target_joints.name.empty()) {
+    result->error_string = "Target joint state is empty";
+    goal_handle->abort(result);
+    return;
+  }
+
+  move_group_interface_->stop();
+  move_group_interface_->clearPoseTargets();
+
+  moveit::planning_interface::MoveGroupInterface::Plan plan_msg;
+
+  try {
+    move_group_interface_->setJointValueTarget(goal->target_joints);
+
+    bool success =
+      (move_group_interface_->plan(plan_msg) ==
+       moveit::core::MoveItErrorCode::SUCCESS);
+
+    if (!success) {
+      result->error_string = "Planning failed";
+      goal_handle->abort(result);
+      return;
+    }
+
+    #if RCLCPP_VERSION_GTE(28, 0, 0)
+      result->trajectory = plan_msg.trajectory.joint_trajectory;
+    #else
+      result->trajectory = plan_msg.trajectory_.joint_trajectory;
+    #endif
+
+    goal_handle->succeed(result);
+    RCLCPP_INFO(this->get_logger(), "Planning SUCCESS (no execution)");
+
+  } catch (const std::exception & e) {
+    result->error_string = e.what();
+    goal_handle->abort(result);
+    RCLCPP_ERROR(this->get_logger(), "Exception: %s", e.what());
+  }
+}
+
 
 }  // namespace grab2_planner
 

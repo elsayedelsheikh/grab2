@@ -21,6 +21,7 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "grab2_msgs/action/compute_plan_to_target_ik.hpp"
 #include "grab2_msgs/action/compute_plan_through_poses.hpp"
+#include "grab2_msgs/action/compute_plan_to_joint.hpp"
 
 namespace grab2_planner
 {
@@ -30,6 +31,7 @@ class PlannerServer : public grab2::Node
 public:
   using ActionToPose = grab2_msgs::action::ComputePlanToTargetIK;
   using ActionThroughPoses = grab2_msgs::action::ComputePlanThroughPoses;
+  using ActionToJoint = grab2_msgs::action::ComputePlanToJoint;
 
   PlannerServer();
 
@@ -47,6 +49,14 @@ public:
   void computePlanThroughPoses(
     const std::shared_ptr<GoalHandle<ActionThroughPoses>> goal_handle);
 
+  /**
+   * @brief The action server callback which calls planner to get the trajectory
+   * ComputePlanToJoint
+   */
+  void ComputePlanToJoint(
+    const std::shared_ptr<GoalHandle<ActionToJoint>> goal_handle);  
+
+
 private:
   void initialize();
 
@@ -54,6 +64,7 @@ private:
   std::string planning_group_;
   rclcpp_action::Server<ActionToPose>::SharedPtr action_server_pose_;
   rclcpp_action::Server<ActionThroughPoses>::SharedPtr action_server_poses_;
+  rclcpp_action::Server<ActionToJoint>::SharedPtr action_server_joint_;
   moveit::planning_interface::MoveGroupInterfaceUniquePtr move_group_interface_;
 };
 
