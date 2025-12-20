@@ -1,6 +1,6 @@
 #Goal Definition
 sensor_msgs/JointState target_joints
-float64 interpolation_dt  0.1 
+float64 interpolation_dt  0.1
 ---
 trajectory_msgs/JointTrajectory trajectory
 

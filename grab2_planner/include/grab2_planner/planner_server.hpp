@@ -54,7 +54,7 @@ public:
    * ComputePlanToJoint
    */
   void ComputePlanToJoint(
-    const std::shared_ptr<GoalHandle<ActionToJoint>> goal_handle);  
+    const std::shared_ptr<GoalHandle<ActionToJoint>> goal_handle);
 
 
 private:
