@@ -21,7 +21,7 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "grab2_msgs/action/compute_plan_to_target_ik.hpp"
 #include "grab2_msgs/action/compute_plan_through_poses.hpp"
-#include "grab2_msgs/action/compute_plan_to_joint.hpp"
+#include "grab2_msgs/action/compute_plan_to_target_joint_state.hpp"
 
 namespace grab2_planner
 {
@@ -31,7 +31,7 @@ class PlannerServer : public grab2::Node
 public:
   using ActionToPose = grab2_msgs::action::ComputePlanToTargetIK;
   using ActionThroughPoses = grab2_msgs::action::ComputePlanThroughPoses;
-  using ActionToJoint = grab2_msgs::action::ComputePlanToJoint;
+  using ActionToJoint = grab2_msgs::action::ComputePlanToTargetJointState;
 
   PlannerServer();
 

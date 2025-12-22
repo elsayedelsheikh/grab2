@@ -14,7 +14,7 @@ ComputeAndSendTrajectory::ComputeAndSendTrajectory(
 
 bool ComputeAndSendTrajectory::setGoal(BT::RosActionNode<ActionToJoint>::Goal & goal)
 {
-  getInput("target_joints", goal.target_joints);
+  getInput("target_joints", goal.target_joint_state);
   return true;
 }
 

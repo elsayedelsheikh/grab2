@@ -8,7 +8,7 @@
 #include "behaviortree_ros2/bt_action_node.hpp"
 #include "behaviortree_ros2/ros_node_params.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "grab2_msgs/action/compute_plan_to_joint.hpp"
+#include "grab2_msgs/action/compute_plan_to_target_joint_state.hpp"
 
 #include "grab2_behavior_tree/utils.hpp"
 
@@ -16,7 +16,7 @@
 namespace grab2_behavior_tree
 {
 
-using ActionToJoint = grab2_msgs::action::ComputePlanToJoint;
+using ActionToJoint = grab2_msgs::action::ComputePlanToTargetJointState;
 
 
 class ComputeAndSendTrajectory : public BT::RosActionNode<ActionToJoint>

@@ -21,7 +21,7 @@ PlannerServer::PlannerServer()
   );
 
   this->action_server_joint_ = create_action_server<ActionToJoint>(
-    "compute_plan_to_joint",
+    "compute_plan_to_target_joint_state",
     std::bind(&PlannerServer::ComputePlanToJoint, this, std::placeholders::_1)
   );
 
@@ -120,7 +120,7 @@ void PlannerServer::ComputePlanToJoint(
     initialize();
   }
 
-  if (goal->target_joints.name.empty()) {
+  if (goal->target_joint_state.name.empty()) {
     result->error_string = "Target joint state is empty";
     goal_handle->abort(result);
     return;
@@ -132,7 +132,7 @@ void PlannerServer::ComputePlanToJoint(
   moveit::planning_interface::MoveGroupInterface::Plan plan_msg;
 
   try {
-    move_group_interface_->setJointValueTarget(goal->target_joints);
+    move_group_interface_->setJointValueTarget(goal->target_joint_state);
 
     bool success =
       (move_group_interface_->plan(plan_msg) ==

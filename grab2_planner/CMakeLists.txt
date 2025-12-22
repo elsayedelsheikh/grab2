@@ -24,7 +24,6 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(moveit_msgs REQUIRED)
-# find_package(moveit_visual_tools REQUIRED)
 find_package(moveit_ros_planning REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 
@@ -54,7 +53,6 @@ target_link_libraries(${library_name} PUBLIC
   ${tf2_geometry_msgs_TARGETS}
   ${visualization_msgs_TARGETS}
   ${moveit_msgs_TARGETS}
-  # ${moveit_visual_tools_TARGETS}
   ${moveit_ros_planning_TARGETS}
   ${moveit_ros_planning_interface_TARGETS}
   pluginlib::pluginlib

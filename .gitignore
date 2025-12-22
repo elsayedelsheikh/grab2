@@ -2,9 +2,15 @@
 .hypothesis/*
 .thumbs/
 
+# Colcon build artifacts
+build/
+install/
+log/
 .colcon/
 BehaviorTree.ROS2/
 
 # Sphinx documentation
 docs/build/
 docs/venv/
+
+.vscode/

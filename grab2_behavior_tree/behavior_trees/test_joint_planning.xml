@@ -1,7 +1,0 @@
-<root main_tree_to_execute="MainTree">
-  <BehaviorTree ID="MainTree">
-    <Sequence>
-      <ComputeAndSendTrajectory/>
-    </Sequence>
-  </BehaviorTree>
-</root>
