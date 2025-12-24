@@ -56,7 +56,6 @@ public:
   void ComputePlanToJoint(
     const std::shared_ptr<GoalHandle<ActionToJoint>> goal_handle);
 
-
 private:
   void initialize();
 

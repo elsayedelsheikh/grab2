@@ -136,7 +136,7 @@ void PlannerServer::ComputePlanToJoint(
 
     bool success =
       (move_group_interface_->plan(plan_msg) ==
-       moveit::core::MoveItErrorCode::SUCCESS);
+      moveit::core::MoveItErrorCode::SUCCESS);
 
     if (!success) {
       result->error_string = "Planning failed";
@@ -145,9 +145,9 @@ void PlannerServer::ComputePlanToJoint(
     }
 
     #if RCLCPP_VERSION_GTE(28, 0, 0)
-      result->trajectory = plan_msg.trajectory.joint_trajectory;
+    result->trajectory = plan_msg.trajectory.joint_trajectory;
     #else
-      result->trajectory = plan_msg.trajectory_.joint_trajectory;
+    result->trajectory = plan_msg.trajectory_.joint_trajectory;
     #endif
 
     goal_handle->succeed(result);
