@@ -22,6 +22,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "action/ComputePlanThroughPoses.action"
   "action/GetIsaacGrasp.action"
   "action/ReachObject.action"
+  "action/ComputePlanToTargetJointState.action"
   DEPENDENCIES builtin_interfaces std_msgs control_msgs geometry_msgs moveit_msgs trajectory_msgs btcpp_ros2_interfaces
 )
 

@@ -1,0 +1,20 @@
+#Goal Definition
+sensor_msgs/JointState target_joint_state
+float64 interpolation_dt  0.1
+---
+trajectory_msgs/JointTrajectory trajectory
+
+int32 error_code
+int32 SUCCESSFUL = 0
+int32 INVALID_GOAL = -1
+int32 INVALID_JOINTS = -2
+int32 OLD_HEADER_TIMESTAMP = -3
+
+# - INVALID_GOAL: The reason for the invalid goal (e.g., the requested
+#   trajectory is in the past).
+# - INVALID_JOINTS: The mismatch between the expected controller joints
+#   and those provided in the goal.
+string error_string
+
+---
+#Feedback Definition

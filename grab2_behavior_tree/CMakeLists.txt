@@ -34,6 +34,8 @@ add_library(grab2_compute_plan_to_target_ik_bt_node SHARED plugins/action/comput
 add_library(grab2_follow_joint_trajectory_bt_node SHARED plugins/action/follow_joint_trajectory.cpp)
 add_library(grab2_grip_bt_node SHARED plugins/action/grip.cpp)
 add_library(grab2_reach_object_bt_node SHARED plugins/action/reach_object.cpp)
+add_library(grab2_compute_and_send_trajectory_bt_node SHARED plugins/action/compute_and_send_trajectory.cpp)
+
 
 list(APPEND plugin_libs
   grab2_detect_object_bt_node
@@ -44,6 +46,7 @@ list(APPEND plugin_libs
   grab2_follow_joint_trajectory_bt_node
   grab2_grip_bt_node
   grab2_reach_object_bt_node
+  grab2_compute_and_send_trajectory_bt_node
 )
 
 foreach(bt_plugin ${plugin_libs})
