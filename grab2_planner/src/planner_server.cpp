@@ -137,7 +137,6 @@ void PlannerServer::ComputePlanToJoint(
     bool success =
       (move_group_interface_->plan(plan_msg) ==
       moveit::core::MoveItErrorCode::SUCCESS);
-
     if (!success) {
       result->error_string = "Planning failed";
       goal_handle->abort(result);
@@ -152,7 +151,6 @@ void PlannerServer::ComputePlanToJoint(
 
     goal_handle->succeed(result);
     RCLCPP_INFO(this->get_logger(), "Planning SUCCESS (no execution)");
-
   } catch (const std::exception & e) {
     result->error_string = e.what();
     goal_handle->abort(result);
