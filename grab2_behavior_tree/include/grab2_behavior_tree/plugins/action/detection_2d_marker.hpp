@@ -3,6 +3,8 @@
 #ifndef GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__DETECTION_2D_MARKER_HPP_
 #define GRAB2_BEHAVIOR_TREE__PLUGINS__ACTION__DETECTION_2D_MARKER_HPP_
 
+#include <string>
+#include <memory>
 #include "behaviortree_ros2/bt_topic_sub_node.hpp"
 #include "vision_msgs/msg/detection2_d_array.hpp"
 #include "geometry_msgs/msg/point.hpp"

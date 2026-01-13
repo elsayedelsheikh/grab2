@@ -1,6 +1,8 @@
 // Copyright (c) 2026, Zaynap Ahmad
-#include "grab2_behavior_tree/plugins/action/detection_2d_marker.hpp"
 #include <cmath>
+#include <limits>
+
+#include "grab2_behavior_tree/plugins/action/detection_2d_marker.hpp"
 
 namespace grab2_behavior_tree
 {
@@ -52,5 +54,6 @@ BT::NodeStatus Detect2DMarker::onTick(
 
 }  // namespace grab2_behavior_tree
 
+
 #include "behaviortree_ros2/plugins.hpp"
-CreateRosNodePlugin(grab2_behavior_tree::Detect2DMarker, "Detect2DMarker")
+CreateRosNodePlugin(grab2_behavior_tree::Detect2DMarker, "Detect2DMarker") // NOLINT
