@@ -9,7 +9,7 @@ Detect2DMarker::Detect2DMarker(
   const std::string & name,
   const BT::NodeConfig & conf,
   const BT::RosNodeParams & params)
-: BT::RosTopicSubNode<vision_msgs::msg::Detection2DArray>(name, conf, params){}
+: BT::RosTopicSubNode<vision_msgs::msg::Detection2DArray>(name, conf, params) {}
 BT::NodeStatus Detect2DMarker::onTick(
   const std::shared_ptr<vision_msgs::msg::Detection2DArray> & last_msg)
 {
@@ -21,8 +21,7 @@ BT::NodeStatus Detect2DMarker::onTick(
   double min_dist = std::numeric_limits<double>::max();
   vision_msgs::msg::Detection2D nearest;
 
-  for (const auto & det : last_msg->detections)
-  {
+  for (const auto & det : last_msg->detections) {
     double x = det.bbox.center.position.x;
     double y = det.bbox.center.position.y;
 
@@ -40,12 +39,13 @@ BT::NodeStatus Detect2DMarker::onTick(
   center.z = 0.0;
   std::string marker_id = nearest.results[0].hypothesis.class_id;
 
-    setOutput("marker_id", marker_id);
+  setOutput("marker_id", marker_id);
   setOutput("center", center);
   setOutput("frame_id", last_msg->header.frame_id);
 
-  RCLCPP_INFO(logger(), "[%s] Nearest marker id: %s",
-              name().c_str(), marker_id.c_str());
+  RCLCPP_INFO(
+    logger(), "[%s] Nearest marker id: %s",
+    name().c_str(), marker_id.c_str());
 
   return BT::NodeStatus::SUCCESS;
 }
